@@ -1,0 +1,68 @@
+
+.top_boxes {
+    display: flex;
+    justify-content: space-around;
+}
+.btns-sty
+{
+    float: right;
+    margin-top: 5px;
+}
+.btn-gaps
+{
+    margin-right: 3px;
+}
+
+.chart {
+    position: relative;
+}
+
+.paragraph {
+    position: absolute;
+    z-index: 99999;
+    /* right: 171px; */
+    height: 20px;
+    width: 1000px;
+    bottom: 5px;
+    right: 2px;
+    background-color: #fff;
+}
+
+.paragraph p {
+    margin: 0px;
+}
+
+.records_Button {
+    display: flex;
+    align-items: center;
+}
+
+.dwn-btn-web{
+    display: flex;
+}
+
+.dwn-btn-res{
+    display: none;
+}
+
+.forward-btn-web{
+    display: flex;
+}
+.forward-btn-res{
+    display: none;
+}
+
+@media only screen and (max-width: 468px) and (min-width: 360px){
+    .dwn-btn-web{
+        display: none;
+    }
+    .dwn-btn-res{
+        display: flex;
+    }
+    .forward-btn-web{
+        display: none;
+    }
+    .forward-btn-res{
+        display: flex;
+    }
+}

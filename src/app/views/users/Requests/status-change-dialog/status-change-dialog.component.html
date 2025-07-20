@@ -1,0 +1,309 @@
+<div mat-dialog-content>
+  <div class="model-header">
+    <h3 *ngIf="requestDatas == 'Hold'" class="header-title-icon">This activity has been coordinated and approved by
+      ConM/Site HSE. </h3>
+    <p *ngIf="requestDatas=='Approved' " class="change_Status">I confirm that the permit is met with all conditions
+      according to RAMS/SPA requirements and take responsibility for safe work execution.</p>
+    <p *ngIf="requestDatas=='Opened' " class="change_Status">I confirm that the work activities under this permit are
+      completed and the area has been made safe, clean and ensure that all post work conditions are fulfilled.</p>
+    <span class="material-icons close close-icons" mat-dialog-close>
+      close
+    </span>
+  </div>
+
+  <form [formGroup]="statusApprovedForm">
+
+    <mat-grid-list cols="2" rowHeight="80px" *ngIf="type=='operartor' && requestDatas == 'Hold' ">
+      <mat-grid-tile>
+        <mat-form-field class="full-width">
+          <mat-label>ConM initials</mat-label>
+          <input matInput formControlName="ConM_initials"
+            [class.is-invalid]="statusApprovedForm.get('ConM_initials').invalid && statusApprovedForm.get('ConM_initials').touched" />
+          <mat-error class="error-message"
+            *ngIf="statusApprovedForm.get('ConM_initials').invalid && statusApprovedForm.get('ConM_initials').touched">Please
+            Select
+          </mat-error>
+
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field class="full-width">
+          <mat-label>Reason for Rejecting</mat-label>
+          <input
+            matInput
+            formControlName="reject_reason"
+            [class.is-invalid]="
+              statusApprovedForm.get('reject_reason').invalid &&
+              statusApprovedForm.get('reject_reason').touched
+            "
+          />
+          <mat-error
+            class="error-message"
+            *ngIf="
+              statusApprovedForm.get('reject_reason').invalid &&
+              statusApprovedForm.get('reject_reason').touched
+            "
+            >Please Select
+          </mat-error>
+          
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- <ng-container *ngIf="updaterequestdata.Hot_work == 1 && requestDatas == 'Hold'">
+           
+    </ng-container> -->
+
+  </form>
+</div>
+
+<div mat-dialog-actions *ngIf="type=='operartor'">
+
+  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Approved')"
+  [disabled]="statusApprovedForm.get('ConM_initials').invalid ||
+  statusApprovedForm.get('ConM_initials').value.trim() === ''">Approve</button>
+
+  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+    (click)="Changestatus('Rejected')"  [disabled]="statusApprovedForm.get('reject_reason').invalid ||
+    statusApprovedForm.get('reject_reason').value.trim() === ''">Reject</button>
+</div>
+
+
+<div *ngIf="type=='Opened' && !isclose">
+
+  <form [formGroup]="statusOpenForm">
+
+    <mat-grid-list cols="2" rowHeight="80px">
+      <mat-grid-tile>
+        <mat-form-field class="full-width">
+          <mat-label>The person responsible for this work</mat-label>
+          <input matInput formControlName="ConM_initials1"
+            [class.is-invalid]="statusOpenForm.get('ConM_initials1').invalid && statusOpenForm.get('ConM_initials1').touched" />
+          <mat-error class="error-message"
+            *ngIf="statusOpenForm.get('ConM_initials1').invalid && statusOpenForm.get('ConM_initials1').touched">Please
+            Select
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field class="full-width">
+          <mat-label>Reason for cancelling</mat-label>
+          <input
+            matInput
+            formControlName="cancel_reason"
+            [class.is-invalid]="
+              statusOpenForm.get('cancel_reason').invalid &&
+              statusOpenForm.get('cancel_reason').touched
+            "
+          />
+          <mat-error
+            class="error-message"
+            *ngIf="
+              statusOpenForm.get('cancel_reason').invalid &&
+              statusOpenForm.get('cancel_reason').touched
+            "
+            >Please Select
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <ng-container *ngIf="updaterequestdata.Hot_work == 1">
+
+      <!-- <mat-grid-list cols="2" rowHeight="80px">
+        <mat-grid-tile>
+          <mat-form-field class="full-width">
+            <mat-label>Name of Fire Watcher</mat-label>
+            <input matInput formControlName="name_of_the_fire_watcher1"
+              [class.is-invalid]="statusOpenForm.get('name_of_the_fire_watcher1').invalid && statusOpenForm.get('name_of_the_fire_watcher1').touched" />
+
+            <mat-error class="error-message"
+              *ngIf="statusOpenForm.get('name_of_the_fire_watcher1').invalid && statusOpenForm.get('name_of_the_fire_watcher1').touched">Please
+              Select
+            </mat-error>
+
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field class="full-width">
+            <mat-label>Phone Number of Fire Watcher</mat-label>
+            <input matInput formControlName="phone_number_of_fire_watcher1"
+              [class.is-invalid]="statusOpenForm.get('phone_number_of_fire_watcher1').invalid && statusOpenForm.get('phone_number_of_fire_watcher1').touched" />
+            <mat-error class="error-message"
+              *ngIf="statusOpenForm.get('phone_number_of_fire_watcher1').invalid && statusOpenForm.get('phone_number_of_fire_watcher1').touched">Please
+              Select
+            </mat-error>
+
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list> -->
+      <div mat-dialog-content>
+        <!-- <img [src]="croppedImage" class="uploadimgsty" /> -->
+        <div class="upload-div-sty">
+          <input #csvInput hidden="true" type="file" multiple onclick="this.value=null"
+            (change)="csvInputChange1($event)" accept=".jpg" />
+          <button mat-flat-button class="logo-btn-sty" color="primary" (click)="csvInput.click()">Add Image</button>
+        </div>
+
+        <div class="mat-card save-btn-sty" *ngIf="isimguploaded1">
+          <div class="card-body">
+            <mat-grid-list cols="3" rowHeight="110px">
+              <mat-grid-tile *ngFor="let img of base64Images1" class="img-div-dty">
+                <img [src]="img">
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </div>
+
+
+      </div>
+
+    </ng-container>
+
+    <!-- <div mat-dialog-actions>
+      <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Opened')"
+        [disabled]="!statusOpenForm.valid">Open</button>
+      <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+        (click)="Changestatus('Rejected')">Reject</button>
+
+    </div> -->
+
+    <div mat-dialog-actions>
+      <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="ChangestatusToOpen('Opened')"
+      [disabled]="statusOpenForm.get('ConM_initials1').invalid ||
+          statusOpenForm.get('ConM_initials1').value.trim() === ''">Open</button>
+
+      <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+        (click)="ChangestatusToOpen('Cancelled')" [disabled]="statusOpenForm.get('cancel_reason').invalid ||
+          statusOpenForm.get('cancel_reason').value.trim() === ''">Cancel</button>
+
+    </div>
+
+  </form>
+</div>
+
+<div class="" *ngIf="type=='Closed'">
+  <form [formGroup]="statusUpdateForm">
+    <ng-container *ngIf="updaterequestdata.Hot_work == 1">
+      <div class="hotwork-sub">
+        <label>Heat sources and sparkling tools were last used, state the time</label>
+        <mat-radio-group formControlName="h_heat_source"
+          [class.is-invalid]="statusUpdateForm.get('h_heat_source').invalid && statusUpdateForm.get('h_heat_source').touched">
+          <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+          <mat-radio-button value="0">No</mat-radio-button>
+          <mat-error class="error-message"
+            *ngIf="statusUpdateForm.get('h_heat_source').invalid && statusUpdateForm.get('h_heat_source').touched">Please
+            Select
+          </mat-error>
+
+        </mat-radio-group>
+
+      </div>
+
+      <div class="hotwork-sub">
+        <label>Are the workplace checked for glowing/smoldering objects?</label>
+        <mat-radio-group formControlName="h_workplace_check"
+          [class.is-invalid]="statusUpdateForm.get('h_workplace_check').invalid && statusUpdateForm.get('h_workplace_check').touched">
+          <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+          <mat-radio-button value="0">No</mat-radio-button>
+          <mat-error class="error-message"
+            *ngIf="statusUpdateForm.get('h_workplace_check').invalid && statusUpdateForm.get('h_workplace_check').touched">Please
+            Select
+          </mat-error>
+        </mat-radio-group>
+      </div>
+
+      <div class="hotwork-sub">
+        <label>Are fire detectors back in active mode?</label>
+        <mat-radio-group formControlName="h_fire_detectors"
+          [class.is-invalid]="statusUpdateForm.get('h_fire_detectors').invalid && statusUpdateForm.get('h_fire_detectors').touched">
+          <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+          <mat-radio-button value="0">No</mat-radio-button>
+          <mat-error class="error-message"
+            *ngIf="statusUpdateForm.get('h_fire_detectors').invalid && statusUpdateForm.get('h_fire_detectors').touched">Please
+            Select
+          </mat-error>
+        </mat-radio-group>
+      </div>
+
+      <div class="time-picker-class">
+        <h4>Check after hot work:</h4>
+        <div class="cs-form">
+          <label>1hr time : </label>
+          <input type="time" class="form-control" value="10:05 AM" formControlName="h_start_time"
+            [class.is-invalid]="statusUpdateForm.get('h_start_time').invalid && statusUpdateForm.get('h_start_time').touched" />
+        </div>
+        <div class="cs-form">
+          <label>3hrs time : </label>
+          <input type="time" class="form-control" value="10:05 AM" formControlName="h_end_time"
+            [class.is-invalid]="statusUpdateForm.get('h_end_time').invalid && statusUpdateForm.get('h_end_time').touched" />
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- <img [src]="croppedImage" class="uploadimgsty" /> -->
+    <div class="upload-div-sty">
+      <input #csvInput hidden="true" type="file" multiple onclick="this.value=null" (change)="csvInputChange($event)"
+        accept=".jpg" />
+      <button mat-flat-button class="logo-btn-sty" color="primary" (click)="csvInput.click()">Add Image</button>
+    </div>
+
+    <div class="mat-card save-btn-sty" *ngIf="isimguploaded">
+      <div class="card-body">
+        <mat-grid-list cols="3" rowHeight="110px">
+          <mat-grid-tile *ngFor="let img of base64Images" class="img-div-dty">
+            <img [src]="img">
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </div>
+
+    <mat-grid-list cols="1" rowHeight="80px">
+      <mat-grid-tile>
+        <mat-form-field class="full-width">
+          <mat-label>Notes for Closing</mat-label>
+          <input
+            matInput
+            formControlName="close_note"
+            [class.is-invalid]="
+              statusUpdateForm.get('close_note').invalid &&
+              statusUpdateForm.get('close_note').touched
+            "
+          />
+          <mat-error
+            class="error-message"
+            *ngIf="
+              statusUpdateForm.get('close_note').invalid &&
+              statusUpdateForm.get('close_note').touched
+            "
+            >Please Select
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <button mat-flat-button class="submit-btn-sty" mat-dialog-close (click)="Changestatusbysubcontractor('Opened')"
+        color="primary">Update Status</button>
+        <button mat-flat-button class="submit-btn-sty" mat-dialog-close (click)="Changestatusbysubcontractor1('Closed')"
+        color="primary" [disabled]="
+        statusUpdateForm.get('close_note').invalid ||
+        statusUpdateForm.get('close_note').value.trim() === '' ||
+        (updaterequestdata.Hot_work == 1 &&
+          (statusUpdateForm.get('h_heat_source').invalid ||
+            statusUpdateForm.get('h_workplace_check').invalid ||
+            statusUpdateForm.get('h_fire_detectors').invalid ||
+            statusUpdateForm.get('h_start_time').invalid ||
+            statusUpdateForm.get('h_end_time').invalid))
+      ">Close Permit</button>
+      <!-- <button mat-flat-button class="submit-btn-sty" mat-dialog-close color="primary">Close</button> -->
+    </div>
+
+  </form>
+
+</div>
+<div class="loading-indicator" *ngIf="spinner">
+  <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+</div>

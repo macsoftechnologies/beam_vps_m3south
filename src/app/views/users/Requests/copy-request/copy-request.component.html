@@ -1,0 +1,40 @@
+<div>
+    <div class="fields">  
+    </div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title> Copy Request </mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+
+      <mat-card-content class="card-content">
+        <mat-grid-list cols="2" rowHeight="80px">
+            <mat-grid-tile>
+              <mat-form-field class="datepikr full-width" appearance="outline">
+                <mat-label>Working Date From</mat-label>
+                <input matInput [min]="minDate" [(ngModel)]="workingdateFrom" [max]="maxDate" [matDatepicker]="fspicker">
+                <mat-datepicker-toggle matSuffix [for]="fspicker"></mat-datepicker-toggle>
+                <mat-datepicker #fspicker></mat-datepicker>
+              </mat-form-field>
+
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="datepikr full-width" appearance="outline">
+                  <mat-label>Working Date To</mat-label>
+                  <input matInput [min]="minDate" [(ngModel)]="workingdateTo" [max]="maxDate" [matDatepicker]="tspicker">
+                  <mat-datepicker-toggle matSuffix [for]="tspicker"></mat-datepicker-toggle>
+                  <mat-datepicker #tspicker></mat-datepicker>
+                </mat-form-field>
+  
+              </mat-grid-tile>
+        </mat-grid-list>
+  
+      </mat-card-content>
+    </mat-card>
+    <div class="butns">
+      <button class="butns-grp" mat-raised-button color="primary" (click)="CreatenewRequest()">Create</button>
+      <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>Close</button>
+    </div>
+  </div>
+
+ 

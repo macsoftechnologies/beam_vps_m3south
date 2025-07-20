@@ -1,0 +1,42 @@
+.search-icon {
+    margin: 15px 0px 0px 15px;
+}
+
+.search-icon .search-bar {
+    width: 250px;
+}
+
+.dwn-btn-web{
+    display: block;
+}
+
+.dwn-btn-res{
+    display: none;
+}
+
+@media only screen and (max-width: 468px) and (min-width: 360px){
+    .dwn-btn-web{
+        display: none;
+    }
+    .dwn-btn-res{
+        display: block;
+    }
+
+    .ngx-datatable.material .datatable-footer .datatable-pager {
+        margin: 0 0px!important;
+    }
+
+    .ngx-datatable.material .datatable-footer .datatable-pager a {
+     
+        min-width: 20px!important;
+      
+        padding: 0 4px!important;
+     
+        
+    }
+
+    .ngx-datatable .datatable-footer .datatable-footer-inner {
+      display: block!important;
+    }
+
+}

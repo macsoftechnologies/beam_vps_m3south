@@ -1,0 +1,108 @@
+<mat-card class="p-0">
+
+  <mat-card-content class="p-0">
+    <!-- <div *ngIf='items.length>0'>
+        <button class="download_btn_sty" mat-raised-button color="primary" (click)="exportToExcel()">Download</button>
+      </div> -->
+    <!-- ngx data table used to be there -->
+    <mat-grid-list cols="2" rowHeight="80px">
+      <mat-grid-tile>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Enter Permit number </mat-label>
+            <input matInput placeholder="Enter Permit number" [(ngModel)]="searchedPermitNumber"
+              (keyup)="searchPermitData()" />
+          </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <ngx-datatable class="material ml-0 mr-0" [rows]="items" [columnMode]="'force'" [headerHeight]="70"
+      [footerHeight]="50" [scrollbarH]="true" [limit]="30" [rowHeight]="50">
+
+      <ngx-datatable-column name="Permit number " [flexGrow]="1" [width]="80">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <a (click)="logPermitNumberClick(row?.PermitNo)">{{ row?.PermitNo }}</a>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Activity" [flexGrow]="1" [width]="50">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row?.Activity }}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Contractor" [flexGrow]="1" [width]="50">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row?.subContractorName }}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Building" [flexGrow]="1" [width]="20">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row?.building_name }}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Area" [flexGrow]="1" [width]="50">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row?.Room_Nos }}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Level" [flexGrow]="1" [width]="20">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row?.Room_Type }}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Working Date" [flexGrow]="1" [width]="50">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row?.Working_Date | date: "mediumDate" }}
+        </ng-template>
+      </ngx-datatable-column>
+           
+      <ngx-datatable-column name="Night Shift" [flexGrow]="1" [width]="20">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <p *ngIf="row?.night_shift == 1">Yes</p>
+          <p *ngIf="row?.night_shift != 1">No</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="New Date" [flexGrow]="1" [width]="50">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <p *ngIf="isValidDateFormat(row?.new_date); else emptyDate">
+            {{ row?.new_date | date: "mediumDate" }}
+          </p>
+          <ng-template #emptyDate>
+            <span> -- </span> <!-- Placeholder for missing or invalid dates -->
+          </ng-template>
+          
+        </ng-template>
+      </ngx-datatable-column>
+      <!-- <ngx-datatable-column name="Time" [flexGrow]="1" [width]="50">
+       <ng-template let-row="row" ngx-datatable-cell-template>
+         {{ row?.Start_Time }} - {{ row?.End_Time }}
+       </ng-template>
+     </ngx-datatable-column> -->
+
+
+      <ngx-datatable-footer>
+        <ng-template ngx-datatable-footer-template let-rowCount="rowCount" let-pageSize="pageSize"
+          let-selectedCount="selectedCount" let-curPage="curPage" let-offset="offset">
+          <div style="padding: 5px 10px">
+            <!-- <div>
+             Selected {{Countresult.length}} of {{(rowCount>
+             (curPage*pageSize))?(curPage*pageSize):(rowCount)}} /
+             {{paginationCount}} records.
+           </div> -->
+          </div>
+          <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'" [pagerRightArrowIcon]="'datatable-icon-right'"
+            [pagerPreviousIcon]="'datatable-icon-prev'" [pagerNextIcon]="'datatable-icon-skip'" [page]="curPage"
+            [size]="pageSize" [count]="paginationCount" (change)="onPagination($event)">
+          </datatable-pager>
+        </ng-template>
+      </ngx-datatable-footer>
+    </ngx-datatable>
+  </mat-card-content>
+</mat-card>
+
+<div class="loading-indicator" *ngIf="spinner">
+  <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+</div>

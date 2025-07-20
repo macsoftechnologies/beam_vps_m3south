@@ -1,0 +1,114 @@
+<div class="container">
+    <mat-grid-list cols="3" rowHeight="80px">
+        <mat-grid-tile>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>SubContractor</mat-label>
+                <mat-select (selectionChange)="GetSelectedSubctr($event.value)" name="Company">
+                    <mat-option *ngFor="let loc of Contractors" [value]="loc.id">
+                        {{loc.subContractorName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+<mat-card *ngIf="isSubCntrSelected">
+    <mat-card-body>
+        <div style="text-align: right;">
+            <button mat-flat-button class="submit-btn-sty" (click)="openDialog()"
+            color="primary">Add Category</button>
+        </div>
+        <div style="text-align: center;">
+            <mat-grid-list cols="3" rowHeight="80px">
+                <mat-grid-tile>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="full-width plan-drop" appearance="outline">
+                        <mat-label>Plan Type </mat-label>
+                        <mat-select name="category" (selectionChange)="GetSelectedCategory($event.value)">
+                            <mat-option *ngFor="let site of totalCatData" [value]="site.id">
+                                <div class="plan-activity">
+                                    {{site.category}}                                
+                                    
+                                    <div (click)="deleteopenDialog(site)">
+                                        <i class="fa fa-trash"></i>
+                                    </div>
+                                </div>
+                            </mat-option>
+                        </mat-select>
+                        
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+    </mat-card-body>
+</mat-card>
+
+<div *ngIf="isSubCntrSelected">
+    <mat-card>
+        <mat-card-header><span class="header-sty">MY Docs</span></mat-card-header>
+        <mat-card-content>
+            <ngx-datatable class="material ml-0 mr-0" [rows]="Mydocs" [columnMode]="'force'" [headerHeight]="70"
+            [footerHeight]="50" [scrollbarH]="true" [limit]="10" [rowHeight]="50" 
+            >
+            <!-- <ngx-datatable-column>
+                <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+             
+                    <div>{{rowIndex+1}}</div>
+                  </ng-template>
+            </ngx-datatable-column> -->
+            <ngx-datatable-column>
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                    <a href="javascript:void(0);" (click)="OpenDoc(row.docName)">{{row.docName}}</a>
+                  </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Operations" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <mat-icon (click)="Deletedoc(row)" class="icons-sty" >delete</mat-icon>
+                </ng-template>
+            </ngx-datatable-column>
+           
+            </ngx-datatable>
+            <!-- <div *ngFor="let file of Mydocs" class="link_sty">
+                <a href="javascript:void(0);" (click)="OpenDoc(file.docName)">{{file.docName}}</a>
+            </div> -->
+            <!-- <div *ngIf="Mydocs.length==0">
+<p>
+    No Files Uploaded
+</p>           </div> -->
+        </mat-card-content>
+    </mat-card>
+</div>
+<div style="text-align:center;margin-top: 20px;" *ngIf="isSubCntrSelected">
+    <mat-card>
+        <mat-card-actions>
+            <button *ngIf="!isimguploaded" mat-button color="primary" (click)="fileInput.click()">
+                <mat-icon>file_upload</mat-icon>
+                Upload Files
+            </button>
+            <input type="file" #fileInput id="fileUpload" name="fileUpload" (change)="csvInputChange($event)"
+                multiple="multiple" accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf"
+                style="display:none;" />
+                <div>
+                    <p *ngFor="let f of files">{{f.name}}</p>
+                    <button mat-flat-button class="submit-btn-sty" *ngIf="isimguploaded" (click)="Changestatusbysubcontractor()"
+                    color="primary">Save</button>
+                </div>
+                <!-- <p>{{uploaded_filename}}</p> -->
+           
+
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<div class="loading-indicator" *ngIf="spinner">
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+</div>

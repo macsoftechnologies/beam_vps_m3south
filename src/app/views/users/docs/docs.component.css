@@ -1,0 +1,27 @@
+.header-sty
+{
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #7367f0;
+}
+.link_sty
+{
+    color:#10174c ;
+}
+.icon-sty
+{
+    padding-left: 15px;
+    padding-top: 5px;
+    
+}
+.mat-icon
+{
+    font-size: 16px !important;
+    cursor: pointer !important;
+}
+
+.plan-activity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

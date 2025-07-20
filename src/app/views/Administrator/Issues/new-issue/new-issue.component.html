@@ -1,0 +1,155 @@
+
+<div [hidden]="isnewrequestcreated">
+    <mat-card class="example-card">
+      <mat-card-content class="card-content">
+        <div>
+          <div>
+            <mat-label> Name: </mat-label>
+            <strong>Koge Hospital Project Team (KHPT)</strong>  
+          </div>
+  
+          <div [hidden]="nositemselect">
+            <mat-form-field class="matrequest">
+              <mat-label>Select Building</mat-label>
+              <mat-select (selectionChange)="GetselectedBuildingitem($event.value)">
+                <mat-option *ngFor="let building of buildings" [value]="building.build_id">
+                  {{building.building_name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div [hidden]="nobuildingmselect">
+              <mat-form-field class="matrequest">
+                <mat-label>Select Level</mat-label>
+                <mat-select (selectionChange)="Getselectedflooritem($event.value)">
+                  <mat-option *ngFor="let floor of floors" [value]="floor.fl_id">
+                    {{floor.floor_status}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+          </div>
+          <div [hidden]="nofloorselected">
+                <mat-form-field class="matrequest">
+                  <mat-label>Select Sector</mat-label>
+                  <mat-select (selectionChange)="Getselectedroomitem($event.value)">
+                    <mat-option *ngFor="let room of RoomsList" [value]="room.room_id">
+                      {{room.room_name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+          </div>
+  
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+<mat-card *ngIf="isnewrequestcreated">
+    <mat-card-content>
+        <form [formGroup]="IssueForm">
+            <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Site</mat-label>
+                        <input matInput readonly formControlName="Site" placeholder="">
+                      </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="matrequest" appearance="outline" class="full-width">
+                        <mat-label>Select Building</mat-label>
+                        <input matInput readonly formControlName="Building" placeholder="">
+                      </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+            <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-tile>
+                    <mat-form-field class="matrequest" appearance="outline" class="full-width">
+                        <mat-label>Select Level</mat-label>
+                        <input matInput readonly formControlName="FloorName" placeholder="">
+                      </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Sector</mat-label>
+                        <mat-select formControlName="RoomNo" multiple>
+                            <mat-option *ngFor="let e of RoomsList" [value]="e.room_id">{{e.room_name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                  
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <mat-grid-list  cols="2" rowHeight="80px">
+                <mat-grid-tile>
+                    <mat-form-field class="full-width" appearance="outline">
+                      <mat-label>SubContractor</mat-label>
+                      <mat-select formControlName="SubContractor" name="CMT">
+                        <mat-option *ngFor="let tech of SubContractors" [value]="tech.id">
+                          {{tech.subContractorName}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                   
+                  </mat-grid-tile>
+            </mat-grid-list>
+           
+            <mat-grid-list cols="2" rowHeight="100px">
+                <mat-grid-tile>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Issue Type</mat-label>
+                        <mat-select formControlName="IssueType" name="CMT">
+                          <mat-option *ngFor="let tech of IssueTypes" [value]="tech.id">
+                            {{tech.Name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="datepikr full-width" appearance="outline">
+                      <mat-label>Dead Line</mat-label>
+                      <input matInput [min]="minDate" formControlName="IssueCompleteDate" [max]="maxDate" [matDatepicker]="spicker">
+                      <mat-datepicker-toggle matSuffix [for]="spicker"></mat-datepicker-toggle>
+                      <mat-datepicker #spicker></mat-datepicker>
+                    </mat-form-field>
+                  </mat-grid-tile>
+            </mat-grid-list>
+            <mat-grid-list cols="1" rowHeight="100px">
+                <mat-grid-tile>
+                  <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Note</mat-label>
+                    <textarea class="textarea" matInput formControlName="Notes" placeholder="Notes...."></textarea>
+                  </mat-form-field>
+                </mat-grid-tile>
+    
+              </mat-grid-list>
+        </form>
+        <div class="upload-div-sty">
+            <input #csvInput hidden="true" type="file" multiple onclick="this.value=null" (change)="csvInputChange($event)" accept=".jpg"/>
+            <button mat-flat-button class="logo-btn-sty" color="primary" (click)="csvInput.click()">Add Image</button>
+        
+           <div class="mat-card" *ngIf="isimguploaded">
+            <div class="card-body">
+              <mat-grid-list cols="4" rowHeight="110px">
+                <mat-grid-tile *ngFor="let img of base64Images" class="img-div-dty">
+                  <img [src]="img">
+                </mat-grid-tile>
+              </mat-grid-list>
+            </div>
+          </div>
+        </div>
+        <div class="butns-grp">
+            <button class="" mat-raised-button color="primary" (click)="CreateIssue()">Create</button>
+          </div>
+    </mat-card-content>
+</mat-card>
+
+<div class="img-div-sty" [hidden]="isnewrequestcreated">
+    <div>
+      <!-- <img src='this.selectedbuildimg' class="img-sty" /> -->
+      <pdf-viewer [src]='pdfSrc' [render-text]="true" style="display: block;"></pdf-viewer>
+    </div>
+  </div>
+  <div class="loading-indicator" *ngIf="spinner">
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+  </div>

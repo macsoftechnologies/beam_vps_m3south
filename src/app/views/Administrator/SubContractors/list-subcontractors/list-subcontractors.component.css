@@ -1,0 +1,14 @@
+.coulm-cur
+{
+    cursor: pointer;
+}
+
+.ngx-datatable.bootstrap:not(.cell-selection) .datatable-body-row:hover,
+.ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .datatable-row-group
+{ 
+    cursor: pointer;
+}
+
+img:not(.mat-card-image) {
+    width: 35px !important;
+  }

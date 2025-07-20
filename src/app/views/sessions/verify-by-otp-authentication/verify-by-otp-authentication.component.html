@@ -1,0 +1,41 @@
+<!-- otp-page.component.html -->
+<div class="otp-container">
+    <mat-card>
+      <mat-card-title>Enter OTP</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="otpForm">
+            
+          <!-- OTP Input -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>OTP</mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="Enter OTP"
+              formControlName="verify_Otp"
+              name="otp"
+              [class.is-invalid]="otpForm.get('verify_Otp').invalid && otpForm.get('verify_Otp').touched"
+            />
+            <mat-error class="error-message"
+            *ngIf="otpForm.get('verify_Otp').invalid && otpForm.get('verify_Otp').touched">Please Enter OTP
+          </mat-error>
+          </mat-form-field>
+  
+          <!-- Buttons -->
+          <div class="button-group">
+           
+            <button
+              mat-raised-button
+              color="accent"
+              type="submit"
+              [disabled]="!this.otpForm.valid"
+              (click)="onSubmit()" 
+            >
+              Verify OTP
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

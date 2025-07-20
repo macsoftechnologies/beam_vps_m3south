@@ -1,0 +1,11 @@
+.cat_submit {
+    background-color: #10174c;
+    color: #fff;
+    border: 1px solid #10174c;
+}
+
+.cat_close {
+    border: 1px solid red;
+    background: red;
+    color: #fff;
+}

@@ -1,0 +1,114 @@
+<div *ngIf="this.title == 'Can you confirm the RAMS for this work is approved by ConM/HSE?'">
+    <div mat-dialog-content>
+        <h3> {{title}} </h3>
+    </div>
+
+
+    <div mat-dialog-actions *ngIf="!Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Hold')">Yes</button>
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Draft')">No</button>
+
+        <!-- <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft('RA Hold')">RA</button> -->
+    </div>
+
+    <div mat-dialog-actions *ngIf="Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="ChangeListStaus('Yes')">Yes</button>
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>No</button>
+    </div>
+</div>
+
+<div *ngIf="this.status == 'Rejected' && req_ids.length > 0">
+
+    <div mat-dialog-content>
+        <h3> {{title}} </h3>
+    </div>
+
+    <form [formGroup]="statusApprovedForm">
+        <mat-grid-list cols="2" rowHeight="80px">
+            <mat-grid-tile>
+                <mat-form-field class="full-width">
+                    <mat-label>Reason For Rejecting</mat-label>
+                    <input matInput formControlName="reject_reason"
+                        [class.is-invalid]="statusApprovedForm.get('reject_reason').invalid && statusApprovedForm.get('reject_reason').touched" />
+                    <mat-error class="error-message"
+                        *ngIf="statusApprovedForm.get('reject_reason').invalid && statusApprovedForm.get('reject_reason').touched">Please
+                        Select
+                    </mat-error>
+
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+
+    <div mat-dialog-actions *ngIf="!Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Hold')">Yes</button>
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Draft')">No</button>
+
+        <!-- <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft('RA Hold')">RA</button> -->
+    </div>
+
+    <div mat-dialog-actions *ngIf="Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close  [disabled]="statusApprovedForm.get('reject_reason').invalid ||
+          statusApprovedForm.get('reject_reason').value.trim() === ''"
+            (click)="ChangeListStaus('Yes')">Yes</button>
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>No</button>
+    </div>
+</div>
+
+<div *ngIf="this.status == 'Approved' && req_ids.length > 0">
+
+    <div mat-dialog-content>
+        <h3>This activity has been coordinated and approved by ConM/Site HSE.</h3>
+    </div>
+
+    
+    <form [formGroup]="statusApprovedForm">
+        <!-- <mat-grid-list cols="2" rowHeight="80px" *ngIf="type=='operartor' && requestDatas == 'Hold' "> -->
+
+        <mat-grid-list cols="2" rowHeight="80px">
+            <mat-grid-tile>
+                <mat-form-field class="full-width">
+                    <mat-label>ConM initials</mat-label>
+                    <input matInput formControlName="ConM_initials"
+                        [class.is-invalid]="statusApprovedForm.get('ConM_initials').invalid && statusApprovedForm.get('ConM_initials').touched" />
+                    <mat-error class="error-message"
+                        *ngIf="statusApprovedForm.get('ConM_initials').invalid && statusApprovedForm.get('ConM_initials').touched">Please
+                        Select
+                    </mat-error>
+
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <!-- <ng-container *ngIf="updaterequestdata.Hot_work == 1 && requestDatas == 'Hold'">
+               
+        </ng-container> -->
+
+    </form>
+
+
+    <div mat-dialog-actions *ngIf="!Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Hold')">Yes</button>
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Draft')">No</button>
+
+    </div>
+
+    <div mat-dialog-actions *ngIf="Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close [disabled]="statusApprovedForm.get('ConM_initials').invalid ||
+          statusApprovedForm.get('ConM_initials').value.trim() === ''"
+            (click)="ChangeListStaus('Yes')">Approve</button>
+    </div>
+</div>
+
+<div *ngIf="(this.status == 'Approved' || this.status == 'Rejected') && req_ids.length == 0">
+    <div mat-dialog-content>
+        <h3>Please select Permits</h3>
+    </div>
+</div>

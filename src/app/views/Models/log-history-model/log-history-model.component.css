@@ -1,0 +1,14 @@
+/* .full-width-table .datatable-header-inner{
+    width: 100% !important;
+    /* height: 400px; Adjust as needed */
+  /* } */ 
+
+  .log-deatils-table{
+    width: 100% !important;
+  }
+  th{
+    text-align: center!important;
+  }
+  td{
+    text-align: center!important;
+  }

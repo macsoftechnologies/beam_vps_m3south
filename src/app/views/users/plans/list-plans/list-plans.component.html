@@ -1,0 +1,63 @@
+<div class="m-333">
+    <button mat-raised-button class="mb-05" color="primary" (click)="addplan()">Create Plan</button>
+  </div>
+  <mat-card class="p-0" [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
+    <mat-card-content class="p-0">
+      <ngx-datatable
+            class="material ml-0 mr-0"
+            [rows]="items"
+            [columnMode]="'force'"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [scrollbarH]="true"
+            [limit]="10"
+            [rowHeight]="50">
+            <ngx-datatable-column name="Plan Type" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row?.Plantype }}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Week" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row?.Week }}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Company" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row?.Company }}
+                </ng-template>
+              </ngx-datatable-column>
+            <ngx-datatable-column name="Type" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row?.Type }}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Contractor" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row?.Contractor }}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Site" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row?.Site }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Work permit number" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row?.permitno }}
+                </ng-template>
+              </ngx-datatable-column>
+            <!-- <ngx-datatable-column name="Status" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <mat-chip mat-sm-chip [color]="'primary'" [selected]="row.isActive">{{row.isActive ? 'active' : 'inactive'}}</mat-chip>
+              </ng-template>
+            </ngx-datatable-column> -->
+            <!-- <ngx-datatable-column name="Actions" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <button mat-icon-button mat-sm-button color="primary" class="mr-1" (click)="openPopUp(row)">View</button>
+              </ng-template>
+            </ngx-datatable-column> -->
+          </ngx-datatable>
+    </mat-card-content>
+  </mat-card>
+  

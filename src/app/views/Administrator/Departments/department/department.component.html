@@ -1,0 +1,48 @@
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title> Department </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+
+        <mat-card-content class="card-content">
+            <form [formGroup]="DepartmentForm" class="example-form">
+                    <mat-grid-list cols="2" rowHeight="80px">
+                        <mat-grid-tile *ngIf="editform">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Department Id</mat-label>
+                                <input matInput formControlName="DeptId" readonly placeholder="Department Id">
+                            </mat-form-field>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                            <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Department Name</mat-label>
+                                <input matInput formControlName="DeptName" placeholder="Department Name">
+                            </mat-form-field>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                
+            </form>
+            <div class="butns" *ngIf="!editform">
+                <button class="butns-grp" mat-raised-button color="primary" (click)="Createdept()">Create</button>
+            </div>
+            <div class="butns" *ngIf="editform">
+                <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Updatedept()">Update</button>
+                <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>Close</button>
+
+            </div>
+        </mat-card-content>
+    </mat-card>
+ 
+</div>
+
+<!-- <div *ngIf="deleteform">
+<h1>Do you want delete the Department </h1>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true" (click)="Deletedepat()">Yes</button>
+    <button mat-button mat-dialog-close>No</button>
+  </div>
+</div> -->
+<div class="loading-indicator" *ngIf="spinner">
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+  </div>

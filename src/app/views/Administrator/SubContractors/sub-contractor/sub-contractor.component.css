@@ -1,0 +1,50 @@
+.butns
+{
+    float: right;
+}
+.mat-form-field
+  {
+    width: 100%;
+    padding-right: 30px; 
+  }
+
+  .matrequest{
+    width: 35% !important;
+    padding: 0px !important; 
+    
+  }
+  .card-content{
+    padding: 30px;
+  }
+  .logo-btn-sty
+  {
+    float: right;
+  }
+  .upload-div-sty
+  {
+    width: 50%;
+    height: 50px;
+    padding-right: 30px;
+  }
+.butns-grp
+{
+  margin-right: 10px;
+}
+
+.uploadimgsty
+{
+  width: 100px;
+  height: 70px;
+}
+.uploadimgsty-no-img
+{
+  display: none;
+}
+
+@media only screen and (max-width: 468px) and (min-width: 360px){
+  .mat-form-field
+{
+  width: 100%;
+  padding-right: 0px!important; 
+}
+}

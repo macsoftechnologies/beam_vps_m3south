@@ -1,0 +1,26 @@
+.mat-form-field
+  {
+   
+    padding-right: 30px; 
+  }
+.butns-grp
+{
+ float: right;   
+}
+img:not(.mat-card-image)
+{
+  height: 100px !important;
+  width: 250px !important;
+}
+.upload-div-sty
+{
+    text-align: center;
+}
+.matrequest{
+    width: 35% !important;
+    padding: 0px !important; 
+  }
+.card-content
+{
+    text-align: center;
+}

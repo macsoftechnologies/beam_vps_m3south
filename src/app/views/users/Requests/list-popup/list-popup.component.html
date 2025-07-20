@@ -1,0 +1,457 @@
+
+
+<div class="download-sty">
+  
+  <a href="https://beam.safesiteworks.com/m3south/newbeam1/index.php?PermitNo={{ Requestdata.PermitNo }}" target="_blank">
+    <button mat-raised-button color="primary">
+      Download
+    </button>
+  </a>
+  
+</div>
+<div id="content" #content>
+  <div class="pdf-img-heading">
+    <div class="partner_logo">
+      <div class="pdf-logo">
+        <img src="../../../../../assets/images/Partner_logo.jpeg" alt="">
+      </div>
+      <div class="pdf-heading">
+        <h1 matDialogTitle>ACTIVITY PERMIT NO:{{ Requestdata.PermitNo }}</h1>
+      </div>
+    </div>
+
+    <div>
+      <div class="pdf-logo">
+        <img src="../../../../../assets/images/logo-beam.png" alt="">
+      </div>
+    </div>
+
+  </div>
+  <div class="logs_data">
+    <div *ngFor="let log of logsData" >
+      <div *ngIf="log.requestType=='Opened'"> 
+        <span class="log-sty">Check In : </span>
+        <span class="log_name">{{log.username}} </span><span>{{log.createdTime}}</span>
+      </div>
+      <div *ngIf="log.requestType=='Closed'"> 
+        <span class="log-sty">Check Out : </span>
+        <span class="log_name">{{log.username}} </span><span>{{log.createdTime}}</span>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="firstdiv pdf-field-sections ">
+    <div class="">
+      <div class="">
+
+        <div class="col-md-12">
+          <div class="row">
+
+            <div class="modal-1">
+              <div class="col-md-6 p-0 col1">
+                <div class="child">
+                  <label class="text-14 text-muted">Request date:</label>
+                  <p class="text-16 font-weight-bold">{{ Requestdata.Request_Date }}</p>
+                </div>
+              </div>
+  
+              <div class="col-md-6 p-0 col1">
+                <div class="child">
+                  <label class="text-14 text-muted">Company:</label>
+                  <p class="text-16 font-weight-bold">{{ Requestdata.Company_Name }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-1">
+              <div class="col-md-6 p-0 col1">
+                <div class="child">
+                  <label class="text-14 text-muted">SubContractor:</label>
+                  <p class="text-16 font-weight-bold">
+                    {{ Requestdata.subContractorName }}
+                  </p>
+                </div>
+              </div>
+  
+              <div class="col-md-6 p-0 col1">
+                <div class="child">
+                  <label class="text-14 text-muted">Foreman:</label>
+                  <p class="text-16 font-weight-bold">{{ Requestdata.Foreman }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-1">
+              <div class="col-md-6 p-0 col1">
+                <div class="child">
+                  <label class="text-14 text-muted">Foreman Phone:</label>
+                  <p class="text-16 font-weight-bold">
+                    {{ Requestdata.Foreman_Phone_Number }}
+                  </p>
+                </div>
+              </div>
+  
+              <!-- <div class="col-md-6 p-0 col1">
+                <div class="child">
+                  <label class="text-14 text-muted">Foreman Phone:</label>
+                  <p class="text-16 font-weight-bold">
+                    {{ Requestdata.Foreman_Phone_Number }}
+                  </p>
+                </div>
+              </div> -->
+
+              <div class="col-md-6 p-0 col1">
+                <div class="child">
+                  <label class="text-14 text-muted">Activity:</label>
+                  <p class="text-16 font-weight-bold">{{ Requestdata.Activity }}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="modal-1">
+              
+  
+              <div class="col-md-6 p-0 col1">
+                
+              </div>
+            </div> -->
+
+          </div>
+        </div>     
+        
+      </div>
+    </div>
+  </div>
+  <div class="secndfiv pdf-field-sections ">
+    <div class="">
+      <div class="">
+
+        <div class="col-md-12">
+          <div class="row">
+
+            <div class="modal-1">
+              <div class="col-md-6 p-0 col1">
+                <div class="child">
+                  <label class="text-14 text-muted">Date:</label>
+                  <p class="text-16 font-weight-bold">{{ Requestdata.Request_Date }}</p>
+                </div>
+              </div>
+  
+              <div class="col-md-6 p-0 col1">
+                <div class="child">
+                  <label class="text-14 text-muted">Start Time:</label>
+                  <p class="text-16 font-weight-bold">{{ Requestdata.Start_Time }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-1">
+              <div class="col-md-6 p-0 col1">
+                <div class="child">
+                  <label class="text-14 text-muted">End Time:</label>
+                  <p class="text-16 font-weight-bold">
+                    {{ Requestdata.End_Time }}
+                  </p>
+                </div>
+              </div>
+  
+              <div class="col-md-6 p-0 col1">
+                <div class="child">
+                  <label class="text-14 text-muted">Site:</label>
+                  <p class="text-16 font-weight-bold">KOGE HOSPITAL PROJECT TEAM (KHPT)</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-1">
+              <div class="col-md-6 p-0 col1">
+                <div class="child">
+                  <label class="text-14 text-muted">Building:</label>
+                  <p class="text-16 font-weight-bold">
+                    {{ Requestdata.building_name }}
+                  </p>
+                </div>
+              </div>
+  
+              <div class="col-md-6 p-0 col1">
+                <div class="child">
+                  <label class="text-14 text-muted">Level:</label>
+                  <p class="text-16 font-weight-bold">{{ Requestdata.Room_Type }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-1">
+              <div class="col-md-6 p-0 col1">
+                <div class="child">
+                  <label class="text-14 text-muted">Area: </label>
+                  <p class="text-16 font-weight-bold">{{ Requestdata.Room_Nos }}</p>
+                </div>
+              </div>
+  
+              <!-- <div class="col-md-6 p-0 col1">
+                <div class="child">
+                  <label class="text-14 text-muted">Room Type:</label>
+                  <p class="text-16 font-weight-bold">{{ Requestdata.Room_Type }}</p>
+                </div>
+              </div> -->
+            </div>
+
+
+          </div>
+        </div>      
+        
+        
+        
+        
+      </div>
+    </div>
+  </div>
+  <div class="thirddiv pdf-field-sections ">
+    <div class="">
+      <div class="request-data-wrapper">
+
+
+        <div class="modal-1">
+          <div class="child col1" *ngIf="Requestdata.Crane_Requested=='' || Requestdata.Crane_Requested=='0'">
+            <label class="text-14 text-muted">Crane Requested</label>
+            <p class="text-16 font-weight-bold">
+              No
+            </p>
+          </div>
+          <div class="child col1" *ngIf="Requestdata.Crane_Requested!='' && Requestdata.Crane_Requested!='0'">
+            <label class="text-14 text-muted">Crane Requested</label>
+            <p class="text-16 font-weight-bold">
+              Yes
+            </p>
+          </div>
+        
+          <div class="child col1" *ngIf="Requestdata.Crane_Number!='' && Requestdata.Crane_Number!='0'">
+            <label class="text-14 text-muted">Crane_Number</label>
+            <p class="text-16 font-weight-bold">
+              {{ Requestdata.Crane_Number }}
+            </p>
+          </div>
+          <div class="child col1" *ngIf="Requestdata.LOTO_Procedure=='' || Requestdata.LOTO_Procedure=='0'">
+            <label class="text-14 text-muted">Loto Procedure</label>
+            <p class="text-16 font-weight-bold">
+              No
+            </p>
+          </div>
+          <div class="child col1" *ngIf="Requestdata.LOTO_Procedure!='' && Requestdata.LOTO_Procedure!='0'">
+            <label class="text-14 text-muted">Loto Procedure</label>
+            <p class="text-16 font-weight-bold">
+              Yes
+            </p>
+          </div>
+          <div class="child col1" *ngIf="Requestdata.LOTO_Procedure!='' && Requestdata.LOTO_Procedure!='0'">
+            <label class="text-14 text-muted">Loto Procedure</label>
+            <p class="text-16 font-weight-bold">
+              {{Requestdata.LOTO_Number}}
+            </p>
+          </div>
+        </div>
+
+
+        <div class="modal-1">
+          
+          <div class="child col1" *ngIf="Requestdata.Hot_work=='' || Requestdata.Hot_work=='0'">
+            <label class="text-14 text-muted">Hot Work</label>
+            <p class="text-16 font-weight-bold">
+              No
+            </p>
+          </div>
+          <div class="child col1" *ngIf="Requestdata.Hot_work!='' && Requestdata.Hot_work!='0'">
+            <label class="text-14 text-muted">Hot Work</label>
+            <p class="text-16 font-weight-bold">
+              Yes
+            </p>
+          </div>
+          <div class="child col1" *ngIf="Requestdata.Hot_work!='' && Requestdata.Hot_work!='0'">
+            <label class="text-14 text-muted">Hot Work</label>
+            <p class="text-16 font-weight-bold">
+              {{Requestdata.Certified_Person}}
+            </p>
+          </div>
+          <div class="child col1" *ngIf="Requestdata.Power_Off_Required=='' || Requestdata.Power_Off_Required=='0'">
+            <label class="text-14 text-muted">Power off</label>
+            <p class="text-16 font-weight-bold">
+              No
+            </p>
+          </div>
+
+          <div class="child col1" *ngIf="Requestdata.Power_Off_Required!='' && Requestdata.Power_Off_Required!='0'">
+            <label class="text-14 text-muted">Power off</label>
+            <p class="text-16 font-weight-bold">
+              Yes
+            </p>
+          </div>
+        </div>
+
+
+        <div class="modal-1">      
+          <div class="child col1">
+            <label class="text-14 text-muted">Status</label>
+            <p class="text-16 font-weight-bold">
+              {{ Requestdata.Request_status }}
+            </p>
+          </div>
+
+          
+
+        </div>
+
+
+
+        <div class="modal-1">
+          
+          
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="fourthdiv pdf-field-sections ">
+    <div class="">
+      <div class="request-data-wrapper">
+        <div class="modal-1">
+          <div class="child col1">
+            <label class="text-14 text-muted">Number of workers involved</label>
+            <p class="text-16 font-weight-bold">
+              {{ Requestdata.Number_Of_Workers }}
+            </p>
+          </div>
+          <div class="child col1">
+            <label class="text-14 text-muted">Badge Numbers</label>
+            <p class="text-16 font-weight-bold">
+              {{ Requestdata.Badge_Numbers }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fifthdiv pdf-field-sections">
+    <div class="pop">
+      <div class="request-data-wrapper">
+        <div class="" style="width: 100%;">
+          <div class="pop-label">
+            <label class="text-14 text-muted">Tools</label>
+          </div>
+          
+          <p class="text-16 font-weight-bold p-1">
+            {{ Requestdata.Tools }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fifthdiv pdf-field-sections">
+    <div class="pop">
+      <div class="request-data-wrapper">
+        <div class="" style="width: 100%;">
+          <div class="pop-label">
+            <label class="text-14 text-muted">Machinery</label>
+          </div>
+          
+          <p class="text-16 font-weight-bold p-1">
+            {{ Requestdata.Machinery }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fifthdiv pdf-field-sections">
+    <div class="pop">
+      <div class="request-data-wrapper">
+        <div class="" style="width: 100%;">
+          <div class="pop-label">
+            <label class="text-14 text-muted">Special Instructions</label>
+          </div>
+          
+          <p class="text-16 font-weight-bold p-1">
+            {{ Requestdata.Special_Instructions }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fifthdiv pdf-field-sections">
+    <div class="pop">
+      <div class="request-data-wrapper">
+        <div class="" style="width: 100%;">
+          <div class="pop-label">
+            <label class="text-14 text-muted">Safety Precautions</label>
+          </div>
+          
+          <div class="text-16 font-weight-bold p-1" *ngIf="safetydata.length" >
+            <ul *ngFor="let sft of safetydata">
+              <li>{{sft}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fifthdiv pdf-field-sections">
+    <div class="pop">
+      <div class="request-data-wrapper">
+        <div class="" style="width: 100%;">
+          <div class="pop-label">
+            <label class="text-14 text-muted">Note</label>
+          </div>
+          
+          <p class="text-16 font-weight-bold p-1">
+            {{ Requestdata.Notes }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mat-card"  *ngIf="images.length>0">
+    <div class="card-body">
+      <mat-grid-list cols="3" rowHeight="250px">
+        <mat-grid-tile *ngFor="let img of images" class="img-div-dty">
+          <img [src]="'https://beam.safesiteworks.com/m3south/beamapi/services/request/'+img.imageName" crossorigin="anonymous">
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+
+<div class="">
+  <div class="tool-given">
+    <div class="col-md-12 p-0">
+      <div class="row modal-1">
+        <div class="col-md-6 col1">
+          <p><b>Tool box meeting given by&nbsp;:</b>&nbsp;&nbsp;</p>
+        </div>
+  
+        <div class="col-md-6 col1">
+          <p><b>Tool box meeting received by&nbsp;:</b>&nbsp;&nbsp;</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- <div class="fourthdiv pdf-field-sections ">
+    <div class="container">
+      <div class="request-data-wrapper">
+        <div class="child" *ngFor="let img of images" class="img-div-dty">
+          <img src="{{img.imageName}}" crossorigin="anonymous">
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>
+<div class="loading-indicator" *ngIf="spinner">
+  <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+</div>
+
+<div style="float: right;">
+  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>Close</button>
+</div>

@@ -1,0 +1,23 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "esnext",
+    "outDir": "./dist/out-tsc",
+    "baseUrl": "src",
+    "sourceMap": false,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2015",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "exceljs": [
+        "node_modules/exceljs/dist/exceljs.min"
+      ]
+    }
+  }
+}

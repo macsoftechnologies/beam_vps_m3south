@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Add Category</h2>
+<mat-dialog-content>
+    <div>
+        <form [formGroup]="catForm">
+            <input mat-input type="text" class="cat_name form-control" color="primary" formControlName="catName" >
+        </form>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <div style="text-align: center;">
+        <button mat-button (click)="addCat()" mat-dialog-close class="cat_submit">Submit</button>
+        <button mat-button mat-dialog-close class="cat_close">Close</button>
+    </div>
+</mat-dialog-actions>

@@ -1,0 +1,307 @@
+<div class="top-header-sty">
+    <mat-grid-list cols="2" rowHeight="60px" class="top-bar-sty">
+        <mat-grid-tile>
+            <span>
+                <mat-icon>event</mat-icon>
+            </span>
+        </mat-grid-tile>
+        <mat-grid-tile class="top-bar-title">
+            <span>Show Reports</span>
+
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</div>
+<mat-divider></mat-divider>
+<mat-card class="example-card">
+    <!-- <mat-card-header>
+        <mat-card-title>
+        </mat-card-title>
+    </mat-card-header> -->
+
+
+    <mat-card-content class="card-content">
+        <div>
+            <form [formGroup]="PlanForm" class="example-form">
+                <mat-grid-list cols="2" rowHeight="80px">
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Report Type </mat-label>
+                            <mat-select formControlName="Plantype" name="plan"
+                                (selectionChange)="GetselectedPlantype($event.value)">
+                                <mat-option *ngFor="let site of PlanTypes" [value]="site.PlanId">
+                                    {{site.PlanName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Date </mat-label>
+                            <input matInput [min]="minDate" formControlName="Date" [max]="maxDate"
+                                [matDatepicker]="spicker" [disabled]="datefield">
+                            <mat-datepicker-toggle matSuffix [for]="spicker"></mat-datepicker-toggle>
+                            <mat-datepicker #spicker></mat-datepicker>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+
+                <mat-grid-list cols="2" rowHeight="80px">
+                    <!-- <mat-grid-tile>
+                       
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Month </mat-label>
+                            <mat-select formControlName="Month" name="monthName" [disabled]="monthfield">
+                                <mat-option *ngFor="let month of monthNames" [value]="month.id">
+                                    {{month.Name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile> -->
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Year</mat-label>
+                            <mat-select formControlName="Year" name="week" [disabled]="yearfield"
+                                (selectionChange)="Getselectedyear($event.value)">
+                                <mat-option *ngFor="let wk of Years" [value]="wk">
+                                    {{wk}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Week</mat-label>
+                            <mat-select formControlName="Weekno" [disabled]="weekfield" name="weekno">
+                                <mat-option *ngFor="let wk of ListWeeks" [value]="wk">
+                                    {{wk}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="2" rowHeight="80px">
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Contractor </mat-label>
+                            <mat-select formControlName="subContractor" name="SubContractor">
+                                <mat-option *ngFor="let subc of SubContractors" [value]="subc.id">
+                                    {{subc.subContractorName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <!-- <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Site </mat-label>
+                            <mat-select formControlName="Site" name="Site" (selectionChange)="GetBuilding($event.value)">
+                                <mat-option *ngFor="let site of Sites" [value]="site.site_id">
+                                    {{site.site_name}}
+                                </mat-option>
+                            </mat-select>
+
+                        </mat-form-field>
+                    </mat-grid-tile> -->
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Building </mat-label>
+                            <mat-select formControlName="Building" name="Building">
+                                <mat-option *ngFor="let site of Buildings" [value]="site.build_id">
+                                    {{site.building_name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                </mat-grid-list>
+
+                <mat-grid-list cols="2" rowHeight="80px">
+                    <mat-grid-tile>
+                        <mat-form-field class="datepikr full-width" appearance="outline">
+                            <mat-label>Working Date (from)</mat-label>
+                            <input matInput [min]="minDate" formControlName="WorkingDateFrom" [max]="maxDate"
+                                [matDatepicker]="fspicker" />
+                            <mat-datepicker-toggle matSuffix [for]="fspicker"></mat-datepicker-toggle>
+                            <mat-datepicker #fspicker></mat-datepicker>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field class="datepikr full-width" appearance="outline">
+                            <mat-label>Working Date (to)</mat-label>
+                            <input matInput [min]="minDate" formControlName="WorkingDateTo" [max]="maxDate"
+                                [matDatepicker]="tspicker" />
+                            <mat-datepicker-toggle matSuffix [for]="tspicker"></mat-datepicker-toggle>
+                            <mat-datepicker #tspicker></mat-datepicker>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="2" rowHeight="80px">
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Start Time</mat-label>
+                            <input matInput [ngxTimepicker]="startTime" [format]="24" placeholder="Start Time"
+                                formControlName="StartTime" />
+                            <ngx-material-timepicker #startTime [minutesGap]="5"></ngx-material-timepicker>
+
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>End Time</mat-label>
+                            <input matInput [ngxTimepicker]="endTime" [format]="24" placeholder="End Time"
+                                formControlName="EndTime" />
+
+                        </mat-form-field>
+                        <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+
+                <mat-grid-list cols="2" rowHeight="80px">
+
+                    <!-- level -->
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Level </mat-label>
+                            <mat-select formControlName="level" name="level">
+                                <mat-option *ngFor="let floors of getFloors" [value]="floors">
+                                    {{floors}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Area</mat-label>
+    <mat-select formControlName="area" name="Level" [multiple]="true">
+      <mat-option [value]="null">None</mat-option>
+
+      <ng-container *ngFor="let group of getRooms">
+        <mat-optgroup [label]="group.floorName">
+          <mat-option *ngFor="let zone of group.zones" [value]="zone.value">
+            {{ zone.value }}
+          </mat-option>
+        </mat-optgroup>
+      </ng-container>
+
+    </mat-select>
+  </mat-form-field>
+</mat-grid-tile>
+
+                </mat-grid-list>
+            </form>
+            <div class="" style="text-align: right;">
+                <button class="butns-grp" style="margin-right: 5px; " mat-raised-button color="primary"
+                    (click)="Getplans()">Show</button>
+                <button mat-raised-button color="primary" (click)='Reset()'>
+                    Reset
+                </button>
+            </div>
+
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+
+    <mat-card-content>
+        <div class="" style="text-align: right;">
+            <button class="download_btn_sty" mat-raised-button color="primary"
+                (click)="exportToExcel()">Download</button>
+        </div>
+        <ngx-datatable class="material ml-0 mr-0" [rows]="Planslist" [columnMode]="'force'" [headerHeight]="70"
+            [footerHeight]="50" [scrollbarH]="true" [limit]="10" [rowHeight]="50">
+
+            <ngx-datatable-column name="Permit number " [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row?.PermitNo }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Activity" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row?.Activity }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Contractor" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row?.subContractorName }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Sub-Contractor" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row?.new_sub_contractor }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Level" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row?.Room_Type }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Building Name" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row?.building_name }}
+                </ng-template>
+            </ngx-datatable-column>
+            
+            <ngx-datatable-column name="Area" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row?.Room_Nos }}
+                </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Working Date" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <!-- {{ row?.Working_Date | date:'mediumDate' }} -->
+                       <ng-container *ngIf="isValidDate(row?.Working_Date); else noWorkingDate">
+  {{ row?.Working_Date | date:'mediumDate' }}
+</ng-container>
+<ng-template #noWorkingDate>N/A</ng-template>
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Time" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row?.Start_Time }} - {{ row?.End_Time }}
+                </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Night Shift" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <p *ngIf="row?.night_shift == 1">Yes</p>
+                  <p *ngIf="row?.night_shift !== 1">No</p>
+                </ng-template>
+              </ngx-datatable-column>
+        
+              <ngx-datatable-column name="New Date" [flexGrow]="1" [width]="50">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <!-- {{ row?.new_date | date: "mediumDate" }} -->
+                      <ng-container *ngIf="isValidDate(row?.new_date); else noNewDate">
+  {{ row?.new_date | date:'mediumDate' }}
+</ng-container>
+<ng-template #noNewDate>N/A</ng-template>
+                </ng-template>
+              </ngx-datatable-column>
+              
+              <ngx-datatable-column name="New End Time" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row?.new_end_time }}
+                </ng-template>
+              </ngx-datatable-column>
+
+            <ngx-datatable-column name="Status" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row?.Request_status}}
+                </ng-template>
+            </ngx-datatable-column>
+
+            <!-- <ngx-datatable-column name="Operations" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <mat-icon (click)="openPopUp(row)" class="icons-sty">visibility</mat-icon>
+                </ng-template>
+            </ngx-datatable-column> -->
+        </ngx-datatable>
+    </mat-card-content>
+</mat-card>

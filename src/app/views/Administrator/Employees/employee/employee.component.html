@@ -1,0 +1,191 @@
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title> Employee </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+
+        <mat-card-content class="card-content">
+            <form [formGroup]="EmployeeForm" class="example-form">
+                <mat-grid-list cols="2" rowHeight="80px">
+                    <mat-grid-tile>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Employee Badge Id</mat-label>
+                            <input matInput formControlName="badge" placeholder="Badge Id">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Employee Name</mat-label>
+                            <input matInput formControlName="EmpName" placeholder="Employee Name">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="2" rowHeight="80px">
+                    <mat-grid-tile>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Designation</mat-label>
+                            <input matInput formControlName="Designation" placeholder="Designation">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput formControlName="PhonenNumber" placeholder="Phone Number"
+                            [class.is-invalid]="EmployeeForm.get('PhonenNumber').invalid && EmployeeForm.get('PhonenNumber').touched"
+                              />
+                            <mat-error class="error-message"
+                                *ngIf="EmployeeForm.get('PhonenNumber').invalid && EmployeeForm.get('PhonenNumber').touched">Please
+                                Enter Phone Number
+                             
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <mat-grid-list cols="2" rowHeight="80px">
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Select Role</mat-label>
+                            <mat-select formControlName="Role" name="Role">
+                                <mat-option *ngFor="let tech of Roles" [value]="tech.id">
+                                    {{tech.roleName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <!-- <mat-radio-group aria-label="Select an option">
+                                <mat-radio-button value="1">Option 1</mat-radio-button>
+                                <mat-radio-button value="2">Option 2</mat-radio-button>
+                              </mat-radio-group>
+                            <mat-form-field  class="full-width" appearance="outline">
+                                <mat-label>Select Department</mat-label>
+                                    <mat-select formControlName="EmpDept" name="Department">
+                                      <mat-option *ngFor="let tech of Departments" [value]="tech.id">
+                                        {{tech.departmentName}}
+                                      </mat-option>
+                                    </mat-select>
+                              </mat-form-field> -->
+                        <!-- <mat-radio-group formControlName="options">
+                                <mat-radio-button *ngFor="let tech of radiooptions" [value]="tech" (change)="radioChange($event)">{{tech}}</mat-radio-button>
+                              </mat-radio-group> -->
+                        <!-- <mat-form-field class="full-width" appearance="outline">
+                            <mat-label> Select Employee Type</mat-label>
+                            <mat-select formControlName="options" name="options" (selectionChange)="radioChange($event)">
+                                <mat-option *ngFor="let tech of radiooptions" [value]="tech.name">
+                                    {{tech.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field> -->
+
+
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label> Select Employee Type</mat-label>
+                            <mat-select formControlName="options" name="options"
+                                (selectionChange)="radioChange($event)">
+                                <mat-option value="Department">
+                                    Department
+                                </mat-option>
+                                <mat-option value="Subcontractor">
+                                    Contractor
+                                </mat-option>
+                                <mat-option value="Observer">
+                                    Observer
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="2" rowHeight="80px">
+                    <!-- <mat-grid-tile>
+                        <mat-slide-toggle [checked]="useraccess" (change)="toggle($event)">Access</mat-slide-toggle>
+                    </mat-grid-tile> -->
+
+                    <mat-grid-tile *ngIf="Depart">
+                        <mat-form-field class="full-width" appearance="outline" *ngIf="SubContact">
+                            <mat-label>Company Name</mat-label>
+                            <input matInput formControlName="companyName" placeholder="Company Name"
+                                [(ngModel)]="Company">
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile *ngIf="IsObserver">
+                        <mat-form-field *ngIf="selectedradioval=='Subcontractor'" class="full-width"
+                            appearance="outline">
+                            <!-- <mat-label> Select {{selectedradioval}}</mat-label> -->
+                            <mat-label> Select Contractor</mat-label>
+                            <mat-select formControlName="subcontrid" name="SubContractor">
+                                <mat-option *ngFor="let tech of SubContractor" [value]="tech.id">
+                                    {{tech.subContractorName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field *ngIf="selectedradioval=='Department'" class="full-width" appearance="outline">
+                            <mat-label> Select {{selectedradioval}}</mat-label>
+                            <mat-select formControlName="EmpDept" name="Department">
+                                <mat-option *ngFor="let tech of Departments" [value]="tech.id">
+                                    {{tech.departmentName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="2" rowHeight="80px">
+                    <mat-grid-tile>
+                        <mat-slide-toggle [checked]="useraccess" (change)="toggle($event)">Access</mat-slide-toggle>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email" placeholder="Email">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="2" rowHeight="80px" *ngIf="useraccess">
+                    <mat-grid-tile>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>UserName</mat-label>
+                            <input matInput formControlName="username" #username placeholder="Username">
+
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Password</mat-label>
+                            <input matInput type="password" formControlName="password" placeholder="Password">
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                </mat-grid-list>
+
+
+
+                <div *ngIf="IsNameunique=='Username Exists'">
+                    <p style="color: red;">*<i>{{IsNameunique}}</i></p>
+                </div>
+
+
+            </form>
+            <div class="butns" *ngIf="!editform">
+                <button class="butns-grp" mat-raised-button color="primary" (click)="CreateEmp()">Create</button>
+            </div>
+
+            <div class="butns" *ngIf="editform">
+                <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+                    (click)="UpdateEmp()">Update</button>
+                <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>Close</button>
+
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+</div>
+<div class="loading-indicator" *ngIf="spinner">
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+</div>

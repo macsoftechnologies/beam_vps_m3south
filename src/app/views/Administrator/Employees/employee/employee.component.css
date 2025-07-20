@@ -1,0 +1,34 @@
+.butns
+{
+    float: right;
+}
+.mat-form-field
+  {
+    width: 100%;
+    padding-right: 30px; 
+  }
+
+  .matrequest{
+    width: 35% !important;
+    padding: 0px !important; 
+    
+  }
+  .card-content{
+    padding: 30px;
+  }
+  .mat-radio-button
+  {
+    margin-right: 15px;
+  }
+  .butns-grp
+  {
+    margin-right: 15px;
+  }
+
+  @media only screen and (max-width: 468px) and (min-width: 360px){
+    .mat-form-field
+  {
+    width: 100%;
+    padding-right: 0px!important; 
+  }
+  }

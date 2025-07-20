@@ -1,0 +1,100 @@
+.mat-dialog-actions
+{
+    text-align: center;
+}
+.upload-div-sty
+  {
+   text-align: right;
+    /* width: 50%;
+    height: 50px;
+    padding-right: 30px; */
+  }
+  .save-btn-sty
+  {
+    margin-top: 20px;
+  }
+  .logo-btn-sty
+  {
+    
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  .submit-btn-sty
+  {
+      margin-left: 30px;
+  }
+
+  img:not(.mat-card-image)
+  {
+    height: 100px !important;
+    width: 250px !important;
+  }
+
+.mat-dialog-container {
+  padding: 0px !important;
+  /* width: 600px!important; */
+}
+
+.dialog-header {
+  margin-bottom: 10px !important;
+  margin: 0px !important;
+  padding: 0px !important;  
+  border-bottom: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.egret-navy .mat-dialog-container {
+  padding: 0px;
+  /* width: 600px!important; */
+}
+
+.close:hover {
+  cursor: pointer;
+}
+
+/* .cdk-overlay-pane{
+  width: 600px!important;
+}
+
+.mat-dialog-container {
+  padding: 0px;
+  width: 600px!important;
+} */
+
+
+.hotwork-sub{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.time-picker-class{
+  display: flex;
+  /* display: flex; */
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.close-icons{
+  margin-left: 20px;
+  /* border: 2px solid #10174c; */
+}
+/* .header-title-icon{
+  margin-bottom: 10px;
+  border-bottom: 2px solid;
+} */
+
+.model-header{
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.change_Status{
+  font-size: 14px;
+  font-weight: 800;
+  /* margin-bottom: 10px; */
+  /* margin-right: 260px; */
+}

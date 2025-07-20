@@ -1,0 +1,64 @@
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Contractor </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+
+        <mat-card-content class="card-content">
+            <form [formGroup]="SubcontractorForm" class="example-form">
+                    <mat-grid-list cols="2" rowHeight="90px">
+                        <mat-grid-tile>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Contractor Name</mat-label>
+                                <input matInput formControlName="subname" placeholder="Contractor name">
+                            </mat-form-field>
+                      </mat-grid-tile>  
+                      <mat-grid-tile>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Department</mat-label>
+                            <mat-select formControlName="department" multiple>
+                                <mat-option *ngFor="let dep of Departments" [value]="dep.id">{{dep.departmentName}}</mat-option>
+                              </mat-select>
+                        </mat-form-field>
+                  </mat-grid-tile> 
+                    </mat-grid-list>
+                    <!-- <mat-grid-list cols="2" rowHeight="80px">
+                        <mat-grid-tile>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>UserName</mat-label>
+                                <input matInput formControlName="username" placeholder="Username">
+                            </mat-form-field>
+                      </mat-grid-tile>
+                      <mat-grid-tile *ngIf="!Editform">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Password</mat-label>
+                            <input matInput formControlName="password" placeholder="Password">
+                        </mat-form-field>
+                      </mat-grid-tile>  
+                      
+                    </mat-grid-list> -->
+                    <div class="upload-div-sty">
+                        <img *ngIf="Editform" [src]="editcroppedImage" [ngClass]="upload_imgsty" />
+                        <img [src]="croppedImage" *ngIf="!Editform" [ngClass]="upload_imgsty" />
+                        <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)" accept=".jpg"/>
+                        <button mat-flat-button class="logo-btn-sty" color="primary" (click)="csvInput.click()">Upload Logo</button>
+                    </div>
+                           
+            </form>
+            <div class="butns" *ngIf="!Editform">
+                <button class="butns-grp" mat-raised-button color="primary" (click)="Createsubcontractors()">Create</button>
+            </div>
+            <div class="butns" *ngIf="Editform">
+                <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Updatesubcrt()">Update</button>
+                <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>Close</button>
+
+            </div>
+        </mat-card-content>
+    </mat-card>
+ 
+</div>
+
+<div class="loading-indicator" *ngIf="spinner">
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+  </div>

@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-content>
+        <div class="logs_data" *ngIf="logsData.length>0">
+            <div *ngFor="let log of logsData">
+                <span>{{log.username}}</span> ==> <span>{{log.requestType}}</span> ==>  <span>{{log.createdTime}}</span>
+            </div>
+        </div>
+        <div *ngIf="logsData.length==0">
+            <span>No Logs Data</span>
+        </div>
+        <div style="float: right;margin-top: 20px;">
+            <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>Close</button>
+        </div>
+    </mat-card-content>
+</mat-card>
+<div class="loading-indicator" *ngIf="spinner">
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+</div>

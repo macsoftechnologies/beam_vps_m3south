@@ -1,0 +1,16 @@
+.mat-form-field
+  {
+    padding-right: 30px; 
+  }
+  .butns
+  {
+      float: right;
+  }
+  .mat-card-content
+  {
+      padding: 20px;
+  }
+  .butns-grp
+  {
+    margin-right: 20px;
+  }

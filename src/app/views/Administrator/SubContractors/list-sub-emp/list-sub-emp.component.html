@@ -1,0 +1,28 @@
+<mat-card class="p-0" >
+  <div class="" style="text-align: right;">
+    <button class="download_btn_sty" mat-raised-button color="primary" (click)="exportToExcel()">Download</button>
+  </div>
+    <mat-card-content class="p-0">
+      <ngx-datatable class="material ml-0 mr-0" [rows]="EmpList" [columnMode]="'force'"
+        [headerHeight]="50" [footerHeight]="50" [scrollbarH]="true" [limit]="10" [rowHeight]="50">
+        <ngx-datatable-column name="Badge Id" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.badgeId }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Employee Name" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.employeeName }}
+          </ng-template>
+        </ngx-datatable-column>
+        <!-- <ngx-datatable-column name="SubContractor Name" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.employeeName }}
+            </ng-template>
+          </ngx-datatable-column> -->
+      </ngx-datatable>
+    </mat-card-content>
+  </mat-card>
+  <div class="loading-indicator" *ngIf="spinner">
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+  </div>

@@ -1,0 +1,57 @@
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title> Team </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+
+        <mat-card-content class="card-content">
+            <form [formGroup]="TeamForm" class="example-form">
+                <mat-grid-list cols="3" rowHeight="80px">
+                    <!-- <mat-grid-tile>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Team Id</mat-label>
+                                <input matInput formControlName="TeamId" placeholder="Team Id">
+                            </mat-form-field>
+                        </mat-grid-tile> -->
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Team Name</mat-label>
+                            <input matInput formControlName="TeamName" placeholder="Team Name">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Select Sub Contractor</mat-label>
+                            <mat-select formControlName="subcontrval" (selectionChange)="GetEmployees($event.value)">
+                                <mat-option *ngFor="let loc of SubContractors" [value]="loc.id">
+                                    {{loc.subContractorName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Select Employees</mat-label>
+                            <mat-select formControlName="EmpTeam" multiple>
+                                <mat-option *ngFor="let e of Emps" [value]="e.id">{{e.badgeId}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </form>
+            <div class="butns" *ngIf="!editform">
+                <button class="butns-grp" mat-raised-button color="primary" (click)="CreateTeam()">Create</button>
+            </div>
+            <div class="butns" *ngIf="editform">
+                <button class="butns-grp1" mat-raised-button color="primary" mat-dialog-close
+                    (click)="UpdateTeam()">Update</button>
+                <button class="butns-grp1" mat-raised-button color="primary" mat-dialog-close>Close</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<div class="loading-indicator" *ngIf="spinner">
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+</div>

@@ -1,0 +1,47 @@
+.mat-form-field
+  {
+    width: 100%;
+    padding-right: 70px; 
+  }
+  h3{
+    padding: 30px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .top-header-sty
+  {
+    height: 70px;
+    background-color: #dfe7eb;
+  }
+  .top-bar-sty{
+    width: 215px;
+  }
+  .material-icons{
+    font-size: 55px !important;
+    padding-top: 18px;
+  }
+.top-bar-title{
+  font-weight: bold;
+    font-size: 17px;
+   
+}
+.card-content{
+  margin: 30px;
+}
+.download_btn_sty
+{
+  float: right;
+}
+.icons-sty
+{
+    font-size: 15px !important;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 468px) and (min-width: 360px){
+  .mat-form-field
+{
+  width: 100%;
+  padding-right: 0px!important; 
+}
+}

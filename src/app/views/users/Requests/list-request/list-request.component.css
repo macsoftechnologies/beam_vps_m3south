@@ -1,0 +1,88 @@
+.mb-05{
+    float: right;
+}
+.m-333{
+    padding: 15px;
+
+}
+.title-sty
+{
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.icon-sty
+{
+    padding-left: 15px;
+    padding-top: 5px;
+}
+.mat-card-title
+{
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.12) !important;
+    margin-bottom: 0px !important;
+}
+.filter-card-content{
+margin-bottom: 15px;
+}
+.mat-form-field
+{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.butns-grp
+{
+    float: right;
+   padding-bottom: 10px;
+   padding-right: 10px;
+}
+.download_btn_sty
+{
+  float: right;
+}
+.hold-sty
+{
+    cursor: pointer;
+}
+
+.span-sty
+{
+    width: 50px;
+    height: 70px;
+    font-weight: bold;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.span-apprv
+{
+background-color: green;
+color: white;
+margin-right: 5px;
+cursor: pointer;
+}
+.span-rejc
+{
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+.icons-sty
+{
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.logo-img{
+    width: 22px;
+}
+.hras-image{
+    width: 20px!important;
+    margin-right: 5px;
+}
+.hras-content{
+    display: flex!important;
+    align-items: center!important;
+}
