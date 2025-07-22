@@ -506,7 +506,7 @@ export class StatusChangeDialogComponent implements OnInit {
       this.updaterequestdata.Request_status = statusdata;
       // this.updaterequestdata.createdTime = this.CurrenttimeNow;
 
-      this.updaterequestdata.createdTime = [currentDenmarkDate, currentDenmarkTime];
+      this.updaterequestdata.createdTime = config.getDenmarkTime.full();;
 
 
       // this.updaterequestdata.denmark_time = [currentDenmarkDate, currentDenmarkTime] ;
@@ -585,7 +585,7 @@ export class StatusChangeDialogComponent implements OnInit {
       this.updaterequestdata.Request_status = statusdata;
       // this.updaterequestdata.createdTime = this.CurrenttimeNow;
 
-      this.updaterequestdata.createdTime = [currentDenmarkDate, currentDenmarkTime];
+      this.updaterequestdata.createdTime = config.getDenmarkTime.full();;
 
 
       // this.updaterequestdata.denmark_time = [currentDenmarkDate, currentDenmarkTime] ;
@@ -651,7 +651,7 @@ export class StatusChangeDialogComponent implements OnInit {
     this.Close_Request.id = this.updaterequestdata.id;
     this.Close_Request.Request_status = status;
     // this.Close_Request.createdTime = this.CurrenttimeNow;
-    this.Close_Request.createdTime = [currentDenmarkDate, currentDenmarkTime];
+    this.Close_Request.createdTime = config.getDenmarkTime.full();;
     // this.Close_Request.denmark_time = [currentDenmarkDate, currentDenmarkTime];
 
     // this.updaterequestdata.denmark_time = [currentDenmarkDate, currentDenmarkTime] ;
@@ -712,7 +712,7 @@ export class StatusChangeDialogComponent implements OnInit {
     this.Close_Request.id = this.updaterequestdata.id;
     this.Close_Request.Request_status = status;
     // this.Close_Request.createdTime = this.CurrenttimeNow;
-    this.Close_Request.createdTime = [currentDenmarkDate, currentDenmarkTime];
+    this.Close_Request.createdTime = config.getDenmarkTime.full();;
     // this.Close_Request.denmark_time = [currentDenmarkDate, currentDenmarkTime];
 
     // this.updaterequestdata.denmark_time = [currentDenmarkDate, currentDenmarkTime] ;

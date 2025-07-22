@@ -7465,7 +7465,7 @@ export class RequestService {
       // JH - Ground Floor
    
     {
-      buiildingId: "17",
+      buildingId: '17',
       planType: "JH - Ground Floor",
       zoneList: [
         {
@@ -7730,7 +7730,7 @@ export class RequestService {
     // JH - 1st Floor
 
     {
-      buiildingId: "17",
+      buildingId: '17',
       planType: "JH - 1st Floor",
       zoneList: [
         {
@@ -7941,7 +7941,7 @@ export class RequestService {
     // JH Mezzanine Floor
 
     {
-      buiildingId: "17",
+      buildingId: '17',
       planType: "JH - Mezzanine Floor",
       zoneList: [
         {
@@ -8021,7 +8021,7 @@ export class RequestService {
     // JH Roof Floor
 
     {
-      buiildingId: "17",
+      buildingId: '17',
       planType: "JH - Roof Plan",
       zoneList: [
         {

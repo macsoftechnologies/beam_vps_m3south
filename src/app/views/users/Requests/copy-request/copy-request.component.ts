@@ -137,7 +137,7 @@ export class CopyRequestComponent implements OnInit {
       ...config.Denmarktz.split(" "),
     ];
 
-    this.CopyRequest.createdTime = [currentDenmarkDate, currentDenmarkTime].join(" ");
+    this.CopyRequest.createdTime = config.getDenmarkTime.full();
     console.log(this.CopyRequest.createdTime, 'date')
 
     this.CopyRequest.count = diffDays;

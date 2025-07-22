@@ -21,5 +21,26 @@ export const config = {
     moment
       .tz(new Date(), "UTC")
       .tz("Europe/Copenhagen")
-      .format("YYYY-MM-DD HH:mm:ss")
+      .format("YYYY-MM-DD HH:mm:ss"),
+
+  // Denmark time functions
+  getDenmarkTime: {
+    // Returns full datetime string
+    full: () => moment().tz("Europe/Copenhagen").format("YYYY-MM-DD HH:mm:ss"),
+    
+    // Returns just the date part
+    date: () => moment().tz("Europe/Copenhagen").format("YYYY-MM-DD"),
+    
+    // Returns just the time part
+    time: () => moment().tz("Europe/Copenhagen").format("HH:mm:ss"),
+    
+    // Returns date and time as separate values
+    split: () => {
+      const dt = moment().tz("Europe/Copenhagen");
+      return {
+        date: dt.format("YYYY-MM-DD"),
+        time: dt.format("HH:mm:ss")
+      };
+    }
+  }
 }

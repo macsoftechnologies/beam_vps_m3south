@@ -225,8 +225,9 @@ export class PlansComponent implements OnInit {
   }
    private setupFilterListeners(): void {
     // Building selection changes
-    this.PlanForm.get('Building')?.valueChanges.subscribe(buildingId => {
-      this.updateFilters(buildingId, this.PlanForm.get('level')?.value);
+    this.PlanForm.get('Building')?.valueChanges.subscribe(buildingIds => {
+      this.PlanForm.get('Level')?.setValue([], { emitEvent: false });
+      this.updateFilters(buildingIds, '');
     });
     
     // Level selection changes
@@ -241,7 +242,7 @@ export class PlansComponent implements OnInit {
       this.getFloors = [
         ...new Set(
           this.allFloors
-            .filter(f => f.buildingId === buildingId)
+            .filter(f => f.buildingId == buildingId)
             .map(f => f.floorName)
         )
       ];
@@ -256,7 +257,7 @@ export class PlansComponent implements OnInit {
 
     // Filter rooms based on both building and level
     this.getRooms = this.allRooms.filter(room => {
-      const buildingMatch = !buildingId || room.buildingId === buildingId;
+      const buildingMatch = !buildingId || room.buildingId == buildingId;
       const levelMatch = !level || room.planType === level;
       return buildingMatch && levelMatch;
     });
