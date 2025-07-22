@@ -9530,12 +9530,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 20%;
   z-index: 9999;
 }
-.JH_0_A1-8 {
+/* .JH_0_A1-8 {
   position: absolute;
   top: 48.5%;
   right: 45%;
   z-index: 9999;
-}
+} */
 .JH_0_A1-9 {
   position: absolute;
   top: 57%;
@@ -9656,12 +9656,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   left: 52%;
   z-index: 9999;
 }
-.JH_0_A2-15 {
+/* .JH_0_A2-15 {
   position: absolute;
   top: 49%;
   left: 99%;
   z-index: 9999;
-}
+} */
 .JH_0_A2-16 {
   position: absolute;
   top: 59%;
@@ -9698,12 +9698,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: -45%;
   z-index: 9999;
 }
-.JH_0_B1-1 {
+/* .JH_0_B1-1 {
   position: absolute;
   top: 11%;
   left: 44%;
   z-index: 9999;
-}
+} */
 .JH_0_B1-2 {
   position: absolute;
   top: 17%;
@@ -9758,12 +9758,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 16.5%;
   z-index: 9999;
 }
-.JH_0_B2-7 {
+/* .JH_0_B2-7 {
   position: absolute;
   top: 47%;
   left: 71.5%;
   z-index: 9999;
-}
+} */
 .JH_0_B2-8 {
   position: absolute;
   top: 47%;
@@ -9804,12 +9804,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   left: 39%;
   z-index: 9999;
 }
-.JH_1_A1-2 {
+/* .JH_1_A1-2 {
   position: absolute;
   top: 35.2%;
   left: 12%;
   z-index: 9999;
-}
+} */
 .JH_1_A1-3 {
   position: absolute;
   top: 28.2%;
@@ -9871,12 +9871,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: -2%;
   z-index: 9999;
 }
-.JH_1_A2-7 {
+/* .JH_1_A2-7 {
   position: absolute;
   top: 46.5%;
   right: 2%;
   z-index: 9999;
-}
+} */
 .JH_1_A2-8 {
   position: absolute;
   top: 48.5%;
@@ -9919,12 +9919,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: -43%;
   z-index: 9999;
 }
-.JH_1_A3-1 {
+/* .JH_1_A3-1 {
   position: absolute;
   bottom: 28%;
   left: 22%;
   z-index: 9999;
-}
+} */
 .JH_1_A3-2 {
   position: absolute;
   bottom: 28%;
@@ -9943,12 +9943,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 17%;
   z-index: 9999;
 }
-.JH_1_B1-3 {
+/* .JH_1_B1-3 {
   position: absolute;
   bottom: 44%;
   right: 27%;
   z-index: 9999;
-}
+} */
 .JH_1_B2-1 {
   position: absolute;
   top: 23%;
@@ -9979,12 +9979,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   left: 81%;
   z-index: 9999;
 }
-.JH_1_B2-6 {
+/* .JH_1_B2-6 {
   position: absolute;
   top: 50%;
   left: 99%;
   z-index: 9999;
-}
+} */
 .JH_1_B2-7 {
   position: absolute;
   top: 65%;
@@ -10033,12 +10033,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 18%;
   z-index: 9999;
 }
-.JH_1_B3-3 {
+/* .JH_1_B3-3 {
   position: absolute;
   bottom: 30.5%;
   left: 49%;
   z-index: 9999;
-}
+} */
 
 /* JG-1st Floor...................END */
 
@@ -10062,12 +10062,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   left: 52%;
   z-index: 9999;
 }
-.JH_M_A1-4 {
+/* .JH_M_A1-4 {
   position: absolute;
   top: 37.2%;
   left: 29%;
   z-index: 9999;
-}
+} */
 .JH_M_A1-5 {
   position: absolute;
   top: 45.2%;
@@ -10104,24 +10104,24 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 38%;
   z-index: 9999;
 }
-.JH_M_A2-4 {
+/* .JH_M_A2-4 {
   position: absolute;
   top: 64%;
   right: 47%;
   z-index: 9999;
-}
+} */
 .JH_M_A2-5 {
   position: absolute;
   bottom: 17%;
   left: 22%;
   z-index: 9999;
 }
-.JH_M_A3-1 {
+/* .JH_M_A3-1 {
   position: absolute;
   top: 39%;
   left: 24%;
   z-index: 9999;
-}
+} */
 .JH_M_A3-2 {
   position: absolute;
   top: 54%;
@@ -10140,8 +10140,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_West-2 {
   position: absolute;
-  top: 43.2%;
-  left: 108%;
+  top: 47%;
+  left: 71%;
   z-index: 9999;
 }
 
@@ -10153,8 +10153,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 50%;
+  top: 45.2%;
+  left: 89%;
   z-index: 9999;
 }
 
@@ -27290,12 +27290,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 52%;
     z-index: 9999;
   }
-  .JH_0_A2-15 {
+  /* .JH_0_A2-15 {
     position: absolute;
     top: 49%;
     left: 99%;
     z-index: 9999;
-  }
+  } */
   .JH_0_A2-16 {
     position: absolute;
     top: 59%;
@@ -27418,12 +27418,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 49%;
     z-index: 9999;
   }
-  .JH_0_A2-15 {
+  /* .JH_0_A2-15 {
     position: absolute;
     top: 49%;
     left: 93%;
     z-index: 9999;
-  }
+  } */
   .JH_0_A2-16 {
     position: absolute;
     top: 59%;
@@ -27546,12 +27546,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 46%;
     z-index: 9999;
   }
-  .JH_0_A2-15 {
+  /* .JH_0_A2-15 {
     position: absolute;
     top: 49%;
     left: 88%;
     z-index: 9999;
-  }
+  } */
   .JH_0_A2-16 {
     position: absolute;
     top: 59%;
@@ -27674,12 +27674,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 43%;
     z-index: 9999;
   }
-  .JH_0_A2-15 {
+  /* .JH_0_A2-15 {
     position: absolute;
     top: 49%;
     left: 83%;
     z-index: 9999;
-  }
+  } */
   .JH_0_A2-16 {
     position: absolute;
     top: 59%;
@@ -27802,12 +27802,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 41%;
     z-index: 9999;
   }
-  .JH_0_A2-15 {
+  /* .JH_0_A2-15 {
     position: absolute;
     top: 49%;
     left: 80%;
     z-index: 9999;
-  }
+  } */
   .JH_0_A2-16 {
     position: absolute;
     top: 59%;
@@ -27930,12 +27930,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 39%;
     z-index: 9999;
   }
-  .JH_0_A2-15 {
+  /* .JH_0_A2-15 {
     position: absolute;
     top: 49%;
     left: 75%;
     z-index: 9999;
-  }
+  } */
   .JH_0_A2-16 {
     position: absolute;
     top: 59%;
@@ -28058,12 +28058,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 37%;
     z-index: 9999;
   }
-  .JH_0_A2-15 {
+  /* .JH_0_A2-15 {
     position: absolute;
     top: 49%;
     left: 71%;
     z-index: 9999;
-  }
+  } */
   .JH_0_A2-16 {
     position: absolute;
     top: 59%;
@@ -28186,12 +28186,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 35%;
     z-index: 9999;
   }
-  .JH_0_A2-15 {
+  /* .JH_0_A2-15 {
     position: absolute;
     top: 49%;
     left: 68%;
     z-index: 9999;
-  }
+  } */
   .JH_0_A2-16 {
     position: absolute;
     top: 59%;
@@ -28314,12 +28314,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 35%;
     z-index: 9999;
   }
-  .JH_0_A2-15 {
+  /* .JH_0_A2-15 {
     position: absolute;
     top: 49%;
     left: 68%;
     z-index: 9999;
-  }
+  } */
   .JH_0_A2-16 {
     position: absolute;
     top: 59%;
@@ -28442,12 +28442,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 32%;
     z-index: 9999;
   }
-  .JH_0_A2-15 {
+  /* .JH_0_A2-15 {
     position: absolute;
     top: 49%;
     left: 63%;
     z-index: 9999;
-  }
+  } */
   .JH_0_A2-16 {
     position: absolute;
     top: 59%;
@@ -28570,12 +28570,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 31%;
     z-index: 9999;
   }
-  .JH_0_A2-15 {
+  /* .JH_0_A2-15 {
     position: absolute;
     top: 49%;
     left: 60%;
     z-index: 9999;
-  }
+  } */
   .JH_0_A2-16 {
     position: absolute;
     top: 59%;
@@ -28698,12 +28698,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 31%;
     z-index: 9999;
   }
-  .JH_0_A2-15 {
+  /* .JH_0_A2-15 {
     position: absolute;
     top: 49%;
     left: 58%;
     z-index: 9999;
-  }
+  } */
   .JH_0_A2-16 {
     position: absolute;
     top: 59%;
@@ -28826,12 +28826,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 31%;
     z-index: 9999;
   }
-  .JH_0_A2-15 {
+  /* .JH_0_A2-15 {
     position: absolute;
     top: 49%;
     left: 58%;
     z-index: 9999;
-  }
+  } */
   .JH_0_A2-16 {
     position: absolute;
     top: 59%;
@@ -28954,12 +28954,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 28%;
     z-index: 9999;
   }
-  .JH_0_A2-15 {
+  /* .JH_0_A2-15 {
     position: absolute;
     top: 49%;
     left: 54%;
     z-index: 9999;
-  }
+  } */
   .JH_0_A2-16 {
     position: absolute;
     top: 59%;
@@ -29082,12 +29082,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 27%;
     z-index: 9999;
   }
-  .JH_0_A2-15 {
+  /* .JH_0_A2-15 {
     position: absolute;
     top: 49%;
     left: 54%;
     z-index: 9999;
-  }
+  } */
   .JH_0_A2-16 {
     position: absolute;
     top: 59%;
@@ -29164,12 +29164,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 19.5%;
   z-index: 9999;
 }
-.JH_0_B2-7 {
+/* .JH_0_B2-7 {
   position: absolute;
   top: 47%;
   left: 71.5%;
   z-index: 9999;
-}
+} */
 .JH_0_B2-8 {
   position: absolute;
   top: 47%;
@@ -29239,12 +29239,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 22.5%;
   z-index: 9999;
 }
-.JH_0_B2-7 {
+/* .JH_0_B2-7 {
   position: absolute;
   top: 47%;
   left: 71.5%;
   z-index: 9999;
-}
+} */
 .JH_0_B2-8 {
   position: absolute;
   top: 47%;
@@ -29314,12 +29314,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 27.5%;
   z-index: 9999;
 }
-.JH_0_B2-7 {
+/* .JH_0_B2-7 {
   position: absolute;
   top: 47%;
   left: 65.5%;
   z-index: 9999;
-}
+} */
 .JH_0_B2-8 {
   position: absolute;
   top: 47%;
@@ -29389,12 +29389,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 31.5%;
   z-index: 9999;
 }
-.JH_0_B2-7 {
+/* .JH_0_B2-7 {
   position: absolute;
   top: 47%;
   left: 65.5%;
   z-index: 9999;
-}
+} */
 .JH_0_B2-8 {
   position: absolute;
   top: 47%;
@@ -29464,12 +29464,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 34.5%;
   z-index: 9999;
 }
-.JH_0_B2-7 {
+/* .JH_0_B2-7 {
   position: absolute;
   top: 47%;
   left: 59.5%;
   z-index: 9999;
-}
+} */
 .JH_0_B2-8 {
   position: absolute;
   top: 47%;
@@ -29539,12 +29539,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 38.5%;
   z-index: 9999;
 }
-.JH_0_B2-7 {
+/* .JH_0_B2-7 {
   position: absolute;
   top: 47%;
   left: 56.5%;
   z-index: 9999;
-}
+} */
 .JH_0_B2-8 {
   position: absolute;
   top: 47%;
@@ -29614,12 +29614,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 41.5%;
   z-index: 9999;
 }
-.JH_0_B2-7 {
+/* .JH_0_B2-7 {
   position: absolute;
   top: 47%;
   left: 56.5%;
   z-index: 9999;
-}
+} */
 .JH_0_B2-8 {
   position: absolute;
   top: 47%;
@@ -29689,12 +29689,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 43.5%;
   z-index: 9999;
 }
-.JH_0_B2-7 {
+/* .JH_0_B2-7 {
   position: absolute;
   top: 47%;
   left: 42.5%;
   z-index: 9999;
-}
+} */
 .JH_0_B2-8 {
   position: absolute;
   top: 47%;
@@ -29764,12 +29764,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 44.5%;
   z-index: 9999;
 }
-.JH_0_B2-7 {
+/* .JH_0_B2-7 {
   position: absolute;
   top: 47%;
   left: 50.5%;
   z-index: 9999;
-}
+} */
 .JH_0_B2-8 {
   position: absolute;
   top: 47%;
@@ -29844,12 +29844,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 1%;
   z-index: 9999;
 }
-.JH_1_A2-7 {
+/* .JH_1_A2-7 {
   position: absolute;
   top: 46.5%;
   right: 2%;
   z-index: 9999;
-}
+} */
 .JH_1_A2-8 {
   position: absolute;
   top: 48.5%;
@@ -29931,12 +29931,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 5%;
   z-index: 9999;
 }
-.JH_1_A2-7 {
+/* .JH_1_A2-7 {
   position: absolute;
   top: 46.5%;
   right: 6%;
   z-index: 9999;
-}
+} */
 .JH_1_A2-8 {
   position: absolute;
   top: 48.5%;
@@ -30018,12 +30018,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 11%;
   z-index: 9999;
 }
-.JH_1_A2-7 {
+/* .JH_1_A2-7 {
   position: absolute;
   top: 46.5%;
   right: 11%;
   z-index: 9999;
-}
+} */
 .JH_1_A2-8 {
   position: absolute;
   top: 48.5%;
@@ -30105,12 +30105,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 16%;
   z-index: 9999;
 }
-.JH_1_A2-7 {
+/* .JH_1_A2-7 {
   position: absolute;
   top: 46.5%;
   right: 16%;
   z-index: 9999;
-}
+} */
 .JH_1_A2-8 {
   position: absolute;
   top: 48.5%;
@@ -30192,12 +30192,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 20%;
   z-index: 9999;
 }
-.JH_1_A2-7 {
+/* .JH_1_A2-7 {
   position: absolute;
   top: 46.5%;
   right: 20%;
   z-index: 9999;
-}
+} */
 .JH_1_A2-8 {
   position: absolute;
   top: 48.5%;
@@ -30279,12 +30279,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 24%;
   z-index: 9999;
 }
-.JH_1_A2-7 {
+/* .JH_1_A2-7 {
   position: absolute;
   top: 46.5%;
   right: 24%;
   z-index: 9999;
-}
+} */
 .JH_1_A2-8 {
   position: absolute;
   top: 48.5%;
@@ -30366,12 +30366,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 28%;
   z-index: 9999;
 }
-.JH_1_A2-7 {
+/* .JH_1_A2-7 {
   position: absolute;
   top: 46.5%;
   right: 28%;
   z-index: 9999;
-}
+} */
 .JH_1_A2-8 {
   position: absolute;
   top: 48.5%;
@@ -30453,12 +30453,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 31%;
   z-index: 9999;
 }
-.JH_1_A2-7 {
+/* .JH_1_A2-7 {
   position: absolute;
   top: 46.5%;
   right: 31%;
   z-index: 9999;
-}
+} */
 .JH_1_A2-8 {
   position: absolute;
   top: 48.5%;
@@ -30540,12 +30540,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 34%;
   z-index: 9999;
 }
-.JH_1_A2-7 {
+/* .JH_1_A2-7 {
   position: absolute;
   top: 46.5%;
   right: 35%;
   z-index: 9999;
-}
+} */
 .JH_1_A2-8 {
   position: absolute;
   top: 48.5%;
@@ -30627,12 +30627,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 37%;
   z-index: 9999;
 }
-.JH_1_A2-7 {
+/* .JH_1_A2-7 {
   position: absolute;
   top: 46.5%;
   right: 35%;
   z-index: 9999;
-}
+} */
 .JH_1_A2-8 {
   position: absolute;
   top: 48.5%;
@@ -30714,12 +30714,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 38%;
   z-index: 9999;
 }
-.JH_1_A2-7 {
+/* .JH_1_A2-7 {
   position: absolute;
   top: 46.5%;
   right: 38%;
   z-index: 9999;
-}
+} */
 .JH_1_A2-8 {
   position: absolute;
   top: 48.5%;
@@ -30801,12 +30801,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 38%;
   z-index: 9999;
 }
-.JH_1_A2-7 {
+/* .JH_1_A2-7 {
   position: absolute;
   top: 46.5%;
   right: 38%;
   z-index: 9999;
-}
+} */
 .JH_1_A2-8 {
   position: absolute;
   top: 48.5%;
@@ -30857,12 +30857,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 /* ..................JH 1st Floor...Zone 1.A3 ........start*/
 
 @media (min-width: 1600px) and (max-width: 1700px) {
-.JH_1_A3-1 {
+/* .JH_1_A3-1 {
   position: absolute;
   bottom: 28%;
   left: 22%;
   z-index: 9999;
-}
+} */
 .JH_1_A3-2 {
   position: absolute;
   bottom: 28%;
@@ -30871,12 +30871,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 }
 @media (min-width: 1700px) and (max-width: 1800px) {
-.JH_1_A3-1 {
+/* .JH_1_A3-1 {
   position: absolute;
   bottom: 28%;
   left: 22%;
   z-index: 9999;
-}
+} */
 .JH_1_A3-2 {
   position: absolute;
   bottom: 29%;
@@ -30885,12 +30885,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 }
 @media (min-width: 1800px) and (max-width: 1900px) {
-.JH_1_A3-1 {
+/* .JH_1_A3-1 {
   position: absolute;
   bottom: 28%;
   left: 22%;
   z-index: 9999;
-}
+} */
 .JH_1_A3-2 {
   position: absolute;
   bottom: 29%;
@@ -30899,12 +30899,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 }
 @media (min-width: 1900px) and (max-width: 3000px) {
-.JH_1_A3-1 {
+/* .JH_1_A3-1 {
   position: absolute;
   bottom: 28%;
   left: 22%;
   z-index: 9999;
-}
+} */
 .JH_1_A3-2 {
   position: absolute;
   bottom: 29%;
@@ -30947,12 +30947,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   left: 79%;
   z-index: 9999;
 }
-.JH_1_B2-6 {
+/* .JH_1_B2-6 {
   position: absolute;
   top: 50%;
   left: 99%;
   z-index: 9999;
-}
+} */
 .JH_1_B2-7 {
   position: absolute;
   top: 65%;
@@ -31021,12 +31021,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   left: 76%;
   z-index: 9999;
 }
-.JH_1_B2-6 {
+/* .JH_1_B2-6 {
   position: absolute;
   top: 50%;
   left: 95%;
   z-index: 9999;
-}
+} */
 .JH_1_B2-7 {
   position: absolute;
   top: 65%;
@@ -31095,12 +31095,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   left: 71%;
   z-index: 9999;
 }
-.JH_1_B2-6 {
+/* .JH_1_B2-6 {
   position: absolute;
   top: 50%;
   left: 89%;
   z-index: 9999;
-}
+} */
 .JH_1_B2-7 {
   position: absolute;
   top: 65%;
@@ -31169,12 +31169,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   left: 67%;
   z-index: 9999;
 }
-.JH_1_B2-6 {
+/* .JH_1_B2-6 {
   position: absolute;
   top: 50%;
   left: 84%;
   z-index: 9999;
-}
+} */
 .JH_1_B2-7 {
   position: absolute;
   top: 65%;
@@ -31243,12 +31243,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   left: 64%;
   z-index: 9999;
 }
-.JH_1_B2-6 {
+/* .JH_1_B2-6 {
   position: absolute;
   top: 50%;
   left: 80%;
   z-index: 9999;
-}
+} */
 .JH_1_B2-7 {
   position: absolute;
   top: 65%;
@@ -31317,12 +31317,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   left: 60%;
   z-index: 9999;
 }
-.JH_1_B2-6 {
+/* .JH_1_B2-6 {
   position: absolute;
   top: 50%;
   left: 75%;
   z-index: 9999;
-}
+} */
 .JH_1_B2-7 {
   position: absolute;
   top: 65%;
@@ -31391,12 +31391,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   left: 58%;
   z-index: 9999;
 }
-.JH_1_B2-6 {
+/* .JH_1_B2-6 {
   position: absolute;
   top: 50%;
   left: 72%;
   z-index: 9999;
-}
+} */
 .JH_1_B2-7 {
   position: absolute;
   top: 65%;
@@ -31465,12 +31465,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   left: 55%;
   z-index: 9999;
 }
-.JH_1_B2-6 {
+/* .JH_1_B2-6 {
   position: absolute;
   top: 50%;
   left: 69%;
   z-index: 9999;
-}
+} */
 .JH_1_B2-7 {
   position: absolute;
   top: 65%;
@@ -31540,12 +31540,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   left: 55%;
   z-index: 9999;
 }
-.JH_1_B2-6 {
+/* .JH_1_B2-6 {
   position: absolute;
   top: 50%;
   left: 69%;
   z-index: 9999;
-}
+} */
 .JH_1_B2-7 {
   position: absolute;
   top: 65%;
@@ -31597,8 +31597,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_West-2 {
   position: absolute;
-  top: 43.2%;
-  left: 104%;
+  top: 46.2%;
+  left: 64%;
   z-index: 9999;
 }
 }
@@ -31612,8 +31612,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_West-2 {
   position: absolute;
-  top: 43.2%;
-  left: 98%;  
+  top: 46.2%;
+  left: 61%;
   z-index: 9999;
 }
 }
@@ -31627,8 +31627,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_West-2 {
   position: absolute;
-  top: 43.2%;
-  left: 92%;
+  top: 46.5%;
+  left: 58%;
   z-index: 9999;
 }
 }
@@ -31642,8 +31642,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_West-2 {
   position: absolute;
-  top: 43.2%;
-  left: 88%;
+  top: 46.5%;
+  left: 54%;
   z-index: 9999;
 }
 }
@@ -31657,8 +31657,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_West-2 {
   position: absolute;
-  top: 43.2%;
-  left: 84%;
+  top: 46.2%;
+  left: 51%;
   z-index: 9999;
 }
 }
@@ -31672,8 +31672,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_West-2 {
   position: absolute;
-  top: 43.2%;
-  left: 80%;
+  top: 46.2%;
+  left: 49%;
   z-index: 9999;
 }
 }
@@ -31687,8 +31687,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_West-2 {
   position: absolute;
-  top: 43.2%;
-  left: 76%;
+  top: 46.2%;
+  left: 47%;
   z-index: 9999;
 }
 }
@@ -31702,8 +31702,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_West-2 {
   position: absolute;
-  top: 43.2%;
-  left: 71%;
+  top: 46.2%;
+  left: 44%;
   z-index: 9999;
 }
 }
@@ -31717,8 +31717,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_West-2 {
   position: absolute;
-  top: 43.2%;
-  left: 67%;
+  top: 46.2%;
+  left: 41%;
   z-index: 9999;
 }
 }
@@ -31732,8 +31732,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_West-2 {
   position: absolute;
-  top: 43.2%;
-  left: 64%;
+  top: 46.2%;
+  left: 40%;
   z-index: 9999;
 }
 }
@@ -31747,8 +31747,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_West-2 {
   position: absolute;
-  top: 43.2%;
-  left: 64%;
+  top: 46.2%;
+  left: 39%;
   z-index: 9999;
 }
 }
@@ -31762,8 +31762,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_West-2 {
   position: absolute;
-  top: 43.2%;
-  left: 64%;
+  top: 46.2%;
+  left: 39%;
   z-index: 9999;
 }
 }
@@ -31780,8 +31780,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 50%;
+  top: 45.2%;
+  left: 86%;
   z-index: 9999;
 }
 }
@@ -31794,8 +31794,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 50%;
+  top: 45.2%;
+  left: 83%;
   z-index: 9999;
 }
 }
@@ -31808,8 +31808,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 47%;
+  top: 45.2%;
+  left: 78%;
   z-index: 9999;
 }
 }
@@ -31822,8 +31822,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 45%;
+  top: 45.2%;
+  left: 73%;
   z-index: 9999;
 }
 }
@@ -31836,8 +31836,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 43%;
+  top: 45.2%;
+  left: 69%;
   z-index: 9999;
 }
 }
@@ -31850,8 +31850,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 40%;  
+  top: 45.2%;
+  left: 66%; 
   z-index: 9999;
 }
 }
@@ -31864,8 +31864,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 37%;  
+  top: 45.2%;
+  left: 63%;
   z-index: 9999;
 }
 }
@@ -31878,8 +31878,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 37%;  
+  top: 45.2%;
+  left: 60%; 
   z-index: 9999;
 }
 }
@@ -31892,8 +31892,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 34%;  
+  top: 45.2%;
+  left: 57%;
   z-index: 9999;
 }
 }
@@ -31906,8 +31906,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 34%;  
+  top: 45.2%;
+  left: 55%; 
   z-index: 9999;
 }
 }
@@ -31920,8 +31920,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 32%;  
+  top: 45.2%;
+  left: 53%;
   z-index: 9999;
 }
 }
@@ -31934,8 +31934,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 30%;  
+  top: 45.2%;
+  left: 51%;
   z-index: 9999;
 }
 }
@@ -31948,8 +31948,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 30%;  
+  top: 45.2%;
+  left: 49%; 
   z-index: 9999;
 }
 }
@@ -31962,8 +31962,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 30%;  
+  top: 45.2%;
+  left: 49%;  
   z-index: 9999;
 }
 }
@@ -31976,8 +31976,8 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 .JH_R_East-2 {
   position: absolute;
-  top: 43.2%;
-  left: 30%;  
+  top: 45.2%;
+  left: 48%; 
   z-index: 9999;
 }
 }

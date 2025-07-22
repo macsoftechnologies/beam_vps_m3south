@@ -8071,7 +8071,6 @@ export class RequestBuildingModelComponent implements OnInit {
           className: "JG_5_3XX-7",
           isSelected: false
         },
-
       ]
       if (selectedBlockData) {
         if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
@@ -8080,6 +8079,9 @@ export class RequestBuildingModelComponent implements OnInit {
         }
       }
     }
+
+    
+   //  // JH Ground Floor
     
     else if (this.data.floor.name == 'Zone 0.A1' && this.data.floor.planType == 'JH - Ground Floor') {
       this.floorBlock = [
@@ -8118,11 +8120,11 @@ export class RequestBuildingModelComponent implements OnInit {
           className: "JH_0_A1-7",
           isSelected: false
         },
-        {
-          value: 'ZONE 0.A1',
-          className: "JH_0_A1-8",
-          isSelected: false
-        },
+        // {
+        //   value: 'ZONE 0.A1',
+        //   className: "JH_0_A1-8",
+        //   isSelected: false
+        // },
         {
           value: 'TR02',
           className: "JH_0_A1-9",
@@ -8144,12 +8146,12 @@ export class RequestBuildingModelComponent implements OnInit {
           isSelected: false
         },
         {
-          value: 'SK01',
+          value: 'S.008',
           className: "JH_0_A1-13",
           isSelected: false
-        },
+        }, 
         {
-          value: 'ZONE 0.A1',
+          value: 'S.008.1',
           className: "JH_0_A1-14",
           isSelected: false
         },
@@ -8233,11 +8235,11 @@ export class RequestBuildingModelComponent implements OnInit {
           className: "JH_0_A2-14",
           isSelected: false
         },
-        {
-          value: 'ZONE 0.A2',
-          className: "JH_0_A2-15",
-          isSelected: false
-        },
+        // {
+        //   value: 'ZONE 0.A2',
+        //   className: "JH_0_A2-15",
+        //   isSelected: false
+        // },
         {
           value: 'Storage tanks-2',
           className: "JH_0_A2-16",
@@ -8278,11 +8280,11 @@ export class RequestBuildingModelComponent implements OnInit {
     }
     else if (this.data.floor.name == 'Zone 0.B1' && this.data.floor.planType == 'JH - Ground Floor') {
       this.floorBlock = [
-        {
-          value: 'ZONE 0.B1',
-          className: "JH_0_B1-1",
-          isSelected: false
-        },
+        // {
+        //   value: 'ZONE 0.B1',
+        //   className: "JH_0_B1-1",
+        //   isSelected: false
+        // },
         {
           value: 'S.005',
           className: "JH_0_B1-2",
@@ -8338,11 +8340,11 @@ export class RequestBuildingModelComponent implements OnInit {
           className: "JH_0_B2-6",
           isSelected: false
         },
-        {
-          value: 'ZONE 0.B2',
-          className: "JH_0_B2-7",
-          isSelected: false
-        },
+        // {
+        //   value: 'ZONE 0.B2',
+        //   className: "JH_0_B2-7",
+        //   isSelected: false
+        // },
         {
           value: 'S.003-B',
           className: "JH_0_B2-8",
@@ -8386,11 +8388,11 @@ export class RequestBuildingModelComponent implements OnInit {
           className: "JH_1_A1-1",
           isSelected: false
         },
-        {
-          value: 'ZONE 1.A1',
-          className: "JH_1_A1-2",
-          isSelected: false
-        },
+        // {
+        //   value: 'ZONE 1.A1',
+        //   className: "JH_1_A1-2",
+        //   isSelected: false
+        // },
         {
           value: 'EL01',
           className: "JH_1_A1-3",
@@ -8451,11 +8453,11 @@ export class RequestBuildingModelComponent implements OnInit {
           className: "JH_1_A2-6",
           isSelected: false
         },
-        {
-          value: 'ZONE 1.A2',
-          className: "JH_1_A2-7",
-          isSelected: false
-        },
+        // {
+        //   value: 'ZONE 1.A2',
+        //   className: "JH_1_A2-7",
+        //   isSelected: false
+        // },
         {
           value: '1.003.A',
           className: "JH_1_A2-8",
@@ -8501,11 +8503,11 @@ export class RequestBuildingModelComponent implements OnInit {
     }
     else if (this.data.floor.name == 'Zone 1.A3' && this.data.floor.planType == 'JH - 1st Floor') {
       this.floorBlock = [
-        {
-          value: 'ZONE 1.A3',
-          className: "JH_1_A3-1",
-          isSelected: false
-        },
+        // {
+        //   value: 'ZONE 1.A3',
+        //   className: "JH_1_A3-1",
+        //   isSelected: false
+        // },
         {
           value: '1.002.1',
           className: "JH_1_A3-2",
@@ -8531,11 +8533,11 @@ export class RequestBuildingModelComponent implements OnInit {
           className: "JH_1_B1-2",
           isSelected: false
         },
-        {
-          value: 'ZONE 1.B1',
-          className: "JH_1_B1-3",
-          isSelected: false
-        },
+        // {
+        //   value: 'ZONE 1.B1',
+        //   className: "JH_1_B1-3",
+        //   isSelected: false
+        // },
       ]
       if (selectedBlockData) {
         if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
@@ -8571,11 +8573,11 @@ export class RequestBuildingModelComponent implements OnInit {
           className: "JH_1_B2-5",
           isSelected: false
         },
-        {
-          value: 'ZONE 1.B2',
-          className: "JH_1_B2-6",
-          isSelected: false
-        },
+        // {
+        //   value: 'ZONE 1.B2',
+        //   className: "JH_1_B2-6",
+        //   isSelected: false
+        // },
         {
           value: '134ZT001',
           className: "JH_1_B2-7",
@@ -8626,11 +8628,11 @@ export class RequestBuildingModelComponent implements OnInit {
           className: "JH_1_B3-2",
           isSelected: false
         },
-        {
-          value: 'ZONE 1.B3',
-          className: "JH_1_B3-3",
-          isSelected: false
-        },
+        // {
+        //   value: 'ZONE 1.B3',
+        //   className: "JH_1_B3-3",
+        //   isSelected: false
+        // },
       ]
       if (selectedBlockData) {
         if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
@@ -8639,7 +8641,6 @@ export class RequestBuildingModelComponent implements OnInit {
         }
       }
     }
-
 
    // JH Mezzanine Floor
   
@@ -8660,11 +8661,11 @@ export class RequestBuildingModelComponent implements OnInit {
           className: "JH_M_A1-3",
           isSelected: false
         },
-        {
-          value: 'ZONE M.A1',
-          className: "JH_M_A1-4",
-          isSelected: false
-        },
+        // {
+        //   value: 'ZONE M.A1',
+        //   className: "JH_M_A1-4",
+        //   isSelected: false
+        // },
         {
           value: 'S.006',
           className: "JH_M_A1-5",
@@ -8705,11 +8706,11 @@ export class RequestBuildingModelComponent implements OnInit {
           className: "JH_M_A2-3",
           isSelected: false
         },
-        {
-          value: 'ZONE M.A2',
-          className: "JH_M_A2-4",
-          isSelected: false
-        },
+        // {
+        //   value: 'ZONE M.A2',
+        //   className: "JH_M_A2-4",
+        //   isSelected: false
+        // },
         {
           value: 'S.004-B',
           className: "JH_M_A2-5",
@@ -8725,11 +8726,11 @@ export class RequestBuildingModelComponent implements OnInit {
     }
     else if (this.data.floor.name == 'Zone M.A3' && this.data.floor.planType == 'JH - Mezzanine Floor') {
       this.floorBlock = [
-        {
-          value: 'ZONE M.A3',
-          className: "JH_M_A3-1",
-          isSelected: false
-        },
+        // {
+        //   value: 'ZONE M.A3',
+        //   className: "JH_M_A3-1",
+        //   isSelected: false
+        // },
         {
           value: 'S.104.2',
           className: "JH_M_A3-2",
@@ -8744,7 +8745,7 @@ export class RequestBuildingModelComponent implements OnInit {
       }
     }
 
-  // JH Roof Floor
+    // JH Roof Floor
   
     else if (this.data.floor.name == 'Zone R_West' && this.data.floor.planType == 'JH - Roof Plan') {
       this.floorBlock = [
@@ -8754,7 +8755,7 @@ export class RequestBuildingModelComponent implements OnInit {
           isSelected: false
         },
         {
-          value: 'R_West',
+          value: 'Roof West',
           className: "JH_R_West-2",
           isSelected: false
         },
@@ -8774,7 +8775,7 @@ export class RequestBuildingModelComponent implements OnInit {
           isSelected: false
         },
         {
-          value: 'R_East',
+          value: 'Roof East',
           className: "JH_R_East-2",
           isSelected: false
         },
@@ -8786,6 +8787,7 @@ export class RequestBuildingModelComponent implements OnInit {
         }
       }
     }
+
     // console.log(this.data);
   }
 

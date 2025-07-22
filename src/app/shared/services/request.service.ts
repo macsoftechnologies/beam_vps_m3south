@@ -7507,11 +7507,6 @@ export class RequestService {
                 isSelected: false
               },
               {
-                value: 'ZONE 0.A1',
-                className: "JH_0_A1-8",
-                isSelected: false
-              },
-              {
                 value: 'TR02',
                 className: "JH_0_A1-9",
                 isSelected: false
@@ -7532,12 +7527,12 @@ export class RequestService {
                 isSelected: false
               },
               {
-                value: 'SK01',
+                value: 'S.008',
                 className: "JH_0_A1-13",
                 isSelected: false
               },
               {
-                value: 'ZONE 0.A1',
+                value: 'S.008.1',
                 className: "JH_0_A1-14",
                 isSelected: false
               },
@@ -7617,11 +7612,6 @@ export class RequestService {
               isSelected: false
             },
             {
-              value: 'ZONE 0.A2',
-              className: "JH_0_A2-15",
-              isSelected: false
-            },
-            {
               value: 'Storage tanks-2',
               className: "JH_0_A2-16",
               isSelected: false
@@ -7657,11 +7647,6 @@ export class RequestService {
         {
           floorName: 'Zone 0.B1',
           zoneSubList: [
-             {
-                value: 'ZONE 0.B1',
-                className: "JH_0_B1-1",
-                isSelected: false
-              },
               {
                 value: 'S.005',
                 className: "JH_0_B1-2",
@@ -7713,11 +7698,6 @@ export class RequestService {
                   isSelected: false
                 },
                 {
-                  value: 'ZONE 0.B2',
-                  className: "JH_0_B2-7",
-                  isSelected: false
-                },
-                {
                   value: 'S.003-B',
                   className: "JH_0_B2-8",
                   isSelected: false
@@ -7759,11 +7739,6 @@ export class RequestService {
               {
                 value: '1.002',
                 className: "JH_1_A1-1",
-                isSelected: false
-              },
-              {
-                value: 'ZONE 1.A1',
-                className: "JH_1_A1-2",
                 isSelected: false
               },
               {
@@ -7822,11 +7797,6 @@ export class RequestService {
               isSelected: false
             },
             {
-              value: 'ZONE 1.A2',
-              className: "JH_1_A2-7",
-              isSelected: false
-            },
-            {
               value: '1.003.A',
               className: "JH_1_A2-8",
               isSelected: false
@@ -7868,11 +7838,6 @@ export class RequestService {
           floorName: 'Zone 1.A3',
           zoneSubList: [
               {
-                value: 'ZONE 1.A3',
-                className: "JH_1_A3-1",
-                isSelected: false
-              },
-              {
                 value: '1.002.1',
                 className: "JH_1_A3-2",
                 isSelected: false
@@ -7890,11 +7855,6 @@ export class RequestService {
                 {
                   value: '1.005',
                   className: "JH_1_B1-2",
-                  isSelected: false
-                },
-                {
-                  value: 'ZONE 1.B1',
-                  className: "JH_1_B1-3",
                   isSelected: false
                 },
           ]
@@ -7925,11 +7885,6 @@ export class RequestService {
                 {
                   value: '1.003-B',
                   className: "JH_1_B2-5",
-                  isSelected: false
-                },
-                {
-                  value: 'ZONE 1.B2',
-                  className: "JH_1_B2-6",
                   isSelected: false
                 },
                 {
@@ -7977,11 +7932,6 @@ export class RequestService {
                   className: "JH_1_B3-2",
                   isSelected: false
                 },
-                {
-                  value: 'ZONE 1.B3',
-                  className: "JH_1_B3-3",
-                  isSelected: false
-                },
           ]
         },
 
@@ -8010,11 +7960,6 @@ export class RequestService {
               {
                 value: 'EL01',
                 className: "JH_M_A1-3",
-                isSelected: false
-              },
-              {
-                value: 'ZONE M.A1',
-                className: "JH_M_A1-4",
                 isSelected: false
               },
               {
@@ -8053,11 +7998,6 @@ export class RequestService {
               isSelected: false
             },
             {
-              value: 'ZONE M.A2',
-              className: "JH_M_A2-4",
-              isSelected: false
-            },
-            {
               value: 'S.004-B',
               className: "JH_M_A2-5",
               isSelected: false
@@ -8068,11 +8008,6 @@ export class RequestService {
         {
           floorName: 'Zone M.A3',
           zoneSubList: [
-              {
-                value: 'ZONE M.A3',
-                className: "JH_M_A3-1",
-                isSelected: false
-              },
               {
                 value: 'S.104.2',
                 className: "JH_M_A3-2",
@@ -8098,7 +8033,7 @@ export class RequestService {
                 isSelected: false
               },
               {
-                value: 'R_West',
+                value: 'Roof West',
                 className: "JH_R_West-2",
                 isSelected: false
               },
@@ -8113,7 +8048,7 @@ export class RequestService {
               isSelected: false
             },
             {
-              value: 'R_East',
+              value: 'Roof East',
               className: "JH_R_East-2",
               isSelected: false
             },
@@ -15598,11 +15533,6 @@ export class RequestService {
                 isSelected: false
               },
               {
-                value: 'ZONE 0.A1',
-                className: "JH_0_A1-8",
-                isSelected: false
-              },
-              {
                 value: 'TR02',
                 className: "JH_0_A1-9",
                 isSelected: false
@@ -15708,11 +15638,6 @@ export class RequestService {
               isSelected: false
             },
             {
-              value: 'ZONE 0.A2',
-              className: "JH_0_A2-15",
-              isSelected: false
-            },
-            {
               value: 'Storage tanks-2',
               className: "JH_0_A2-16",
               isSelected: false
@@ -15748,11 +15673,6 @@ export class RequestService {
         {
           floorName: 'Zone 0.B1',
           zoneSubList: [
-             {
-                value: 'ZONE 0.B1',
-                className: "JH_0_B1-1",
-                isSelected: false
-              },
               {
                 value: 'S.005',
                 className: "JH_0_B1-2",
@@ -15804,11 +15724,6 @@ export class RequestService {
                   isSelected: false
                 },
                 {
-                  value: 'ZONE 0.B2',
-                  className: "JH_0_B2-7",
-                  isSelected: false
-                },
-                {
                   value: 'S.003-B',
                   className: "JH_0_B2-8",
                   isSelected: false
@@ -15849,11 +15764,6 @@ export class RequestService {
               {
                 value: '1.002',
                 className: "JH_1_A1-1",
-                isSelected: false
-              },
-              {
-                value: 'ZONE 1.A1',
-                className: "JH_1_A1-2",
                 isSelected: false
               },
               {
@@ -15912,11 +15822,6 @@ export class RequestService {
               isSelected: false
             },
             {
-              value: 'ZONE 1.A2',
-              className: "JH_1_A2-7",
-              isSelected: false
-            },
-            {
               value: '1.003.A',
               className: "JH_1_A2-8",
               isSelected: false
@@ -15958,11 +15863,6 @@ export class RequestService {
           floorName: 'Zone 1.A3',
           zoneSubList: [
               {
-                value: 'ZONE 1.A3',
-                className: "JH_1_A3-1",
-                isSelected: false
-              },
-              {
                 value: '1.002.1',
                 className: "JH_1_A3-2",
                 isSelected: false
@@ -15980,11 +15880,6 @@ export class RequestService {
                 {
                   value: '1.005',
                   className: "JH_1_B1-2",
-                  isSelected: false
-                },
-                {
-                  value: 'ZONE 1.B1',
-                  className: "JH_1_B1-3",
                   isSelected: false
                 },
           ]
@@ -16015,11 +15910,6 @@ export class RequestService {
                 {
                   value: '1.003-B',
                   className: "JH_1_B2-5",
-                  isSelected: false
-                },
-                {
-                  value: 'ZONE 1.B2',
-                  className: "JH_1_B2-6",
                   isSelected: false
                 },
                 {
@@ -16067,11 +15957,6 @@ export class RequestService {
                   className: "JH_1_B3-2",
                   isSelected: false
                 },
-                {
-                  value: 'ZONE 1.B3',
-                  className: "JH_1_B3-3",
-                  isSelected: false
-                },
           ]
         },
 
@@ -16099,11 +15984,6 @@ export class RequestService {
               {
                 value: 'EL01',
                 className: "JH_M_A1-3",
-                isSelected: false
-              },
-              {
-                value: 'ZONE M.A1',
-                className: "JH_M_A1-4",
                 isSelected: false
               },
               {
@@ -16142,11 +16022,6 @@ export class RequestService {
               isSelected: false
             },
             {
-              value: 'ZONE M.A2',
-              className: "JH_M_A2-4",
-              isSelected: false
-            },
-            {
               value: 'S.004-B',
               className: "JH_M_A2-5",
               isSelected: false
@@ -16157,11 +16032,6 @@ export class RequestService {
         {
           floorName: 'Zone M.A3',
           zoneSubList: [
-              {
-                value: 'ZONE M.A3',
-                className: "JH_M_A3-1",
-                isSelected: false
-              },
               {
                 value: 'S.104.2',
                 className: "JH_M_A3-2",
@@ -16186,7 +16056,7 @@ export class RequestService {
                 isSelected: false
               },
               {
-                value: 'R_West',
+                value: 'Roof West',
                 className: "JH_R_West-2",
                 isSelected: false
               },
@@ -16201,7 +16071,7 @@ export class RequestService {
               isSelected: false
             },
             {
-              value: 'R_East',
+              value: 'Roof East',
               className: "JH_R_East-2",
               isSelected: false
             },
