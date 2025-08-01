@@ -23,7 +23,7 @@
     <mat-card-content class="card-content">
         <div>
             <form [formGroup]="PlanForm" class="example-form">
-                <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-list [cols]="gridCols" rowHeight="80px">
                     <mat-grid-tile>
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Report Type </mat-label>
@@ -47,7 +47,7 @@
                 </mat-grid-list>
 
 
-                <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-list [cols]="gridCols" rowHeight="80px">
                     <!-- <mat-grid-tile>
                        
                         <mat-form-field class="full-width" appearance="outline">
@@ -82,7 +82,7 @@
                     </mat-grid-tile>
                 </mat-grid-list>
 
-                <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-list [cols]="gridCols" rowHeight="80px">
                     <mat-grid-tile>
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Contractor </mat-label>
@@ -117,7 +117,7 @@
 
                 </mat-grid-list>
 
-                <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-list [cols]="gridCols" rowHeight="80px">
                     <mat-grid-tile>
                         <mat-form-field class="datepikr full-width" appearance="outline">
                             <mat-label>Working Date (from)</mat-label>
@@ -138,7 +138,7 @@
                     </mat-grid-tile>
                 </mat-grid-list>
 
-                <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-list [cols]="gridCols" rowHeight="80px">
                     <mat-grid-tile>
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Start Time</mat-label>
@@ -160,7 +160,7 @@
                 </mat-grid-list>
 
 
-                <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-list [cols]="gridCols" rowHeight="80px">
 
                     <!-- level -->
                     <mat-grid-tile>

@@ -86,3 +86,90 @@ cursor: pointer;
     display: flex!important;
     align-items: center!important;
 }
+.full-width {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+.edit-field{
+    width: 50% !important;
+  }
+.mat-card>:first-child, .mat-card-content>:first-child {
+margin-top: 15px;
+  }
+
+@media (min-width: 320px) and (max-width: 600px) {
+  :host ::ng-deep .mat-form-field {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;    
+  }
+
+  .card-content{
+    padding: 30px 15px;
+  }
+  .mat-form-field{ 
+    padding-right: 10px;
+  }
+  .upload-div-sty{
+    height: 90px;
+  }
+  .edit-field{
+    width: 58% !important;
+  }
+    ngx-datatable /deep/ .datatable-footer {
+    height: 100px !important;
+    font-size: 12px !important;
+    padding-top: 25px !important;
+    font-weight: bold !important;
+    color: #000 !important;
+  }
+
+  ngx-datatable /deep/ .datatable-footer .page-count {
+    font-size: 10px !important;
+    padding: 0px !important;
+    margin-left: 10px !important;
+      font-weight: bold !important;
+  color: #000 !important;
+  }
+
+  ngx-datatable /deep/ .datatable-footer .pager {
+    padding: 4px !important;
+  }
+
+  ::ng-deep .ngx-datatable.material .datatable-footer .datatable-pager a {
+  min-width: 20px !important;
+  padding: 0 2px !important;
+  margin: 6px 0px !important;
+  font-weight: bold !important;
+  color: #000 !important;
+}
+body{
+    cursor: pointer !important;
+}
+
+}
+@media (min-width: 600px) and (max-width: 1024px) {
+  ::ng-deep .ngx-datatable.material .datatable-footer .datatable-pager a {
+  min-width: 20px !important;
+  padding: 0 2px !important;
+  margin: 6px 0px !important;
+  font-weight: bold !important;
+  color: #000 !important;
+}
+  ngx-datatable /deep/ .datatable-footer .page-count {
+    font-size: 10px !important;
+    padding: 0px !important;
+    margin-left: 10px !important;
+      font-weight: bold !important;
+  color: #000 !important;
+  }
+
+  ngx-datatable /deep/ .datatable-footer {
+    font-weight: bold !important;
+    color: #000 !important;
+  }
+
+}

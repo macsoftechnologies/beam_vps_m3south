@@ -394,6 +394,9 @@ export class ListRequestComponent implements OnInit {
   
   private allRooms: RoomGroup[] = [];
   private allFloors: { buildingId: number; floorName: string }[] = [];
+
+  gridCols = 2;
+  
   constructor(
     private dialog: MatDialog,
     private snack: MatSnackBar,
@@ -415,6 +418,11 @@ export class ListRequestComponent implements OnInit {
   }
 
   ngOnInit() {    
+
+     this.breakpointObserver.observe(['(max-width: 599px)']) // 👈 custom mobile-only query
+      .subscribe(result => {
+        this.gridCols = result.matches ? 1 : 2;
+      });
    
     this.breakpointObserver.observe([
       Breakpoints.XSmall,

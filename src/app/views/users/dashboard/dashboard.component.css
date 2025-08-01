@@ -52,7 +52,7 @@
     display: none;
 }
 
-@media only screen and (max-width: 468px) and (min-width: 360px){
+@media only screen and (max-width: 468px) and (min-width: 320px){
     .dwn-btn-web{
         display: none;
     }
@@ -64,5 +64,9 @@
     }
     .forward-btn-res{
         display: flex;
+    }
+    .chart-dashboard{
+        margin-left: 30px;
+        margin-bottom: 20px;
     }
 }

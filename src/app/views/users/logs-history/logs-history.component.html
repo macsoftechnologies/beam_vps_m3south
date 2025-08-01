@@ -5,7 +5,7 @@
         <button class="download_btn_sty" mat-raised-button color="primary" (click)="exportToExcel()">Download</button>
       </div> -->
     <!-- ngx data table used to be there -->
-    <mat-grid-list cols="2" rowHeight="80px">
+    <mat-grid-list [cols]="gridCols" rowHeight="80px">
       <mat-grid-tile>
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Enter Permit number </mat-label>

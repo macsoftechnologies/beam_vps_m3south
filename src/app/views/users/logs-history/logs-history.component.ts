@@ -6,6 +6,7 @@ import { RequestService } from 'app/shared/services/request.service';
 import { LogHistoryModelComponent } from 'app/views/Models/log-history-model/log-history-model.component';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 
 @Component({
@@ -25,10 +26,17 @@ export class LogsHistoryComponent implements OnInit {
   currentPage : any;
   searchedPermitNumber: string;
   private searchSubject = new Subject<string>();
-
-  constructor(private logsService: LogsService, private jwtauth: JwtAuthService, private requestservice: RequestService,  private dialog: MatDialog,) { }
+  gridCols = 2;
+  constructor(private logsService: LogsService, private jwtauth: JwtAuthService, private requestservice: RequestService,  private dialog: MatDialog,private breakpointObserver: BreakpointObserver,) { }
 
   ngOnInit(): void {
+
+       this.breakpointObserver.observe(['(max-width: 599px)']) // 👈 custom mobile-only query
+      .subscribe(result => {
+        this.gridCols = result.matches ? 1 : 2;
+      });
+
+
     // this.GetAllLogsHistory();
     this.isUserLoggedIn = JSON.parse(localStorage.getItem('m3south_EGRET_USER'));
     this.currentPage = 1;

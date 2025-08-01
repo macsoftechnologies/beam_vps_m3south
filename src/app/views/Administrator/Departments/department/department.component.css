@@ -1,30 +1,49 @@
-.butns
-{
-    float: right;
+.butns {
+  float: right;
 }
-.mat-form-field
-  {
-    width: 100%;
-    padding-right: 30px; 
-  }
+.mat-form-field {
+  width: 100%;
+  padding-right: 30px;
+}
 
-  .matrequest{
-    width: 35% !important;
-    padding: 0px !important; 
-    
-  }
-  .card-content{
-    padding: 30px;
-  }
-  .butns-grp
-  {
-    margin-right: 10px;
-  }
+.matrequest {
+  width: 35% !important;
+  padding: 0px !important;
+}
+.card-content {
+  padding: 30px;
+}
+.butns-grp {
+  margin-right: 10px;
+}
 
-  @media only screen and (max-width: 468px) and (min-width: 360px){
+:host ::ng-deep {
+  @media (min-width: 320px) and (max-width: 600px) {
+    .full-width {
+      width: 100% !important;
+    }
+
+    mat-grid-tile {
+      width: 100% !important;
+      display: block;
+    }
+
+    mat-grid-list {
+      display: block !important;
+    }
+    .card-content {
+      padding: 30px 13px;
+    }
+    .mat-form-field {
+      padding-right: 0px !important;
+    }
+  }
+}
+
+/* @media only screen and (max-width: 468px) and (min-width: 360px){
     .mat-form-field
   {
     width: 100%;
     padding-right: 0px!important; 
   }
-  }
+  } */

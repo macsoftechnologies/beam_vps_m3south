@@ -41,10 +41,29 @@
   display: none;
 }
 
-@media only screen and (max-width: 468px) and (min-width: 360px){
+/* @media only screen and (max-width: 468px) and (min-width: 360px){
   .mat-form-field
 {
   width: 100%;
   padding-right: 0px!important; 
 }
+} */
+ .full-width {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+ @media (min-width: 320px) and (max-width: 599px) {
+  .card-content{
+    padding: 30px 15px;
+  }
+  .mat-form-field{
+    padding-right: 10px;
+  }
+  .upload-div-sty{
+    height: 90px;
+  }
 }

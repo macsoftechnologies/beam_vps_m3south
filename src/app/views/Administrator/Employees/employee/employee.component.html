@@ -7,7 +7,7 @@
 
         <mat-card-content class="card-content">
             <form [formGroup]="EmployeeForm" class="example-form">
-                <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-list [cols]="gridCols" rowHeight="80px">
                     <mat-grid-tile>
                         <mat-form-field appearance="outline" class="full-width">
                             <mat-label>Employee Badge Id</mat-label>
@@ -22,7 +22,7 @@
                     </mat-grid-tile>
                 </mat-grid-list>
 
-                <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-list [cols]="gridCols" rowHeight="80px">
                     <mat-grid-tile>
                         <mat-form-field appearance="outline" class="full-width">
                             <mat-label>Designation</mat-label>
@@ -43,7 +43,7 @@
                         </mat-form-field>
                     </mat-grid-tile>
                 </mat-grid-list>
-                <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-list [cols]="gridCols" rowHeight="80px">
                     <mat-grid-tile>
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Select Role</mat-label>
@@ -99,7 +99,7 @@
                     </mat-grid-tile>
                 </mat-grid-list>
 
-                <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-list [cols]="gridCols" rowHeight="80px">
                     <!-- <mat-grid-tile>
                         <mat-slide-toggle [checked]="useraccess" (change)="toggle($event)">Access</mat-slide-toggle>
                     </mat-grid-tile> -->
@@ -134,7 +134,7 @@
                     </mat-grid-tile>
                 </mat-grid-list>
 
-                <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-list [cols]="gridCols" rowHeight="80px">
                     <mat-grid-tile>
                         <mat-slide-toggle [checked]="useraccess" (change)="toggle($event)">Access</mat-slide-toggle>
                     </mat-grid-tile>
@@ -147,7 +147,7 @@
                     </mat-grid-tile>
                 </mat-grid-list>
 
-                <mat-grid-list cols="2" rowHeight="80px" *ngIf="useraccess">
+                <mat-grid-list [cols]="gridCols" rowHeight="80px" *ngIf="useraccess">
                     <mat-grid-tile>
                         <mat-form-field appearance="outline" class="full-width">
                             <mat-label>UserName</mat-label>

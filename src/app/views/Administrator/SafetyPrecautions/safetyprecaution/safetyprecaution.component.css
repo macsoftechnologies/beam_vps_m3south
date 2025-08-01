@@ -47,3 +47,11 @@ form .mat-grid-list {
   {
     height: 50px;
   }
+
+  :host ::ng-deep {
+  @media (min-width: 320px) and (max-width: 600px) {
+    .card-content{
+    padding: 0px !important;
+  }
+  }
+}

@@ -4102,16 +4102,6 @@ input {
   height: calc(85px) !important;
 }
 
-/* new Css */
-/* ground-floor */
-.jf-ground-zoneA {
-  position: absolute;
-  top: 22%;
-  right: 16%;
-  z-index: 9999;
-  height: 161px;
-  width: 85px;
-}
 
 /* 
 .jf-ground-zoneA:hover {
@@ -5541,6 +5531,7 @@ input {
 }
  
 /* JH-roof Floor...................end */
+
 
 
 
@@ -24633,6 +24624,315 @@ input {
 
 /* JG-GroundFloor...................START */
 
+/* Tablet */
+
+@media (min-width: 768px) and (max-width: 800px) {
+  .jg-ground-ZoneS_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 185px;
+    width: 55px;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 186px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 187px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 186px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 800px) and (max-width: 900px) {
+  .jg-ground-ZoneS_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 204px;
+    width: 61px;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 204px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 206px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 204px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 900px) and (max-width: 1024px) {
+  .jg-ground-ZoneS_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 171px;
+    width: 51px;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 172px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 176px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 173px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1100px) {
+  .jg-ground-ZoneS_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 194px;
+    width: 57px;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 195px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 197px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 195px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1100px) and (max-width: 1200px) {
+  .jg-ground-ZoneS_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 216px;
+    width: 62px;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 218px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 219px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 218px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1300px) {
+  .jg-ground-ZoneS_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 241px;
+    width: 69px;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 241px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 244px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 241px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1300px) and (max-width: 1400px) {
+  .jg-ground-ZoneS_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 265px;
+    width: 76px;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 266px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 274px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 267px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1400px) and (max-width: 1550px) {
+  .jg-ground-ZoneS_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 294px;
+    width: 85px;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 296px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 305px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-ground-ZoneS_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 295px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+
+/* Desktop */
+
 @media (min-width: 1550px) and (max-width: 1600px) {
   .jg-ground-ZoneS_0_X_X {
     position: absolute;
@@ -24671,7 +24971,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1600px) and (max-width: 1700px) {
   .jg-ground-ZoneS_0_X_X {
     position: absolute;
@@ -24710,7 +25009,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1700px) and (max-width: 1800px) {
   .jg-ground-ZoneS_0_X_X {
     position: absolute;
@@ -24749,7 +25047,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1800px) and (max-width: 1900px) {
   .jg-ground-ZoneS_0_X_X {
     position: absolute;
@@ -24788,7 +25085,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1900px) and (max-width: 2000px) {
   .jg-ground-ZoneS_0_X_X {
     position: absolute;
@@ -24827,7 +25123,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2000px) and (max-width: 2100px) {
   .jg-ground-ZoneS_0_X_X {
     position: absolute;
@@ -24866,7 +25161,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2100px) and (max-width: 2200px) {
   .jg-ground-ZoneS_0_X_X {
     position: absolute;
@@ -24905,7 +25199,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2200px) and (max-width: 2300px) {
   .jg-ground-ZoneS_0_X_X {
     position: absolute;
@@ -24944,7 +25237,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2300px) and (max-width: 2400px) {
   .jg-ground-ZoneS_0_X_X {
     position: absolute;
@@ -24983,7 +25275,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2400px) and (max-width: 2500px) {
   .jg-ground-ZoneS_0_X_X {
     position: absolute;
@@ -25022,7 +25313,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2500px) and (max-width: 2650px) {
   .jg-ground-ZoneS_0_X_X {
     position: absolute;
@@ -25061,7 +25351,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2650px) and (max-width: 2800px) {
   .jg-ground-ZoneS_0_X_X {
     position: absolute;
@@ -25100,7 +25389,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2800px) and (max-width: 3000px) {
   .jg-ground-ZoneS_0_X_X {
     position: absolute;
@@ -25144,6 +25432,315 @@ input {
 
 /* JG-FirstFloor...................START */
 
+/* Tablet */
+
+@media (min-width: 768px) and (max-width: 800px) {
+ .jg-first-Zone1_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 185px;
+    width: 53px;
+    padding: 0px;
+  }
+  .jg-first-Zone1_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 184px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 185px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 186px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 800px) and (max-width: 900px) {
+ .jg-first-Zone1_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 203px;
+    width: 57px;
+    padding: 0px;
+  }
+  .jg-first-Zone1_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 202px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 202px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 202px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 900px) and (max-width: 1024px) {
+ .jg-first-Zone1_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 171px;
+    width: 48px;
+    padding: 0px;
+  }
+  .jg-first-Zone1_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 170px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 171px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 171px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1100px) {
+ .jg-first-Zone1_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 195px;
+    width: 56px;
+    padding: 0px;
+  }
+  .jg-first-Zone1_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 195px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 194px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 195px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1100px) and (max-width: 1200px) {
+ .jg-first-Zone1_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 217px;
+    width: 61px;
+    padding: 0px;
+  }
+  .jg-first-Zone1_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 216px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 217px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 217px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1300px) {
+ .jg-first-Zone1_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 242px;
+    width: 69px;
+    padding: 0px;
+  }
+  .jg-first-Zone1_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 241px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 243px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 242px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1300px) and (max-width: 1400px) {
+ .jg-first-Zone1_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 267px;
+    width: 77px;
+    padding: 0px;
+  }
+  .jg-first-Zone1_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 268px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 268px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 267px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1400px) and (max-width: 1550px) {
+ .jg-first-Zone1_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 297px;
+    width: 84px;
+    padding: 0px;
+  }
+  .jg-first-Zone1_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 297px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 297px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-first-Zone1_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 297px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+
+/* Desktop */
+
 @media (min-width: 1550px) and (max-width: 1600px) {
   .jg-first-Zone1_0_X_X {
     position: absolute;
@@ -25182,7 +25779,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1600px) and (max-width: 1700px) {
   .jg-first-Zone1_0_X_X {
     position: absolute;
@@ -25221,7 +25817,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1700px) and (max-width: 1800px) {
   .jg-first-Zone1_0_X_X {
     position: absolute;
@@ -25260,7 +25855,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1800px) and (max-width: 1900px) {
   .jg-first-Zone1_0_X_X {
     position: absolute;
@@ -25299,7 +25893,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1900px) and (max-width: 2000px) {
   .jg-first-Zone1_0_X_X {
     position: absolute;
@@ -25338,7 +25931,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2000px) and (max-width: 2100px) {
   .jg-first-Zone1_0_X_X {
     position: absolute;
@@ -25377,7 +25969,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2100px) and (max-width: 2200px) {
   .jg-first-Zone1_0_X_X {
     position: absolute;
@@ -25416,7 +26007,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2200px) and (max-width: 2300px) {
   .jg-first-Zone1_0_X_X {
     position: absolute;
@@ -25455,7 +26045,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2300px) and (max-width: 2400px) {
   .jg-first-Zone1_0_X_X {
     position: absolute;
@@ -25494,7 +26083,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2400px) and (max-width: 2500px) {
   .jg-first-Zone1_0_X_X {
     position: absolute;
@@ -25533,7 +26121,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2500px) and (max-width: 2600px) {
   .jg-first-Zone1_0_X_X {
     position: absolute;
@@ -25572,7 +26159,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2600px) and (max-width: 2800px) {
   .jg-first-Zone1_0_X_X {
     position: absolute;
@@ -25611,7 +26197,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2800px) and (max-width: 3000px) {
   .jg-first-Zone1_0_X_X {
     position: absolute;
@@ -25655,6 +26240,315 @@ input {
 
 /* JG-SecondFloor...................START */
 
+/* Tablet */
+
+@media (min-width: 768px) and (max-width: 800px) {
+    .jg-second-zone2_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 187px;
+    width: 55px;
+    padding: 0px;
+  }
+  .jg-second-zone2_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 185px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-second-zone2_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 187px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-second-zone2_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 185px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 800px) and (max-width: 900px) {
+    .jg-second-zone2_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 202px;
+    width: 60px;
+    padding: 0px;
+  }
+  .jg-second-zone2_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 203px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-second-zone2_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 203px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-second-zone2_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 202px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 900px) and (max-width: 1024px) {
+    .jg-second-zone2_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 202px;
+    width: 60px;
+    padding: 0px;
+  }
+  .jg-second-zone2_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 171px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-second-zone2_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 171px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-second-zone2_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 171px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1100px) {
+    .jg-second-zone2_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 195px;
+    width: 60px;
+    padding: 0px;
+  }
+  .jg-second-zone2_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 195px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-second-zone2_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 195px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-second-zone2_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 195px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1100px) and (max-width: 1200px) {
+    .jg-second-zone2_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 217px;
+    width: 63px;
+    padding: 0px;
+  }
+  .jg-second-zone2_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 218px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-second-zone2_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 218px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-second-zone2_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 218px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1300px) {
+    .jg-second-zone2_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 242px;
+    width: 70px;
+    padding: 0px;
+  }
+  .jg-second-zone2_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 242px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-second-zone2_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 243px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-second-zone2_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 243px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1300px) and (max-width: 1400px) {
+    .jg-second-zone2_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 267px;
+    width: 77px;
+    padding: 0px;
+  }
+  .jg-second-zone2_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 267px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-second-zone2_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 267px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-second-zone2_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 267px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1400px) and (max-width: 1550px) {
+    .jg-second-zone2_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    z-index: 9999;
+    height: 294px;
+    width: 85px;
+    padding: 0px;
+  }
+  .jg-second-zone2_1_X_X {
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    z-index: 9999;
+    height: 294px;
+    width: 24.5%;
+    padding: 0px;
+  }
+  .jg-second-zone2_2_X_X {
+    position: absolute;
+    top: 27%;
+    left: 49%;
+    z-index: 9999;
+    height: 294px;
+    width: 19%;
+    padding: 0px;
+  }
+  .jg-second-zone2_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 68%;
+    z-index: 9999;
+    height: 294px;
+    width: 16.5%;
+    padding: 0px;
+  }
+}
+
+/* Desktop */
+
 @media (min-width: 1550px) and (max-width: 1600px) {
   .jg-second-zone2_0_X_X {
     position: absolute;
@@ -25693,7 +26587,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1600px) and (max-width: 1700px) {
   .jg-second-zone2_0_X_X {
     position: absolute;
@@ -25732,7 +26625,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1700px) and (max-width: 1800px) {
   .jg-second-zone2_0_X_X {
     position: absolute;
@@ -25771,7 +26663,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1800px) and (max-width: 1900px) {
   .jg-second-zone2_0_X_X {
     position: absolute;
@@ -25810,7 +26701,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1900px) and (max-width: 2000px) {
   .jg-second-zone2_0_X_X {
     position: absolute;
@@ -25849,7 +26739,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2000px) and (max-width: 2100px) {
   .jg-second-zone2_0_X_X {
     position: absolute;
@@ -25888,7 +26777,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2100px) and (max-width: 2200px) {
   .jg-second-zone2_0_X_X {
     position: absolute;
@@ -25927,7 +26815,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2200px) and (max-width: 2300px) {
   .jg-second-zone2_0_X_X {
     position: absolute;
@@ -25966,7 +26853,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2300px) and (max-width: 2400px) {
   .jg-second-zone2_0_X_X {
     position: absolute;
@@ -26005,7 +26891,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2400px) and (max-width: 2500px) {
   .jg-second-zone2_0_X_X {
     position: absolute;
@@ -26044,7 +26929,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2500px) and (max-width: 2600px) {
   .jg-second-zone2_0_X_X {
     position: absolute;
@@ -26083,7 +26967,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2600px) and (max-width: 2800px) {
   .jg-second-zone2_0_X_X {
     position: absolute;
@@ -26122,7 +27005,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2800px) and (max-width: 3000px) {
   .jg-second-zone2_0_X_X {
     position: absolute;
@@ -26165,6 +27047,151 @@ input {
 
 /* JG-ThirdFloor...................START */
 
+/* Tablet */
+@media (min-width: 768px) and (max-width: 800px) {
+    .jg-third-Zone3_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 17%;
+    z-index: 9999;
+    height: 188px;
+    width: 61px;
+    padding: 0px;
+  }
+  .jg-third-Zone3_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 66.5%;
+    z-index: 9999;
+    height: 188px;
+    width: 17.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 800px) and (max-width: 900px) {
+    .jg-third-Zone3_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 17%;
+    z-index: 9999;
+    height: 206px;
+    width: 66px;
+    padding: 0px;
+  }
+  .jg-third-Zone3_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 66.5%;
+    z-index: 9999;
+    height: 206px;
+    width: 17.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 900px) and (max-width: 1024px) {
+    .jg-third-Zone3_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 17%;
+    z-index: 9999;
+    height: 173px;
+    width: 55px;
+    padding: 0px;
+  }
+  .jg-third-Zone3_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 66.5%;
+    z-index: 9999;
+    height: 175px;
+    width: 17.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1100px) {
+    .jg-third-Zone3_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 17%;
+    z-index: 9999;
+    height: 197px;
+    width: 63px;
+    padding: 0px;
+  }
+  .jg-third-Zone3_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 66.5%;
+    z-index: 9999;
+    height: 198px;
+    width: 17.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1100px) and (max-width: 1200px) {
+    .jg-third-Zone3_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 17%;
+    z-index: 9999;
+    height: 221px;
+    width: 70px;
+    padding: 0px;
+  }
+  .jg-third-Zone3_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 66.5%;
+    z-index: 9999;
+    height: 221px;
+    width: 17.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1300px) {
+    .jg-third-Zone3_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 17%;
+    z-index: 9999;
+    height: 246px;
+    width: 78px;
+    padding: 0px;
+  }
+  .jg-third-Zone3_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 66.5%;
+    z-index: 9999;
+    height: 243px;
+    width: 17.5%;
+    padding: 0px;
+  }
+}
+@media (min-width: 1300px) and (max-width: 1400px) {
+    .jg-third-Zone3_0_X_X {
+    position: absolute;
+    top: 27%;
+    left: 17%;
+    z-index: 9999;
+    height: 271px;
+      width: 85px;
+    padding: 0px;
+  }
+  .jg-third-Zone3_3_X_X {
+    position: absolute;
+    top: 27%;
+    left: 66.5%;
+    z-index: 9999;
+    height: 243px;
+    width: 17.5%;
+    padding: 0px;
+  }
+}
+
+
+/* Desktop */
+
 @media (min-width: 1550px) and (max-width: 1600px) {
   .jg-third-Zone3_0_X_X {
     position: absolute;
@@ -26185,7 +27212,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1600px) and (max-width: 1700px) {
 
   .jg-third-Zone3_0_X_X {
@@ -26207,7 +27233,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1700px) and (max-width: 1800px) {
 
   .jg-third-Zone3_0_X_X {
@@ -26229,7 +27254,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1800px) and (max-width: 1900px) {
 
   .jg-third-Zone3_0_X_X {
@@ -26251,7 +27275,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 1900px) and (max-width: 2000px) {
 
   .jg-third-Zone3_0_X_X {
@@ -26273,7 +27296,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2000px) and (max-width: 2100px) {
 
   .jg-third-Zone3_0_X_X {
@@ -26295,7 +27317,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2100px) and (max-width: 2200px) {
 
   .jg-third-Zone3_0_X_X {
@@ -26317,7 +27338,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2200px) and (max-width: 2300px) {
 
   .jg-third-Zone3_0_X_X {
@@ -26339,7 +27359,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2300px) and (max-width: 2400px) {
 
   .jg-third-Zone3_0_X_X {
@@ -26361,7 +27380,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2400px) and (max-width: 2500px) {
 
   .jg-third-Zone3_0_X_X {
@@ -26383,7 +27401,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2500px) and (max-width: 2600px) {
 
   .jg-third-Zone3_0_X_X {
@@ -26405,7 +27422,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2600px) and (max-width: 2800px) {
 
   .jg-third-Zone3_0_X_X {
@@ -26427,7 +27443,6 @@ input {
     padding: 0px;
   }
 }
-
 @media (min-width: 2800px) and (max-width: 3000px) {
 
   .jg-third-Zone3_0_X_X {
@@ -27488,7 +28503,334 @@ input {
 }
 
 /* JG-Rooffloor...................END */
+
+
 /* JH-Ground Floor...................START */
+
+/* Tablet */
+
+@media (min-width:768px) and (max-width: 800px) {
+
+  .jh-ground-Zone0_A1 {
+    position: absolute;
+    top: 32%;
+    right: 19%;
+    z-index: 9999;
+    height: 149px;
+    width: 53px;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_A2 {
+    position: absolute;
+    top: 32%;
+    right: 33.5%;
+    z-index: 9999;
+    height: 150px;
+    width: 24%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B1 {
+    position: absolute;
+    top: 47%;
+    left: 17%;
+    z-index: 9999;
+    height: 88px;
+    width: 6.5%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B2 {
+    position: absolute;
+    top: 32%;
+    left: 23.5%;
+    z-index: 9999;
+    height: 150px;
+    width: 19%;
+    padding: 0px;
+  }
+
+}
+@media (min-width:800px) and (max-width: 900px) {
+
+  .jh-ground-Zone0_A1 {
+    position: absolute;
+    top: 32%;
+    right: 19%;
+    z-index: 9999;
+    height: 164px;
+    width: 59px;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_A2 {
+    position: absolute;
+    top: 32%;
+    right: 33.5%;
+    z-index: 9999;
+    height: 162px;
+    width: 24%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B1 {
+    position: absolute;
+    top: 47%;
+    left: 17%;
+    z-index: 9999;
+    height: 93px;
+    width: 6.5%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B2 {
+    position: absolute;
+    top: 32%;
+    left: 23.5%;
+    z-index: 9999;
+    height: 163px;
+    width: 19%;
+    padding: 0px;
+  }
+
+}
+@media (min-width:900px) and (max-width: 1024px) {
+
+  .jh-ground-Zone0_A1 {
+    position: absolute;
+    top: 32%;
+    right: 19%;
+    z-index: 9999;
+    height: 137px;
+    width: 59px;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_A2 {
+    position: absolute;
+    top: 32%;
+    right: 33.5%;
+    z-index: 9999;
+    height: 140px;
+    width: 24%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B1 {
+    position: absolute;
+    top: 47%;
+    left: 17%;
+    z-index: 9999;
+    height: 80px;
+    width: 6.5%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B2 {
+    position: absolute;
+    top: 32%;
+    left: 23.5%;
+    z-index: 9999;
+    height: 137px;
+    width: 19%;
+    padding: 0px;
+  }
+
+}
+@media (min-width:1024px) and (max-width: 1100px) {
+
+  .jh-ground-Zone0_A1 {
+    position: absolute;
+    top: 32%;
+    right: 19%;
+    z-index: 9999;
+    height: 160px;
+    width: 56px;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_A2 {
+    position: absolute;
+    top: 32%;
+    right: 33.5%;
+    z-index: 9999;
+    height: 160px;  
+    width: 24%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B1 {
+    position: absolute;
+    top: 47%;
+    left: 17%;
+    z-index: 9999;
+    height: 92px;
+    width: 6.5%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B2 {
+    position: absolute;
+    top: 32%;
+    left: 23.5%;
+    z-index: 9999;
+    height: 160px;
+    width: 19%;
+    padding: 0px;
+  }
+
+}
+@media (min-width:1100px) and (max-width: 1200px) {
+
+  .jh-ground-Zone0_A1 {
+    position: absolute;
+    top: 32%;
+    right: 19%;
+    z-index: 9999;
+    height: 174px;
+    width: 56px;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_A2 {
+    position: absolute;
+    top: 32%;
+    right: 33.5%;
+    z-index: 9999;
+    height: 174px; 
+    width: 24%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B1 {
+    position: absolute;
+    top: 47%;
+    left: 17%;
+    z-index: 9999;
+    height: 103px;
+    width: 6.5%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B2 {
+    position: absolute;
+    top: 32%;
+    left: 23.5%;
+    z-index: 9999;
+    height: 175px;
+    width: 19%;
+    padding: 0px;
+  }
+
+}
+@media (min-width:1200px) and (max-width: 1300px) {
+
+  .jh-ground-Zone0_A1 {
+    position: absolute;
+    top: 32%;
+    right: 19%;
+    z-index: 9999;
+    height: 195px;
+    width: 70px;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_A2 {
+    position: absolute;
+    top: 32%;
+    right: 33.5%;
+    z-index: 9999;
+    height: 195px;
+    width: 24%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B1 {
+    position: absolute;
+    top: 47%;
+    left: 17%;
+    z-index: 9999;
+    height: 113px;
+    width: 6.5%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B2 {
+    position: absolute;
+    top: 32%;
+    left: 23.5%;
+    z-index: 9999;
+    height: 195px;
+    width: 19%;
+    padding: 0px;
+  }
+
+}
+@media (min-width:1300px) and (max-width: 1400px) {
+
+  .jh-ground-Zone0_A1 {
+    position: absolute;
+    top: 32%;
+    right: 19%;
+    z-index: 9999;
+    height: 213px;
+    width: 74px;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_A2 {
+    position: absolute;
+    top: 32%;
+    right: 33.5%;
+    z-index: 9999;
+    height: 217px;
+    width: 24%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B1 {
+    position: absolute;
+    top: 47%;
+    left: 17%;
+    z-index: 9999;
+    height: 127px;
+    width: 6.5%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B2 {
+    position: absolute;
+    top: 32%;
+    left: 23.5%;
+    z-index: 9999;
+    height: 216px;
+    width: 19%;
+    padding: 0px;
+  }
+
+}
+@media (min-width:1400px) and (max-width: 1550px) {
+
+  .jh-ground-Zone0_A1 {
+    position: absolute;
+    top: 32%;
+    right: 19%;
+    z-index: 9999;
+    height: 234px;
+    width: 83px;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_A2 {
+    position: absolute;
+    top: 32%;
+    right: 33.5%;
+    z-index: 9999;
+    height: 237px;
+    width: 24%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B1 {
+    position: absolute;
+    top: 47%;
+    left: 17%;
+    z-index: 9999;
+    height: 140px;
+    width: 6.5%;
+    padding: 0px;
+  }
+  .jh-ground-Zone0_B2 {
+    position: absolute;
+    top: 32%;
+    left: 23.5%;
+    z-index: 9999;
+    height: 237px;
+    width: 19%;
+    padding: 0px;
+  }
+
+}
+
+/* Desktop */
 
 @media (min-width: 1550px) and (max-width: 1600px) {
 
@@ -27974,6 +29316,475 @@ input {
 
 
 /* JH - 1st Floor...................START */
+
+/* Tablet */
+
+@media (min-width:768px) and (max-width: 800px) {
+
+.jh-first-Zone1_A1 {
+  position: absolute;
+  top: 47%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 88px;
+  width: 12.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_A2 {
+  position: absolute;
+  top: 32%;
+  right: 38.5%;
+  z-index: 9999;
+  height: 152px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_A3 {
+  position: absolute;
+  top: 32%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 64px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_B1 {
+  position: absolute;
+  top: 54.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 57px;
+  width: 6.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_B2 {
+  position: absolute;
+  top: 31.5%;
+  left: 23.5%;
+  z-index: 9999;
+  height: 152px;
+  width: 13%;
+  padding: 0px;
+}
+.jh-first-Zone1_B3 {
+  position: absolute;
+  top: 32.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 61px;
+  width: 6.5%;
+  padding: 0px;
+}
+  
+}
+@media (min-width:800px) and (max-width: 900px) {
+
+.jh-first-Zone1_A1 {
+  position: absolute;
+  top: 47%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 97px;
+  width: 12.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_A2 {
+  position: absolute;
+  top: 32%;
+  right: 38.5%;
+  z-index: 9999;
+  height: 166px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_A3 {
+  position: absolute;
+  top: 32%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 64px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_B1 {
+  position: absolute;
+  top: 54.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 57px;
+  width: 6.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_B2 {
+  position: absolute;
+  top: 31.5%;
+  left: 23.5%;
+  z-index: 9999;
+  height: 168px;
+  width: 13%;
+  padding: 0px;
+}
+.jh-first-Zone1_B3 {
+  position: absolute;
+  top: 32.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 68px;
+  width: 6.5%;
+  padding: 0px;
+}
+  
+}
+@media (min-width:900px) and (max-width: 1024px) {
+
+.jh-first-Zone1_A1 {
+  position: absolute;
+  top: 47%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 80px;
+  width: 12.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_A2 {
+  position: absolute;
+  top: 32%;
+  right: 38.5%;
+  z-index: 9999;
+  height: 138px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_A3 {
+  position: absolute;
+  top: 32%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 64px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_B1 {
+  position: absolute;
+  top: 53.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 53px;
+  width: 6.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_B2 {
+  position: absolute;
+  top: 31.5%;
+  left: 23.5%;
+  z-index: 9999;
+  height: 141px;
+  width: 13%;
+  padding: 0px;
+}
+.jh-first-Zone1_B3 {
+  position: absolute;
+  top: 32.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 56px;
+  width: 6.5%;
+  padding: 0px;
+}
+  
+}
+@media (min-width:1024px) and (max-width: 1100px) {
+
+.jh-first-Zone1_A1 {
+  position: absolute;
+  top: 47%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 92px;
+  width: 12.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_A2 {
+  position: absolute;
+  top: 32%;
+  right: 38.5%;
+  z-index: 9999;
+  height: 157px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_A3 {
+  position: absolute;
+  top: 32%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 64px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_B1 {
+  position: absolute;
+  top: 53.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 62px;
+  width: 6.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_B2 {
+  position: absolute;
+  top: 31.5%;
+  left: 23.5%;
+  z-index: 9999;
+  height: 161px;
+  width: 13%;
+  padding: 0px;
+}
+.jh-first-Zone1_B3 {
+  position: absolute;
+  top: 32.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 63px;
+  width: 6.5%;
+  padding: 0px;
+}
+  
+}
+@media (min-width:1100px) and (max-width: 1200px) {
+
+.jh-first-Zone1_A1 {
+  position: absolute;
+  top: 47%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 100px;
+  width: 12.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_A2 {
+  position: absolute;
+  top: 32%;
+  right: 38.5%;
+  z-index: 9999;
+  height: 177px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_A3 {
+  position: absolute;
+  top: 32%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 73px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_B1 {
+  position: absolute;
+  top: 53.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 67px;
+  width: 6.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_B2 {
+  position: absolute;
+  top: 31.5%;
+  left: 23.5%;
+  z-index: 9999;
+  height: 178px;
+  width: 13%;
+  padding: 0px;
+}
+.jh-first-Zone1_B3 {
+  position: absolute;
+  top: 32.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 70px;
+  width: 6.5%;
+  padding: 0px;
+}
+  
+}
+@media (min-width:1200px) and (max-width: 1300px) {
+
+.jh-first-Zone1_A1 {
+  position: absolute;
+  top: 47%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 111px;
+  width: 12.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_A2 {
+  position: absolute;
+  top: 32%;
+  right: 38.5%;
+  z-index: 9999;
+  height: 195px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_A3 {
+  position: absolute;
+  top: 32%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 73px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_B1 {
+  position: absolute;
+  top: 53.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 76px;
+  width: 6.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_B2 {
+  position: absolute;
+  top: 31.5%;
+  left: 23.5%;
+  z-index: 9999;
+  height: 200px;
+  width: 13%;
+  padding: 0px;
+}
+.jh-first-Zone1_B3 {
+  position: absolute;
+  top: 32.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 80px;
+  width: 6.5%;
+  padding: 0px;
+}
+  
+}
+@media (min-width:1300px) and (max-width: 1400px) {
+
+.jh-first-Zone1_A1 {
+  position: absolute;
+  top: 47%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 121px;
+  width: 12.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_A2 {
+  position: absolute;
+  top: 32%;
+  right: 38.5%;
+  z-index: 9999;
+  height: 215px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_A3 {
+  position: absolute;
+  top: 32%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 91px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_B1 {
+  position: absolute;
+  top: 53.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 89px;
+  width: 6.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_B2 {
+  position: absolute;
+  top: 31.5%;
+  left: 23.5%;
+  z-index: 9999;
+  height: 219px;
+  width: 13%;
+  padding: 0px;
+}
+.jh-first-Zone1_B3 {
+  position: absolute;
+  top: 32.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 87px;
+  width: 6.5%;
+  padding: 0px;
+}
+  
+}
+@media (min-width:1400px) and (max-width: 1550px) {
+
+.jh-first-Zone1_A1 {
+  position: absolute;
+  top: 47%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 136px;
+  width: 12.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_A2 {
+  position: absolute;
+  top: 32%;
+  right: 38.5%;
+  z-index: 9999;
+  height: 239px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_A3 {
+  position: absolute;
+  top: 32%;
+  right: 19.5%;
+  z-index: 9999;
+  height: 96px;
+  width: 19%;
+  padding: 0px;
+}
+.jh-first-Zone1_B1 {
+  position: absolute;
+  top: 53.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 89px;
+  width: 6.5%;
+  padding: 0px;
+}
+.jh-first-Zone1_B2 {
+  position: absolute;
+  top: 31.5%;
+  left: 23.5%;
+  z-index: 9999;
+  height: 241px;
+  width: 13%;
+  padding: 0px;
+}
+.jh-first-Zone1_B3 {
+  position: absolute;
+  top: 32.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 97px;
+  width: 6.5%;
+  padding: 0px;
+}
+  
+}
+
+/* Desktop */
 
 @media (min-width: 1600px) and (max-width: 1700px) {
 
@@ -28676,6 +30487,243 @@ input {
 
 /* JH - Mezzanine Floor...................START */
 
+/* Tablet */
+
+@media (min-width:768px) and (max-width: 800px) {
+ .jh-mezzanine-ZoneM_A1 {
+  position: absolute;
+  top: 46.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 84px;
+  width: 14.5%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A2 {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 63px;
+  width: 14.5%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A3 {
+  position: absolute;
+  top: 31.5%;
+  right: 33.5%;
+  z-index: 9999;
+  height: 65px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width:800px) and (max-width: 900px) {
+ .jh-mezzanine-ZoneM_A1 {
+  position: absolute;
+  top: 46.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 95px;
+  width: 14.5%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A2 {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 72px;
+  width: 15%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A3 {
+  position: absolute;
+  top: 31.5%;
+  right: 33.5%;
+  z-index: 9999;
+  height: 70px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width:900px) and (max-width: 1024px) {
+ .jh-mezzanine-ZoneM_A1 {
+  position: absolute;
+  top: 46.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 81px;
+  width: 14.5%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A2 {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 61px;
+  width: 15%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A3 {
+  position: absolute;
+  top: 31.5%;
+  right: 33.5%;
+  z-index: 9999;
+  height: 60px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width:1024px) and (max-width: 1100px) {
+ .jh-mezzanine-ZoneM_A1 {
+  position: absolute;
+  top: 46.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 91px;
+  width: 14.5%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A2 {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 69px;
+  width: 15%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A3 {
+  position: absolute;
+  top: 31.5%;
+  right: 33.5%;
+  z-index: 9999;
+  height: 66px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width:1100px) and (max-width: 1200px) {
+ .jh-mezzanine-ZoneM_A1 {
+  position: absolute;
+  top: 46.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 101px;
+  width: 14.5%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A2 {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 75px;
+  width: 15%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A3 {
+  position: absolute;
+  top: 31.5%;
+  right: 33.5%;
+  z-index: 9999;
+  height: 74px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width:1200px) and (max-width: 1300px) {
+ .jh-mezzanine-ZoneM_A1 {
+  position: absolute;
+  top: 46.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 117px;
+  width: 14.5%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A2 {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 85px;
+  width: 15%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A3 {
+  position: absolute;
+  top: 31.5%;
+  right: 33.5%;
+  z-index: 9999;
+  height: 86px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width:1300px) and (max-width: 1400px) {
+ .jh-mezzanine-ZoneM_A1 {
+  position: absolute;
+  top: 46.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 117px;
+  width: 14.5%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A2 {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 91px;
+  width: 15%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A3 {
+  position: absolute;
+  top: 31.5%;
+  right: 33.5%;
+  z-index: 9999;
+  height: 92px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width:1400px) and (max-width: 1550px) {
+ .jh-mezzanine-ZoneM_A1 {
+  position: absolute;
+  top: 46.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 143px;
+  width: 14.5%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A2 {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 103px;
+  width: 15%;
+  padding: 0px;
+}
+.jh-mezzanine-ZoneM_A3 {
+  position: absolute;
+  top: 31.5%;
+  right: 33.5%;
+  z-index: 9999;
+  height: 102px;
+  width: 5%;
+  padding: 0px;
+}
+}
+
+/* Desktop */
+
 @media (min-width: 1600px) and (max-width: 1700px) {
 
   .jh-mezzanine-ZoneM_A1 {
@@ -29071,6 +31119,180 @@ input {
 
 /* JH - JH - Roof Floor...................START */
 
+
+/* Tablet */
+
+@media (min-width:768px) and (max-width: 800px) {
+
+.jh-roof-ZoneR_East {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 153px;
+  width: 32%;
+  padding: 0px;
+}
+.jh-roof-ZoneR_West {
+  position: absolute;
+  top: 31.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 275px;
+  width: 32%;
+  padding: 0px;
+}
+}
+@media (min-width:800px) and (max-width: 900px) {
+
+.jh-roof-ZoneR_East {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 166px;
+  width: 32%;
+  padding: 0px;
+}
+.jh-roof-ZoneR_West {
+  position: absolute;
+  top: 31.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 166px;
+  width: 32%;
+  padding: 0px;
+}
+}
+@media (min-width:900px) and (max-width: 1024px) {
+
+.jh-roof-ZoneR_East {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 188px;
+  width: 32%;
+  padding: 0px;
+}
+.jh-roof-ZoneR_West {
+  position: absolute;
+  top: 31.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 185px;
+  width: 32%;
+  padding: 0px;
+}
+}
+@media (min-width:1024px) and (max-width: 1100px) {
+
+.jh-roof-ZoneR_East {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 160px;
+  width: 32%;
+  padding: 0px;
+}
+.jh-roof-ZoneR_West {
+  position: absolute;
+  top: 31.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 161px;
+  width: 32%;
+  padding: 0px;
+}
+}
+@media (min-width:1100px) and (max-width: 1200px) {
+
+.jh-roof-ZoneR_East {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 176px;
+  width: 32%;
+  padding: 0px;
+}
+.jh-roof-ZoneR_West {
+  position: absolute;
+  top: 31.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 176px;
+  width: 32%;
+  padding: 0px;
+}
+}
+@media (min-width:1200px) and (max-width: 1300px) {
+
+.jh-roof-ZoneR_East {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 195px;
+  width: 32%;
+  padding: 0px;
+}
+.jh-roof-ZoneR_West {
+  position: absolute;
+  top: 31.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 197px;
+  width: 32%;
+  padding: 0px;
+}
+}
+@media (min-width:1300px) and (max-width: 1400px) {
+
+.jh-roof-ZoneR_East {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 214px;
+  width: 32%;
+  padding: 0px;
+}
+.jh-roof-ZoneR_West {
+  position: absolute;
+  top: 31.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 217px;
+  width: 32%;
+  padding: 0px;
+}
+}
+@media (min-width:1400px) and (max-width: 1550px) {
+
+.jh-roof-ZoneR_East {
+  position: absolute;
+  top: 31.5%;
+  right: 19%;
+  z-index: 9999;
+  height: 237px;
+  width: 32%;
+  padding: 0px;
+}
+.jh-roof-ZoneR_West {
+  position: absolute;
+  top: 31.5%;
+  left: 17%;
+  z-index: 9999;
+  height: 242px;
+  width: 32%;
+  padding: 0px;
+}
+}
+
+/* Desktop */
+
 @media (min-width: 1600px) and (max-width: 1700px) {
 
   .jh-roof-ZoneR_East {
@@ -29368,6 +31590,46 @@ input {
 
 /* JH - JH - Roof Floor...................END */
 
+@media (min-width: 320px) and (max-width: 600px) {
+  :host ::ng-deep .matrequest {
+    width: 100% !important;
+    padding: 0px !important;
+  }
+  .card-content {
+  padding: 15px;
+  }
+    .submit-btn {
+    position: absolute;
+    bottom: -33px;
+    right: 0px;
+  }
+}
+@media (min-width: 600px) and (max-width: 1024px) {
+  :host ::ng-deep .matrequest {
+    width: 55% !important;
+    padding: 0px !important;
+  }
+  .card-content {
+  padding: 15px;
+  }
+    .submit-btn {
+    position: absolute;
+    bottom: -33px;
+    right: 0px;
+  }
+}
+
+
+/* new Css */
+/* ground-floor */
+.jf-ground-zoneA {
+  position: absolute;
+  top: 22%;
+  right: 16%;
+  z-index: 9999;
+  height: 161px;
+  width: 85px;
+}
 
 
 /* MR-Background CSS END */

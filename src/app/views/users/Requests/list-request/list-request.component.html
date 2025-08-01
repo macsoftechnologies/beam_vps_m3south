@@ -67,7 +67,7 @@
           </mat-grid-tile>
         </mat-grid-list> -->
 
-      <mat-grid-list cols="2" rowHeight="80px">
+      <mat-grid-list [cols]="gridCols" rowHeight="80px">
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Contractor</mat-label>
@@ -103,7 +103,7 @@
           </mat-form-field>
         </mat-grid-tile>
       </mat-grid-list>
-      <mat-grid-list cols="2" rowHeight="80px">
+      <mat-grid-list [cols]="gridCols" rowHeight="80px">
         <mat-grid-tile>
           <mat-form-field class="datepikr full-width" appearance="outline">
             <mat-label>Working Date (from)</mat-label>
@@ -124,7 +124,7 @@
         </mat-grid-tile>
       </mat-grid-list>
 
-      <mat-grid-list cols="2" rowHeight="80px">
+      <mat-grid-list [cols]="gridCols" rowHeight="80px">
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Activity</mat-label>
@@ -139,7 +139,7 @@
         </mat-grid-tile>
       </mat-grid-list>
 
-      <mat-grid-list cols="2" rowHeight="80px">
+      <mat-grid-list [cols]="gridCols" rowHeight="80px">
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Level</mat-label>
@@ -188,7 +188,7 @@
 
       </mat-grid-list>
 
-      <mat-grid-list cols="2" rowHeight="80px">
+      <mat-grid-list [cols]="gridCols" rowHeight="80px">
 
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
@@ -235,7 +235,7 @@
 </mat-card>
 
 <mat-card class="p-0">
-  <mat-card-content class="p-0">
+  <mat-card-content  class="p-0">
     <!-- <div *ngIf='items.length>0'>
       <button class="download_btn_sty" mat-raised-button color="primary" (click)="exportToExcel()">Download</button>
     </div> -->
@@ -246,7 +246,7 @@
       <button mat-raised-button class="span-rejc" (click)="statuschange('Rejected')">
         Rejected
       </button>
-      <mat-form-field appearance="outline" *ngIf="selected.length > 0">
+      <mat-form-field class="edit-field"  appearance="outline" *ngIf="selected.length > 0">
         <mat-label>Edit</mat-label>
         <mat-select name="editmult" (selectionChange)="Getselected($event.value)">
           <mat-option value="none">None</mat-option>
