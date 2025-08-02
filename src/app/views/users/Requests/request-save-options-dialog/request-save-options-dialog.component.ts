@@ -82,13 +82,15 @@ export class RequestSaveOptionsDialogComponent implements OnInit {
     this.UpdateRequestStatusList.createdTime = `${currentDenmarkDate}, ${currentDenmarkTime}`;
 
     if (this.statusApprovedForm.get('ConM_initials').valid) {
-      if(this.statusApprovedForm.value.ConM_initials != null) {
       this.UpdateRequestStatusList.ConM_initials = this.statusApprovedForm.value.ConM_initials;
-      }
-    }
+    } else {
+  delete this.UpdateRequestStatusList.ConM_initials; // Remove if empty
+}
     if(this.statusApprovedForm.get('reject_reason').valid) {
       this.UpdateRequestStatusList.reject_reason = this.statusApprovedForm.value.reject_reason;
-    }
+    } else {
+  delete this.UpdateRequestStatusList.reject_reason; // Remove if empty
+}
 
     this.reqservice.UpdateListStatusRequest(this.UpdateRequestStatusList).subscribe(res => {
       this.openSnackBar("Requests Status Updated Successfully");

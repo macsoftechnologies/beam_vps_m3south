@@ -1181,7 +1181,7 @@ this.SearchRequest.area = formattedArea || "";
     let title = 'Request Status Change ';
     let type = status;
     if (status == 'Opened') {
-      var currentdate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+      var currentdate = config.getDenmarkTime.date();
       var mydate = this.datePipe.transform(row['Working_Date'], 'yyyy-MM-dd');
       if (currentdate === mydate) {
         let dialogRef: MatDialogRef<any> = this.dialog.open(

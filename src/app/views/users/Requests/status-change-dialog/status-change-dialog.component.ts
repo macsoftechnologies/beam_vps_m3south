@@ -19,6 +19,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 })
 export class StatusChangeDialogComponent implements OnInit {
   updaterequestdata: EditRequestDto = {
+    Request_status1: null,
     userId: null,
     Request_Date: null,
     Company_Name: null,
@@ -311,6 +312,7 @@ export class StatusChangeDialogComponent implements OnInit {
     this.updaterequestdata.Working_Date = this.data["payload"]["Working_Date"];
     this.updaterequestdata.id = this.data["payload"]["id"];
     this.updaterequestdata.rams_number = this.data["payload"]["rams_number"];
+    this.updaterequestdata.Request_status1 = "";
 
     // new keys added
 

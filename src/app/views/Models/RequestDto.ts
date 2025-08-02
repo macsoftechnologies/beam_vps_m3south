@@ -165,6 +165,7 @@ export class FilesRequestDto {
 }
 
 export class EditRequestDto {
+    Request_status1: any;
     userId: string;
     Request_Date: string;
     Company_Name: string;

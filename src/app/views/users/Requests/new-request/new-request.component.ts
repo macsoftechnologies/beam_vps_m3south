@@ -543,6 +543,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   updaterequestdata: EditRequestDto = {
+    Request_status1: null,
     userId: null,
     Request_Date: null,
     Company_Name: null,
@@ -1672,6 +1673,10 @@ export class NewRequestComponent implements OnInit {
       respiratory_protection: ["", Validators.required],
       other_ppe: ["", Validators.required],
 
+      ConM_initials: ["",],
+      ConM_initials1: ["",],
+      cancel_reason: ["",],
+      reject_reason: ["",],
 
       //AccesstoOtherRoom:this.AccesstoroomControl,
       //Keysneeded:this.KeysneedControl,
@@ -3348,9 +3353,11 @@ export class NewRequestComponent implements OnInit {
       // this.updaterequestdata.Safety_Precautions =  badarray.toString();
       if (this.NewRequestData.Request_status == "Draft") {
         this.updaterequestdata.Request_status = "Hold";
+        this.updaterequestdata.Request_status1 = "";
       } else {
         this.updaterequestdata.Request_status =
           this.RequestForm.controls["Status"].value;
+          this.updaterequestdata.Request_status1 = 1;
       }
 
       var badarray = [];
@@ -3561,7 +3568,7 @@ export class NewRequestComponent implements OnInit {
       this.updaterequestdata.system_depressurised = this.RequestForm.controls["floatLabel65"].value;
       this.updaterequestdata.system_drained = this.RequestForm.controls["system_drained"].value;
       this.updaterequestdata.passive_pause_other = this.RequestForm.controls["floatLabel67"].value;
-      this.updaterequestdata.electricity_have_isulation = this.RequestForm.controls["floatLabel68"].value;
+      this.updaterequestdata.electricity_have_insulation = this.RequestForm.controls["floatLabel68"].value;
       this.updaterequestdata.covered_or_secured = this.RequestForm.controls["floatLabel69"].value;
       this.updaterequestdata.people_electrician_certification = this.RequestForm.controls["floatLabel70"].value;
 
@@ -3611,6 +3618,12 @@ export class NewRequestComponent implements OnInit {
       this.updaterequestdata.Notes = this.RequestForm.controls["Note"].value;
       this.updaterequestdata.Safety_Precautions =
         this.RequestForm.controls["Safetyprecaustion"].value.toString();
+
+                      // status Fields
+      this.updaterequestdata.ConM_initials = this.RequestForm.controls["ConM_initials"].value;
+      this.updaterequestdata.ConM_initials1 = this.RequestForm.controls["ConM_initials1"].value;
+      this.updaterequestdata.reject_reason = this.RequestForm.controls["reject_reason"].value;
+      this.updaterequestdata.cancel_reason = this.RequestForm.controls["cancel_reason"].value;
 
       // this.updaterequestdata.rams_file = this.RequestForm.controls["rams_file"].value;
 
@@ -4018,9 +4031,11 @@ export class NewRequestComponent implements OnInit {
 
       if (this.NewRequestData.Request_status == "Draft") {
         this.updaterequestdata.Request_status = "Hold";
+        this.updaterequestdata.Request_status1 = "";
       } else {
         this.updaterequestdata.Request_status =
           this.RequestForm.controls["Status"].value;
+          this.updaterequestdata.Request_status1 = 1;
       }
 
       this.updaterequestdata.Request_status = data;
@@ -4220,7 +4235,7 @@ export class NewRequestComponent implements OnInit {
       this.updaterequestdata.system_depressurised = this.RequestForm.controls["floatLabel65"].value;
       this.updaterequestdata.system_drained = this.RequestForm.controls["system_drained"].value;
       this.updaterequestdata.passive_pause_other = this.RequestForm.controls["floatLabel67"].value;
-      this.updaterequestdata.electricity_have_isulation = this.RequestForm.controls["floatLabel68"].value;
+      this.updaterequestdata.electricity_have_insulation = this.RequestForm.controls["floatLabel68"].value;
       this.updaterequestdata.covered_or_secured = this.RequestForm.controls["floatLabel69"].value;
       this.updaterequestdata.people_electrician_certification = this.RequestForm.controls["floatLabel70"].value;
 
@@ -4270,6 +4285,12 @@ export class NewRequestComponent implements OnInit {
       this.updaterequestdata.Notes = this.RequestForm.controls["Note"].value;
       this.updaterequestdata.Safety_Precautions =
         this.RequestForm.controls["Safetyprecaustion"].value.toString();
+
+              // status Fields
+      this.updaterequestdata.ConM_initials = this.RequestForm.controls["ConM_initials"].value;
+      this.updaterequestdata.ConM_initials1 = this.RequestForm.controls["ConM_initials1"].value;
+      this.updaterequestdata.reject_reason = this.RequestForm.controls["reject_reason"].value;
+      this.updaterequestdata.cancel_reason = this.RequestForm.controls["cancel_reason"].value;
 
       // this.updaterequestdata.rams_file = this.RequestForm.controls["rams_file"].value;
 
@@ -5177,6 +5198,18 @@ this.RequestForm.controls["Safetyprecaustion"].setValue(precautionIds);
     this.RequestForm.controls["floatLabel12"].setValue(parseInt(data["other_conditions"] || '0'));
     this.RequestForm.controls["other_conditions_input"].setValue(data["other_conditions_input"] || '');
     this.setAndRemoveValidators(data["other_conditions_input"], 'Are there other conditions that');
+
+    
+    this.RequestForm.controls["segragated_demarkated"].setValue(parseInt(data["segragated_demarkated"] || '0'));
+    this.RequestForm.controls["system_drained"].setValue(parseInt(data["system_drained"] || '0'));
+    this.RequestForm.controls["excavation_shoring"].setValue(parseInt(data["excavation_shoring"] || '0'));
+
+    console.log("..conminitials", this.data.payload?.["ConM_initials"]);
+
+    this.RequestForm.controls["ConM_initials"].setValue(this.data.payload?.["ConM_initials"] || "");
+    this.RequestForm.controls["ConM_initials1"].setValue(this.data.payload?.["ConM_initials1"] || "");
+    this.RequestForm.controls["reject_reason"].setValue(this.data.payload?.["reject_reason"] || "");
+    this.RequestForm.controls["cancel_reason"].setValue(this.data.payload?.["cancel_reason"] || "");
     
     // Handle all the other floatLabel controls
     for (let i = 1; i <= 87; i++) {
@@ -5304,7 +5337,7 @@ private getFloatLabelFieldName(index: number): string {
         84: 'legal_required_certificates',
         85: 'prapared_lifting',
         86: 'lifting_task_fenced',
-        87: 'overhead_risks'
+        87: 'overhead_risks',
     };
     
     return fieldMap[index] || '';
