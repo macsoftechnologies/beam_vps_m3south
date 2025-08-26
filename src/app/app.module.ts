@@ -34,7 +34,9 @@ import {
 import { RequestBuildingModelComponent } from './views/Models/request-building-model/request-building-model.component';
 import { LogHistoryModelComponent } from './views/Models/log-history-model/log-history-model.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { ConfirmationDialogComponent } from './views/users/confirmation-component/confirmation-component';
 
 
 
@@ -58,6 +60,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PerfectScrollbarModule,
     PdfViewerModule,
     NgxDatatableModule,
+    MatDialogModule,
+    MatButtonModule,
  
     TranslateModule.forRoot({
       loader: {
@@ -69,7 +73,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     InMemoryWebApiModule.forRoot(InMemoryDataService, { passThruUnknownUrl: true}),
     RouterModule.forRoot(rootRouterConfig, { useHash: true })
   ],
-  declarations: [AppComponent, ChangepasswordComponent, RequestBuildingModelComponent, LogHistoryModelComponent],
+  declarations: [AppComponent,ConfirmationDialogComponent, ChangepasswordComponent, RequestBuildingModelComponent, LogHistoryModelComponent],
   providers: [
     { provide: ErrorHandler, useClass: ErrorHandlerService },
     { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },

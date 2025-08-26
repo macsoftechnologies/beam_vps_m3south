@@ -9,10 +9,10 @@ export const config = {
     // editor: ['SA', 'Admin', 'Editor'], // Only SA & Admin & Editor has access
     // user: ['SA', 'Admin', 'Editor', 'User'], // Only SA & Admin & Editor & User has access
     // guest: ['SA', 'Admin', 'Editor', 'User', 'Guest'] // Everyone has access
-    admin: ['Admin'],
-    operator: ['Admin','Department'],
+     admin: ['Admin'],
+    operator: ['Admin','Department', 'Department1'],
     observer:['Admin','Observer'],
-    subcontractor: ['Admin','Department','Observer','Subcontractor'],
+    subcontractor: ['Admin','Department', 'Department1','Observer','Subcontractor'],
     
   },
 

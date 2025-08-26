@@ -16,6 +16,7 @@ export class SearchRequestDto
     hras: string;
     taskSpecificPPE: string;
     area: string;
+    permit_type: string;
 }
 
 export class ListRequest

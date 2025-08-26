@@ -167,6 +167,28 @@ export class NavigationService {
       ]
     },
     {
+      name: "Electrical Works",
+      type: "dropDown",
+      tooltip: "Electrical Works",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "New Electrical Work", state: "admin/electricalworks" ,icon: "fa fa-plus-square"},
+        { name: "List Electrical Works", state: "admin/list-electricalworks", icon: "list" }
+      ]
+    },
+    {
+      name: "Mechanical Works",
+      type: "dropDown",
+      tooltip: "Mechanical Works",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "New Mechanical Works", state: "admin/mechanicalworks" ,icon: "fa fa-plus-square"},
+        { name: "List Mechanical Works", state: "admin/list-mechanicalworks", icon: "list" }
+      ]
+    },
+    {
       name: "Teams",
       type: "dropDown",
       tooltip: "Team",
@@ -261,6 +283,28 @@ export class NavigationService {
       sub: [
         { name: "New Employee", state: "admin/employee" ,icon: "fa fa-plus-square"},
         { name: "List Employees", state: "admin/listemployee", icon: "list" }
+      ]
+    },
+    {
+      name: "Electrical Works",
+      type: "dropDown",
+      tooltip: "Electrical Works",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "New Electrical Work", state: "admin/electricalworks" ,icon: "fa fa-plus-square"},
+        { name: "List Electrical Works", state: "admin/list-electricalworks", icon: "list" }
+      ]
+    },
+    {
+      name: "Mechanical Works",
+      type: "dropDown",
+      tooltip: "Mechanical Works",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "New Mechanical Works", state: "admin/mechanicalworks" ,icon: "fa fa-plus-square"},
+        { name: "List Mechanical Works", state: "admin/list-mechanicalworks", icon: "list" }
       ]
     },
     // {
@@ -464,23 +508,23 @@ menuItems$:any={};
   constructor( public jwtAuth: JwtAuthService) {
     this.user=this.jwtAuth.getUser();
     
-    if(this.user["role"]=="Subcontractor")
+     if(this.user["role"].includes("Subcontractor"))
     {
       this.menuItems = new BehaviorSubject<IMenuItem[]>(this.UsericonMenu);
       this.menuItems$ = this.menuItems.asObservable();
     }
-    else  if(this.user["role"]=="Admin")
+    else  if(this.user["role"].includes("Admin"))
     {
       this.menuItems = new BehaviorSubject<IMenuItem[]>(this.AdminiconMenu);
       this.menuItems$ = this.menuItems.asObservable();
 
     }
-    else  if(this.user["role"]=="Department")
+    else  if(this.user["role"].includes("Department"))
     {
       this.menuItems = new BehaviorSubject<IMenuItem[]>(this.OperatoriconMenu);
       this.menuItems$ = this.menuItems.asObservable();
     }
-    else  if(this.user["role"]=="Observer")
+    else  if(this.user["role"].includes("Observer"))
     {
       this.menuItems = new BehaviorSubject<IMenuItem[]>(this.ObservericonMenu);
       this.menuItems$ = this.menuItems.asObservable();

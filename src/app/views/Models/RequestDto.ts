@@ -1,5 +1,12 @@
 
 export class RequestDto {
+    work_type: string;
+    pressure_pneumatic: string;
+    pressure_hydrostatic: string;
+    mc_number_text: string;
+    electrical_works: string;
+    mechanical_works: string;
+    permit_type: string;
     userId: string;
     Request_Date: string;
     Company_Name: string;
@@ -156,6 +163,33 @@ export class RequestDto {
     system_drained: any;
     excavation_shoring: any;
     createdTime: any;
+
+    
+    // commission fields
+    line_walk: any;
+    pressure_test_coordinated: any;
+    pipework_mic: any;
+    loto_plan_attached: any;
+    exclusion_zone_calculated: any;
+    pneumatic_hydrostatic: any;
+    pressure_of_the_test: any;
+    safety_valves_calibrated: any;
+    power_on: any;
+    responsible_for_the_area: any;
+    risk_assessment_done: any;
+    barriers_signage: any;
+    energized_been_tested: any;
+    punches_been_closed: any;
+    toct_checklist: any;
+    informed_aligned: any;
+    pressurization: any;
+    performed_approved: any;
+    flushing_approved: any;
+    mc_approved: any;
+    visual_inspection: any;
+    loto_plan_approved: any;
+    follow_media_code: any;
+    cq_safety_signs: any;
 }
 
 export class FilesRequestDto {
@@ -165,7 +199,15 @@ export class FilesRequestDto {
 }
 
 export class EditRequestDto {
+    work_type: string;
+    pressure_pneumatic: string;
+    pressure_hydrostatic: string;
+    mc_number_text: string;
+    electrical_works: string;
+    mechanical_works: string;
+    CoMM_initials: string;
     Request_status1: any;
+    permit_type: string;
     userId: string;
     Request_Date: string;
     Company_Name: string;
@@ -331,6 +373,33 @@ export class EditRequestDto {
     night_shift: any;
     new_date: any;
     new_end_time: any;
+
+    
+    // commission fields
+    line_walk: any;
+    pressure_test_coordinated: any;
+    pipework_mic: any;
+    loto_plan_attached: any;
+    exclusion_zone_calculated: any;
+    pneumatic_hydrostatic: any;
+    pressure_of_the_test: any;
+    safety_valves_calibrated: any;
+    power_on: any;
+    responsible_for_the_area: any;
+    risk_assessment_done: any;
+    barriers_signage: any;
+    energized_been_tested: any;
+    punches_been_closed: any;
+    toct_checklist: any;
+    informed_aligned: any;
+    pressurization: any;
+    performed_approved: any;
+    flushing_approved: any;
+    mc_approved: any;
+    visual_inspection: any;
+    loto_plan_approved: any;
+    follow_media_code: any;
+    cq_safety_signs: any;
 }
 
 export class DeleteRequestDto {
@@ -347,6 +416,7 @@ export class UpdateRequestStatusListDto {
   ConM_initials: any;
   reject_reason: any;
   createdTime: any;
+    CoMM_initials: any;
 }
 
 export class CopyRequestDto {

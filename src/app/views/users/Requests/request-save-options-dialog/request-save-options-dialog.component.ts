@@ -32,6 +32,7 @@ export class RequestSaveOptionsDialogComponent implements OnInit {
       ConM_initials: null,
       reject_reason: null,
       createdTime: null,
+      CoMM_initials: null,
     }
   userData: any = {};
   statusApprovedForm: any;
@@ -46,6 +47,7 @@ export class RequestSaveOptionsDialogComponent implements OnInit {
     this.userData = this.authservice.getUser();
     
     this.statusApprovedForm = new FormGroup({
+      CoMM_initials: new FormControl('', Validators.required),
       ConM_initials: new FormControl('', Validators.required),
       reject_reason: new FormControl('', Validators.required),
     })
@@ -76,19 +78,27 @@ export class RequestSaveOptionsDialogComponent implements OnInit {
           const [currentDenmarkDate, currentDenmarkTime] = [
             ...config.Denmarktz.split(" "),
           ];
+          if(this.status == 'COMM-Approved') {
+      this.status = 'Approved'
+    }
     this.UpdateRequestStatusList.Request_status = this.status;
     this.UpdateRequestStatusList.id = this.req_ids;
     this.UpdateRequestStatusList.userId = this.userData["id"];
-    this.UpdateRequestStatusList.createdTime = `${currentDenmarkDate}, ${currentDenmarkTime}`;
+    this.UpdateRequestStatusList.createdTime = config.getDenmarkTime.full();
 
-    if (this.statusApprovedForm.get('ConM_initials').valid) {
+if (this.statusApprovedForm.get('ConM_initials').valid) {
       this.UpdateRequestStatusList.ConM_initials = this.statusApprovedForm.value.ConM_initials;
-    } else {
+    }else {
   delete this.UpdateRequestStatusList.ConM_initials; // Remove if empty
+}
+    if (this.statusApprovedForm.get('CoMM_initials').valid) {
+      this.UpdateRequestStatusList.CoMM_initials = this.statusApprovedForm.value.CoMM_initials;
+    }else {
+  delete this.UpdateRequestStatusList.CoMM_initials; // Remove if empty
 }
     if(this.statusApprovedForm.get('reject_reason').valid) {
       this.UpdateRequestStatusList.reject_reason = this.statusApprovedForm.value.reject_reason;
-    } else {
+    }else {
   delete this.UpdateRequestStatusList.reject_reason; // Remove if empty
 }
 

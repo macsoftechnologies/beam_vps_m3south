@@ -9530,12 +9530,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   right: 20%;
   z-index: 9999;
 }
-/* .JH_0_A1-8 {
+.JH_0_A1-8 {
   position: absolute;
-  top: 48.5%;
-  right: 45%;
+  top: 50%;
+  right: 40%;
   z-index: 9999;
-} */
+}
 .JH_0_A1-9 {
   position: absolute;
   top: 57%;

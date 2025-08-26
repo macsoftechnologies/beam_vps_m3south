@@ -128,7 +128,8 @@ export class PlansComponent implements OnInit {
 
     start_time: null,
     end_time: null,
-    area: null
+    area: null,
+    permit_type: null
   }
   Planslist: any[] = [];
   dataForExcel = [];
@@ -198,6 +199,7 @@ export class PlansComponent implements OnInit {
       StartTime: [''],
       EndTime: [''],
       area: [''],
+      permit_type: ['',],
     });
 
     //     var current = new Date();     // get current date    
@@ -430,7 +432,8 @@ const formattedArea = areasArray
 
 this.plansDtodata.area = formattedArea || ""; 
 
-
+this.plansDtodata.permit_type =
+      this.PlanForm.controls['permit_type'].value.toString();
     //  this.plansDtodata.Plans_Id=this.PlanForm.controls["Plantype"].value;
 
     // if(this.PlanForm.controls["Plantype"].value==1)
@@ -684,6 +687,9 @@ isValidDate(date: any): boolean {
     this.Planslist.forEach(x=>
       {
         var day=new Date(x["Working_Date"]).getDay();
+        if(!x["permit_type"]) {
+          x["permit_type"] = "Construction";
+        } 
         // this.DownloadExcelData.push(
         //   {Company_Name:x["Company_Name"],subContractorName:x["subContractorName"],Level:x["Room_Type"],
         //   Building_Name:x["building_name"],Activity:x["Activity"],PermitNo:x["PermitNo"],
@@ -692,7 +698,7 @@ isValidDate(date: any): boolean {
         // )
         this.DownloadExcelData.push(
           {
-            PermitNo: x["PermitNo"], ContractorName: x["subContractorName"], Sub_Contractor_Name: x['new_sub_contractor'], Building_Name: x["building_name"], Level: x["Room_Type"],
+            PermitNo: x["PermitNo"], PermitType:x["permit_type"], ContractorName: x["subContractorName"], Sub_Contractor_Name: x['new_sub_contractor'], Building_Name: x["building_name"], Level: x["Room_Type"],
             Room_Nos: x['Room_Nos'], Activity: x["Activity"],description_of_activity: x["description_of_activity"], Rams_Number: x["rams_number"],HRAs: this.printHRAS(x),Auth:x[""],Comment: x[""],
             Start_Time: x["Start_Time"], End_Time: x["End_Time"], Night_Shift: this.nightShiftCheck(x), New_End_Time: x["new_end_time"], Request_status: x["Request_status"],
             Notes: x["Notes"], Working_Date: x["Working_Date"], Day: this.days_Names[day],  New_Date: x["new_date"], New_Day: this.findNewDay(x),

@@ -2,6 +2,8 @@
   <div class="model-header">
     <h3 *ngIf="requestDatas == 'Hold'" class="header-title-icon">This activity has been coordinated and approved by
       ConM/Site HSE. </h3>
+      <h3 *ngIf="requestDatas == 'Pre-Approved'" class="header-title-icon">This activity has been coordinated and approved by
+      C&Q. </h3>
     <p *ngIf="requestDatas=='Approved' " class="change_Status">I confirm that the permit is met with all conditions
       according to RAMS/SPA requirements and take responsibility for safe work execution.</p>
     <p *ngIf="requestDatas=='Opened' " class="change_Status">I confirm that the work activities under this permit are
@@ -12,8 +14,45 @@
   </div>
 
   <form [formGroup]="statusApprovedForm">
+    <mat-grid-list cols="2" rowHeight="80px"*ngIf="type=='operartor' && 
+        (requestDatas == 'Pre-Approved' && permitType == 'Commissioning') ">
+      <mat-grid-tile>
+        <mat-form-field class="full-width">
+          <mat-label>C&Q initials</mat-label>
+          <input matInput formControlName="CoMM_initials"
+            [class.is-invalid]="statusApprovedForm.get('CoMM_initials').invalid && statusApprovedForm.get('CoMM_initials').touched" />
+          <mat-error class="error-message"
+            *ngIf="statusApprovedForm.get('CoMM_initials').invalid && statusApprovedForm.get('CoMM_initials').touched">Please
+            Select
+          </mat-error>
 
-    <mat-grid-list cols="2" rowHeight="80px" *ngIf="type=='operartor' && requestDatas == 'Hold' ">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field class="full-width">
+          <mat-label>Reason for Rejecting</mat-label>
+          <input
+            matInput
+            formControlName="reject_reason"
+            [class.is-invalid]="
+              statusApprovedForm.get('reject_reason').invalid &&
+              statusApprovedForm.get('reject_reason').touched
+            "
+          />
+          <mat-error
+            class="error-message"
+            *ngIf="
+              statusApprovedForm.get('reject_reason').invalid &&
+              statusApprovedForm.get('reject_reason').touched
+            "
+            >Please Select
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+    <mat-grid-list cols="2" rowHeight="80px"  *ngIf="type=='operartor' && requestDatas == 'Hold'">
       <mat-grid-tile>
         <mat-form-field class="full-width">
           <mat-label>ConM initials</mat-label>
@@ -45,7 +84,6 @@
             "
             >Please Select
           </mat-error>
-          
         </mat-form-field>
       </mat-grid-tile>
     </mat-grid-list>
@@ -57,15 +95,34 @@
   </form>
 </div>
 
-<div mat-dialog-actions *ngIf="type=='operartor'">
+<div mat-dialog-actions *ngIf="type=='operartor' && requestDatas == 'Hold' && permitType == 'Commissioning'">
+
+  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Pre-Approved')"
+    [disabled]="statusApprovedForm.get('ConM_initials').invalid ||
+          statusApprovedForm.get('ConM_initials').value.trim() === ''">Pre-Approve</button>
+  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+    (click)="Changestatus('Rejected')" [disabled]="statusApprovedForm.get('reject_reason').invalid ||
+          statusApprovedForm.get('reject_reason').value.trim() === ''">Reject</button>
+</div>
+
+<div mat-dialog-actions *ngIf="type=='operartor' && ( requestDatas == 'Pre-Approved' && permitType == 'Commissioning')">
+
+  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Approved')"
+  [disabled]="statusApprovedForm.get('CoMM_initials').invalid ||
+          statusApprovedForm.get('CoMM_initials').value.trim() === ''">Approve</button>
+  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+    (click)="Changestatus('Rejected')" [disabled]="statusApprovedForm.get('reject_reason').invalid ||
+          statusApprovedForm.get('reject_reason').value.trim() === ''">Reject</button>
+</div>
+
+<div mat-dialog-actions *ngIf="type=='operartor' && (requestDatas == 'Hold' && permitType !== 'Commissioning')">
 
   <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Approved')"
   [disabled]="statusApprovedForm.get('ConM_initials').invalid ||
-  statusApprovedForm.get('ConM_initials').value.trim() === ''">Approve</button>
-
+          statusApprovedForm.get('ConM_initials').value.trim() === ''">Approve</button>
   <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
-    (click)="Changestatus('Rejected')"  [disabled]="statusApprovedForm.get('reject_reason').invalid ||
-    statusApprovedForm.get('reject_reason').value.trim() === ''">Reject</button>
+    (click)="Changestatus('Rejected')" [disabled]="statusApprovedForm.get('reject_reason').invalid ||
+          statusApprovedForm.get('reject_reason').value.trim() === ''">Reject</button>
 </div>
 
 
@@ -83,9 +140,9 @@
             *ngIf="statusOpenForm.get('ConM_initials1').invalid && statusOpenForm.get('ConM_initials1').touched">Please
             Select
           </mat-error>
+
         </mat-form-field>
       </mat-grid-tile>
-
       <mat-grid-tile>
         <mat-form-field class="full-width">
           <mat-label>Reason for cancelling</mat-label>
@@ -142,7 +199,7 @@
       <div mat-dialog-content>
         <!-- <img [src]="croppedImage" class="uploadimgsty" /> -->
         <div class="upload-div-sty">
-          <input #csvInput hidden="true" type="file" multiple onclick="this.value=null"
+          <input #csvInput hidden="true" type="file" onclick="this.value=null"
             (change)="csvInputChange1($event)" accept=".jpg" />
           <button mat-flat-button class="logo-btn-sty" color="primary" (click)="csvInput.click()">Add Image</button>
         </div>
@@ -162,24 +219,17 @@
 
     </ng-container>
 
-    <!-- <div mat-dialog-actions>
-      <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Opened')"
-        [disabled]="!statusOpenForm.valid">Open</button>
-      <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
-        (click)="Changestatus('Rejected')">Reject</button>
-
-    </div> -->
-
     <div mat-dialog-actions>
       <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="ChangestatusToOpen('Opened')"
       [disabled]="statusOpenForm.get('ConM_initials1').invalid ||
           statusOpenForm.get('ConM_initials1').value.trim() === ''">Open</button>
-
       <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
         (click)="ChangestatusToOpen('Cancelled')" [disabled]="statusOpenForm.get('cancel_reason').invalid ||
           statusOpenForm.get('cancel_reason').value.trim() === ''">Cancel</button>
 
     </div>
+
+
 
   </form>
 </div>

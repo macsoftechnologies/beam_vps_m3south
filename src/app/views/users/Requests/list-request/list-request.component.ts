@@ -9,7 +9,7 @@ import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { egretAnimations } from 'app/shared/animations/egret-animations';
-import { Subscription, forkJoin } from 'rxjs';
+import { Subscription, forkJoin, of } from 'rxjs';
 import { AppConfirmService } from 'app/shared/services/app-confirm/app-confirm.service';
 import { AppLoaderService } from 'app/shared/services/app-loader/app-loader.service';
 import { UserService } from 'app/shared/services/user.service';
@@ -44,6 +44,8 @@ import { EditRequestComponent } from '../edit-request/edit-request.component';
 import { config } from 'config';
 import { number } from 'ngx-custom-validators/src/app/number/validator';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { ConfirmationDialogComponent } from '../../confirmation-component/confirmation-component';
+import { map } from 'rxjs/operators';
 
 interface Building {
   buildingId: number;
@@ -255,18 +257,18 @@ export class ListRequestComponent implements OnInit {
       "key": "working_confined_spaces",
       "image": "assets/images/logos/ConfinedSpace.png"
     },
-    {
-      "label": "Working in ATEX Area",
-      "value": 1,
-      "key": "work_in_atex_area",
-      "image": "assets/images/logos/ATEXarea.png"
-    },
-    {
-      "label": "Securing Facilities (LOTO)",
-      "value": 1,
-      "key":"securing_facilities",
-      "image": "assets/images/logos/SecuringFacilities.png"
-    },
+    // {
+    //   "label": "Working in ATEX Area",
+    //   "value": 1,
+    //   "key": "work_in_atex_area",
+    //   "image": "assets/images/logos/ATEXarea.png"
+    // },
+    // {
+    //   "label": "Securing Facilities (LOTO)",
+    //   "value": 1,
+    //   "key":"securing_facilities",
+    //   "image": "assets/images/logos/SecuringFacilities.png"
+    // },
     {
       "label": "Excavation Works",
       "value": 1,
@@ -278,6 +280,18 @@ export class ListRequestComponent implements OnInit {
       "value": 1,
       "key": "using_cranes_or_lifting",
       "image": "assets/images/logos/Craneslifting.png"
+    },
+    {
+      "label": "Energization of Electrical Equipment",
+      "value": 1,
+      "key": "power_on",
+      "image": "assets/images/logos/electrical_works.png"
+    },
+    {
+      "label": "Energization of Mechanical Equipment",
+      "value": 1,
+      "key": "pressurization",
+      "image": "assets/images/logos/mechanical1.png"
     },
     
   ];
@@ -345,6 +359,10 @@ export class ListRequestComponent implements OnInit {
       Statusid: 'Cancelled',
       Statusname: 'Cancelled',
     },
+    {
+      Statusid: 'Pre-Approved',
+      Statusname: 'Pre-Approved',
+    },
   ];
   TypeS: any[] = [
     {
@@ -378,6 +396,7 @@ export class ListRequestComponent implements OnInit {
     hras: '',
     taskSpecificPPE: '',
     area: '',
+    permit_type: ''
   };
 
   RequestsbyidDto: RequestBySubcontractorId = {
@@ -418,6 +437,21 @@ export class ListRequestComponent implements OnInit {
   }
 
   ngOnInit() {    
+    
+    this.userdata = this.jwtauth.getUser();
+    console.log(this.userdata);
+    this.approvalUsers = this.userdata.role.split(',');
+    if(this.approvalUsers.includes('Department') && !this.approvalUsers.includes('Department1')) {
+      this.firstApproval = true;
+    } else if(this.approvalUsers.includes('Department1') && !this.approvalUsers.includes('Department')) {
+      this.secondApproval =true;
+    } else if((this.approvalUsers.includes('Department') && this.approvalUsers.includes('Department1')) || this.approvalUsers.includes('Admin')) {
+      this.bothApproval = true;
+    } else {
+      this.firstApproval = true;
+      this.secondApproval =true;
+      this.bothApproval = true;
+    }
 
      this.breakpointObserver.observe(['(max-width: 599px)']) // 👈 custom mobile-only query
       .subscribe(result => {
@@ -483,7 +517,8 @@ export class ListRequestComponent implements OnInit {
       Level: ['', Validators.required],
       Hras: ['',],
       TaskSpecific:['',],
-      area: ['',]
+      area: ['',],
+      permit_type: ['',],
 
     });
     this.initializeData();
@@ -620,7 +655,7 @@ private filterRooms(buildingIds: number[], levels: string[]): RoomGroup[] {
         this.Filtertab = true;
         this.userdata = this.jwtauth.getUser();
 
-        if (this.userdata['role'] == 'Subcontractor') {
+        if (this.userdata['role'].includes('Subcontractor')) {
           this.isoperator = false;
           this.IsNotSubCntr = false;
           this.IsNotASubCntr = false;
@@ -636,7 +671,7 @@ private filterRooms(buildingIds: number[], levels: string[]): RoomGroup[] {
           // });
           this.paginationCount = res[1].count;
           console.log(this.paginationCount);
-        } else if (this.userdata['role'] == 'Admin') {
+        } else if (this.userdata['role'].includes('Admin')) {
           this.IsNotSubCntr = true;
           this.IsNotASubCntr = true;
           this.items = res[0]['data'];
@@ -655,7 +690,7 @@ private filterRooms(buildingIds: number[], levels: string[]): RoomGroup[] {
           this.paginationCount = res[1].count;
           console.log(this.paginationCount);
         } 
-        else if (this.userdata['role'] == 'Department') {
+        else if (this.userdata['role'].includes('Department') || this.userdata['role'].includes('Department1')) {
           this.IsNotSubCntr = false;
           this.IsNotASubCntr = true;
           this.items = res[0]['data'];
@@ -672,7 +707,7 @@ private filterRooms(buildingIds: number[], levels: string[]): RoomGroup[] {
           // this.items.length = 0;
           // this.items = filteritems;
         }
-        else if (this.userdata['role'] == 'Observer') {
+        else if (this.userdata['role'].includes('Observer')) {
           this.IsNotSubCntr = false;
           this.IsNotASubCntr = true;
           this.items = res[0]['data'];
@@ -729,7 +764,7 @@ private filterRooms(buildingIds: number[], levels: string[]): RoomGroup[] {
         this.Filtertab = true;
         this.userdata = this.jwtauth.getUser();
 
-        if (this.userdata['role'] == 'Subcontractor') {
+        if (this.userdata['role'].includes('Subcontractor')) {
           this.isoperator = false;
           this.IsNotSubCntr = false;
           this.RequestlistForm.controls['Contractor'].setValue(
@@ -741,7 +776,7 @@ private filterRooms(buildingIds: number[], levels: string[]): RoomGroup[] {
             .subscribe((res) => {
               this.items = res['data'];
             });
-        } else if (this.userdata['role'] == 'Admin') {
+        } else if (this.userdata['role'].includes('Admin')) {
           this.IsNotSubCntr = true;
           this.items = res[0]['data'];
           this.isoperator = true;
@@ -755,7 +790,7 @@ private filterRooms(buildingIds: number[], levels: string[]): RoomGroup[] {
           this.items = [];
           this.items.length = 0;
           this.items = filteritems;
-        } else if (this.userdata['role'] == 'Department') {
+        } else if (this.userdata['role'].includes('Department1') || this.userdata['role'].includes('Department')) {
           this.IsNotSubCntr = true;
           this.items = res[0]['data'];
           this.isoperator = true;
@@ -899,6 +934,9 @@ const formattedArea = areasArray
   .join('|');
 
 this.SearchRequest.area = formattedArea || ""; 
+
+this.SearchRequest.permit_type =
+      this.RequestlistForm.controls['permit_type'].value.toString();
 
 //     const levelsArray = this.RequestlistForm.controls['Level'].value;
 // this.SearchRequest.Room_Type = levelsArray.map((val: string) => `'${val}'`).join(',');
@@ -1084,7 +1122,7 @@ this.SearchRequest.area = formattedArea || "";
   CopyRequest(row, status) {
     if (status == 'Closed') {
       row['Request_status'] = 'Hold';
-      let currentdate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+      let currentdate = config.getDenmarkTime.date();
       row['Request_Date'] = currentdate;
     }
     if (status == 'Draft') {
@@ -1121,9 +1159,140 @@ this.SearchRequest.area = formattedArea || "";
     });
   }
 
-  ChangeStaus(row) {
+  // ChangeStaus(row) {
+  //   let title = 'Request Status Change ';
+  //   let type = 'operartor';
+  //   console.log(row);
+  //   let dialogRef: MatDialogRef<any> = this.dialog.open(
+  //     StatusChangeDialogComponent,
+  //     {
+  //       width: '600px',
+  //       height: '300px',
+  //       disableClose: false,
+  //       data: {
+  //         title: title,
+  //         payload: row,
+  //         type: type,
+  //         pagedatainfo: this.pagedatainfo,
+  //       },
+  //     }
+  //   );
+  //   dialogRef.afterClosed().subscribe((res) => {
+  //     if (this.api == 'SearchRequest') {
+  //       console.log("search API");
+  //       // this.api = 'SearchRequest';
+  //       // this.items = res[0]['data'];
+  //       // this.paginationCount = res[1]['count'];
+  //       const mainValue = this.currentPage - 1;
+  //       this.startValue = mainValue * 30 + 1;
+  //       this.search(event);
+  //       console.log("NUMMBER", this.currentPage)
+  //       console.log("Start Value", this.startValue)
+  //     }
+  //     else {
+  //       const mainValue = this.currentPage - 1;
+  //       this.startValue = mainValue * 30 + 1;
+  //       this.getPermits(this.currentPage, this.startValue);
+  //       console.log("NUMMBER", this.currentPage)
+  //       console.log("Start Value", this.startValue)
+  //       // window.location.reload();
+  //     }
+  //     // this.requestservice.listpagination(this.pagedatainfo).subscribe((x) => {
+  //       // console.log('New Req List', x);
+  //       // const mainValue = this.currentPage - 1;
+  //       // this.startValue = mainValue * 30 + 1 ;
+  //       // this.getPermits(this.currentPage, this.startValue);
+  //       // console.log("NUMMBER", this.currentPage)
+  //       // console.log("Start Value", this.startValue)
+  //       // this.openSnackBar("Request Status Updated Successfully");
+  //       // window.location.reload();
+  //     // });
+  //   });
+  // }
+
+    openSnackBar(msg) {
+    this.snack.open(msg, "Close");
+  }
+
+   ChangeStaus(row) {
+    const splitingAreas = row.Room_Nos.split(",");
+    const formattedArea = splitingAreas
+  .filter(val => val !== null && val !== undefined && val !== '') 
+  .map((val: string) => `${val}`)
+  .join('|');
+    // First check if there are existing permits with the same room and working date
+    const searchCheckRequest = {
+      Room_Type: `'${row.Room_Type}'`,
+      fromDate: this.datePipe.transform(row.Working_Date, 'yyyy-MM-dd'),
+      toDate: this.datePipe.transform(row.Working_Date, 'yyyy-MM-dd'),
+      Start: '1',
+      End: '5', // We just need to know if any records exist
+      Page: '1',
+      Site_Id: '5',
+      Building_Id:`'${row.Building_Id}'`,
+      Sub_Contractor_Id:`'${row.Sub_Contractor_Id}'`,
+      Type_Of_Activity_Id:`'${row.Type_Of_Activity_Id}'`,
+      Request_status: "'Hold','Pre-Approved','Approved','Opened'",
+      PermitNo:'',
+      Activity:'',
+      hras: '',
+      taskSpecificPPE: '',
+      area: formattedArea,
+      permit_type: '',
+    };
+
+    this.requestservice.SearchRequest(searchCheckRequest).subscribe((res) => {
+      if (res['message'] != 'No Requests Found' && res[0]['data'].length > 1) {
+        // Show confirmation dialog if permits exist
+        const confirmDialog = this.dialog.open(ConfirmationDialogComponent, {
+          width: '400px',
+          data: {
+            title: 'Duplicate Permit Found',
+            message: 'A permit already exists for this room and working date. Do you want to continue?'
+          }
+        });
+
+        confirmDialog.afterClosed().subscribe(confirmed => {
+          if (confirmed) {
+            this.proceedWithStatusChange(row);
+          }
+          // If not confirmed, do nothing (dialog will close)
+        });
+      } else {
+        // No duplicates found, proceed directly
+        this.proceedWithStatusChange(row);
+      }
+    });
+}
+
+proceedWithStatusChange(row) {
     let title = 'Request Status Change ';
-    let type = 'operartor';
+    let type;
+    if ((this.firstApproval || this.bothApproval) && row.Request_status == 'Hold' && row.permit_type === 'Commissioning') {
+      type = 'operartor';
+    } else if ((this.secondApproval || this.bothApproval) && row.Request_status == 'Pre-Approved' && row.permit_type === 'Commissioning') {
+      type = 'operartor';
+    } else if((this.firstApproval || this.secondApproval || this.bothApproval)&&row.Request_status == 'Hold' && row.permit_type !== 'Commissioning') {
+      type = 'operartor';
+    } else {
+      type = '';
+    }
+
+    // if(row.permit_type == 'Commissioning') {
+    //   if(row.Request_status == 'Hold') {
+    //     type = this.firstApproval || this.bothApproval ? 'operartor' : '';
+    //   } else if(row.Request_status == 'Pre-Approved') {
+    //     type = this.secondApproval || this.bothApproval ? 'operartor' : '';
+    //   }
+    // }
+
+    if(this.firstApproval && !this.secondApproval && row.permit_type == 'Commissioning' && row.Request_status == 'Pre-Approved') {
+      return this.openSnackBar("Can't have access to final approval. Please ask COMM person to approve it.");
+    }
+    if(!this.firstApproval && this.secondApproval && row.permit_type == 'Commissioning' && row.Request_status == 'Hold') {
+      return this.openSnackBar("Can't have access to initial approval. Please ask CONM person to pre-approve it.");
+    } else {
+    
     console.log(row);
     let dialogRef: MatDialogRef<any> = this.dialog.open(
       StatusChangeDialogComponent,
@@ -1139,38 +1308,26 @@ this.SearchRequest.area = formattedArea || "";
         },
       }
     );
+    
     dialogRef.afterClosed().subscribe((res) => {
       if (this.api == 'SearchRequest') {
         console.log("search API");
-        // this.api = 'SearchRequest';
-        // this.items = res[0]['data'];
-        // this.paginationCount = res[1]['count'];
         const mainValue = this.currentPage - 1;
         this.startValue = mainValue * 30 + 1;
         this.search(event);
         console.log("NUMMBER", this.currentPage)
         console.log("Start Value", this.startValue)
-      }
-      else {
+      } else {
         const mainValue = this.currentPage - 1;
         this.startValue = mainValue * 30 + 1;
         this.getPermits(this.currentPage, this.startValue);
         console.log("NUMMBER", this.currentPage)
         console.log("Start Value", this.startValue)
-        // window.location.reload();
       }
-      // this.requestservice.listpagination(this.pagedatainfo).subscribe((x) => {
-        // console.log('New Req List', x);
-        // const mainValue = this.currentPage - 1;
-        // this.startValue = mainValue * 30 + 1 ;
-        // this.getPermits(this.currentPage, this.startValue);
-        // console.log("NUMMBER", this.currentPage)
-        // console.log("Start Value", this.startValue)
-        // this.openSnackBar("Request Status Updated Successfully");
-        // window.location.reload();
-      // });
     });
   }
+}
+
   ChangeStausbysubcontractor(row, status) {
     console.log(config.Denmarktz.split(' '));
     const [currentDenmarkDate, currentDenmarkTime] = [
@@ -1274,63 +1431,212 @@ this.SearchRequest.area = formattedArea || "";
       }
     });
   }
-  statuschange(statusdata) {
+  // statuschange(statusdata) {
+  //   this.selectedRequestIds.length = 0;
+
+  //   this.selected.forEach((x) => {
+  //     if (x['Request_status'] == 'Hold' || x['Request_status'] == 'Approved') {
+  //       this.selectedRequestIds.push(x['id']);
+  //     }
+  //   });
+
+  //   let title = 'Do you want ' + statusdata + ' Items';
+  //   let dialogRef: MatDialogRef<any> = this.dialog.open(
+  //     RequestSaveOptionsDialogComponent,
+  //     {
+  //       width: '500px',
+  //       height: '200px',
+  //       disableClose: false,
+  //       data: {
+  //         title: title,
+  //         payload: this.selectedRequestIds.toString(),
+  //         statustype: statusdata,
+  //         listitemsstatus: true,
+  //       },
+  //     }
+  //   );
+  //   console.log("before model opened", this.selectedRequestIds.length)
+  //   dialogRef.afterClosed().subscribe((res) => {
+  //     this.Countresult.length = 0
+  //     this.selected.length = 0;
+  //     this.selected = [];
+  //     this.selectedRequestIds.length = 0;
+  //     console.log("after model closed", this.selectedRequestIds.length)
+  //     if (this.api == 'SearchRequest') {
+  //       console.log("search API");
+  //       // this.api = 'SearchRequest';
+  //       // this.items = res[0]['data'];
+  //       // this.paginationCount = res[1]['count'];
+  //       const mainValue = this.currentPage - 1;
+  //       this.startValue = mainValue * 30 + 1;
+  //       this.search(event);
+  //       // console.log("NUMMBER", this.currentPage)
+  //       // console.log("Start Value", this.startValue);
+  //       // window.location.reload();
+  //     }
+  //     else {
+  //       const mainValue = this.currentPage - 1;
+  //       this.startValue = mainValue * 30 + 1;
+  //       this.getPermits(this.currentPage, this.startValue);
+  //       // console.log("NUMMBER", this.currentPage)
+  //       // console.log("Start Value", this.startValue);
+  //       // this.Countresult.length = 0;
+  //       // this.selected.length = 0;
+        
+  //       // this.ngOnInit();
+  //     }
+  //     // window.location.reload();
+  //   });
+  // }
+
+    statuschange(statusdata) {
     this.selectedRequestIds.length = 0;
 
-    this.selected.forEach((x) => {
-      if (x['Request_status'] == 'Hold' || x['Request_status'] == 'Approved') {
-        this.selectedRequestIds.push(x['id']);
-      }
+    const filterAndPushIds = (condition: (item: any) => boolean) => {
+        this.selected.forEach((x) => {
+            if (condition(x)) {
+                this.selectedRequestIds.push(x['id']);
+            }
+        });
+    };
+
+    switch (statusdata) {
+        case 'Approved':
+            filterAndPushIds((x) => 
+                ((x['Request_status'] === 'Hold' || 
+                x['Request_status'] === 'Approved') && x['permit_type'] !== 'Commissioning')
+            );
+            break;
+        case 'Rejected':
+            filterAndPushIds((x) => 
+                x['Request_status'] === 'Hold' || x['Request_status'] === 'Approved' || x['Request_status'] === 'Pre-Approved'
+            );
+            break;
+        case 'Pre-Approved':
+            filterAndPushIds((x) => 
+                x['Request_status'] === 'Hold' && 
+                x['permit_type'] === 'Commissioning'
+            );
+            break;
+        case 'COMM-Approved':
+            filterAndPushIds((x) => 
+                x['Request_status'] === 'Pre-Approved' && 
+                x['permit_type'] === 'Commissioning'
+            );
+            break;
+        default:
+            console.warn(`Unexpected statusdata: ${statusdata}`);
+            return;
+    }
+
+    if (this.selectedRequestIds.length === 0) {
+        this.openSnackBar("No valid permits selected for this status change.");
+        return;
+    }
+
+    // Check for duplicate permits for each selected request
+    const duplicateChecks = this.selected.map(item => {
+        if (!item.Room_Nos) {
+            return of(false); // If no room numbers, skip duplicate check
+        }
+
+        const splitingAreas = item.Room_Nos.split(",");
+        const formattedArea = splitingAreas
+            .filter(val => val !== null && val !== undefined && val !== '') 
+            .map((val: string) => `${val}`)
+            .join('|');
+
+        const searchCheckRequest = {
+            Room_Type: `'${item.Room_Type}'`,
+            fromDate: this.datePipe.transform(item.Working_Date, 'yyyy-MM-dd'),
+            toDate: this.datePipe.transform(item.Working_Date, 'yyyy-MM-dd'),
+            Start: '1',
+            End: '5',
+            Page: '1',
+            Site_Id: '5',
+            Building_Id: `'${item.Building_Id}'`,
+            Sub_Contractor_Id: `'${item.Sub_Contractor_Id}'`,
+            Type_Of_Activity_Id: `'${item.Type_Of_Activity_Id}'`,
+            Request_status: "'Hold','Pre-Approved','Approved','Opened'",
+            PermitNo: '',
+            Activity: '',
+            hras: '',
+            taskSpecificPPE: '',
+            area: formattedArea,
+            permit_type: '',
+        };
+
+        return this.requestservice.SearchRequest(searchCheckRequest).pipe(
+            map(res => res['message'] != 'No Requests Found' && res[0]['data'].length > 1)
+        );
     });
 
-    let title = 'Do you want ' + statusdata + ' Items';
-    let dialogRef: MatDialogRef<any> = this.dialog.open(
-      RequestSaveOptionsDialogComponent,
-      {
-        width: '500px',
-        height: '200px',
-        disableClose: false,
-        data: {
-          title: title,
-          payload: this.selectedRequestIds.toString(),
-          statustype: statusdata,
-          listitemsstatus: true,
-        },
-      }
-    );
-    console.log("before model opened", this.selectedRequestIds.length)
-    dialogRef.afterClosed().subscribe((res) => {
-      this.Countresult.length = 0
-      this.selected.length = 0;
-      this.selected = [];
-      this.selectedRequestIds.length = 0;
-      console.log("after model closed", this.selectedRequestIds.length)
-      if (this.api == 'SearchRequest') {
-        console.log("search API");
-        // this.api = 'SearchRequest';
-        // this.items = res[0]['data'];
-        // this.paginationCount = res[1]['count'];
-        const mainValue = this.currentPage - 1;
-        this.startValue = mainValue * 30 + 1;
-        this.search(event);
-        // console.log("NUMMBER", this.currentPage)
-        // console.log("Start Value", this.startValue);
-        // window.location.reload();
-      }
-      else {
-        const mainValue = this.currentPage - 1;
-        this.startValue = mainValue * 30 + 1;
-        this.getPermits(this.currentPage, this.startValue);
-        // console.log("NUMMBER", this.currentPage)
-        // console.log("Start Value", this.startValue);
-        // this.Countresult.length = 0;
-        // this.selected.length = 0;
+    forkJoin(duplicateChecks).subscribe(results => {
+        const hasDuplicates = results.some(hasDuplicate => hasDuplicate);
         
-        // this.ngOnInit();
-      }
-      // window.location.reload();
+        if (hasDuplicates) {
+            // Show confirmation dialog if any duplicates exist
+            const confirmDialog = this.dialog.open(ConfirmationDialogComponent, {
+                width: '400px',
+                data: {
+                    title: 'Duplicate Permits Found',
+                    message: 'One or more permits already exist for these rooms and working dates. Do you want to continue?'
+                }
+            });
+
+            confirmDialog.afterClosed().subscribe(confirmed => {
+                if (confirmed) {
+                    this.proceedWithBulkStatusChange(statusdata);
+                }
+            });
+        } else {
+            // No duplicates found, proceed directly
+            this.proceedWithBulkStatusChange(statusdata);
+        }
     });
-  }
+}
+
+proceedWithBulkStatusChange(statusdata) {
+    let title = 'Do you want ' + statusdata + ' Items';
+    
+    // Determine if we need operator type based on the first selected item
+    const firstItem = this.selected[0];
+
+
+    let dialogRef: MatDialogRef<any> = this.dialog.open(
+        RequestSaveOptionsDialogComponent,
+        {
+            width: '500px',
+            height: '200px',
+            disableClose: false,
+            data: {
+                title: title,
+                payload: this.selectedRequestIds.toString(),
+                statustype: statusdata,
+                listitemsstatus: true,
+                pagedatainfo: this.pagedatainfo,
+            },
+        }
+    );
+
+    dialogRef.afterClosed().subscribe((res) => {
+        this.Countresult.length = 0;
+        this.selected.length = 0;
+        this.selected = [];
+        this.selectedRequestIds.length = 0;
+        
+        if (this.api == 'SearchRequest') {
+            const mainValue = this.currentPage - 1;
+            this.startValue = mainValue * 30 + 1;
+            this.search(event);
+        } else {
+            const mainValue = this.currentPage - 1;
+            this.startValue = mainValue * 30 + 1;
+            this.getPermits(this.currentPage, this.startValue);
+        }
+    });
+}
+
 
   onSelect({ selected }) {
     this.selected = selected;
@@ -1414,7 +1720,7 @@ this.SearchRequest.area = formattedArea || "";
   Getselected(event) {
     console.log(event);
     this.selected.forEach((x) => {
-      if ((x['Request_status'] == 'Draft') ||(x['Request_status'] == 'Hold') || (x['Request_status'] =="Approved") || (x['Request_status'] =="Opened")) {
+      if ((x['Request_status'] == 'Draft') ||(x['Request_status'] == 'Hold') || (x['Request_status'] =="Pre-Approved") || (x['Request_status'] =="Approved") || (x['Request_status'] =="Opened")) {
         this.selectedRequestIds.push(x['id']);
       }
     });
@@ -1451,7 +1757,7 @@ this.SearchRequest.area = formattedArea || "";
           this.getPermits(this.currentPage, this.startValue);
           console.log("NUMMBER", this.currentPage)
           console.log("Start Value", this.startValue);
-          window.location.reload();
+          // window.location.reload();
           this.selected.length = 0;
         }
       });
@@ -1514,7 +1820,7 @@ this.SearchRequest.area = formattedArea || "";
           this.Filtertab = true;
           this.userdata = this.jwtauth.getUser();
 
-          if (this.userdata['role'] == 'Subcontractor') {
+          if (this.userdata['role'].includes('Subcontractor')) {
             // this.isoperator = false;
             // this.IsNotSubCntr = false;
             this.isoperator = false;
@@ -1533,7 +1839,7 @@ this.SearchRequest.area = formattedArea || "";
             
             // });
            
-          } else if (this.userdata['role'] == 'Admin') {
+          } else if (this.userdata['role'].includes('Admin')) {
             // this.IsNotSubCntr = true;
             this.IsNotSubCntr = true;
             this.IsNotASubCntr = true;
@@ -1549,7 +1855,7 @@ this.SearchRequest.area = formattedArea || "";
 
             this.paginationCount = res[1].count;
             console.log(this.paginationCount);
-          } else if (this.userdata['role'] == 'Department') {
+          } else if (this.userdata['role'].includes('Department1') || this.userdata['role'].includes('Department')) {
             // this.IsNotSubCntr = true;
             this.IsNotSubCntr = false;
             this.IsNotASubCntr = true;
@@ -1564,7 +1870,7 @@ this.SearchRequest.area = formattedArea || "";
             this.items = [];
             this.items.length = 0;
             this.items = filteritems;
-          }else if (this.userdata['role'] == 'Observer') {
+          }else if (this.userdata['role'].includes('Observer')) {
             // this.IsNotSubCntr = true;
             this.IsNotSubCntr = false;
             this.IsNotASubCntr = true;
@@ -1641,6 +1947,9 @@ const formattedArea = areasArray
   .join('|');
 
 this.SearchRequest.area = formattedArea || ""; 
+
+this.SearchRequest.permit_type =
+        this.RequestlistForm.controls['permit_type'].value.toString();
 //       const levelsArray = this.RequestlistForm.controls['Level'].value;
 // this.SearchRequest.Room_Type = levelsArray.map((val: string) => `'${val}'`).join(',');
       this.SearchRequest.Start = start;
@@ -1661,7 +1970,7 @@ this.SearchRequest.area = formattedArea || "";
           this.Filtertab = true;
           this.userdata = this.jwtauth.getUser();
 
-          if (this.userdata['role'] == 'Subcontractor') {
+          if (this.userdata['role'].includes('Subcontractor')) {
             // this.isoperator = false;
             // this.IsNotSubCntr = false;
             this.isoperator = false;
@@ -1678,7 +1987,7 @@ this.SearchRequest.area = formattedArea || "";
               // });
             this.paginationCount = res[1].count;
             console.log(this.paginationCount);
-          } else if (this.userdata['role'] == 'Admin') {
+          } else if (this.userdata['role'].includes('Admin')) {
             // this.IsNotSubCntr = true;
             this.IsNotSubCntr = true;
             this.IsNotASubCntr = true;
@@ -1694,7 +2003,7 @@ this.SearchRequest.area = formattedArea || "";
 
             this.paginationCount = res[1].count;
             console.log(this.paginationCount);
-          } else if (this.userdata['role'] == 'Department') {
+          } else if (this.userdata['role'].includes('Department') || this.userdata['role'].includes('Department')) {
             // this.IsNotSubCntr = true;
             this.IsNotSubCntr = false;
             this.IsNotASubCntr = true;
@@ -1709,7 +2018,7 @@ this.SearchRequest.area = formattedArea || "";
             this.items = [];
             this.items.length = 0;
             this.items = filteritems;
-          }else if (this.userdata['role'] == 'Observer') {
+          }else if (this.userdata['role'].includes('Observer')) {
             this.IsNotSubCntr = false;
             this.IsNotASubCntr = true;
             this.items = res[0]?.['data'] || [];

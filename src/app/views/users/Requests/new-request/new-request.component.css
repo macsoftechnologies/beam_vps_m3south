@@ -20,12 +20,23 @@
 }
 
 .editImagesscroll{
-  height: 100px;
+  height: 350px;
   overflow-y: scroll;
+}
+.imagesheightdiv{
+  height: 350px !important;
+}
+.electricaldisplayclass{
+  display: none;
+}
+.mechanicaldisplayclass{
+  display: none;
 }
 
 .fileremoveclass{
   color: red;
+  align-items: center;
+  justify-content: center;
 }
 
 .uploadBlock{

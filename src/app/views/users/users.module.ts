@@ -53,9 +53,13 @@ import { CatDialogComponent } from './cat-dialog/cat-dialog.component';
 import { DeleteCatDialogComponentComponent } from './delete-cat-dialog-component/delete-cat-dialog-component.component';
 import { LogsHistoryComponent } from './logs-history/logs-history.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { ElectricalworkComponent } from '../Administrator/ElectricalWorks/electricalworks/electricalworks.component';
+import { ListElectricalWorkComponent } from '../Administrator/ElectricalWorks/list-electricalworks/list-electricalworks.component';
+import { MechanicalworkComponent } from '../Administrator/MechanicalWorks/mechanicalworks/mechanicalworks.component';
+import { ListMechanicalWorkComponent } from '../Administrator/MechanicalWorks/list-mechanicalworks/list-mechanicalworks.component';
 
 @NgModule({
-  declarations: [DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent, ListPlansComponent, RequestSaveOptionsDialogComponent, EditRequestComponent, CopyRequestComponent, StatusChangeDialogComponent, DocsComponent, CategoryComponent, NotificationLogsComponent, CatDialogComponent, DeleteCatDialogComponentComponent, LogsHistoryComponent],
+  declarations: [MechanicalworkComponent, ListMechanicalWorkComponent,ElectricalworkComponent, ListElectricalWorkComponent,DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent, ListPlansComponent, RequestSaveOptionsDialogComponent, EditRequestComponent, CopyRequestComponent, StatusChangeDialogComponent, DocsComponent, CategoryComponent, NotificationLogsComponent, CatDialogComponent, DeleteCatDialogComponentComponent, LogsHistoryComponent],
   imports: [
     CommonModule,
     jqxChartModule,

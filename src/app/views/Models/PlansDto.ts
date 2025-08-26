@@ -15,4 +15,5 @@ export class PlansDto
     start_time:string;
     end_time:string;
     area: string;
+    permit_type: ''
 }

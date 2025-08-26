@@ -19,7 +19,14 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 })
 export class StatusChangeDialogComponent implements OnInit {
   updaterequestdata: EditRequestDto = {
+    work_type: null,
+    pressure_pneumatic: null,
+    pressure_hydrostatic: null,
+    mc_number_text: null,
+    electrical_works: null,
+    mechanical_works: null,
     Request_status1: null,
+    permit_type: null,
     userId: null,
     Request_Date: null,
     Company_Name: null,
@@ -171,9 +178,10 @@ export class StatusChangeDialogComponent implements OnInit {
     people_electrician_certification: null,
     electricity_have_insulation: null,
 
+    CoMM_initials: null,
     ConM_initials: null,
-    ConM_initials1: null,
     reject_reason: null,
+    ConM_initials1: null,
     cancel_reason: null,
     name_of_the_fire_watcher1: null,
     phone_number_of_fire_watcher1: null,
@@ -184,7 +192,32 @@ export class StatusChangeDialogComponent implements OnInit {
     rams_number: null,
     night_shift: null,
     new_date: null,
-    new_end_time: null
+    new_end_time: null,
+
+    line_walk: null,
+    pressure_test_coordinated: null,
+    pipework_mic: null,
+    loto_plan_attached: null,
+    exclusion_zone_calculated: null,
+    pneumatic_hydrostatic: null,
+    pressure_of_the_test: null,
+    safety_valves_calibrated: null,
+    power_on: null,
+    responsible_for_the_area: null,
+    risk_assessment_done: null,
+    barriers_signage: null,
+    energized_been_tested: null,
+    punches_been_closed: null,
+    toct_checklist: null,
+    informed_aligned: null,
+    pressurization: null,
+    performed_approved: null,
+    flushing_approved: null,
+    mc_approved: null,
+    visual_inspection: null,
+    loto_plan_approved: null,
+    follow_media_code: null,
+    cq_safety_signs: null,
   };
   images: any[] = [];
   base64Images: any[] = [];
@@ -216,6 +249,7 @@ export class StatusChangeDialogComponent implements OnInit {
   spinner: boolean = false;
   CurrenttimeNow: string;
   requestDatas: any;
+  permitType: any;
   statusUpdateForm: FormGroup;
   statusApprovedForm: FormGroup;
   statusOpenForm: FormGroup;
@@ -238,6 +272,7 @@ export class StatusChangeDialogComponent implements OnInit {
     })
 
     this.statusApprovedForm = new FormGroup({
+      CoMM_initials: new FormControl('',Validators.required),
       ConM_initials: new FormControl('', Validators.required),
       reject_reason: new FormControl('', Validators.required),
     })
@@ -252,10 +287,12 @@ export class StatusChangeDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("...userData", this.userdata);
     console.log("DATA", this.data)
     this.updaterequestdata.userId = this.userdata["id"];
     this.type = this.data["type"];
-    this.requestDatas = this.data["payload"]["Request_status"]
+    this.requestDatas = this.data["payload"]["Request_status"];
+    this.permitType = this.data["payload"]["permit_type"];
     this.updaterequestdata.teamId = this.data["payload"]["teamId"];
     this.updaterequestdata.Activity = this.data["payload"]["Activity"];
     this.updaterequestdata.Assign_Start_Time =
@@ -270,7 +307,7 @@ export class StatusChangeDialogComponent implements OnInit {
     this.updaterequestdata.Crane_Number = this.data["payload"]["Crane_Number"];
     this.updaterequestdata.Crane_Requested =
       this.data["payload"]["Crane_Requested"];
-    this.updaterequestdata.End_Time = this.data["payload"]["End_Time"]; 
+    this.updaterequestdata.End_Time = this.data["payload"]["End_Time"];
     this.updaterequestdata.new_date = this.data["payload"]["new_date"];
     this.updaterequestdata.night_shift = this.data["payload"]["night_shift"];
     this.updaterequestdata.new_end_time = this.data["payload"]["new_end_time"];
@@ -313,6 +350,9 @@ export class StatusChangeDialogComponent implements OnInit {
     this.updaterequestdata.id = this.data["payload"]["id"];
     this.updaterequestdata.rams_number = this.data["payload"]["rams_number"];
     this.updaterequestdata.Request_status1 = "";
+    this.updaterequestdata.electrical_works = this.data["payload"]["electrical_works"];
+    this.updaterequestdata.mechanical_works = this.data["payload"]["mechanical_works"];
+    this.updaterequestdata.work_type = this.data["payload"]["work_type"];
 
     // new keys added
 
@@ -451,7 +491,42 @@ export class StatusChangeDialogComponent implements OnInit {
     this.updaterequestdata.other_conditions_input = this.data["payload"]["other_conditions_input"];
     this.updaterequestdata.rams_file = this.data["payload"]["rams_file"];
 
+    // commissioning fields
+    this.updaterequestdata.permit_type =  this.data["payload"]["permit_type"] || "";
+    // electrical system fields for commission
+    this.updaterequestdata.line_walk =  this.data["payload"]["line_walk"];
+    this.updaterequestdata.pressure_test_coordinated =  this.data["payload"]["pressure_test_coordinated"];
+    this.updaterequestdata.pipework_mic =  this.data["payload"]["pipework_mic"];
+    this.updaterequestdata.loto_plan_attached =  this.data["payload"]["loto_plan_attached"];
+    this.updaterequestdata.exclusion_zone_calculated =  this.data["payload"]["exclusion_zone_calculated"];
+    this.updaterequestdata.pneumatic_hydrostatic =  this.data["payload"]["pneumatic_hydrostatic"];
+    this.updaterequestdata.pressure_of_the_test =  this.data["payload"]["pressure_of_the_test"];
+    this.updaterequestdata.safety_valves_calibrated =  this.data["payload"]["safety_valves_calibrated"];
+    // pressurisation power on fields for commission
+    this.updaterequestdata.power_on =  this.data["payload"]["power_on"];
+    this.updaterequestdata.responsible_for_the_area =  this.data["payload"]["responsible_for_the_area"];
+    this.updaterequestdata.risk_assessment_done =  this.data["payload"]["risk_assessment_done"];
+    this.updaterequestdata.barriers_signage =  this.data["payload"]["barriers_signage"];
+    this.updaterequestdata.energized_been_tested =  this.data["payload"]["energized_been_tested"];
+    this.updaterequestdata.punches_been_closed =  this.data["payload"]["punches_been_closed"];
+    this.updaterequestdata.toct_checklist =  this.data["payload"]["toct_checklist"];
+    this.updaterequestdata.informed_aligned =  this.data["payload"]["informed_aligned"];
+    // pressurisation fields for commission
+    this.updaterequestdata.pressurization =  this.data["payload"]["pressurization"];
+    this.updaterequestdata.performed_approved =  this.data["payload"]["performed_approved"];
+    this.updaterequestdata.flushing_approved =  this.data["payload"]["flushing_approved"];
+    this.updaterequestdata.mc_approved =  this.data["payload"]["mc_approved"];
+    this.updaterequestdata.visual_inspection =  this.data["payload"]["visual_inspection"];
+    this.updaterequestdata.loto_plan_approved =  this.data["payload"]["loto_plan_approved"];
+    this.updaterequestdata.follow_media_code =  this.data["payload"]["follow_media_code"];
+    this.updaterequestdata.cq_safety_signs =  this.data["payload"]["cq_safety_signs"];
+
+    this.updaterequestdata.pressure_pneumatic =  this.data["payload"]["pressure_pneumatic"];
+    this.updaterequestdata.pressure_hydrostatic =  this.data["payload"]["pressure_hydrostatic"];
+    this.updaterequestdata.mc_number_text =  this.data["payload"]["mc_number_text"];
+
     // new add data
+    this.updaterequestdata.CoMM_initials = this.data["payload"]["CoMM_initials"];
     this.updaterequestdata.ConM_initials = this.data["payload"]["ConM_initials"];
     this.updaterequestdata.reject_reason = this.data["payload"]["reject_reason"];
 
@@ -460,6 +535,7 @@ export class StatusChangeDialogComponent implements OnInit {
     this.Close_Request.h_fire_detectors = this.data["payload"]["ConM_initials"];
     this.Close_Request.h_start_time = this.data["payload"]["ConM_initials"];
     this.Close_Request.h_end_time = this.data["payload"]["ConM_initials"];
+    this.Close_Request.close_note = this.data["payload"]["close_note"];
 
 
     // this.updaterequestdata.denmark_time = this.data["payload"]["denmark_time"];
@@ -508,7 +584,7 @@ export class StatusChangeDialogComponent implements OnInit {
       this.updaterequestdata.Request_status = statusdata;
       // this.updaterequestdata.createdTime = this.CurrenttimeNow;
 
-      this.updaterequestdata.createdTime = config.getDenmarkTime.full();;
+      this.updaterequestdata.createdTime = config.getDenmarkTime.full();
 
 
       // this.updaterequestdata.denmark_time = [currentDenmarkDate, currentDenmarkTime] ;
@@ -516,6 +592,10 @@ export class StatusChangeDialogComponent implements OnInit {
       console.log(this.updaterequestdata, "test data");
 
       // console.log(this.updaterequestdata,"stats");
+
+      if (this.statusApprovedForm.get('CoMM_initials').valid) {
+        this.updaterequestdata.CoMM_initials = this.statusApprovedForm.value.CoMM_initials;
+      }
       if (this.statusApprovedForm.get('ConM_initials').valid) {
         this.updaterequestdata.ConM_initials = this.statusApprovedForm.value.ConM_initials;
       }
@@ -528,7 +608,7 @@ export class StatusChangeDialogComponent implements OnInit {
       //   this.updaterequestdata.phone_number_of_fire_watcher1 = this.statusOpenForm.value.phone_number_of_fire_watcher1;
       //   formData.append('file', this.fileInput.files[0]);
       // }
-      let formData = new FormData();``
+      let formData = new FormData();
       if (this.images1.length > 0) {
         for (var i = 0; i < this.images1.length; i++) {
           formData.append("Image1", this.images1[i]);
@@ -587,7 +667,7 @@ export class StatusChangeDialogComponent implements OnInit {
       this.updaterequestdata.Request_status = statusdata;
       // this.updaterequestdata.createdTime = this.CurrenttimeNow;
 
-      this.updaterequestdata.createdTime = config.getDenmarkTime.full();;
+      this.updaterequestdata.createdTime = config.getDenmarkTime.full();
 
 
       // this.updaterequestdata.denmark_time = [currentDenmarkDate, currentDenmarkTime] ;
@@ -653,7 +733,7 @@ export class StatusChangeDialogComponent implements OnInit {
     this.Close_Request.id = this.updaterequestdata.id;
     this.Close_Request.Request_status = status;
     // this.Close_Request.createdTime = this.CurrenttimeNow;
-    this.Close_Request.createdTime = config.getDenmarkTime.full();;
+    this.Close_Request.createdTime = config.getDenmarkTime.full();
     // this.Close_Request.denmark_time = [currentDenmarkDate, currentDenmarkTime];
 
     // this.updaterequestdata.denmark_time = [currentDenmarkDate, currentDenmarkTime] ;
@@ -714,7 +794,7 @@ export class StatusChangeDialogComponent implements OnInit {
     this.Close_Request.id = this.updaterequestdata.id;
     this.Close_Request.Request_status = status;
     // this.Close_Request.createdTime = this.CurrenttimeNow;
-    this.Close_Request.createdTime = config.getDenmarkTime.full();;
+    this.Close_Request.createdTime = config.getDenmarkTime.full();
     // this.Close_Request.denmark_time = [currentDenmarkDate, currentDenmarkTime];
 
     // this.updaterequestdata.denmark_time = [currentDenmarkDate, currentDenmarkTime] ;

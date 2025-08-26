@@ -107,7 +107,101 @@
     </div>
 </div>
 
-<div *ngIf="(this.status == 'Approved' || this.status == 'Rejected') && req_ids.length == 0">
+<div *ngIf="this.status == 'Pre-Approved' && req_ids.length > 0">
+
+    <div mat-dialog-content>
+        <h3>This activity has been coordinated and approved by ConM/Site HSE.</h3>
+    </div>
+
+    
+    <form [formGroup]="statusApprovedForm">
+        <!-- <mat-grid-list cols="2" rowHeight="80px" *ngIf="type=='operartor' && requestDatas == 'Hold' "> -->
+
+        <mat-grid-list cols="2" rowHeight="80px">
+            <mat-grid-tile>
+                <mat-form-field class="full-width">
+                    <mat-label>ConM initials</mat-label>
+                    <input matInput formControlName="ConM_initials"
+                        [class.is-invalid]="statusApprovedForm.get('ConM_initials').invalid && statusApprovedForm.get('ConM_initials').touched" />
+                    <mat-error class="error-message"
+                        *ngIf="statusApprovedForm.get('ConM_initials').invalid && statusApprovedForm.get('ConM_initials').touched">Please
+                        Select
+                    </mat-error>
+
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <!-- <ng-container *ngIf="updaterequestdata.Hot_work == 1 && requestDatas == 'Hold'">
+               
+        </ng-container> -->
+
+    </form>
+
+
+    <div mat-dialog-actions *ngIf="!Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Hold')">Yes</button>
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Draft')">No</button>
+
+    </div>
+
+    <div mat-dialog-actions *ngIf="Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close [disabled]="statusApprovedForm.get('ConM_initials').invalid ||
+          statusApprovedForm.get('ConM_initials').value.trim() === ''"
+            (click)="ChangeListStaus('Yes')">Pre-Approve</button>
+    </div>
+</div>
+
+<div *ngIf="this.status == 'COMM-Approved' && req_ids.length > 0">
+
+    <div mat-dialog-content>
+        <h3>This activity has been coordinated and approved by C&Q.</h3>
+    </div>
+
+    
+    <form [formGroup]="statusApprovedForm">
+        <!-- <mat-grid-list cols="2" rowHeight="80px" *ngIf="type=='operartor' && requestDatas == 'Hold' "> -->
+
+        <mat-grid-list cols="2" rowHeight="80px">
+            <mat-grid-tile>
+                <mat-form-field class="full-width">
+                    <mat-label>C&Q initials</mat-label>
+                    <input matInput formControlName="CoMM_initials"
+                        [class.is-invalid]="statusApprovedForm.get('CoMM_initials').invalid && statusApprovedForm.get('CoMM_initials').touched" />
+                    <mat-error class="error-message"
+                        *ngIf="statusApprovedForm.get('CoMM_initials').invalid && statusApprovedForm.get('CoMM_initials').touched">Please
+                        Select
+                    </mat-error>
+
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <!-- <ng-container *ngIf="updaterequestdata.Hot_work == 1 && requestDatas == 'Hold'">
+               
+        </ng-container> -->
+
+    </form>
+
+
+    <div mat-dialog-actions *ngIf="!Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Hold')">Yes</button>
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Draft')">No</button>
+
+    </div>
+
+    <div mat-dialog-actions *ngIf="Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close [disabled]="statusApprovedForm.get('CoMM_initials').invalid ||
+          statusApprovedForm.get('CoMM_initials').value.trim() === ''"
+            (click)="ChangeListStaus('Yes')">Approve</button>
+    </div>
+</div>
+
+<div *ngIf="(this.status == 'Approved' || this.status == 'Rejected' || this.status == 'Pre-Approved') && req_ids.length == 0">
     <div mat-dialog-content>
         <h3>Please select Permits</h3>
     </div>

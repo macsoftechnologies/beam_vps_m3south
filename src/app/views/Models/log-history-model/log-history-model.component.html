@@ -63,7 +63,7 @@
         <!-- Weight Column -->
         <ng-container matColumnDef="userType">
           <th mat-header-cell *matHeaderCellDef> User Type </th>
-          <td mat-cell *matCellDef="let row"> {{row.userType}} </td>
+          <td mat-cell *matCellDef="let row"> {{ row.userType === 'Department' ? 'ConM/HSE' : (row.userType === 'Department1' ? 'C&Q' : row.userType) }} </td>
         </ng-container>
       
         <!-- Symbol Column -->

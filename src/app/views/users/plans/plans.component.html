@@ -193,6 +193,17 @@
 </mat-grid-tile>
 
                 </mat-grid-list>
+                  <mat-grid-list [cols]="gridCols" rowHeight="80px">
+        <mat-grid-tile>
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Permit Type</mat-label>
+    <mat-select formControlName="permit_type" name="permit_type">
+      <mat-option [value]="'Construction'">Construction</mat-option>
+      <mat-option [value]="'Commissioning'">Commissioning</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-grid-tile>
+                </mat-grid-list>
             </form>
             <div class="" style="text-align: right;">
                 <button class="butns-grp" style="margin-right: 5px; " mat-raised-button color="primary"

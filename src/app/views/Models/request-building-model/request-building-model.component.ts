@@ -8120,11 +8120,11 @@ export class RequestBuildingModelComponent implements OnInit {
           className: "JH_0_A1-7",
           isSelected: false
         },
-        // {
-        //   value: 'ZONE 0.A1',
-        //   className: "JH_0_A1-8",
-        //   isSelected: false
-        // },
+        {
+          value: 'Connecting Corridor',
+          className: "JH_0_A1-8",
+          isSelected: false
+        },
         {
           value: 'TR02',
           className: "JH_0_A1-9",

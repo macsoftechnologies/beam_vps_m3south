@@ -7507,6 +7507,11 @@ export class RequestService {
                 isSelected: false
               },
               {
+                value: 'Connecting Corridor',
+                className: "JH_0_A1-14",
+                isSelected: false
+              },
+              {
                 value: 'TR02',
                 className: "JH_0_A1-9",
                 isSelected: false
@@ -15533,6 +15538,11 @@ export class RequestService {
                 isSelected: false
               },
               {
+                value: 'Connecting Corridor',
+                className: "JH_0_A1-14",
+                isSelected: false
+              },
+              {
                 value: 'TR02',
                 className: "JH_0_A1-9",
                 isSelected: false
@@ -15556,12 +15566,7 @@ export class RequestService {
                 value: 'SK01',
                 className: "JH_0_A1-13",
                 isSelected: false
-              },
-              {
-                value: 'ZONE 0.A1',
-                className: "JH_0_A1-14",
-                isSelected: false
-              },
+              }
           ]
         },
         {

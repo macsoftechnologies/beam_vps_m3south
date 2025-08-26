@@ -1,0 +1,76 @@
+<div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title> Mechanical Work </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+
+    <mat-card-content class="card-content">
+      <form [formGroup]="MechnicalWorkForm" class="example-form">
+        <mat-grid-list cols="1" rowHeight="100px">
+          <!-- <mat-grid-tile *ngIf="editform">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label> Id</mat-label>
+              <input matInput formControlName="id" readonly placeholder="Id" />
+            </mat-form-field>
+          </mat-grid-tile> -->
+          <mat-grid-tile>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Mechanical Work</mat-label>
+              <textarea class="safety-sty"
+                matInput
+               
+                formControlName="mechanical_works"
+                placeholder="Mechanical Work"
+              >
+              </textarea>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </form>
+      <div class="butns" *ngIf="!editform">
+        <button
+          class="butns-grp"
+          mat-raised-button
+          color="primary"
+          (click)="Createmechanicalwork()"
+        >
+          Create
+        </button>
+      </div>
+      <div class="butns" *ngIf="editform">
+        <button
+          class="butns-grp"
+          mat-raised-button
+          color="primary"
+          mat-dialog-close
+          (click)="Updatemechanicalwork()"
+        >
+          Update
+        </button>
+        <button
+          class="butns-grp"
+          mat-raised-button
+          color="primary"
+          mat-dialog-close
+        >
+          Close
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!-- <div *ngIf="deleteform">
+<h1>Do you want delete the Department </h1>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true" (click)="Deletedepat()">Yes</button>
+    <button mat-button mat-dialog-close>No</button>
+  </div>
+</div> -->
+<div class="loading-indicator" *ngIf="spinner">
+  <mat-progress-spinner
+    mode="indeterminate"
+    color="accent"
+  ></mat-progress-spinner>
+</div>

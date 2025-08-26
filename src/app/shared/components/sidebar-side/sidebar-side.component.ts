@@ -29,19 +29,19 @@ export class SidebarSideComponent implements OnInit, OnDestroy, AfterViewInit {
     this.user=this.jwtAuth.getUser();
     this.iconTypeMenuTitle = this.navService.iconTypeMenuTitle;
     this.menuItemsSub = this.navService.menuItems$.subscribe(menuItem => {
-      if(this.user["role"]=="Subcontractor")
+      if(this.user["role"].includes("Subcontractor"))
       {
         this.menuItems = this.navService.UsericonMenu;
       }
-      else  if(this.user["role"]=="Admin")
+      else  if(this.user["role"].includes("Admin"))
       {
         this.menuItems = this.navService.AdminiconMenu;
       }
-      else  if(this.user["role"]=="Department")
+      else  if(this.user["role"].includes("Department"))
       {
         this.menuItems = this.navService.OperatoriconMenu;
       }
-      else  if(this.user["role"]=="Observer")
+      else  if(this.user["role"].includes("Observer"))
       {
         this.menuItems = this.navService.ObservericonMenu;
       }

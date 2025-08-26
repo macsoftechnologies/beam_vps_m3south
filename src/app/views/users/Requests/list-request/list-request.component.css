@@ -27,8 +27,8 @@ margin-bottom: 15px;
 }
 .mat-form-field
 {
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 .butns-grp
@@ -68,7 +68,22 @@ cursor: pointer;
     color: white;
     cursor: pointer;
 }
-
+.span-delete{
+  background-color: rgb(168, 54, 54);
+  color: white;
+}
+.span-preapprv{
+  background-color: rgb(0, 162, 255);
+  color: white;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.span-comapprv{
+  background-color: rgb(1, 50, 78);
+  color: white;
+  margin-right: 5px;
+  cursor: pointer;
+}
 .icons-sty
 {
     font-size: 15px;
