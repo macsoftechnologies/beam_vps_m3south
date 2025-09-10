@@ -1,89 +1,117 @@
 <div mat-dialog-content>
-    <div class="main-section">
-      <!-- <ngx-datatable class="material ml-0 mr-0" [rows]="data['logData']" [columnMode]="'flex'"
-        [headerHeight]="50"
-        [rowHeight]="'auto'"
-        [columnMode]="'force'" class="full-width-table">
-          
-        <ngx-datatable-column name="Permit number " [flexGrow]="1" [width]="200" >
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row?.PermitNo }}
-          </ng-template>
-        </ngx-datatable-column>
+  <div class="main-section">
+    <table mat-table [dataSource]="data['logData']" multiTemplateDataRows class="mat-elevation-z8 log-details-table">
 
-        <ngx-datatable-column name="User Name" [flexGrow]="1" [width]="200">
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row?.username }}
-          </ng-template>
-        </ngx-datatable-column>
-  
-        <ngx-datatable-column name="User Type" [flexGrow]="1" [width]="200">
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row?.userType }}
-          </ng-template>
-        </ngx-datatable-column>
-  
-        <ngx-datatable-column name="Request Type" [flexGrow]="1" [width]="200">
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row?.requestType }}
-          </ng-template>
-        </ngx-datatable-column>
-  
-        <ngx-datatable-column name="Time" [flexGrow]="1" [width]="200">
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row?.createdTime | date:'short' }}
-          </ng-template>
-        </ngx-datatable-column>
-  
-      </ngx-datatable> -->
+      <!-- Columns -->
+      <ng-container matColumnDef="PermitNo">
+        <th mat-header-cell *matHeaderCellDef>Permit No.</th>
+        <td mat-cell *matCellDef="let row">{{ row?.PermitNo }}</td>
+      </ng-container>
 
-      <table mat-table [dataSource]="data['logData']" class="mat-elevation-z8 log-deatils-table">
+      <ng-container matColumnDef="contractor_name">
+        <th mat-header-cell *matHeaderCellDef>Contractor Name</th>
+        <td mat-cell *matCellDef="let row">{{ row?.contractor_name }}</td>
+      </ng-container>
 
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-      
-        <!-- Position Column -->
-        <ng-container matColumnDef="PermitNo">
-          <th mat-header-cell *matHeaderCellDef> Permit No. </th>
-          <td mat-cell *matCellDef="let row">  {{ row?.PermitNo }} </td>
-        </ng-container>
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef>User Name</th>
+        <td mat-cell *matCellDef="let row">{{ row?.username }}</td>
+      </ng-container>
 
-         <!-- Contractor Name Column -->
-         <ng-container matColumnDef="contractor_name">
-          <th mat-header-cell *matHeaderCellDef> Contractor Name </th>
-          <td mat-cell *matCellDef="let row"> {{row?.contractor_name}} </td>
-        </ng-container>      
-      
-        <!-- Name Column -->
-        <ng-container matColumnDef="username">
-          <th mat-header-cell *matHeaderCellDef> User Name </th>
-          <td mat-cell *matCellDef="let row"> {{row.username}} </td>
-        </ng-container>
-      
-        <!-- Weight Column -->
-        <ng-container matColumnDef="userType">
-          <th mat-header-cell *matHeaderCellDef> User Type </th>
-          <td mat-cell *matCellDef="let row"> {{ row.userType === 'Department' ? 'ConM/HSE' : (row.userType === 'Department1' ? 'C&Q' : row.userType) }} </td>
-        </ng-container>
-      
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="requestType">
-          <th mat-header-cell *matHeaderCellDef> Request Type </th>
-          <td mat-cell *matCellDef="let row"> {{row.requestType}} </td>
-        </ng-container>
+      <ng-container matColumnDef="userType">
+        <th mat-header-cell *matHeaderCellDef>User Type</th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.userType === 'Department' ? 'ConM/HSE' : (row.userType === 'Department1' ? 'C&Q' : row.userType) }}
+        </td>
+      </ng-container>
 
-        <ng-container matColumnDef="createdTime">
-          <th mat-header-cell *matHeaderCellDef> Time </th>
-          <td mat-cell *matCellDef="let row"> {{row?.createdTime | date:'short'}} </td>
-        </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-        
+      <ng-container matColumnDef="requestType">
+        <th mat-header-cell *matHeaderCellDef>Request Type</th>
+        <td mat-cell *matCellDef="let row">{{ row?.requestType }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="createdTime">
+        <th mat-header-cell *matHeaderCellDef>Time</th>
+        <td mat-cell *matCellDef="let row">{{ row?.createdTime | date:'short' }}</td>
+      </ng-container>
+
+      <!-- Expanded detail column -->
+<!-- <ng-container matColumnDef="expandedDetail">
+  <td mat-cell *matCellDef="let row" [attr.colspan]="displayedColumns.length">
+    <div class="detail-container">
+      <ng-container *ngIf="row.fields && row.fields.length > 0; else noChanges">
+        <table class="nested-table">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Previous</th>
+              <th>Present</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let f of row.fields">
+              <td>{{ f.field_name }}</td>
+              <td>{{ f.previous }}</td>
+              <td>{{ f.present }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
+      <ng-template #noChanges>No changes</ng-template>
     </div>
+  </td>
+</ng-container> -->
+
+<ng-container matColumnDef="expandedDetail">
+  <td mat-cell *matCellDef="let row" [attr.colspan]="displayedColumns.length">
+    <div class="detail-container">
+      <ng-container *ngIf="row.fields && row.fields.length > 0; else noChanges">
+        <table class="nested-table mat-elevation-z2">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Previous</th>
+              <th>Present</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let f of row.fields">
+  <td>{{ f.field_name }}</td>
+  <td class="previous">{{ f.previous }}</td>
+  <td class="present">{{ f.present }}</td>
+</tr>
+          </tbody>
+        </table>
+      </ng-container>
+      <ng-template #noChanges>
+        <div class="no-changes">✨ No changes for this action</div>
+      </ng-template>
+    </div>
+  </td>
+</ng-container>
+
+
+
+      <!-- Header -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+      <!-- Main row -->
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"
+          class="element-row"
+          (click)="toggleRow(row)"
+          [class.expanded]="expandedElement === row">
+      </tr>
+
+      <!-- Detail row (hidden when not selected) -->
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']"
+          class="detail-row"
+          [hidden]="expandedElement !== row">
+      </tr>
+
+    </table>
+  </div>
 </div>
+
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancel</button>
-    <!-- <button mat-button cdkFocusInitial>Submit</button> -->
+  <button mat-button mat-dialog-close>Cancel</button>
 </mat-dialog-actions>

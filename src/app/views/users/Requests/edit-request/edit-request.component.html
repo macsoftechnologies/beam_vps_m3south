@@ -1,18 +1,40 @@
- <div *ngIf="IsNotes">
-   <div>
-    <mat-form-field class="full-width" appearance="outline">
-      <mat-label>Notes</mat-label>
-      <textarea class="safety-sty"
-        matInput [(ngModel)]="Notes"
-        placeholder="Notes">
-      </textarea>
-    </mat-form-field>
-   </div>
-  <div class="btns-sty">
-    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="CreateNotes()">Save</button>
-    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>Close</button>
-  </div>
- </div>
+<div *ngIf="IsNotes">
+  <form #notesForm="ngForm">
+    <div>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Notes</mat-label>
+        <textarea class="safety-sty"
+          matInput
+          name="Notes"
+          [(ngModel)]="Notes"
+          #NotesCtrl="ngModel"
+          placeholder="Notes"
+          required>
+        </textarea>
+
+        <!-- Error message -->
+        <mat-error *ngIf="NotesCtrl.invalid && NotesCtrl.touched">
+          Notes cannot be empty
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="btns-sty">
+      <button class="butns-grp" 
+              mat-raised-button 
+              color="primary"
+              [disabled]="notesForm.invalid"
+              (click)="CreateNotes()">
+        Save
+      </button>
+
+      <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>
+        Close
+      </button>
+    </div>
+  </form>
+</div>
+
 
  <div *ngIf="IsSafety">
   <!-- <mat-form-field class="full-width" appearance="outline">

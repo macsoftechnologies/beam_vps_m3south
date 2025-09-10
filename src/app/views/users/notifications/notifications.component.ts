@@ -38,55 +38,56 @@ export class NotificationsComponent implements OnInit {
 
     if (this.userdata["role"] == "Subcontractor") {
       this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
-      this.reqservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
+      this.reqservice.GetAllNotifications().subscribe(res=>
         {
           let FilterList=[];
           let AllList=[];
-          if(res["data"])
-          {
-            AllList=res["data"];
-            AllList.forEach(x=>
-              {
-                if(x["Request_status"]=='Approved' || x["Request_status"]=='Rejected' || x["Request_status"]=='Closed')
-                {
-                  FilterList.push(x);
-                }
-              });
+          // if(res["data"])
+          // {
+          //   AllList=res["data"];
+          //   AllList.forEach(x=>
+          //     {
+          //       if(x["Request_status"]=='Approved' || x["Request_status"]=='Rejected' || x["Request_status"]=='Closed')
+          //       {
+          //         FilterList.push(x);
+          //       }
+          //     });
 
-              // console.log(this.RequestList)
-              this.RequestList=FilterList;
-          }
-         
+          //     // console.log(this.RequestList)
+          //     this.RequestList=FilterList;
+          // }
+         this.RequestList=res['data'];
             this.spinner=false;
         });
     }
-    else if (this.userdata["role"] == "Admin"  || "Department") {
+    else if (this.userdata["role"] == "Admin" || "Department" || "Department1") {
      
-      this.reqservice.GetAllRequests().subscribe(res=>
+      this.reqservice.GetAllNotifications().subscribe(res=>
         {
           let FilterList=[];
           let AllList=[];
-          if(res["data"])
-          {
-            AllList=res["data"];
-            AllList.forEach(x=>
-              {
-                if(x["Request_status"]=='Approved' || x["Request_status"]=='Rejected' || x["Request_status"]=='Closed' || x["Request_status"]=='Cancelled' || x["Request_status"]=='Hold')
-                {
-                  FilterList.push(x);
-                }
-              });
+          // if(res["data"])
+          // {
+          //   AllList=res["data"];
+          //   AllList.forEach(x=>
+          //     {
+          //       if(x["Request_status"]=='Approved' || x["Request_status"]=='Rejected' || x["Request_status"]=='Closed' || x["Request_status"]=='Cancelled' || x["Request_status"]=='Hold')
+          //       {
+          //         FilterList.push(x);
+          //       }
+          //     });
               
-              this.tempTest = FilterList;
+          //     this.tempTest = FilterList;
 
-              this.RequestList=FilterList;
+          //     this.RequestList=FilterList;
 
-              // console.log(this.RequestList)
+          //     // console.log(this.RequestList)
 
-              // this.temp = this.RequestList;
+          //     // this.temp = this.RequestList;
 
               
-          }
+          // }
+          this.RequestList=res['data'];
             this.spinner=false;
         });
 

@@ -292,7 +292,7 @@
         </ng-template>
         <ng-template [width]="50" class="chcks-sty" ngx-datatable-cell-template let-value="value"
           let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChangeFn" let-row="row">
-          <input [width]="50" type="checkbox" [checked]="isSelected" *ngIf="row.Request_status == 'Hold' || 'Rejected' || 'Closed' || 'Cancelled' || 'Pre-Approved'"
+          <input [width]="50" type="checkbox" [checked]="isSelected" *ngIf="!isConstructionRestricted(row) && row.Request_status == 'Hold' || 'Rejected' || 'Closed' || 'Cancelled' || 'Pre-Approved'"
             (change)="onCheckboxChangeFn($event)" />
         </ng-template>
       </ngx-datatable-column>
@@ -425,6 +425,7 @@
               row.Request_status != 'Approved' &&
               row.Request_status != 'Opened' &&
               row.Request_status != 'Closed' &&
+              row.Request_status != 'Cancelled' &&
               row.Request_status != 'Rejected' &&
               row.Request_status != 'Cancelled' &&
               row.Request_status != 'Pre-Approved'
@@ -444,21 +445,21 @@
             {{ row?.Request_status }}
           </mat-chip>
           <mat-chip [ngClass]="{ 'status_approved': row?.Request_status == 'Approved'}" mat-sm-chip class="hold-sty"
-            [color]="'primary'" (click)="ChangeStausbysubcontractor(row, 'Opened')"
+            [color]="'primary'" (click)="!isConstructionRestricted(row)&&ChangeStausbysubcontractor(row, 'Opened')"
             *ngIf="row.Request_status == 'Approved'">{{ row?.Request_status }}
           </mat-chip>
           <mat-chip [ngClass]="{ 'status_opened': row?.Request_status == 'Opened'}" mat-sm-chip class="hold-sty"
-            [color]="'primary'" (click)="ChangeStausbysubcontractor(row, 'Closed')"
+            [color]="'primary'" (click)="!isConstructionRestricted(row)&&ChangeStausbysubcontractor(row, 'Closed')"
             *ngIf="row.Request_status == 'Opened'">{{ row?.Request_status }}
           </mat-chip>
           <mat-chip [ngClass]="{ 'status_hold': row?.Request_status == 'Hold'}" class="hold-sty" mat-sm-chip
-            [color]="'primary'" *ngIf="row.Request_status == 'Hold' && isoperator" (click)="ChangeStaus(row)">{{
+            [color]="'primary'" *ngIf="row.Request_status == 'Hold' && isoperator" (click)="!isConstructionRestricted(row)&&ChangeStaus(row)">{{
             row?.Request_status }}</mat-chip>
           <mat-chip [ngClass]="{ 'status_hold': row?.Request_status == 'Hold'}" mat-sm-chip [color]="'primary'"
             *ngIf="row.Request_status == 'Hold' && !isoperator">
             {{ row?.Request_status }}</mat-chip>
           <mat-chip [ngClass]="{ 'status_preapproved': row?.Request_status == 'Pre-Approved'}" mat-sm-chip [color]="'primary'"
-            *ngIf="row.Request_status == 'Pre-Approved' && isoperator" (click)="ChangeStaus(row)">
+            *ngIf="row.Request_status == 'Pre-Approved' && isoperator" (click)="!isConstructionRestricted(row)&&ChangeStaus(row)">
             {{ row?.Request_status }}
           </mat-chip>
           <mat-chip [ngClass]="{ 'status_preapproved': row?.Request_status == 'Pre-Approved'}" mat-sm-chip [color]="'primary'"
@@ -506,13 +507,13 @@
       <ngx-datatable-column name="Operations" [flexGrow]="1">
         <ng-template let-row="row" ngx-datatable-cell-template>
           <mat-icon (click)="Editrow(row)" class="icons-sty"
-          *ngIf="isoperator && row.Request_status != 'Cancelled' && row.Request_status != 'Closed' && row.Request_status != 'Rejected' && (!this.userdata['role'].includes('Observer'))"
+          *ngIf="!isConstructionRestricted(row)&&isoperator && row.Request_status != 'Cancelled' && row.Request_status != 'Closed' && row.Request_status != 'Rejected' && (!this.userdata['role'].includes('Observer'))"
           (click)="Editrow(row)">edit</mat-icon>
           <mat-icon class="icons-sty">
             <a href="https://beam.safesiteworks.com/m3south/newbeam1/index.php?PermitNo={{
                 row?.PermitNo
               }}" target="_blank">visibility</a></mat-icon>
-          <mat-icon (click)="CopyRequest(row, row.Request_status)" class="icons-sty" *ngIf="
+          <mat-icon (click)="CopyRequest(row, row.Request_status)" class="icons-sty" *ngIf="!isConstructionRestricted(row)&&
              (row.Request_status == 'Hold' ||
              row.Request_status == 'Pre-Approved' ||
               row.Request_status == 'Approved' ||
@@ -521,9 +522,9 @@
             ">content_copy
           </mat-icon>
           <mat-icon (click)="CopyRequest(row, 'Closed')" class="icons-sty"
-            *ngIf="row.Request_status == 'Closed' && isoperator && (!this.userdata['role'].includes('Observer'))">content_copy</mat-icon>
+            *ngIf="row.Request_status == 'Closed' && !isConstructionRestricted(row)&& isoperator && (!this.userdata['role'].includes('Observer'))">content_copy</mat-icon>
           <mat-icon (click)="Deleterequest(row)" class="icons-sty"
-            *ngIf="IsNotSubCntr && (!this.userdata['role'].includes('Observer'))">delete</mat-icon>
+            *ngIf="IsNotSubCntr &&  !isConstructionRestricted(row)&& (!this.userdata['role'].includes('Observer'))">delete</mat-icon>
         </ng-template>
       </ngx-datatable-column>
       <ngx-datatable-footer>

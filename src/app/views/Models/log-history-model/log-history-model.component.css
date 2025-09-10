@@ -12,3 +12,130 @@
   td{
     text-align: center!important;
   }
+    .detail-row td {
+  padding: 0 !important;
+  border: 0;
+}
+
+.detail-container {
+  padding: 12px 16px;
+}
+
+.nested-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.nested-table th, .nested-table td {
+  padding: 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+/* Container for expanded row */
+.detail-container {
+  background: #fafafa;
+  padding: 12px;
+  border-left: 4px solid #3f51b5; /* Material primary color */
+  border-radius: 6px;
+  margin: 8px 0;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Nested sub-table */
+.nested-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 6px;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.nested-table th {
+  text-align: left;
+  padding: 8px;
+  background: #f5f5f5;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.nested-table td {
+  padding: 8px;
+  font-size: 13px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Highlighting */
+.previous {
+  color: #d32f2f; /* red */
+  font-weight: 500;
+}
+
+.present {
+  color: #388e3c; /* green */
+  font-weight: 500;
+}
+
+.no-changes {
+  text-align: center;
+  color: #757575;
+  font-style: italic;
+  margin-top: 8px;
+  padding: 8px;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+/* Smooth expand animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.log-details-table {
+  width: 100% !important;       /* stretch table to full dialog width */
+  table-layout: fixed;          /* distribute columns evenly */
+  border-collapse: collapse;    /* cleaner look */
+}
+
+.log-details-table th,
+.log-details-table td {
+  padding: 8px 12px;
+  text-align: left;
+  word-wrap: break-word;        /* prevent text overflow */
+}
+.main-section {
+  width: 100%;
+}
+
+.mat-dialog-content {
+  padding: 0;  /* remove default padding if you want full-bleed */
+}
+.log-details-table th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+.nested-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.nested-table th,
+.nested-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Column widths */
+.nested-table th:nth-child(1),
+.nested-table td:nth-child(1) {
+  width: 50%;   /* Field */
+}
+
+.nested-table th:nth-child(2),
+.nested-table td:nth-child(2),
+.nested-table th:nth-child(3),
+.nested-table td:nth-child(3) {
+  width: 25%;   /* Previous & Present */
+}

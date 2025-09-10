@@ -278,7 +278,7 @@ Add Files
 
           </mat-grid-list>
 
-          <mat-grid-list cols="1" rowHeight="100px">
+          <mat-grid-list cols="1" rowHeight="300px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Description of activity</mat-label>
@@ -411,10 +411,10 @@ Add Files
               </mat-error>
             </mat-grid-tile>
             <!-- new date and new end time if night shift checked -->
-            <mat-grid-tile *ngIf="isnightshiftyes" class="night-shift-fields">
+            <mat-grid-tile *ngIf="isnightshiftyes" class="night-shift-fields" [disabled]="isnightshiftyes">
               <mat-form-field class="datepikr full-width" appearance="outline">
                 <mat-label>New Date</mat-label>
-                <input matInput [min]="minDate" formControlName="newWorkDate" [max]="maxDate" [matDatepicker]="spicker"
+                <input matInput [min]="minDate" [disabled]="isnightshiftyes" formControlName="newWorkDate" [max]="maxDate" [matDatepicker]="spicker"
                   [class.is-invalid]="RequestForm.get('newWorkDate').invalid && RequestForm.get('newWorkDate').touched" />
                 <mat-datepicker-toggle matSuffix [for]="spicker"></mat-datepicker-toggle>
                 <mat-datepicker #spicker></mat-datepicker>
@@ -3479,6 +3479,17 @@ Add Files
                 <mat-label>Note</mat-label>
                 <textarea class="textarea" matInput formControlName="Note" placeholder="Notes...."></textarea>
               </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+              <div *ngIf="(notesArray.length > 0) && editform" class="notes-list">
+                <h3>Notes-List</h3>
+      <small *ngFor="let note of notesArray">
+        <strong>{{ note.Username }}:</strong> {{ note.Note }}
+      </small>
+    </div>
+
             </mat-grid-tile>
           </mat-grid-list>
         </div>

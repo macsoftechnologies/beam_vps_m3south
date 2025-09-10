@@ -19,6 +19,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 })
 export class StatusChangeDialogComponent implements OnInit {
   updaterequestdata: EditRequestDto = {
+    fields: "",
     work_type: null,
     pressure_pneumatic: null,
     pressure_hydrostatic: null,
@@ -221,6 +222,7 @@ export class StatusChangeDialogComponent implements OnInit {
   };
   images: any[] = [];
   base64Images: any[] = [];
+  originalrequestdata: any = {};
 
   images1: any[] = [];
   base64Images1: any[] = [];

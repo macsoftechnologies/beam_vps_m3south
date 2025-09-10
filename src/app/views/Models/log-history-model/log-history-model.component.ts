@@ -7,13 +7,14 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./log-history-model.component.css']
 })
 export class LogHistoryModelComponent implements OnInit {
-  displayedColumns: string[] = ['PermitNo', 'contractor_name', 'username', 'userType', 'requestType', 'createdTime'];
+  displayedColumns: string[] = ['PermitNo','contractor_name','username','userType','requestType','createdTime'];
+  expandedElement: any | null = null;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
-    // console.log("log-details", data);
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+
+  ngOnInit(): void {}
+
+  toggleRow(row: any) {
+    this.expandedElement = this.expandedElement === row ? null : row;
   }
-
-  ngOnInit(): void {
-  }
-
 }

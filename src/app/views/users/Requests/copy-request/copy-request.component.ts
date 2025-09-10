@@ -72,8 +72,8 @@ export class CopyRequestComponent implements OnInit {
     private jwtauthservice: JwtAuthService,
     private datePipe: DatePipe,
     private reqservice: RequestService) {
-    const currentYear = new Date().getFullYear();
-    this.minDate = new Date(currentYear - 20, 0, 1);
+    const currentYear = new Date(config.getDenmarkTime.date()).getFullYear();
+    this.minDate = new Date(config.getDenmarkTime.date());
     this.maxDate = new Date(currentYear + 1, 11, 31);
     this.userdata = this.jwtauthservice.getUser();
   }

@@ -86,6 +86,12 @@ export class ListRequestComponent implements OnInit {
   IsNotASubCntr: boolean = false;
   selected = [];
   selectedRequestIds = [];
+  selectedPermitNos = [];
+  selectedsafetyprecaution = [];
+  selectedStartTime = [];
+  selectedEndTime = [];
+  selectedNightShift = [];
+  selectedNewEndTime = [];
   Filtertab: boolean = false;
   SelectionType = SelectionType;
   isUserLoggedIn: any;
@@ -448,10 +454,17 @@ export class ListRequestComponent implements OnInit {
     } else if((this.approvalUsers.includes('Department') && this.approvalUsers.includes('Department1')) || this.approvalUsers.includes('Admin')) {
       this.bothApproval = true;
     } else {
-      this.firstApproval = true;
-      this.secondApproval =true;
-      this.bothApproval = true;
+      this.firstApproval = false;
+      this.secondApproval =false;
+      this.bothApproval = false;
     }
+
+    this.onlySecondApproval = (
+  this.secondApproval && 
+  !this.firstApproval && 
+  !this.bothApproval && 
+  !this.approvalUsers.includes('Admin')
+);
 
      this.breakpointObserver.observe(['(max-width: 599px)']) // 👈 custom mobile-only query
       .subscribe(result => {
@@ -1717,11 +1730,23 @@ proceedWithBulkStatusChange(statusdata) {
     });
   }
 
+  
+ isConstructionRestricted(row: any): boolean {
+  const type = row?.permit_type?.trim() || 'Construction'; // default to Construction if null/empty
+  return this.onlySecondApproval && type === 'Construction';
+}
+
   Getselected(event) {
     console.log(event);
     this.selected.forEach((x) => {
       if ((x['Request_status'] == 'Draft') ||(x['Request_status'] == 'Hold') || (x['Request_status'] =="Pre-Approved") || (x['Request_status'] =="Approved") || (x['Request_status'] =="Opened")) {
-        this.selectedRequestIds.push(x['id']);
+        this.selectedRequestIds.push(x['id'] ?? "");
+      this.selectedPermitNos.push(x['PermitNo'] ? x['PermitNo'] : "");
+      this.selectedsafetyprecaution.push(x['Safety_Precautions'] ? x['Safety_Precautions'] : "");
+      this.selectedStartTime.push(x['Start_Time'] ? x['Start_Time'] : "");
+      this.selectedEndTime.push(x['End_Time'] ? x['End_Time'] : "");
+      this.selectedNightShift.push(x['night_shift'] ? x['night_shift'] : "");
+      this.selectedNewEndTime.push(x['new_end_time'] ? x['new_end_time'] : "");
       }
     });
 
@@ -1733,13 +1758,26 @@ proceedWithBulkStatusChange(statusdata) {
           width: '800px',
           height: 'fit-content',
           disableClose: false,
-          data: { title: title, payload: this.selectedRequestIds.toString() },
+          data: { title: title, payload: this.selectedRequestIds.toString(),
+             permit_no: this.selectedPermitNos.toString(),
+             safetyprecautions: this.selectedsafetyprecaution.join("|").toString(),
+             startTIme: this.selectedStartTime.toString(),
+             endTime: this.selectedEndTime.toString(),
+             nightShift: this.selectedNightShift.toString(),
+             newEndTime: this.selectedNewEndTime.toString(),
+          },
         }
       );
       dialogRef.afterClosed().subscribe((res) => {
         this.Countresult.length = 0;
         this.selectedRequestIds.length = 0;
         this.selectedRequestIds = [];
+        this.selectedPermitNos = [];
+        this.selectedsafetyprecaution = [];
+        this.selectedStartTime = [];
+        this.selectedEndTime = [];
+        this.selectedNightShift = [];
+        this.selectedNewEndTime = [];
         if (this.api == 'SearchRequest') {
           // console.log("search API");
           // this.api = 'SearchRequest';
