@@ -3335,9 +3335,10 @@ private groupByModule(data: any[], displayProperty: string): any[] {
       this.RequestForm.get(`${control}`).updateValueAndValidity();
       this.RequestForm.get(`${control}`).markAsTouched();
     });
-    if(this.RequestForm.get('SubContractor').valid) {
-      this.Requestdata.Request_status = "Draft";
+    if(this.RequestForm.valid) {
     this.CreateRequest();
+    } else {
+      this.openSnackBar("Invalid form please check once.");
     }
     //this.requestsserivies.CreateNewRequest()
   }
@@ -4421,7 +4422,7 @@ private logFieldChanges(previousData: any, currentData: any): any[] {
       );
     }  else {
       console.error("Form is invalid. Please check the validation errors.");
-
+      this.openSnackBar("Invalid form please check once.");
   Object.keys(this.RequestForm.controls).forEach((key) => {
     const control = this.RequestForm.get(key);
     if (control && control.invalid) {
