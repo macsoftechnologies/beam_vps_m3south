@@ -292,7 +292,7 @@
         </ng-template>
         <ng-template [width]="50" class="chcks-sty" ngx-datatable-cell-template let-value="value"
           let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChangeFn" let-row="row">
-          <input [width]="50" type="checkbox" [checked]="isSelected" *ngIf="!isConstructionRestricted(row) && row.Request_status == 'Hold' || 'Rejected' || 'Closed' || 'Cancelled' || 'Pre-Approved'"
+          <input [width]="50" type="checkbox" [checked]="isSelected" *ngIf="!isConstructionRestricted(row) && (row.Request_status == 'Hold' || 'Rejected' || 'Closed' || 'Cancelled' || 'Pre-Approved')"
             (change)="onCheckboxChangeFn($event)" />
         </ng-template>
       </ngx-datatable-column>
