@@ -47,11 +47,11 @@ export const usersRoutes: Routes = [
         data: { title: "", breadcrumb: " list-plans",roles: config.authRoles.subcontractor }
       },
      
-      {
-        path: "notifications",
-        component:NotificationsComponent,
-        data: { title: "", breadcrumb: "notifications",roles: config.authRoles.subcontractor }
-      },
+      // {
+      //   path: "notifications",
+      //   component:NotificationsComponent,
+      //   data: { title: "", breadcrumb: "notifications",roles: config.authRoles.subcontractor }
+      // },
       {
         path: "log-history",
         component:LogsHistoryComponent,

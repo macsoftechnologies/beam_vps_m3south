@@ -233,13 +233,13 @@ export class NavigationService {
     // },
 
    
-    {
-      name: "Notifications",
-      type: "link",
-      tooltip: "Notifications",
-      icon: "notifications", 
-      state: "user/notifications"
-    },
+    // {
+    //   name: "Notifications",
+    //   type: "link",
+    //   tooltip: "Notifications",
+    //   icon: "notifications", 
+    //   state: "user/notifications"
+    // },
   ];
 
   AdminiconMenu: IMenuItem[] = [
@@ -389,13 +389,13 @@ export class NavigationService {
       ]
     },
 
-    {
-      name: "Notifications",
-      type: "link",
-      tooltip: "Notifications",
-      icon: "notifications", 
-      state: "user/notifications"
-    },
+    // {
+    //   name: "Notifications",
+    //   type: "link",
+    //   tooltip: "Notifications",
+    //   icon: "notifications", 
+    //   state: "user/notifications"
+    // },
     {
       name: "Logs-Histoy",
       type: "link",
@@ -427,13 +427,13 @@ export class NavigationService {
       ]
     },
 
-    {
-      name: "Notifications",
-      type: "link",
-      tooltip: "Notifications",
-      icon: "notifications", 
-      state: "user/notifications"
-    },
+    // {
+    //   name: "Notifications",
+    //   type: "link",
+    //   tooltip: "Notifications",
+    //   icon: "notifications", 
+    //   state: "user/notifications"
+    // },
   ];
 
   OperatoriconMenu: IMenuItem[] = [
@@ -471,13 +471,13 @@ export class NavigationService {
       icon: "event", 
       state: "user/plans"
     },
-    {
-      name: "Notifications",
-      type: "link",
-      tooltip: "Notifications",
-      icon: "notifications", 
-      state: "user/notifications"
-    },
+    // {
+    //   name: "Notifications",
+    //   type: "link",
+    //   tooltip: "Notifications",
+    //   icon: "notifications", 
+    //   state: "user/notifications"
+    // },
   ];
 
 
