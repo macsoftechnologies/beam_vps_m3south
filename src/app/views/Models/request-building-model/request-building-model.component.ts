@@ -8788,6 +8788,542 @@ export class RequestBuildingModelComponent implements OnInit {
       }
     }
 
+
+    //  // JJ Ground Floor
+    
+    else if (this.data.floor.name == 'Zone 0.A1' && this.data.floor.planType == 'JJ - Ground Floor') {
+      this.floorBlock = [
+        {
+          value: 'S.001',
+          className: "JJ_0_A1-1",
+          isSelected: false
+        },
+        {
+          value: 'JJ1-A',
+          className: "JJ_0_A1-2",
+          isSelected: false
+        },
+        {
+          value: 'JJ2-B',
+          className: "JJ_0_A1-3",
+          isSelected: false
+        },
+        {
+          value: 'EL-TAVLE',
+          className: "JJ_0_A1-4",
+          isSelected: false
+        },
+        {
+          value: 'S.002',
+          className: "JJ_0_A1-5",
+          isSelected: false
+        },
+        {
+          value: 'EL-TAVLE',
+          className: "JJ_0_A1-6",
+          isSelected: false
+        },
+        {
+          value: 'UPS-TAVLE',
+          className: "JJ_0_A1-7",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone 0.A2' && this.data.floor.planType == 'JJ - Ground Floor') {
+      this.floorBlock = [
+        {
+          value: 'JJ000702FC001',
+          className: "JJ_0_A2-1",
+          isSelected: false
+        },
+        {
+          value: 'S.005',
+          className: "JJ_0_A2-2",
+          isSelected: false
+        },
+        {
+          value: 'BMS PANEL-1-1ACB',
+          className: "JJ_0_A2-3",
+          isSelected: false
+        },
+        {
+          value: 'BMS PANEL-1-ACA',
+          className: "JJ_0_A2-4",
+          isSelected: false
+        },
+        {
+          value: 'BMS PANEL-2-BCA',
+          className: "JJ_0_A2-5",
+          isSelected: false
+        },
+        {
+          value: 'JJ000703FC001',
+          className: "JJ_0_A2-6",
+          isSelected: false
+        },
+        {
+          value: 'JJ000703FC002',
+          className: "JJ_0_A2-7",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone 0.A3' && this.data.floor.planType == 'JJ - Ground Floor') {
+      this.floorBlock = [
+        {
+          value: 'TR01',
+          className: "JJ_0_A3-1",
+          isSelected: false
+        },
+        {
+          value: 'EL01',
+          className: "JJ_0_A3-2",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone 0.B1' && this.data.floor.planType == 'JJ - Ground Floor') {
+      this.floorBlock = [
+        {
+          value: '0132FSE001',
+          className: "JJ_0_B1-1",
+          isSelected: false
+        },
+        {
+          value: '0132FH002',
+          className: "JJ_0_B1-2",
+          isSelected: false
+        },
+        {
+          value: '0132FH001',
+          className: "JJ_0_B1-3",
+          isSelected: false
+        },
+        {
+          value: '0132FK001',
+          className: "JJ_0_B1-4",
+          isSelected: false
+        },
+        {
+          value: '0132ESE001',
+          className: "JJ_0_B1-5",
+          isSelected: false
+        },
+        {
+          value: '0132EH002',
+          className: "JJ_0_B1-6",
+          isSelected: false
+        },
+        {
+          value: '0132EH001',
+          className: "JJ_0_B1-7",
+          isSelected: false
+        },
+        {
+          value: '0132EK001',
+          className: "JJ_0_B1-8",
+          isSelected: false
+        },
+        {
+          value: '0132DSE001',
+          className: "JJ_0_B1-9",
+          isSelected: false
+        },
+        {
+          value: '0132DH002',
+          className: "JJ_0_B1-10",
+          isSelected: false
+        },
+        {
+          value: '0132DH001',
+          className: "JJ_0_B1-11",
+          isSelected: false
+        },
+        {
+          value: '0132DK001',
+          className: "JJ_0_B1-12",
+          isSelected: false
+        },
+        {
+          value: 'S.011',
+          className: "JJ_0_B1-13",
+          isSelected: false
+        },
+        {
+          value: '0132CSE001',
+          className: "JJ_0_B1-14",
+          isSelected: false
+        },
+        {
+          value: '0132CH002',
+          className: "JJ_0_B1-15",
+          isSelected: false
+        },
+        {
+          value: '0132CH001',
+          className: "JJ_0_B1-16",
+          isSelected: false
+        },
+        {
+          value: '0132CK001',
+          className: "JJ_0_B1-17",
+          isSelected: false
+        },
+        {
+          value: '0132BH003',
+          className: "JJ_0_B1-18",
+          isSelected: false
+        },
+        {
+          value: '0132BH002',
+          className: "JJ_0_B1-19",
+          isSelected: false
+        },
+        {
+          value: '0132BSE001',
+          className: "JJ_0_B1-20",
+          isSelected: false
+        },
+        {
+          value: '0132BK001',
+          className: "JJ_0_B1-21",
+          isSelected: false
+        },
+        {
+          value: '0132BSE002',
+          className: "JJ_0_B1-22",
+          isSelected: false
+        },
+        {
+          value: '0132BH001',
+          className: "JJ_0_B1-23",
+          isSelected: false
+        },
+        {
+          value: '0132AH002',
+          className: "JJ_0_B1-24",
+          isSelected: false
+        },
+        {
+          value: '0132AH003',
+          className: "JJ_0_B1-25",
+          isSelected: false
+        },
+          {
+            value: '0132ASE001',
+            className: "JJ_0_B1-26",
+            isSelected: false
+          },
+          {
+            value: '0132AK001',
+            className: "JJ_0_B1-27",
+            isSelected: false
+          },
+          {
+            value: '0132ASE002',
+            className: "JJ_0_B1-28",
+            isSelected: false
+          },
+          {
+            value: '0132AH001',
+            className: "JJ_0_B1-29",
+            isSelected: false
+          },
+          {
+          value: 'S.012',
+          className: "JJ_0_B1-30",
+          isSelected: false
+          }
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone 0.B2' && this.data.floor.planType == 'JJ - Ground Floor') {
+      this.floorBlock = [
+        {
+          value: 'JJ000701FC203',
+          className: "JJ_0_B2-1",
+          isSelected: false
+        },
+        {
+          value: 'JJ000701FC203',
+          className: "JJ_0_B2-2",
+          isSelected: false
+        },
+        {
+          value: 'S.011-1',
+          className: "JJ_0_B2-3",
+          isSelected: false
+        },
+        {
+          value: 'JJ000701FC202',
+          className: "JJ_0_B2-4",
+          isSelected: false
+        },
+        {
+          value: 'JJ000701FC201',
+          className: "JH_0_B2-5",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+
+    //  // JJ 1st Floor
+
+    else if (this.data.floor.name == 'Zone 1.A1' && this.data.floor.planType == 'JJ - 1st Floor') {
+      this.floorBlock = [
+        {
+          value: 'Tavle A',
+          className: "JJ_1_A1-1",
+          isSelected: false
+        },
+        {
+          value: 'Tavle AC',
+          className: "JJ_1_A1-2",
+          isSelected: false
+        },
+        {
+          value: '1.001',
+          className: "JJ_1_A1-3",
+          isSelected: false
+        },
+        {
+          value: 'Tavle B',
+          className: "JJ_1_A1-4",
+          isSelected: false
+        },
+        {
+          value: 'Tavle AC',
+          className: "JJ_1_A1-5",
+          isSelected: false
+        },
+        {
+          value: 'Tavle BCC',
+          className: "JJ_1_A1-6",
+          isSelected: false
+        },
+        {
+          value: 'UPS-1',
+          className: "JJ_1_A1-7",
+          isSelected: false
+        },
+        {
+          value: 'UPS-2',
+          className: "JJ_1_A1-8",
+          isSelected: false
+        },
+        {
+          value: '1.005',
+          className: "JJ_1_A1-9",
+          isSelected: false
+        },
+        {
+          value: 'UPS DB',
+          className: "JJ_1_A1-10",
+          isSelected: false
+        },
+        {
+          value: 'Tavle-ABA',
+          className: "JJ_1_A1-11",
+          isSelected: false
+        },
+        {
+          value: '1.007',
+          className: "JJ_1_A1-12",
+          isSelected: false
+        },
+        {
+          value: 'SK03',
+          className: "JJ_1_A1-13",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone 1.A2' && this.data.floor.planType == 'JJ - 1st Floor') {
+      this.floorBlock = [
+        {
+          value: '1.002',
+          className: "JJ_1_A2-1",
+          isSelected: false
+        },
+        {
+          value: '1.004',
+          className: "JJ_1_A2-2",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone 1.A3' && this.data.floor.planType == 'JJ - 1st Floor') {
+      this.floorBlock = [
+        {
+          value: 'Tavle BF',
+          className: "JJ_1_A3-1",
+          isSelected: false
+        },
+        {
+          value: '1.006',
+          className: "JJ_1_A3-2",
+          isSelected: false
+        },
+        {
+          value: 'TR01',
+          className: "JJ_1_A3-3",
+          isSelected: false
+        },
+        {
+          value: 'EL01',
+          className: "JJ_1_A3-4",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+
+    // // JJ Roof Floor
+  
+    else if (this.data.floor.name == 'ZoneR_North' && this.data.floor.planType == 'JJ - Roof Plan') {
+      this.floorBlock = [
+        {
+          value: 'Roof North',
+          className: "JJ_R_North-1",
+          isSelected: false
+        },
+        {
+          value: '2.003',
+          className: "JJ_R_North-2",
+          isSelected: false
+        },
+        {
+          value: 'JJ000703P001/JJ000703P501',
+          className: "JJ_R_North-3",
+          isSelected: false
+        },
+        {
+          value: 'JJ000702P515',
+          className: "JJ_R_North-4",
+          isSelected: false
+        },
+        {
+          value: 'TR01',
+          className: "JJ_R_North-5",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'ZoneR_South' && this.data.floor.planType == 'JJ - Roof Plan') {
+      this.floorBlock = [
+        {
+          value: '0132FW001',
+          className: "JJ_R_South-1",
+          isSelected: false
+        },
+        {
+          value: '2.015',
+          className: "JJ_R_South-2",
+          isSelected: false
+        },
+        {
+          value: 'JJ000701P516',
+          className: "JJ_R_South-3",
+          isSelected: false
+        },
+        {
+          value: '0132EW001',
+          className: "JJ_R_South-4",
+          isSelected: false
+        },
+        {
+          value: 'JJ000701P517',
+          className: "JJ_R_South-5",
+          isSelected: false
+        },
+        {
+          value: '0132DW001',
+          className: "JJ_R_South-6",
+          isSelected: false
+        },
+        {
+          value: 'Roof South',
+          className: "JJ_R_South-7",
+          isSelected: false
+        },
+        {
+          value: '0132CW001',
+          className: "JJ_R_South-8",
+          isSelected: false
+        },
+        {
+          value: 'JJ000701P518',
+          className: "JJ_R_South-9",
+          isSelected: false
+        },
+        {
+          value: '2.027',
+          className: "JJ_R_South-10",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+
+
     // console.log(this.data);
   }
 

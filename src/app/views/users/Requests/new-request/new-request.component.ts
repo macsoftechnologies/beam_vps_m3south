@@ -2306,6 +2306,14 @@ private groupByModule(data: any[], displayProperty: string): any[] {
         "JH - Roof Plan",
       ];
     }
+     else if (event == '18') {
+        this.floors = [
+        "JJ - Ground Floor",
+        "JJ - 1st Floor",
+        "JJ - Roof Plan",
+      ];
+    }
+
     this.planType = null;
     this.pdfSrc = null;
     this.spinner = true;
@@ -2843,6 +2851,42 @@ private groupByModule(data: any[], displayProperty: string): any[] {
                   this.blocks = [
                     { name: "Zone R_West", pdfSrc: "assets/images/plans/JH/JH-Roof/JH-Roof-ZoneR_West.pdf", className: 'jh-roof-ZoneR_West', planType: 'JH - Roof Plan' },
                     { name: "Zone R_East", pdfSrc: "assets/images/plans/JH/JH-Roof/JH-Roof-ZoneR_East.pdf", className: 'jh-roof-ZoneR_East', planType: 'JH - Roof Plan' },
+          ]
+             break;    
+        default:
+          break;
+      }
+    }
+
+    else if (this.selectedbuilding == '18') {
+      // console.log("JG Drawings")
+      switch (event) {
+        case "JJ - Ground Floor":
+          this.planType = "JJ - Ground Floor";
+          this.pdfSrc = "assets/images/plans/JJ/JJ-GroundFloor.pdf";
+          this.blocks = [
+            { name: "Zone 0.A1", pdfSrc: "assets/images/plans/JJ/JJ-GroundFloor/JJ-GroundFloor-Zone0.A1.pdf", className: 'jj-ground-Zone0_A1', planType: 'JJ - Ground Floor' },
+            { name: "Zone 0.A2", pdfSrc: "assets/images/plans/JJ/JJ-GroundFloor/JJ-GroundFloor-Zone0.A2.pdf", className: 'jj-ground-Zone0_A2', planType: 'JJ - Ground Floor' },
+            { name: "Zone 0.A3", pdfSrc: "assets/images/plans/JJ/JJ-GroundFloor/JJ-GroundFloor-Zone0.A3.pdf", className: 'jj-ground-Zone0_A3', planType: 'JJ - Ground Floor' },
+            { name: "Zone 0.B1", pdfSrc: "assets/images/plans/JJ/JJ-GroundFloor/JJ-GroundFloor-Zone0.B1.pdf", className: 'jj-ground-Zone0_B1', planType: 'JJ - Ground Floor' },
+            { name: "Zone 0.B2", pdfSrc: "assets/images/plans/JJ/JJ-GroundFloor/JJ-GroundFloor-Zone0.B2.pdf", className: 'jj-ground-Zone0_B2', planType: 'JJ - Ground Floor' },
+          ]
+          break;
+        case "JJ - 1st Floor":
+          this.planType = "JJ - 1st Floor";
+          this.pdfSrc = "assets/images/plans/JJ/JJ-FirstFloor.pdf";
+          this.blocks = [
+            { name: "Zone 1.A1", pdfSrc: "assets/images/plans/JJ/JJ-FirstFloor/JJ-FirstFloor-Zone1.A1.pdf", className: 'jj-first-Zone1_A1', planType: 'JJ - 1st Floor' },
+            { name: "Zone 1.A2", pdfSrc: "assets/images/plans/JJ/JJ-FirstFloor/JJ-FirstFloor-Zone1.A2.pdf", className: 'jj-first-Zone1_A2', planType: 'JJ - 1st Floor' },
+            { name: "Zone 1.A3", pdfSrc: "assets/images/plans/JJ/JJ-FirstFloor/JJ-FirstFloor-Zone1.A3.pdf", className: 'jj-first-Zone1_A3', planType: 'JJ - 1st Floor' },
+          ]
+          break;  
+        case "JJ - Roof Plan":
+              this.planType = "JJ - Roof Plan";
+                  this.pdfSrc = "assets/images/plans/JJ/JJ-Roof.pdf";
+                  this.blocks = [
+                    { name: "ZoneR_North", pdfSrc: "assets/images/plans/JJ/JJ-Roof/JJ-Roof-ZoneR_North.pdf", className: 'jj-roof-ZoneR_North', planType: 'JJ - Roof Plan' },
+                    { name: "ZoneR_South", pdfSrc: "assets/images/plans/JJ/JJ-Roof/JJ-Roof-ZoneR_South.pdf", className: 'jj-roof-ZoneR_South', planType: 'JJ - Roof Plan' },
           ]
              break;    
         default:

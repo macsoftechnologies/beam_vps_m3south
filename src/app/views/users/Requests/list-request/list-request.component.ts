@@ -224,6 +224,9 @@ export class ListRequestComponent implements OnInit {
     "JH - 1st Floor",
     "JH - Mezzanine Floor",
     "JH - Roof Plan",
+    "JJ - Ground Floor",
+    "JJ - 1st Floor",
+    "JJ - Roof Plan",
   ];
 
   getHras = [
