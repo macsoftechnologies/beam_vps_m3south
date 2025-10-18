@@ -83,6 +83,7 @@
                   [class.is-invalid]="ZoneStatusForm.get('status').invalid && ZoneStatusForm.get('status').touched">
                   <mat-option value="UC">Under Construction</mat-option>
                   <mat-option value="C">Commissioning</mat-option>
+                  <mat-option value="HO">Hand Over</mat-option>
                   </mat-select>
               <mat-error class="error-message"
                   *ngIf="ZoneStatusForm.get('status').invalid && ZoneStatusForm.get('status').touched">
