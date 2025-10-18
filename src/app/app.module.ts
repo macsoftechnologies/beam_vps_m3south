@@ -37,6 +37,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { ConfirmationDialogComponent } from './views/users/confirmation-component/confirmation-component';
+import { AuditInterceptor } from './shared/interceptors/audit.interceptor';
 
 
 
@@ -78,8 +79,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     { provide: ErrorHandler, useClass: ErrorHandlerService },
     { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },
     { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
-    
-    // REQUIRED IF YOU USE JWT AUTHENTICATION
+    { provide: HTTP_INTERCEPTORS, useClass: AuditInterceptor, multi: true },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

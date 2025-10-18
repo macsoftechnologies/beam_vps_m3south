@@ -469,6 +469,14 @@ export class ListRequestComponent implements OnInit {
   !this.approvalUsers.includes('Admin')
 );
 
+
+    this.onlyFirstApproval = (
+  !this.secondApproval && 
+  this.firstApproval && 
+  !this.bothApproval && 
+  !this.approvalUsers.includes('Admin')
+);
+
      this.breakpointObserver.observe(['(max-width: 599px)']) // 👈 custom mobile-only query
       .subscribe(result => {
         this.gridCols = result.matches ? 1 : 2;
@@ -1284,11 +1292,33 @@ this.SearchRequest.permit_type =
 proceedWithStatusChange(row) {
     let title = 'Request Status Change ';
     let type;
-    if ((this.firstApproval || this.bothApproval) && row.Request_status == 'Hold' && row.permit_type === 'Commissioning') {
+    if ((this.firstApproval || this.bothApproval) && row.Request_status == 'Hold' && (
+      (row.permit_type == 'Construction' && row.permit_under=='Commissioning') || 
+      (row.permit_type == 'Commissioning' && row.permit_under=='Construction') || 
+      (row.permit_type == 'Construction' && row.permit_under=='Construction') || 
+      (row.permit_type == 'Commissioning' && row.permit_under=='Commissioning') ||
+      (row.permit_type == '' && row.permit_under=='') ||
+      (row.permit_type == 'Commissioning' && row.permit_under=='') ||
+      (row.permit_type == 'Construction' && row.permit_under=='')
+    )) {
       type = 'operartor';
-    } else if ((this.secondApproval || this.bothApproval) && row.Request_status == 'Pre-Approved' && row.permit_type === 'Commissioning') {
+    } else if ((this.secondApproval || this.bothApproval) && row.Request_status == 'Pre-Approved' && (
+      (row.permit_type == 'Construction' && row.permit_under=='Commissioning') || 
+      (row.permit_type == 'Commissioning' && row.permit_under=='Construction') || 
+      (row.permit_type == 'Construction' && row.permit_under=='Construction') || 
+      (row.permit_type == 'Commissioning' && row.permit_under=='Commissioning') ||
+      (row.permit_type == '' && row.permit_under=='') ||
+      (row.permit_type == 'Commissioning' && row.permit_under=='') ||
+      (row.permit_type == 'Construction' && row.permit_under==''))) {
       type = 'operartor';
-    } else if((this.firstApproval || this.secondApproval || this.bothApproval)&&row.Request_status == 'Hold' && row.permit_type !== 'Commissioning') {
+    } else if((this.firstApproval || this.secondApproval || this.bothApproval)&&row.Request_status == 'Hold' && (
+      (row.permit_type == 'Construction' && row.permit_under=='Commissioning') || 
+      (row.permit_type == 'Commissioning' && row.permit_under=='Construction') || 
+      (row.permit_type == 'Construction' && row.permit_under=='Construction') || 
+      (row.permit_type == 'Commissioning' && row.permit_under=='Commissioning') ||
+      (row.permit_type == '' && row.permit_under=='') ||
+      (row.permit_type == 'Commissioning' && row.permit_under=='') ||
+      (row.permit_type == 'Construction' && row.permit_under==''))) {
       type = 'operartor';
     } else {
       type = '';
@@ -1302,12 +1332,19 @@ proceedWithStatusChange(row) {
     //   }
     // }
 
-    if(this.firstApproval && !this.secondApproval && row.permit_type == 'Commissioning' && row.Request_status == 'Pre-Approved') {
+    if(!this.firstApproval && this.secondApproval && row.permit_under == 'Construction' && row.permit_type == 'Commissioning' && row.Request_status == 'Pre-Approved') {
       return this.openSnackBar("Can't have access to final approval. Please ask COMM person to approve it.");
     }
-    if(!this.firstApproval && this.secondApproval && row.permit_type == 'Commissioning' && row.Request_status == 'Hold') {
-      return this.openSnackBar("Can't have access to initial approval. Please ask CONM person to pre-approve it.");
-    } else {
+    if(!this.firstApproval && this.secondApproval && row.permit_under == 'Commissioning' && row.permit_type == 'Construction' && row.Request_status == 'Hold') {
+      return this.openSnackBar("Can't have access to initial approval. Please ask CONM person to approve it.");
+    }
+    if(this.firstApproval && !this.secondApproval && row.permit_under == 'Commissioning' && row.permit_type == 'Construction' && row.Request_status == 'Pre-Approved') {
+      return this.openSnackBar("Can't have access to final approval. Please ask CONM person to pre-approve it.");
+    } 
+    if(this.firstApproval && !this.secondApproval && row.permit_under == 'Construction' && row.permit_type == 'Commissioning' && row.Request_status == 'Hold') {
+      return this.openSnackBar("Can't have access to initial approval. Please ask C&Q person to pre-approve it.");
+    } 
+    else {
     
     console.log(row);
     let dialogRef: MatDialogRef<any> = this.dialog.open(
@@ -1343,6 +1380,7 @@ proceedWithStatusChange(row) {
     });
   }
 }
+
 
   ChangeStausbysubcontractor(row, status) {
     console.log(config.Denmarktz.split(' '));
@@ -1505,7 +1543,7 @@ proceedWithStatusChange(row) {
   //   });
   // }
 
-    statuschange(statusdata) {
+ statuschange(statusdata) {
     this.selectedRequestIds.length = 0;
 
     const filterAndPushIds = (condition: (item: any) => boolean) => {
@@ -1517,27 +1555,39 @@ proceedWithStatusChange(row) {
     };
 
     switch (statusdata) {
-        case 'Approved':
-            filterAndPushIds((x) => 
-                ((x['Request_status'] === 'Hold' || 
-                x['Request_status'] === 'Approved') && x['permit_type'] !== 'Commissioning')
+      case 'CONM-Pre-Approved': 
+      filterAndPushIds((x) => 
+                (x['Request_status'] === 'Hold' && (x['permit_type'] == 'Construction' && x['permit_under'] == 'Commissioning'))
+            );
+            break;
+      case 'CONM-Final-Approved': 
+      filterAndPushIds((x) => 
+                (x['Request_status'] === 'Pre-Approved' && ((x['permit_type'] == 'Commissioning' && x['permit_under'] == 'Construction') || (x['permit_type'] == 'Commissioning' && x['permit_under'] == '')))
+            );
+            break;
+      case 'CONM-Single-Approved': 
+      filterAndPushIds((x) => 
+                (x['Request_status'] === 'Hold' && ((x['permit_type'] == 'Construction' && x['permit_under'] == 'Construction') || (x['permit_type'] == '' && x['permit_under'] == '') || (x['permit_type'] == 'Construction' && x['permit_under'] == '')))
+            );
+            break;
+       case 'COMM-Pre-Approved': 
+      filterAndPushIds((x) => 
+                (x['Request_status'] === 'Hold' && ((x['permit_type'] == 'Commissioning' && x['permit_under'] == 'Construction') || (x['permit_type'] == 'Commissioning' && x['permit_under'] == '')))
+            );
+            break;
+      case 'COMM-Final-Approved': 
+      filterAndPushIds((x) => 
+                (x['Request_status'] === 'Pre-Approved' && (x['permit_type'] == 'Construction' && x['permit_under'] == 'Commissioning'))
+            );
+            break;
+      case 'COMM-Single-Approved': 
+      filterAndPushIds((x) => 
+                (x['Request_status'] === 'Hold' && (x['permit_type'] == 'Commissioning' && x['permit_under'] == 'Commissioning'))
             );
             break;
         case 'Rejected':
             filterAndPushIds((x) => 
                 x['Request_status'] === 'Hold' || x['Request_status'] === 'Approved' || x['Request_status'] === 'Pre-Approved'
-            );
-            break;
-        case 'Pre-Approved':
-            filterAndPushIds((x) => 
-                x['Request_status'] === 'Hold' && 
-                x['permit_type'] === 'Commissioning'
-            );
-            break;
-        case 'COMM-Approved':
-            filterAndPushIds((x) => 
-                x['Request_status'] === 'Pre-Approved' && 
-                x['permit_type'] === 'Commissioning'
             );
             break;
         default:
@@ -1736,7 +1786,17 @@ proceedWithBulkStatusChange(statusdata) {
   
  isConstructionRestricted(row: any): boolean {
   const type = row?.permit_type?.trim() || 'Construction'; // default to Construction if null/empty
-  return this.onlySecondApproval && type === 'Construction';
+  const under = row?.permit_under.trim() || 'Construction';
+  return this.onlySecondApproval && type === 'Construction' && under === 'Construction';
+}
+
+ isCommissionRestricted(row: any): boolean {
+  const type = row?.permit_type?.trim() || 'Construction'; // default to Construction if null/empty
+  const under = row?.permit_under.trim() || 'Construction';
+  return this.onlyFirstApproval && type === 'Commissioning' && under === 'Commissioning';
+}
+canChangeStatus(row: any): boolean {
+  return !this.isCommissionRestricted(row) && !this.isConstructionRestricted(row);
 }
 
   Getselected(event) {
@@ -1870,10 +1930,10 @@ proceedWithBulkStatusChange(statusdata) {
             this.items = res[0]['data'];
             this.paginationCount = res[1].count;
             console.log(this.paginationCount);
-            this.RequestlistForm.controls['Contractor'].setValue(
-              this.userdata['typeId']
-            );
-            this.RequestsbyidDto.SubContractorId = this.userdata['typeId'];
+            // this.RequestlistForm.controls['Contractor'].setValue(
+            //   this.userdata['typeId']
+            // );
+            // this.RequestsbyidDto.SubContractorId = this.userdata['typeId'];
             // this.requestservice
             //   .GetAllRequestsByid(this.RequestsbyidDto)
             //   .subscribe((res) => {
@@ -2044,7 +2104,7 @@ this.SearchRequest.permit_type =
 
             this.paginationCount = res[1].count;
             console.log(this.paginationCount);
-          } else if (this.userdata['role'].includes('Department') || this.userdata['role'].includes('Department')) {
+          } else if (this.userdata['role'].includes('Department') || this.userdata['role'].includes('Department1')) {
             // this.IsNotSubCntr = true;
             this.IsNotSubCntr = false;
             this.IsNotASubCntr = true;

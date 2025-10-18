@@ -78,10 +78,13 @@ export class RequestSaveOptionsDialogComponent implements OnInit {
           const [currentDenmarkDate, currentDenmarkTime] = [
             ...config.Denmarktz.split(" "),
           ];
-          if(this.status == 'COMM-Approved') {
-      this.status = 'Approved'
+   if((this.status == 'CONM-Pre-Approved') || (this.status == 'COMM-Pre-Approved')) {
+      this.UpdateRequestStatusList.Request_status = 'Pre-Approved';
+    } else if ((this.status == 'CONM-Final-Approved') || (this.status == 'COMM-Final-Approved') || (this.status == 'CONM-Single-Approved' )|| (this.status == 'COMM-Single-Approved')) {
+      this.UpdateRequestStatusList.Request_status = 'Approved'
+    } else {
+      this.UpdateRequestStatusList.Request_status = this.status;
     }
-    this.UpdateRequestStatusList.Request_status = this.status;
     this.UpdateRequestStatusList.id = this.req_ids;
     this.UpdateRequestStatusList.userId = this.userData["id"];
     this.UpdateRequestStatusList.createdTime = config.getDenmarkTime.full();

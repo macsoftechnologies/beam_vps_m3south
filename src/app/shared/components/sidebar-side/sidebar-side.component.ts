@@ -37,6 +37,9 @@ export class SidebarSideComponent implements OnInit, OnDestroy, AfterViewInit {
       {
         this.menuItems = this.navService.AdminiconMenu;
       }
+            else if (this.user["role"].includes("Department1") || (this.user["role"].includes("Department1") && this.user["role"].includes("Department"))) {
+      this.menuItems = this.navService.Operator1iconMenu;
+    }
       else  if(this.user["role"].includes("Department"))
       {
         this.menuItems = this.navService.OperatoriconMenu;

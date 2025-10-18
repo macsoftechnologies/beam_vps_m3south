@@ -1,8 +1,12 @@
 <div mat-dialog-content>
   <div class="model-header">
-    <h3 *ngIf="requestDatas == 'Hold'" class="header-title-icon">This activity has been coordinated and approved by
+    <h3 *ngIf="requestDatas == 'Hold' && ((permitUnder=='Construction' && permitType=='Construction') || (permitUnder=='Commissioning' && permitType=='Construction'))" class="header-title-icon">This activity has been coordinated and approved by
       ConM/Site HSE. </h3>
-      <h3 *ngIf="requestDatas == 'Pre-Approved'" class="header-title-icon">This activity has been coordinated and approved by
+      <h3 *ngIf="requestDatas == 'Hold' && ((permitUnder=='Commissioning' && permitType=='Commissioning') || (permitUnder=='Construction' && permitType=='Commissioning'))" class="header-title-icon">This activity has been coordinated and approved by
+      C&Q. </h3>
+      <h3 *ngIf="requestDatas == 'Pre-Approved' && ((permitUnder=='Construction' && permitType=='Commissioning'))" class="header-title-icon">This activity has been coordinated and approved by
+      ConM/Site HSE.  </h3>
+      <h3 *ngIf="requestDatas == 'Pre-Approved' && ((permitUnder=='Commissioning' && permitType=='Construction'))" class="header-title-icon">This activity has been coordinated and approved by
       C&Q. </h3>
     <p *ngIf="requestDatas=='Approved' " class="change_Status">I confirm that the permit is met with all conditions
       according to RAMS/SPA requirements and take responsibility for safe work execution.</p>
@@ -15,7 +19,9 @@
 
   <form [formGroup]="statusApprovedForm">
     <mat-grid-list cols="2" rowHeight="80px"*ngIf="type=='operartor' && 
-        (requestDatas == 'Pre-Approved' && permitType == 'Commissioning') ">
+        ((requestDatas == 'Hold' && (permitType == 'Commissioning' && permitUnder == 'Construction') || 
+        requestDatas == 'Hold' && (permitType == 'Commissioning' && permitUnder == 'Commissioning') ||
+        requestDatas == 'Pre-Approved' && (permitType == 'Construction' && permitUnder == 'Commissioning'))) ">
       <mat-grid-tile>
         <mat-form-field class="full-width">
           <mat-label>C&Q initials</mat-label>
@@ -52,7 +58,10 @@
 
     </mat-grid-list>
 
-    <mat-grid-list cols="2" rowHeight="80px"  *ngIf="type=='operartor' && requestDatas == 'Hold'">
+    <mat-grid-list cols="2" rowHeight="80px"  *ngIf="type=='operartor' && 
+    (((requestDatas == 'Hold' && (permitType == 'Construction' && permitUnder == 'Commissioning')) || 
+        (requestDatas == 'Hold' && (permitType == 'Construction' && permitUnder == 'Construction')) ||
+        (requestDatas == 'Pre-Approved' && (permitType == 'Commissioning' && permitUnder == 'Construction'))))">
       <mat-grid-tile>
         <mat-form-field class="full-width">
           <mat-label>ConM initials</mat-label>
@@ -95,7 +104,16 @@
   </form>
 </div>
 
-<div mat-dialog-actions *ngIf="type=='operartor' && requestDatas == 'Hold' && permitType == 'Commissioning'">
+<div mat-dialog-actions *ngIf="type=='operartor' && requestDatas == 'Hold' && (permitType == 'Commissioning' && permitUnder=='Construction')">
+
+  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Pre-Approved')"
+    [disabled]="statusApprovedForm.get('CoMM_initials').invalid ||
+          statusApprovedForm.get('CoMM_initials').value.trim() === ''">Pre-Approve</button>
+  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+    (click)="Changestatus('Rejected')" [disabled]="statusApprovedForm.get('reject_reason').invalid ||
+          statusApprovedForm.get('reject_reason').value.trim() === ''">Reject</button>
+</div>
+<div mat-dialog-actions *ngIf="type=='operartor' && requestDatas == 'Hold' && (permitType == 'Construction' && permitUnder=='Commissioning')">
 
   <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Pre-Approved')"
     [disabled]="statusApprovedForm.get('ConM_initials').invalid ||
@@ -105,7 +123,10 @@
           statusApprovedForm.get('reject_reason').value.trim() === ''">Reject</button>
 </div>
 
-<div mat-dialog-actions *ngIf="type=='operartor' && ( requestDatas == 'Pre-Approved' && permitType == 'Commissioning')">
+<div mat-dialog-actions *ngIf="type=='operartor' && 
+((
+        requestDatas == 'Hold' && (permitType == 'Commissioning' && permitUnder == 'Commissioning') ||
+        requestDatas == 'Pre-Approved' && (permitType == 'Construction' && permitUnder == 'Commissioning')))">
 
   <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Approved')"
   [disabled]="statusApprovedForm.get('CoMM_initials').invalid ||
@@ -115,7 +136,9 @@
           statusApprovedForm.get('reject_reason').value.trim() === ''">Reject</button>
 </div>
 
-<div mat-dialog-actions *ngIf="type=='operartor' && (requestDatas == 'Hold' && permitType !== 'Commissioning')">
+<div mat-dialog-actions *ngIf="type=='operartor' &&  
+(requestDatas == 'Hold' && (permitType == 'Construction' && permitUnder == 'Construction') ||
+requestDatas == 'Pre-Approved' && (permitType == 'Commissioning' && permitUnder == 'Construction'))">
 
   <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Approved')"
   [disabled]="statusApprovedForm.get('ConM_initials').invalid ||

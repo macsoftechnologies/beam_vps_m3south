@@ -57,9 +57,12 @@ import { ElectricalworkComponent } from '../Administrator/ElectricalWorks/electr
 import { ListElectricalWorkComponent } from '../Administrator/ElectricalWorks/list-electricalworks/list-electricalworks.component';
 import { MechanicalworkComponent } from '../Administrator/MechanicalWorks/mechanicalworks/mechanicalworks.component';
 import { ListMechanicalWorkComponent } from '../Administrator/MechanicalWorks/list-mechanicalworks/list-mechanicalworks.component';
+import { LogsReportsComponent } from './log-reports/logs-reports.component';
+import { ZoneStatusComponent } from '../Administrator/Zone-status/zone-status/zone-status.component';
+import { ListZoneStatusComponent } from '../Administrator/Zone-status/list-zone-status/list-zone-status.component';
 
 @NgModule({
-  declarations: [MechanicalworkComponent, ListMechanicalWorkComponent,ElectricalworkComponent, ListElectricalWorkComponent,DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent, ListPlansComponent, RequestSaveOptionsDialogComponent, EditRequestComponent, CopyRequestComponent, StatusChangeDialogComponent, DocsComponent, CategoryComponent, NotificationLogsComponent, CatDialogComponent, DeleteCatDialogComponentComponent, LogsHistoryComponent],
+  declarations: [ListZoneStatusComponent,ZoneStatusComponent,LogsReportsComponent,MechanicalworkComponent, ListMechanicalWorkComponent,ElectricalworkComponent, ListElectricalWorkComponent,DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent, ListPlansComponent, RequestSaveOptionsDialogComponent, EditRequestComponent, CopyRequestComponent, StatusChangeDialogComponent, DocsComponent, CategoryComponent, NotificationLogsComponent, CatDialogComponent, DeleteCatDialogComponentComponent, LogsHistoryComponent],
   imports: [
     CommonModule,
     jqxChartModule,

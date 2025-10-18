@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'environments/environment';
-import { EmployeesDto, DeleteEmployeeDto, EmployeeSubDto, UpdateEmployeeSubDto, UpdateEmployeeDeptDto, EmployeeDeptDto, Employee, UpdateEmployee } from 'app/views/Models/EmployeesDto';
+import { EmployeesDto, DeleteEmployeeDto, EmployeeSubDto, UpdateEmployeeSubDto, UpdateEmployeeDeptDto, EmployeeDeptDto, Employee, UpdateEmployee, AuditLog } from 'app/views/Models/EmployeesDto';
 import { DeptWiseEmps } from 'app/views/Models/DepartmentDto';
 import { UniqueUser } from 'app/views/Models/UniqueUserDto';
 
@@ -57,6 +57,10 @@ export class EmployeeService {
   // User Delete
   public DeleteUser(req:DeleteEmployeeDto): Observable<any> {
     return this.http.post<any>(environment.API_URL + 'employee/userdelete.php', req)
+  }
+  
+  public addUserLog(req:AuditLog): Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'employee/newuserlog.php', req)
   }
 
 }

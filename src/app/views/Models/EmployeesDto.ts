@@ -132,3 +132,14 @@ export class UpdateEmployee
     companyName:string;
     email: string
 }
+
+export class AuditLog
+{
+    action: string;
+    body: string;
+    method: string;
+    url: string;
+    status: string;
+    user: string;
+    timestamp: string;
+}

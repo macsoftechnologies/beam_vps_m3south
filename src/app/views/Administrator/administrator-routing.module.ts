@@ -20,6 +20,8 @@ import { ElectricalworkComponent } from './ElectricalWorks/electricalworks/elect
 import { ListElectricalWorkComponent } from './ElectricalWorks/list-electricalworks/list-electricalworks.component';
 import { MechanicalworkComponent } from './MechanicalWorks/mechanicalworks/mechanicalworks.component';
 import { ListMechanicalWorkComponent } from './MechanicalWorks/list-mechanicalworks/list-mechanicalworks.component';
+import { ZoneStatusComponent } from './Zone-status/zone-status/zone-status.component';
+import { ListZoneStatusComponent } from './Zone-status/list-zone-status/list-zone-status.component';
 
 
 const routes: Routes = [
@@ -55,33 +57,47 @@ const routes: Routes = [
         // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
       },
       {
-        path: "electricalworks",
-        component: ElectricalworkComponent,
-        data: { title: "", breadcrumb: "electricalworks",roles: config.authRoles.admin },
+        path: "zonestatus",
+        component: ZoneStatusComponent,
+        data: { title: "", breadcrumb: "zonestatus",roles: config.authRoles.admin },
         canActivate: [UserRoleGuard],
         // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
       },
       {
-        path: "list-electricalworks",
-        component: ListElectricalWorkComponent,
-        data: { title: "", breadcrumb: "list-electricalworks",roles: config.authRoles.admin },
+        path: "list-zonestatus",
+        component: ListZoneStatusComponent,
+        data: { title: "", breadcrumb: "list-zonestatus",roles: config.authRoles.admin },
         canActivate: [UserRoleGuard],
         // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
       },
-      {
-        path: "mechanicalworks",
-        component: MechanicalworkComponent,
-        data: { title: "", breadcrumb: "mechanicalworks",roles: config.authRoles.admin },
-        canActivate: [UserRoleGuard],
-        // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
-      },
-      {
-        path: "list-mechanicalworks",
-        component: ListMechanicalWorkComponent,
-        data: { title: "", breadcrumb: "list-mechanicalworks",roles: config.authRoles.admin },
-        canActivate: [UserRoleGuard],
-        // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
-      },
+      // {
+      //   path: "electricalworks",
+      //   component: ElectricalworkComponent,
+      //   data: { title: "", breadcrumb: "electricalworks",roles: config.authRoles.admin },
+      //   canActivate: [UserRoleGuard],
+      //   // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
+      // },
+      // {
+      //   path: "list-electricalworks",
+      //   component: ListElectricalWorkComponent,
+      //   data: { title: "", breadcrumb: "list-electricalworks",roles: config.authRoles.admin },
+      //   canActivate: [UserRoleGuard],
+      //   // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
+      // },
+      // {
+      //   path: "mechanicalworks",
+      //   component: MechanicalworkComponent,
+      //   data: { title: "", breadcrumb: "mechanicalworks",roles: config.authRoles.admin },
+      //   canActivate: [UserRoleGuard],
+      //   // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
+      // },
+      // {
+      //   path: "list-mechanicalworks",
+      //   component: ListMechanicalWorkComponent,
+      //   data: { title: "", breadcrumb: "list-mechanicalworks",roles: config.authRoles.admin },
+      //   canActivate: [UserRoleGuard],
+      //   // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
+      // },
       {
         path: "Team",
         component: TeamComponent,

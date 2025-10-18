@@ -1,0 +1,140 @@
+<div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title> Zone Status </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+
+    <mat-card-content class="card-content">
+      <form [formGroup]="ZoneStatusForm" class="example-form">
+        <mat-grid-list [cols]="gridCols" rowHeight="100px">
+          <mat-grid-tile>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Building</mat-label>
+              <!-- <input class="safety-sty"
+                matInput
+               
+                formControlName="Building_Id"
+                placeholder="Select Building"
+              /> -->
+              <mat-select formControlName="Building_Id" name="Building_Id">
+                <mat-option *ngFor="let site of Buildings" [value]="site.build_id">
+                  {{site.building_name}}
+                </mat-option>
+              </mat-select>
+              <mat-error class="error-message"
+                  *ngIf="ZoneStatusForm.get('Building_Id').invalid && ZoneStatusForm.get('Building_Id').touched">
+                  Please Select Building
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Level</mat-label>
+              <!-- <input class="safety-sty"
+                matInput
+               
+                formControlName="level"
+                placeholder="Select Level"
+              /> -->
+              <mat-select formControlName="level" name="level">
+                  <mat-option *ngFor="let floors of filteredFloors" [value]="floors">
+                      {{floors}}
+                  </mat-option>
+              </mat-select>
+              <mat-error class="error-message"
+                  *ngIf="ZoneStatusForm.get('level').invalid && ZoneStatusForm.get('level').touched">
+                  Please Select level
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+          
+          
+        </mat-grid-list>
+         <mat-grid-list [cols]="gridCols" rowHeight="100px">
+          <mat-grid-tile>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Zone</mat-label>
+              <!-- <input class="safety-sty"
+                matInput
+               
+                formControlName="zone"
+                placeholder="Select Zone"
+              /> -->
+              <mat-select formControlName="zone">
+                <mat-option *ngFor="let zone of filteredZones" [value]="zone">
+                  {{ zone }}
+                </mat-option>
+              </mat-select>
+              <mat-error class="error-message"
+                  *ngIf="ZoneStatusForm.get('zone').invalid && ZoneStatusForm.get('zone').touched">
+                  Please Select zone
+              </mat-error>
+              <mat-error *ngIf="ZoneStatusForm.get('zone')?.hasError('zoneExists')">
+  Zone already exists
+</mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Status</mat-label>
+              <mat-select formControlName="status" name="status"
+                  [class.is-invalid]="ZoneStatusForm.get('status').invalid && ZoneStatusForm.get('status').touched">
+                  <mat-option value="UC">Under Construction</mat-option>
+                  <mat-option value="C">Commissioning</mat-option>
+                  </mat-select>
+              <mat-error class="error-message"
+                  *ngIf="ZoneStatusForm.get('status').invalid && ZoneStatusForm.get('status').touched">
+                  Please Select status
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+</mat-grid-list>
+      </form>
+      <div class="butns" *ngIf="!editform">
+        <button
+          class="butns-grp"
+          mat-raised-button
+          color="primary"
+          (click)="CreateZoneStatus()"
+        >
+          Create
+        </button>
+      </div>
+      <div class="butns" *ngIf="editform">
+        <button
+          class="butns-grp"
+          mat-raised-button
+          color="primary"
+          mat-dialog-close
+          (click)="UpdateZoneStatus()"
+        >
+          Update
+        </button>
+        <button
+          class="butns-grp"
+          mat-raised-button
+          color="primary"
+          mat-dialog-close
+        >
+          Close
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!-- <div *ngIf="deleteform">
+<h1>Do you want delete the Department </h1>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true" (click)="Deletedepat()">Yes</button>
+    <button mat-button mat-dialog-close>No</button>
+  </div>
+</div> -->
+<div class="loading-indicator" *ngIf="spinner">
+  <mat-progress-spinner
+    mode="indeterminate"
+    color="accent"
+  ></mat-progress-spinner>
+</div>

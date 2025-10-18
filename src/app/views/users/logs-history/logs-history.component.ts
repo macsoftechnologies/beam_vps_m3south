@@ -95,7 +95,7 @@ export class LogsHistoryComponent implements OnInit {
         this.Filtertab = true;
         this.userdata = this.jwtauth.getUser();
 
-        if (this.userdata['role'] == 'Subcontractor') {
+        if (this.userdata['role'].includes('Subcontractor')) {
           this.isoperator = false;
           this.IsNotSubCntr = false;
           this.RequestlistForm.controls['Contractor'].setValue(
@@ -110,7 +110,7 @@ export class LogsHistoryComponent implements OnInit {
           // });
           this.paginationCount = res[1].count;
           console.log(this.paginationCount);
-        } else if (this.userdata['role'] == 'Admin') {
+        } else if (this.userdata['role'].includes('Admin')) {
           this.IsNotSubCntr = true;
           this.items = res[0]['data'];
           this.isoperator = true;
@@ -127,7 +127,7 @@ export class LogsHistoryComponent implements OnInit {
 
           this.paginationCount = res[1].count;
           console.log(this.paginationCount);
-        } else if (this.userdata['role'] == 'Department') {
+        } else if (this.userdata['role'].includes('Department') || this.userdata['role'].includes('Department1')) {
           this.IsNotSubCntr = false;
           this.items = res[0]['data'];
           this.isoperator = true;
@@ -192,7 +192,7 @@ export class LogsHistoryComponent implements OnInit {
           this.Filtertab = true;
           this.userdata = this.jwtauth.getUser();
 
-          if (this.userdata['role'] == 'Subcontractor') {
+          if (this.userdata['role'].includes('Subcontractor')) {
             this.isoperator = false;
             this.IsNotSubCntr = false;
             this.RequestlistForm.controls['Contractor'].setValue(
@@ -206,7 +206,7 @@ export class LogsHistoryComponent implements OnInit {
             // });
             this.paginationCount = res[1].count;
             console.log(this.paginationCount);
-          } else if (this.userdata['role'] == 'Admin') {
+          } else if (this.userdata['role'].includes('Admin')) {
             this.IsNotSubCntr = true;
             this.items = res[0]['data'];
             this.isoperator = true;
@@ -220,7 +220,7 @@ export class LogsHistoryComponent implements OnInit {
 
             this.paginationCount = res[1].count;
             console.log(this.paginationCount);
-          } else if (this.userdata['role'] == 'Department') {
+          } else if (this.userdata['role'].includes('Department') || this.userdata['role'].includes('Department1')) {
             this.IsNotSubCntr = true;
             this.items = res[0]['data'];
             this.isoperator = true;

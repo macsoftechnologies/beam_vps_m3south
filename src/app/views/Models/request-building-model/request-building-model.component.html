@@ -1,16 +1,33 @@
 <div mat-dialog-content>
     <div class="main-section">
-        <div *ngFor="let selectFloor of floorBlock">
-            <!-- <input type="checkbox" /> -->
-            <mat-checkbox [className]="selectFloor.className" class="example-margin" [checked]="selectFloor.isSelected" [(ngModel)]="selectFloor.isSelected"
-                (change)="selectIndividualFloor(selectFloor, $event.checked)">&nbsp;</mat-checkbox>
-        </div>
+        <!-- <div *ngFor="let selectFloor of floorBlock">
+            <mat-checkbox [className]="selectFloor.className" class="example-margin" [checked]="selectFloor.isSelected"
+                (change)="selectIndividualFloor(selectFloor, $event.checked, data.floor.name, data.floor.planType)">&nbsp;</mat-checkbox>
+        </div> -->
+        <div *ngFor="let selectFloor of floorBlock; trackBy: trackByValue">
+  <mat-checkbox
+  [className]="selectFloor.className"
+  class="example-margin"
+  [disabled]="loadingZones.has(selectFloor.value)"
+  [(ngModel)]="selectFloor.isSelected"
+    [checked]="selectFloor.isSelected"
+    (change)="selectIndividualFloor(selectFloor, $event.checked, data.floor.name, data.floor.planType)">
+    &nbsp;
+  </mat-checkbox>
+
+</div>
+
         <pdf-viewer [src]="data.floor.pdfSrc"></pdf-viewer>
     </div>
 </div>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button
+    <!-- <button mat-button
         [mat-dialog-close]="{selectedBlock:floorBlock,planType:data.floor.planType,floorName:data.floor.name}"
-        cdkFocusInitial>Submit</button>
+        cdkFocusInitial>Submit</button> -->
+   <button mat-button (click)="setFloorData(floorBlock, data.floor.planType, data.floor.name)"
+        cdkFocusInitial>
+  Submit
+</button>
+
 </mat-dialog-actions>

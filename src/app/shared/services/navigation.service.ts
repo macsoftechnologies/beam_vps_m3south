@@ -166,6 +166,17 @@ export class NavigationService {
         { name: "List Employees", state: "admin/listemployee", icon: "list" }
       ]
     },
+        {
+      name: "Zone Status",
+      type: "dropDown",
+      tooltip: "Zone Status",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "New Zone", state: "admin/zonestatus" ,icon: "fa fa-plus-square"},
+        { name: "List Zones", state: "admin/list-zonestatus", icon: "list" }
+      ]
+    },
     {
       name: "Electrical Works",
       type: "dropDown",
@@ -285,6 +296,17 @@ export class NavigationService {
         { name: "List Employees", state: "admin/listemployee", icon: "list" }
       ]
     },
+        {
+      name: "Zone Status",
+      type: "dropDown",
+      tooltip: "Zone Status",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "New Zone", state: "admin/zonestatus" ,icon: "fa fa-plus-square"},
+        { name: "List Zones", state: "admin/list-zonestatus", icon: "list" }
+      ]
+    },
     {
       name: "Electrical Works",
       type: "dropDown",
@@ -292,8 +314,8 @@ export class NavigationService {
       icon: "event", 
       state: "",
       sub: [
-        { name: "New Electrical Work", state: "admin/electricalworks" ,icon: "fa fa-plus-square"},
-        { name: "List Electrical Works", state: "admin/list-electricalworks", icon: "list" }
+        { name: "New Electrical Work", state: "user/electricalworks" ,icon: "fa fa-plus-square"},
+        { name: "List Electrical Works", state: "user/list-electricalworks", icon: "list" }
       ]
     },
     {
@@ -303,8 +325,8 @@ export class NavigationService {
       icon: "event", 
       state: "",
       sub: [
-        { name: "New Mechanical Works", state: "admin/mechanicalworks" ,icon: "fa fa-plus-square"},
-        { name: "List Mechanical Works", state: "admin/list-mechanicalworks", icon: "list" }
+        { name: "New Mechanical Works", state: "user/mechanicalworks" ,icon: "fa fa-plus-square"},
+        { name: "List Mechanical Works", state: "user/list-mechanicalworks", icon: "list" }
       ]
     },
     // {
@@ -397,13 +419,19 @@ export class NavigationService {
     //   state: "user/notifications"
     // },
     {
-      name: "Logs-Histoy",
+      name: "Log-History",
       type: "link",
       tooltip: "Notifications",
       icon: "notifications", 
       state: "user/log-history"
     },
-
+    {
+      name: "Logs-Reports",
+      type: "link",
+      tooltip: "Notifications",
+      icon: "notifications", 
+      state: "user/log-reports"
+    },
   ];
   UsericonMenu: IMenuItem[] = [
     {
@@ -478,6 +506,85 @@ export class NavigationService {
     //   icon: "notifications", 
     //   state: "user/notifications"
     // },
+         {
+      name: "Log-History",
+      type: "link",
+      tooltip: "Notifications",
+      icon: "notifications", 
+      state: "user/log-history"
+    },
+  ];
+
+  Operator1iconMenu: IMenuItem[] = [
+
+    {
+      name: "DASHBOARD",
+      type: "link",
+      tooltip: "Dashboard",
+      icon: "dashboard", 
+      state: "user/dashboard",
+    },
+    {
+      name: "Electrical Works",
+      type: "dropDown",
+      tooltip: "Electrical Works",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "New Electrical Work", state: "user/electricalworks" ,icon: "fa fa-plus-square"},
+        { name: "List Electrical Works", state: "user/list-electricalworks", icon: "list" }
+      ]
+    },
+    {
+      name: "Mechanical Works",
+      type: "dropDown",
+      tooltip: "Mechanical Works",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "New Mechanical Works", state: "user/mechanicalworks" ,icon: "fa fa-plus-square"},
+        { name: "List Mechanical Works", state: "user/list-mechanicalworks", icon: "list" }
+      ]
+    },
+    {
+      name: "Request",
+      type: "dropDown",
+      tooltip: "Request",
+      icon: "person", 
+      state: "",
+      sub: [
+        { name: "New Request", state: "user/new-request" ,icon: "fa fa-plus-square"},
+        { name: "List Request", state: "user/list-request", icon: "list" }
+      ]
+    },
+    // {
+    //   name: "Docs",
+    //   type: "link",
+    //   tooltip: "Mydocs",
+    //   icon: "notifications", 
+    //   state: "user/mydocs"
+    // },
+    {
+      name: "Reports",
+      type: "link",
+      tooltip: "Reports",
+      icon: "event", 
+      state: "user/plans"
+    },
+    // {
+    //   name: "Notifications",
+    //   type: "link",
+    //   tooltip: "Notifications",
+    //   icon: "notifications", 
+    //   state: "user/notifications"
+    // },
+    {
+      name: "Log-History",
+      type: "link",
+      tooltip: "Notifications",
+      icon: "notifications", 
+      state: "user/log-history"
+    },
   ];
 
 
@@ -518,6 +625,11 @@ menuItems$:any={};
       this.menuItems = new BehaviorSubject<IMenuItem[]>(this.AdminiconMenu);
       this.menuItems$ = this.menuItems.asObservable();
 
+    }
+    else  if(this.user["role"].includes("Department1") || (this.user["role"].includes("Department1") && this.user["role"].includes("Department")))
+    {
+      this.menuItems = new BehaviorSubject<IMenuItem[]>(this.Operator1iconMenu);
+      this.menuItems$ = this.menuItems.asObservable();
     }
     else  if(this.user["role"].includes("Department"))
     {

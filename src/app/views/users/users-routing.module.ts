@@ -10,6 +10,11 @@ import { UserRoleGuard } from 'app/shared/guards/user-role.guard';
 import { config } from 'config';
 import { DocsComponent } from './docs/docs.component';
 import { LogsHistoryComponent } from './logs-history/logs-history.component';
+import { LogsReportsComponent } from './log-reports/logs-reports.component';
+import { ElectricalworkComponent } from '../Administrator/ElectricalWorks/electricalworks/electricalworks.component';
+import { ListElectricalWorkComponent } from '../Administrator/ElectricalWorks/list-electricalworks/list-electricalworks.component';
+import { MechanicalworkComponent } from '../Administrator/MechanicalWorks/mechanicalworks/mechanicalworks.component';
+import { ListMechanicalWorkComponent } from '../Administrator/MechanicalWorks/list-mechanicalworks/list-mechanicalworks.component';
 
 export const usersRoutes: Routes = [
   {
@@ -20,6 +25,34 @@ export const usersRoutes: Routes = [
         component: DashboardComponent,
         data: { title: "dashboard", breadcrumb: "dashboard",roles: config.authRoles.subcontractor },
         canActivate: [UserRoleGuard],
+        // canActivate: [UserRoleGuard],
+        // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
+      },
+       {
+        path: "electricalworks",
+        component: ElectricalworkComponent,
+        data: { title: "", breadcrumb: "electricalworks",roles: config.authRoles.admin },
+        // canActivate: [UserRoleGuard],
+        // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
+      },
+      {
+        path: "list-electricalworks",
+        component: ListElectricalWorkComponent,
+        data: { title: "", breadcrumb: "list-electricalworks",roles: config.authRoles.admin },
+        // canActivate: [UserRoleGuard],
+        // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
+      },
+      {
+        path: "mechanicalworks",
+        component: MechanicalworkComponent,
+        data: { title: "", breadcrumb: "mechanicalworks",roles: config.authRoles.admin },
+        // canActivate: [UserRoleGuard],
+        // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
+      },
+      {
+        path: "list-mechanicalworks",
+        component: ListMechanicalWorkComponent,
+        data: { title: "", breadcrumb: "list-mechanicalworks",roles: config.authRoles.admin },
         // canActivate: [UserRoleGuard],
         // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
       },
@@ -55,7 +88,12 @@ export const usersRoutes: Routes = [
       {
         path: "log-history",
         component:LogsHistoryComponent,
-        data: { title: "", breadcrumb: "log-history",roles: config.authRoles.subcontractor }
+        data: { title: "", breadcrumb: "log-history" }
+      },
+      {
+        path: "log-reports",
+        component:LogsReportsComponent,
+        data: { title: "", breadcrumb: "log-reports",roles: config.authRoles.subcontractor }
       },
       {
         path: "mydocs",
