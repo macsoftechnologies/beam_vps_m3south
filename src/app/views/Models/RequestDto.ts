@@ -201,6 +201,10 @@ export class FilesRequestDto {
 }
 
 export class EditRequestDto {
+    low_risk_hotwork: string;
+    high_risk_hotwork: string;
+    hot_work_checklist_filled: string;
+    fire_guard_present:string;
     fields: string;
     work_type: string;
     pressure_pneumatic: string;

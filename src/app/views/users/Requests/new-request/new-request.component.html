@@ -795,7 +795,7 @@ Add Files
             </mat-grid-tile>
           </mat-grid-list>
 
-           <mat-grid-list cols="2" rowHeight="100px" *ngIf="!shouldShowElectricianCert()">
+           <!-- <mat-grid-list cols="2" rowHeight="100px" *ngIf="!shouldShowElectricianCert()">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Type of Work</mat-label>
@@ -809,9 +809,7 @@ Add Files
               <mat-form-field class="full-width" appearance="outline" >
                 <mat-label>Electrical Works</mat-label>
                 <mat-select formControlName="electrical_works" multiple>
-                  <!-- <mat-option *ngFor="let e of electricalList" [value]="e.id">{{
-                    e.electrical_works
-                    }}</mat-option> -->
+                  
                     <mat-optgroup *ngFor="let group of groupedElectricalList" [label]="group.module">
         <mat-option *ngFor="let e of group.items" [value]="e.id">
           {{ e.name }}
@@ -833,7 +831,72 @@ Add Files
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
-          </mat-grid-list>
+          </mat-grid-list> -->
+
+                   <mat-grid-list cols="2" rowHeight="100px" *ngIf="!shouldShowElectricianCert()">
+  <!-- Type of Work -->
+  <mat-grid-tile>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Type of Work</mat-label>
+      <mat-select formControlName="work_type" (selectionChange)="onWorkTypeChange()">
+        <mat-option value="Electrical Works">Electrical Works</mat-option>
+        <mat-option value="Mechanical Works">Mechanical Works</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <!-- Electrical Works -->
+  <mat-grid-tile *ngIf="showElectricalWorks()">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Electrical Works</mat-label>
+      <mat-select formControlName="electrical_works" multiple (openedChange)="onElectricalOpened($event)">
+        <!-- Search box (non-selectable) -->
+<mat-option class="search-option" disabled>
+  <input
+    type="text"
+    placeholder="Search..."
+    (keyup)="onElectricalSearch($event.target.value)"
+    class="mat-select-search-input"
+  />
+</mat-option>
+
+
+        <!-- Filtered list -->
+        <mat-optgroup *ngFor="let group of filteredElectricalGroups" [label]="group.module">
+          <mat-option *ngFor="let e of group.items" [value]="e.id">
+            {{ e.name }}
+          </mat-option>
+        </mat-optgroup>
+      </mat-select>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <!-- Mechanical Works -->
+  <mat-grid-tile *ngIf="showMechanicalWorks()">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Mechanical Works</mat-label>
+      <mat-select formControlName="mechanical_works" multiple (openedChange)="onMechanicalOpened($event)">
+          <!-- Search box (non-selectable) -->
+<mat-option class="search-option" disabled>
+  <input
+    type="text"
+    placeholder="Search..."
+    (keyup)="onMechanicalSearch($event.target.value)"
+    class="mat-select-search-input"
+  />
+</mat-option>
+
+
+        <!-- Filtered list -->
+        <mat-optgroup [label]="'Module Numbers'">
+          <mat-option *ngFor="let e of filteredMechanicalList" [value]="e.id">
+            {{ e.mechanical_works }}
+          </mat-option>
+        </mat-optgroup>
+      </mat-select>
+    </mat-form-field>
+  </mat-grid-tile>
+</mat-grid-list>
 
 
           <!-- new commom points -->

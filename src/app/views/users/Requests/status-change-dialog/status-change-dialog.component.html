@@ -190,7 +190,68 @@ requestDatas == 'Pre-Approved' && (permitType == 'Commissioning' && permitUnder 
     </mat-grid-list>
 
     <ng-container *ngIf="updaterequestdata.Hot_work == 1">
-
+      <mat-grid-list cols="1" rowHeight="40px">
+      <mat-grid-tile>
+        <div class="hotwork-sub1">
+        <mat-label>Is it a low risk hotwork?</mat-label>
+        <mat-radio-group formControlName="low_risk_hotwork" (change)="onLowRiskChange()">
+                    <mat-radio-button [value]="1" [disabled]="statusOpenForm.get('high_risk_hotwork').value == 1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0" [disabled]="statusOpenForm.get('high_risk_hotwork').value == 1">No</mat-radio-button>
+                    <mat-error class="error-message"
+                      *ngIf="statusOpenForm.get('low_risk_hotwork').invalid && statusOpenForm.get('low_risk_hotwork').touched">Please
+                      Select
+                    </mat-error>
+                  </mat-radio-group>
+                  </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="40px">
+      <mat-grid-tile>
+        <div class="hotwork-sub1">
+        <mat-label>Is it a high risk hotwork?</mat-label>
+        <mat-radio-group formControlName="high_risk_hotwork" (change)="onHighRiskChange()">
+                    <mat-radio-button [value]="1" [disabled]="statusOpenForm.get('low_risk_hotwork').value == 1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0" [disabled]="statusOpenForm.get('low_risk_hotwork').value == 1">No</mat-radio-button>
+                    <mat-error class="error-message"
+                      *ngIf="statusOpenForm.get('high_risk_hotwork').invalid && statusOpenForm.get('high_risk_hotwork').touched">Please
+                      Select
+                    </mat-error>
+                  </mat-radio-group>
+                  </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <ng-container *ngIf="statusOpenForm.get('high_risk_hotwork').value == '1'">
+        <mat-grid-list cols="1" rowHeight="40px">
+      <mat-grid-tile>
+        <div class="hotwork-sub1">
+        <mat-label>Is hot work checklist filled in?</mat-label>
+        <mat-radio-group formControlName="hot_work_checklist_filled">
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No</mat-radio-button>
+                    <mat-error class="error-message"
+                      *ngIf="statusOpenForm.get('hot_work_checklist_filled').invalid && statusOpenForm.get('hot_work_checklist_filled').touched">Please
+                      Select
+                    </mat-error>
+                  </mat-radio-group>
+                  </div>
+      </mat-grid-tile>
+    </mat-grid-list>    
+            <mat-grid-list cols="1" rowHeight="40px">
+      <mat-grid-tile>
+        <div class="hotwork-sub1">
+        <mat-label>Is fire guard present?</mat-label>
+        <mat-radio-group formControlName="fire_guard_present">
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No</mat-radio-button>
+                    <mat-error class="error-message"
+                      *ngIf="statusOpenForm.get('fire_guard_present').invalid && statusOpenForm.get('fire_guard_present').touched">Please
+                      Select
+                    </mat-error>
+                  </mat-radio-group>
+                  </div>
+      </mat-grid-tile>
+    </mat-grid-list>    
+    </ng-container>
       <!-- <mat-grid-list cols="2" rowHeight="80px">
         <mat-grid-tile>
           <mat-form-field class="full-width">
@@ -219,7 +280,7 @@ requestDatas == 'Pre-Approved' && (permitType == 'Commissioning' && permitUnder 
           </mat-form-field>
         </mat-grid-tile>
       </mat-grid-list> -->
-      <div mat-dialog-content>
+      <mat-dialog-content>
         <!-- <img [src]="croppedImage" class="uploadimgsty" /> -->
         <div class="upload-div-sty">
           <input #csvInput hidden="true" type="file" onclick="this.value=null"
@@ -238,14 +299,13 @@ requestDatas == 'Pre-Approved' && (permitType == 'Commissioning' && permitUnder 
         </div>
 
 
-      </div>
+      </mat-dialog-content>
 
     </ng-container>
 
     <div mat-dialog-actions>
       <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="ChangestatusToOpen('Opened')"
-      [disabled]="statusOpenForm.get('ConM_initials1').invalid ||
-          statusOpenForm.get('ConM_initials1').value.trim() === ''">Open</button>
+      [disabled]="!canOpen()">Open</button>
       <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
         (click)="ChangestatusToOpen('Cancelled')" [disabled]="statusOpenForm.get('cancel_reason').invalid ||
           statusOpenForm.get('cancel_reason').value.trim() === ''">Cancel</button>

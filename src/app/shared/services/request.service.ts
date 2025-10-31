@@ -8266,6 +8266,21 @@ export class RequestService {
           ]
         },
         {
+          floorName: 'Zone 0.A3',
+          zoneSubList: [
+                   {
+                    value: 'TR01',
+                    className: "JJ_0_A3-1",
+                    isSelected: false
+                  },
+                  {
+                    value: 'EL01',
+                    className: "JJ_0_A3-2",
+                    isSelected: false
+                  },
+          ]
+        },
+        {
           floorName: 'Zone 0.B2',
           zoneSubList: [
                {
@@ -16778,6 +16793,21 @@ export class RequestService {
                 isSelected: false
                 }
               
+          ]
+        },
+        {
+          floorName: 'Zone 0.A3',
+          zoneSubList: [
+                   {
+                    value: 'TR01',
+                    className: "JJ_0_A3-1",
+                    isSelected: false
+                  },
+                  {
+                    value: 'EL01',
+                    className: "JJ_0_A3-2",
+                    isSelected: false
+                  },
           ]
         },
         {

@@ -141,14 +141,19 @@ export class CopyRequestComponent implements OnInit {
     console.log(this.CopyRequest.createdTime, 'date')
 
     this.CopyRequest.count = diffDays;
-    this.reqservice.CopyRequest(this.CopyRequest).subscribe(res => {
-      this.openSnackBar();
-      // window.location.reload();
-    });
+if(this.CopyRequest.Assign_Start_Date == '' || this.CopyRequest.Assign_End_Date == '') {
+      this.openSnackBar('Please provide proper dates to copy');
+    } else {
+    this.reqservice.CopyRequest(this.CopyRequest).subscribe(res=>
+      {
+        this.openSnackBar('Request Created Successfully');
+        // window.location.reload();
+      }); 
   }
+}
 
-  openSnackBar() {
-    this._snackBar.open("Request Created Successfully", "Close", {
+  openSnackBar(msg) {
+    this._snackBar.open(msg, "Close", {
       duration: 2000,
 
     });

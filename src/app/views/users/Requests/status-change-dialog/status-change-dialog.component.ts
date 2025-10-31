@@ -220,6 +220,10 @@ export class StatusChangeDialogComponent implements OnInit {
     loto_plan_approved: null,
     follow_media_code: null,
     cq_safety_signs: null,
+    low_risk_hotwork: null,
+    high_risk_hotwork: null,
+    hot_work_checklist_filled: null,
+    fire_guard_present:null
   };
   images: any[] = [];
   base64Images: any[] = [];
@@ -291,6 +295,10 @@ export class StatusChangeDialogComponent implements OnInit {
     this.statusOpenForm = new FormGroup({
       ConM_initials1: new FormControl('', Validators.required),
       cancel_reason: new FormControl('', Validators.required),
+      low_risk_hotwork: new FormControl('', Validators.required),
+      high_risk_hotwork: new FormControl('', Validators.required),
+      hot_work_checklist_filled: new FormControl('', Validators.required),
+      fire_guard_present: new FormControl('', Validators.required),
       // name_of_the_fire_watcher1: new FormControl('', Validators.required),
       // phone_number_of_fire_watcher1: new FormControl('', Validators.required),
     })
@@ -545,6 +553,12 @@ export class StatusChangeDialogComponent implements OnInit {
     this.updaterequestdata.ConM_initials = this.data["payload"]["ConM_initials"];
     this.updaterequestdata.reject_reason = this.data["payload"]["reject_reason"];
 
+    //hotwork opening fields
+    this.updaterequestdata.low_risk_hotwork = this.data["payload"]["low_risk_hotwork"];
+    this.updaterequestdata.high_risk_hotwork = this.data["payload"]["high_risk_hotwork"];
+    this.updaterequestdata.hot_work_checklist_filled = this.data["payload"]["hot_work_checklist_filled"];
+    this.updaterequestdata.fire_guard_present = this.data["payload"]["fire_guard_present"];
+
     this.Close_Request.h_heat_source = this.data["payload"]["h_heat_source"];
     this.Close_Request.h_workplace_check = this.data["payload"]["ConM_initials"];
     this.Close_Request.h_fire_detectors = this.data["payload"]["ConM_initials"];
@@ -573,6 +587,53 @@ export class StatusChangeDialogComponent implements OnInit {
     console.log('permit under', this.permitUnder);
     console.log("permit type", this.permitType);
   }
+
+  
+  onLowRiskChange() {
+  if (this.statusOpenForm.get('low_risk_hotwork').value == 1) {
+    this.statusOpenForm.get('high_risk_hotwork').setValue(0);
+    this.statusOpenForm.get('hot_work_checklist_filled').reset();
+    this.statusOpenForm.get('fire_guard_present').reset();
+  }
+}
+
+onHighRiskChange() {
+  if (this.statusOpenForm.get('high_risk_hotwork').value == 1) {
+    this.statusOpenForm.get('low_risk_hotwork').setValue(0);
+  } else {
+    this.statusOpenForm.get('hot_work_checklist_filled').reset();
+    this.statusOpenForm.get('fire_guard_present').reset();
+  }
+}
+
+canOpen() {
+  // must have ConM initials first
+  const initials = this.statusOpenForm.get('ConM_initials1').value?.trim();
+  if (!initials) return false;
+
+  // if Hotwork is not 1 -> allow open normally
+  if (this.updaterequestdata.Hot_work != 1) return true;
+
+  // If low-risk selected
+  if (this.statusOpenForm.get('low_risk_hotwork').value == 1) {
+    return true; // allowed with initials only
+  }
+
+  // If high-risk selected
+  if (this.statusOpenForm.get('high_risk_hotwork').value == 1) {
+    const checklist = this.statusOpenForm.get('hot_work_checklist_filled').value;
+    const fireGuard = this.statusOpenForm.get('fire_guard_present').value;
+
+    // Both must be YES
+    if (checklist == 1 && fireGuard == 1) {
+      return true;
+    }
+
+    return false;
+  }
+
+  return false;
+}
 
   Changestatus(statusdata) {
     (Object as any).keys(this.statusApprovedForm.controls).forEach((control) => {
@@ -697,6 +758,10 @@ export class StatusChangeDialogComponent implements OnInit {
    
       if (this.statusOpenForm.get('ConM_initials1').valid) {
         this.updaterequestdata.ConM_initials1 = this.statusOpenForm.value.ConM_initials1;
+        this.updaterequestdata.low_risk_hotwork = this.statusOpenForm.value.low_risk_hotwork;
+        this.updaterequestdata.high_risk_hotwork = this.statusOpenForm.value.high_risk_hotwork;
+        this.updaterequestdata.hot_work_checklist_filled = this.statusOpenForm.value.hot_work_checklist_filled;
+        this.updaterequestdata.fire_guard_present = this.statusOpenForm.value.fire_guard_present;
         // this.updaterequestdata.name_of_the_fire_watcher1 = this.statusOpenForm.value.name_of_the_fire_watcher1;
         // this.updaterequestdata.phone_number_of_fire_watcher1 = this.statusOpenForm.value.phone_number_of_fire_watcher1;
         // formData.append('file', this.fileInput.files[0]);

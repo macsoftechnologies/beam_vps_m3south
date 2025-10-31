@@ -12,6 +12,24 @@
   padding: 30px;
 }
 
+.search-option {
+  background: white !important;
+  cursor: default !important;
+  height: auto !important;
+}
+
+.mat-select-search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 14px;
+  background: white;
+}
+
+.mat-select-search-input::placeholder {
+  color: #aaa;
+}
 
 .editImagesClass{
   display: flex;

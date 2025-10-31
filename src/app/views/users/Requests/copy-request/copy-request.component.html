@@ -32,7 +32,10 @@
       </mat-card-content>
     </mat-card>
     <div class="butns">
-      <button class="butns-grp" mat-raised-button color="primary" (click)="CreatenewRequest()">Create</button>
+      <button class="butns-grp" mat-raised-button color="primary" (click)="CreatenewRequest()" 
+      [disabled]="!workingdateFrom || !workingdateTo || workingdateTo < workingdateFrom">
+      Create
+    </button>
       <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>Close</button>
     </div>
   </div>
