@@ -70,6 +70,9 @@
   justify-content: space-between;
   margin-bottom: 5px;
 }
+.hotwork-sub-label{
+  width: 79%;
+}
 .hotwork-sub1{
   display: flex;
   justify-content: space-between;

@@ -321,7 +321,7 @@ requestDatas == 'Pre-Approved' && (permitType == 'Commissioning' && permitUnder 
   <form [formGroup]="statusUpdateForm">
     <ng-container *ngIf="updaterequestdata.Hot_work == 1">
       <div class="hotwork-sub">
-        <label>Heat sources and sparkling tools were last used, state the time</label>
+        <label class="hotwork-sub-label">Has the work area been inspected for smoldering materials or residual heat?</label>
         <mat-radio-group formControlName="h_heat_source"
           [class.is-invalid]="statusUpdateForm.get('h_heat_source').invalid && statusUpdateForm.get('h_heat_source').touched">
           <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
@@ -336,7 +336,7 @@ requestDatas == 'Pre-Approved' && (permitType == 'Commissioning' && permitUnder 
       </div>
 
       <div class="hotwork-sub">
-        <label>Are the workplace checked for glowing/smoldering objects?</label>
+        <label class="hotwork-sub-label">Have all tools and hot work equipment been safely removed from the work area?</label>
         <mat-radio-group formControlName="h_workplace_check"
           [class.is-invalid]="statusUpdateForm.get('h_workplace_check').invalid && statusUpdateForm.get('h_workplace_check').touched">
           <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
@@ -349,7 +349,7 @@ requestDatas == 'Pre-Approved' && (permitType == 'Commissioning' && permitUnder 
       </div>
 
       <div class="hotwork-sub">
-        <label>Are fire detectors back in active mode?</label>
+        <label class="hotwork-sub-label">⁠Has the area been cleaned and restored to its original safe condition?</label>
         <mat-radio-group formControlName="h_fire_detectors"
           [class.is-invalid]="statusUpdateForm.get('h_fire_detectors').invalid && statusUpdateForm.get('h_fire_detectors').touched">
           <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
