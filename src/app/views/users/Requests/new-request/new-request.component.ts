@@ -2367,6 +2367,15 @@ private groupByModule(data: any[], displayProperty: string): any[] {
         "JJ - Roof Plan",
       ];
     }
+    else if (event == '19') {
+        this.floors = [
+        "MP - Ground Floor",
+        "MP - 1st Floor",
+        "MP - 2nd Floor",
+        "MP - Roof Plan",
+        "MP - Tank Farm",
+      ];
+    }
 
     this.planType = null;
     this.pdfSrc = null;
@@ -2943,6 +2952,60 @@ private groupByModule(data: any[], displayProperty: string): any[] {
                     { name: "ZoneR_South", pdfSrc: "assets/images/plans/JJ/JJ-Roof/JJ-Roof-ZoneR_South.pdf", className: 'jj-roof-ZoneR_South', planType: 'JJ - Roof Plan' },
           ]
              break;    
+        default:
+          break;
+      }
+    }
+
+    else if (this.selectedbuilding == '19') {
+      // console.log("JG Drawings")
+      switch (event) {
+        case "MP - Ground Floor":
+          this.planType = "MP - Ground Floor";
+          this.pdfSrc = "assets/images/plans/MP/MP-GroundFloor.pdf";
+          this.blocks = [
+            { name: "Zone 0.A1", pdfSrc: "assets/images/plans/MP/MP-GroundFloor/MP-GroundFloor-Zone0.A1.pdf", className: 'mp-ground-Zone0_A1', planType: 'MP - Ground Floor' },
+            { name: "Zone 0.A2", pdfSrc: "assets/images/plans/MP/MP-GroundFloor/MP-GroundFloor-Zone0.A2.pdf", className: 'mp-ground-Zone0_A2', planType: 'MP - Ground Floor' },
+            { name: "Zone 0.A3", pdfSrc: "assets/images/plans/MP/MP-GroundFloor/MP-GroundFloor-Zone0.A3.pdf", className: 'mp-ground-Zone0_A3', planType: 'MP - Ground Floor' },
+          ]
+          break;
+        case "MP - 1st Floor":
+          this.planType = "MP - 1st Floor";
+          this.pdfSrc = "assets/images/plans/MP/MP-FirstFloor.pdf";
+          this.blocks = [
+            { name: "Zone 1.A1", pdfSrc: "assets/images/plans/MP/MP-FirstFloor/MP-FirstFloor-Zone1.A1.pdf", className: 'mp-first-Zone1_A1', planType: 'MP - 1st Floor' },
+            { name: "Zone 1.A2", pdfSrc: "assets/images/plans/MP/MP-FirstFloor/MP-FirstFloor-Zone1.A2.pdf", className: 'mp-first-Zone1_A2', planType: 'MP - 1st Floor' },
+          ]
+          break;  
+        case "MP - 2nd Floor":
+          this.planType = "MP - 2nd Floor";
+          this.pdfSrc = "assets/images/plans/MP/MP-SecondFloor.pdf";
+          this.blocks = [
+            { name: "Zone 2.A1", pdfSrc: "assets/images/plans/MP/MP-SecondFloor/MP-SecondFloor-Zone2.A1.pdf", className: 'mp-second-Zone2_A1', planType: 'MP - 2nd Floor' },
+            { name: "Zone 2.A2", pdfSrc: "assets/images/plans/MP/MP-SecondFloor/MP-SecondFloor-Zone2.A2.pdf", className: 'mp-second-Zone2_A2', planType: 'MP - 2nd Floor' },
+            { name: "Zone 2.A3", pdfSrc: "assets/images/plans/MP/MP-SecondFloor/MP-SecondFloor-Zone2.A3.pdf", className: 'mp-second-Zone2_A3', planType: 'MP - 2nd Floor' },
+            { name: "Zone 2.A4", pdfSrc: "assets/images/plans/MP/MP-SecondFloor/MP-SecondFloor-Zone2.A4.pdf", className: 'mp-second-Zone2_A4', planType: 'MP - 2nd Floor' },
+
+          ]
+          break; 
+        case "MP - Roof Plan":
+              this.planType = "MP - Roof Plan";
+                  this.pdfSrc = "assets/images/plans/MP/MP-RoofPlan.pdf";
+                  this.blocks = [
+                    { name: "ZoneRoof", pdfSrc: "assets/images/plans/MP/MP-RoofPlan/MP-RoofPlan-02.pdf", className: 'mp-roof', planType: 'MP - Roof Plan' },
+          ]
+             break;  
+        case "MP - Tank Farm":
+          this.planType = "MP - Tank Farm";
+          this.pdfSrc = "assets/images/plans/MP/MP-TankFarm.pdf";
+          this.blocks = [
+            { name: "Zone B", pdfSrc: "assets/images/plans/MP/MP-TankFarm/MP-TankFarm-Zone-B.pdf", className: 'mp-tankfarm-ZoneB', planType: 'MP - Tank Farm' },
+            { name: "Zone C", pdfSrc: "assets/images/plans/MP/MP-TankFarm/MP-TankFarm-Zone-C.pdf", className: 'mp-tankfarm-ZoneC', planType: 'MP - Tank Farm' },
+            { name: "Zone D", pdfSrc: "assets/images/plans/MP/MP-TankFarm/MP-TankFarm-Zone-D.pdf", className: 'mp-tankfarm-ZoneD', planType: 'MP - Tank Farm' },
+            { name: "Zone North", pdfSrc: "assets/images/plans/MP/MP-TankFarm/MP-TankFarm-Zone-North-Pipe-Rack.pdf", className: 'mp-tankfarm-Zone_North', planType: 'MP - Tank Farm' },
+            { name: "Zone South", pdfSrc: "assets/images/plans/MP/MP-TankFarm/MP-TankFarm-Zone-South-Pipe-Rack.pdf", className: 'mp-tankfarm-Zone_South', planType: 'MP - Tank Farm' },
+          ]
+          break;    
         default:
           break;
       }

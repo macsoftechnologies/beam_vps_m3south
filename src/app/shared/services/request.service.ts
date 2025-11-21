@@ -8570,7 +8570,335 @@ export class RequestService {
         },
       ]
     },
+    // MP Ground Floor....
 
+    {
+      buildingId: '19',
+      planType: "MP - Ground Floor",
+      zoneList: [
+        {
+          floorName: 'Zone 0.A1',
+          zoneSubList: [
+                {
+                  value: 'TR01',
+                  className: "MP_0_A1-1",
+                  isSelected: false
+                },
+                {
+                  value: 'EL01',
+                  className: "MP_0_A1-2",
+                  isSelected: false
+                },
+                {
+                  value: 'SK02',
+                  className: "MP_0_A1-3",
+                  isSelected: false
+                },
+                {
+                  value: 'S.006.1',
+                  className: "MP_0_A1-4",
+                  isSelected: false
+                },
+                {
+                  value: 'S.006.3',
+                  className: "MP_0_A1-5",
+                  isSelected: false
+                },
+          ]
+        },
+        {
+          floorName: 'Zone 0.A2',
+          zoneSubList: [
+              {
+              value: 'S.002',
+              className: "MP_0_A2-1",
+              isSelected: false
+            },
+            {
+              value: 'S.005',
+              className: "MP_0_A2-2",
+              isSelected: false
+            },
+              
+          ]
+        },
+        {
+          floorName: 'Zone 0.A3',
+          zoneSubList: [
+                   {
+                    value: 'S.006',
+                    className: "MP_0_A3-1",
+                    isSelected: false
+                  },
+                  {
+                    value: 'SK01',
+                    className: "MP_0_A3-2",
+                    isSelected: false
+                  },
+                  {
+                    value: 'S.0081',
+                    className: "MP_0_A3-3",
+                    isSelected: false
+                  },
+          ]
+        },
+      ]
+    },
+
+    // MP 1st Floor
+    {
+      buildingId: '19',
+      planType: "MP - 1st Floor",
+      zoneList: [
+        {
+          floorName: 'Zone 1.A1',
+          zoneSubList: [
+                {
+                  value: 'TR01',
+                  className: "MP_1_A1-1",
+                  isSelected: false
+                },
+                {
+                  value: 'EL01',
+                  className: "MP_1_A1-2",
+                  isSelected: false
+                },
+                {
+                  value: '1.006',
+                  className: "MP_1_A1-3",
+                  isSelected: false
+                },
+          ]
+        },
+        {
+          floorName: 'Zone 1.A2',
+          zoneSubList: [
+              {
+                value: '1.003',
+                className: "MP_1_A2-1",
+                isSelected: false
+              },
+              
+          ]
+        },
+      ]
+    },
+
+    // MP - 2nd Floor
+    {
+      buildingId: '19',
+      planType: "MP - 2nd Floor",
+      zoneList: [
+        {
+          floorName: 'Zone 2.A1',
+          zoneSubList: [
+                {
+                  value: '2.006',
+                  className: "MP_2_A1-1",
+                  isSelected: false
+                },
+          ]
+        },
+        {
+          floorName: 'Zone 2.A2',
+          zoneSubList: [
+              {
+                value: 'TR01',
+                className: "MP_2_A2-1",
+                isSelected: false
+              },
+              {
+                value: 'EL01',
+                className: "MP_2_A2-2",
+                isSelected: false
+              },
+              {
+                value: '2.004',
+                className: "MP_2_A2-3",
+                isSelected: false
+              },
+              {
+                value: '2.008.1',
+                className: "MP_2_A2-4",
+                isSelected: false
+              },
+              {
+                value: '2.008',
+                className: "MP_2_A2-5",
+                isSelected: false
+              },
+              
+          ]
+        },
+        {
+          floorName: 'Zone 2.A3',
+          zoneSubList: [
+                {
+                  value: '2.004.1',
+                  className: "MP_2_A3-1",
+                  isSelected: false
+                },
+          ]
+        },
+        {
+          floorName: 'Zone 2.A4',
+          zoneSubList: [
+                {
+                  value: '2.005',
+                  className: "MP_2_A4-1",
+                  isSelected: false
+                },
+                {
+                  value: '2.005.1',
+                  className: "MP_2_A4-2",
+                  isSelected: false
+                },
+          ]
+        },
+      ]
+    },
+
+    // MP - Roof Plan
+    {
+      buildingId: '19',
+      planType: "MP - Roof Plan",
+      zoneList: [
+        {
+          floorName: 'ZoneRoof',
+          zoneSubList: [
+               {
+                  value: 'TR01',
+                  className: "MP_ZoneRoof-1",
+                  isSelected: false
+                },
+                {
+                  value: 'Roof North',
+                  className: "MP_ZoneRoof-2",
+                  isSelected: false
+                },
+                {
+                  value: 'Roof Middle',
+                  className: "MP_ZoneRoof-3",
+                  isSelected: false
+                },
+                {
+                  value: 'Roof South',
+                  className: "MP_ZoneRoof-4",
+                  isSelected: false
+                },
+          ]
+        },
+      ]
+    },
+
+    // MP - Tank Farm
+    {
+      buildingId: '19',
+      planType: "MP - Tank Farm",
+      zoneList: [
+        {
+          floorName: 'Zone B',
+          zoneSubList: [
+                 {
+                    value: 'North B1',
+                    className: "MP_Zone_B-1",
+                    isSelected: false
+                  },
+                  {
+                    value: 'PB B2',
+                    className: "MP_Zone_B-2",
+                    isSelected: false
+                  },
+                  {
+                    value: 'South B1',
+                    className: "MP_Zone_B-3",
+                    isSelected: false
+                  },
+          ]
+        },
+        {
+          floorName: 'Zone C',
+          zoneSubList: [
+           {
+              value: 'North C1',
+              className: "MP_Zone_C-1",
+              isSelected: false
+            },
+            {
+              value: 'PB C2',
+              className: "MP_Zone_C-2",
+              isSelected: false
+            },
+            {
+              value: 'South C1',
+              className: "MP_Zone_C-3",
+              isSelected: false
+            },   
+              
+          ]
+        },
+        {
+          floorName: 'Zone D',
+          zoneSubList: [
+              {
+                value: 'North D1',
+                className: "MP_Zone_D-1",
+                isSelected: false
+              },
+              {
+                value: 'PB D2',
+                className: "MP_Zone_D-2",
+                isSelected: false
+              },
+              {
+                value: 'South D1',
+                className: "MP_Zone_D-3",
+                isSelected: false
+              }, 
+          ]
+        },
+        {
+          floorName: 'Zone North',
+          zoneSubList: [
+                {
+                  value: 'North D',
+                  className: "MP_Zone_North-1",
+                  isSelected: false
+                },
+                {
+                  value: 'North C',
+                  className: "MP_Zone_North-2",
+                  isSelected: false
+                },
+                {
+                  value: 'North B',
+                  className: "MP_Zone_North-3",
+                  isSelected: false
+                },  
+          ]
+        },
+        {
+          floorName: 'Zone South',
+          zoneSubList: [
+                {
+                value: 'South D',
+                className: "MP_Zone_South-1",
+                isSelected: false
+              },
+              {
+                value: 'South C',
+                className: "MP_Zone_South-2",
+                isSelected: false
+              },
+              {
+                value: 'South B',
+                className: "MP_Zone_South-3",
+                isSelected: false
+              },  
+          ]
+        },
+      ]
+    },
 
     ]
     return this.bulidingFloorData;
@@ -17094,6 +17422,331 @@ export class RequestService {
                 isSelected: false
               },
         
+          ]
+        },
+      ]
+    },
+
+    // MP Ground Floor....
+
+    {
+      planType: "MP - Ground Floor",
+      zoneList: [
+        {
+          floorName: 'Zone 0.A1',
+          zoneSubList: [
+                {
+                  value: 'TR01',
+                  className: "MP_0_A1-1",
+                  isSelected: false
+                },
+                {
+                  value: 'EL01',
+                  className: "MP_0_A1-2",
+                  isSelected: false
+                },
+                {
+                  value: 'SK02',
+                  className: "MP_0_A1-3",
+                  isSelected: false
+                },
+                {
+                  value: 'S.006.1',
+                  className: "MP_0_A1-4",
+                  isSelected: false
+                },
+                {
+                  value: 'S.006.3',
+                  className: "MP_0_A1-5",
+                  isSelected: false
+                },
+          ]
+        },
+        {
+          floorName: 'Zone 0.A2',
+          zoneSubList: [
+              {
+              value: 'S.002',
+              className: "MP_0_A2-1",
+              isSelected: false
+            },
+            {
+              value: 'S.005',
+              className: "MP_0_A2-2",
+              isSelected: false
+            },
+              
+          ]
+        },
+        {
+          floorName: 'Zone 0.A3',
+          zoneSubList: [
+                   {
+                    value: 'S.006',
+                    className: "MP_0_A3-1",
+                    isSelected: false
+                  },
+                  {
+                    value: 'SK01',
+                    className: "MP_0_A3-2",
+                    isSelected: false
+                  },
+                  {
+                    value: 'S.0081',
+                    className: "MP_0_A3-3",
+                    isSelected: false
+                  },
+          ]
+        },
+      ]
+    },
+
+    // MP 1st Floor
+    {
+      planType: "MP - 1st Floor",
+      zoneList: [
+        {
+          floorName: 'Zone 1.A1',
+          zoneSubList: [
+                {
+                  value: 'TR01',
+                  className: "MP_1_A1-1",
+                  isSelected: false
+                },
+                {
+                  value: 'EL01',
+                  className: "MP_1_A1-2",
+                  isSelected: false
+                },
+                {
+                  value: '1.006',
+                  className: "MP_1_A1-3",
+                  isSelected: false
+                },
+          ]
+        },
+        {
+          floorName: 'Zone 1.A2',
+          zoneSubList: [
+              {
+                value: '1.003',
+                className: "MP_1_A2-1",
+                isSelected: false
+              },
+              
+          ]
+        },
+      ]
+    },
+
+    // MP - 2nd Floor
+    {
+      planType: "MP - 2nd Floor",
+      zoneList: [
+        {
+          floorName: 'Zone 2.A1',
+          zoneSubList: [
+                {
+                  value: '2.006',
+                  className: "MP_2_A1-1",
+                  isSelected: false
+                },
+          ]
+        },
+        {
+          floorName: 'Zone 2.A2',
+          zoneSubList: [
+              {
+                value: 'TR01',
+                className: "MP_2_A2-1",
+                isSelected: false
+              },
+              {
+                value: 'EL01',
+                className: "MP_2_A2-2",
+                isSelected: false
+              },
+              {
+                value: '2.004',
+                className: "MP_2_A2-3",
+                isSelected: false
+              },
+              {
+                value: '2.008.1',
+                className: "MP_2_A2-4",
+                isSelected: false
+              },
+              {
+                value: '2.008',
+                className: "MP_2_A2-5",
+                isSelected: false
+              },
+              
+          ]
+        },
+        {
+          floorName: 'Zone 2.A3',
+          zoneSubList: [
+                {
+                  value: '2.004.1',
+                  className: "MP_2_A3-1",
+                  isSelected: false
+                },
+          ]
+        },
+        {
+          floorName: 'Zone 2.A4',
+          zoneSubList: [
+                {
+                  value: '2.004.1',
+                  className: "MP_2_A4-1",
+                  isSelected: false
+                },
+                {
+                  value: '2.004.1',
+                  className: "MP_2_A4-2",
+                  isSelected: false
+                },
+          ]
+        },
+      ]
+    },
+
+    // MP - Roof Plan
+    {
+      planType: "MP - Roof Plan",
+      zoneList: [
+        {
+          floorName: 'ZoneRoof',
+          zoneSubList: [
+               {
+                  value: 'TR01',
+                  className: "MP_ZoneRoof-1",
+                  isSelected: false
+                },
+                {
+                  value: 'Roof North',
+                  className: "MP_ZoneRoof-2",
+                  isSelected: false
+                },
+                {
+                  value: 'Roof Middle',
+                  className: "MP_ZoneRoof-3",
+                  isSelected: false
+                },
+                {
+                  value: 'Roof South',
+                  className: "MP_ZoneRoof-4",
+                  isSelected: false
+                },
+          ]
+        },
+      ]
+    },
+
+    // MP - Tank Farm
+    {
+      planType: "MP - Tank Farm",
+      zoneList: [
+        {
+          floorName: 'Zone B',
+          zoneSubList: [
+                 {
+                    value: 'North B1',
+                    className: "MP_Zone_B-1",
+                    isSelected: false
+                  },
+                  {
+                    value: 'PB B2',
+                    className: "MP_Zone_B-2",
+                    isSelected: false
+                  },
+                  {
+                    value: 'South B1',
+                    className: "MP_Zone_B-3",
+                    isSelected: false
+                  },
+          ]
+        },
+        {
+          floorName: 'Zone C',
+          zoneSubList: [
+           {
+              value: 'North C1',
+              className: "MP_Zone_C-1",
+              isSelected: false
+            },
+            {
+              value: 'PB C2',
+              className: "MP_Zone_C-2",
+              isSelected: false
+            },
+            {
+              value: 'South C1',
+              className: "MP_Zone_C-3",
+              isSelected: false
+            },   
+              
+          ]
+        },
+        {
+          floorName: 'Zone D',
+          zoneSubList: [
+              {
+                value: 'North D1',
+                className: "MP_Zone_D-1",
+                isSelected: false
+              },
+              {
+                value: 'PB D2',
+                className: "MP_Zone_D-2",
+                isSelected: false
+              },
+              {
+                value: 'South D1',
+                className: "MP_Zone_D-3",
+                isSelected: false
+              }, 
+          ]
+        },
+        {
+          floorName: 'Zone North',
+          zoneSubList: [
+                {
+                  value: 'North D',
+                  className: "MP_Zone_North-1",
+                  isSelected: false
+                },
+                {
+                  value: 'North C',
+                  className: "MP_Zone_North-2",
+                  isSelected: false
+                },
+                {
+                  value: 'North B',
+                  className: "MP_Zone_North-3",
+                  isSelected: false
+                },  
+          ]
+        },
+        {
+          floorName: 'Zone South',
+          zoneSubList: [
+                {
+                value: 'South D',
+                className: "MP_Zone_South-1",
+                isSelected: false
+              },
+              {
+                value: 'South C',
+                className: "MP_Zone_South-2",
+                isSelected: false
+              },
+              {
+                value: 'South B',
+                className: "MP_Zone_South-3",
+                isSelected: false
+              },  
           ]
         },
       ]

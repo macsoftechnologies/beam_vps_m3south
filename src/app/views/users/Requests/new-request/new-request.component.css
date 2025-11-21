@@ -82,6 +82,7 @@
 
 .butns-grp {
   margin-right: 20px;
+  margin-bottom: 50px;
 }
 
 .butns-grp-back {
@@ -5676,7 +5677,1218 @@ input {
 /* JJ-roof Floor...................end */
 
 
+/* MP..... */
+ 
+/* MP-GroundFloor...................START */
+ 
+.mp-ground-Zone0_A1 {
+  position: absolute;
+  top: 22%;
+  right: 32%;
+  z-index: 9999;
+  height: 40%;
+  width: 7%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A2 {
+  position: absolute;
+  top: 21%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 62%;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A3 {
+  position: absolute;
+  bottom: 17%;
+  right: 42%;
+  z-index: 9999;
+  height: 143px;
+  width: 5%;
+  padding: 0px;
+}
 
+/* MP-GroundFloor...................END */
+
+/* MP-First Floor...................Start */
+ 
+.mp-first-Zone1_A1 {
+  position: absolute;
+  top: 24%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 255px;
+  width: 6%;
+  padding: 0px;
+}
+.mp-first-Zone1_A2 {
+  position: absolute;
+  top: 24%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 57%;
+  width: 24%;
+  padding: 0px;
+}
+
+
+/* MP-first Floor.....................end */
+
+
+/* MP-second Floor...................Start */
+ 
+.mp-second-Zone2_A1 {
+  position: absolute;
+  top: 55%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 40px;
+  width: 6%;
+  padding: 0px;
+}
+.mp-second-Zone2_A2 {
+  position: absolute;
+  top: 40%;
+  left: 53%;
+  z-index: 9999;
+  height: 42%;
+  width: 6%;
+  padding: 0px;
+}
+.mp-second-Zone2_A3 {
+  position: absolute;
+  top: 24%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 198px;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-second-Zone2_A4 {
+  position: absolute;
+  top: 53%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 198px;
+  width: 15.5%;
+  padding: 0px;
+}
+
+/* MP-second Floor.....................end */
+
+/* MP-roof Floor...................Start */
+ 
+.mp-roof {
+  position: absolute;
+  top: 23.5%;
+  left: 31.6%;
+  z-index: 9999;
+  height: 395px;
+  width: 25%;
+  padding: 0px;
+}
+/* MP-roof Floor...................END */
+
+/* MP-tankfarm Floor...................Start */
+.mp-tankfarm-ZoneB{
+  position: absolute;
+  top: 28%;
+  right: 18.5%;
+  z-index: 9999;
+  height: 49%;
+  width: 17.5%;
+  padding: 0px;
+}
+.mp-tankfarm-ZoneC{
+  position: absolute;
+  top: 28%;
+  right: 36%;
+  z-index: 9999;
+  height: 49%;
+  width: 17%;
+  padding: 0px;
+}
+.mp-tankfarm-ZoneD{
+  position: absolute;
+  top: 28%;
+  left: 17%;
+  z-index: 9999;
+  height: 49%;
+  width: 30%;
+  padding: 0px;
+}
+.mp-tankfarm-Zone_North{
+  position: absolute;
+  top: 15%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 90px;
+  width: 54%;
+  padding: 0px;
+}
+.mp-tankfarm-Zone_South{
+  position: absolute;
+  bottom: 13%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 71px;
+  width: 54%;
+  padding: 0px;
+}
+
+/* MP-Ground Floor Start */
+
+@media (min-width: 650px) and (max-width: 749px) {
+.mp-ground-Zone0_A3 {
+  position: absolute;
+  bottom: 17%;
+  right: 42%;
+  z-index: 9999;
+  height: 84px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width: 750px) and (max-width: 992px) {
+.mp-ground-Zone0_A3 {
+  position: absolute;
+  bottom: 17%;
+  right: 42%;
+  z-index: 9999;
+  height: 96px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width: 991px) and (max-width: 1050px) {
+.mp-ground-Zone0_A3 {
+  position: absolute;
+  bottom: 17%;
+  right: 42%;
+  z-index: 9999;
+  height: 96px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width: 1050px) and (max-width: 1200px)  {
+.mp-ground-Zone0_A3 {
+  position: absolute;
+  bottom: 17%;
+  right: 42%;
+  z-index: 9999;
+  height: 102px;
+  width: 5%;
+  padding: 0px;
+}
+}
+
+@media (min-width:1700px) and (max-width: 1800px) {
+.mp-ground-Zone0_A1 {
+  position: absolute;
+  top: 22%;
+  right: 32%;
+  z-index: 9999;
+  height: 40%;
+  width: 7%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A2 {
+  position: absolute;
+  top: 21%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 62%;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A3 {
+  position: absolute;
+  bottom: 17%;
+  right: 42%;
+  z-index: 9999;
+  height: 171px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width:1800px) and (max-width: 1900px) {
+.mp-ground-Zone0_A1 {
+  position: absolute;
+  top: 22%;
+  right: 32%;
+  z-index: 9999;
+  height: 40%;
+  width: 7%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A2 {
+  position: absolute;
+  top: 21%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 62%;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A3 {
+  position: absolute;
+  bottom: 17%;
+  right: 42%;
+  z-index: 9999;
+  height: 177px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width:1900px) and (max-width: 2000px) {
+.mp-ground-Zone0_A1 {
+  position: absolute;
+  top: 22%;
+  right: 32%;
+  z-index: 9999;
+  height: 40%;
+  width: 7%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A2 {
+  position: absolute;
+  top: 21%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 62%;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A3 {
+  position: absolute;
+  bottom: 17%;
+  right: 42%;
+  z-index: 9999;
+  height: 191px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width:2000px) and (max-width: 2100px) {
+.mp-ground-Zone0_A1 {
+  position: absolute;
+  top: 22%;
+  right: 32%;
+  z-index: 9999;
+  height: 40%;
+  width: 7%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A2 {
+  position: absolute;
+  top: 21%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 62%;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A3 {
+  position: absolute;
+  bottom: 17%;
+  right: 42%;
+  z-index: 9999;
+  height: 198px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width:2100px) and (max-width: 2200px) {
+.mp-ground-Zone0_A1 {
+  position: absolute;
+  top: 22%;
+  right: 32%;
+  z-index: 9999;
+  height: 40%;
+  width: 7%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A2 {
+  position: absolute;
+  top: 21%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 62%;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A3 {
+  position: absolute;
+  bottom: 17%;
+  right: 42%;
+  z-index: 9999;
+  height: 206px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width:2200px) and (max-width: 2400px) {
+.mp-ground-Zone0_A1 {
+  position: absolute;
+  top: 22%;
+  right: 32%;
+  z-index: 9999;
+  height: 40%;
+  width: 7%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A2 {
+  position: absolute;
+  top: 21%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 62%;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A3 {
+  position: absolute;
+  bottom: 17%;
+  right: 42%;
+  z-index: 9999;
+  height: 234px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width:2400px) and (max-width: 2600px) {
+.mp-ground-Zone0_A1 {
+  position: absolute;
+  top: 22%;
+  right: 32%;
+  z-index: 9999;
+  height: 40%;
+  width: 7%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A2 {
+  position: absolute;
+  top: 21%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 62%;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A3 {
+  position: absolute;
+  bottom: 17%;
+  right: 42%;
+  z-index: 9999;
+  height: 234px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width:2600px) and (max-width: 2800px) {
+.mp-ground-Zone0_A1 {
+  position: absolute;
+  top: 22%;
+  right: 32%;
+  z-index: 9999;
+  height: 40%;
+  width: 7%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A2 {
+  position: absolute;
+  top: 21%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 62%;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A3 {
+  position: absolute;
+  bottom: 17%;
+  right: 42%;
+  z-index: 9999;
+  height: 271px;
+  width: 5%;
+  padding: 0px;
+}
+}
+@media (min-width:2800px) and (max-width: 3000px) {
+.mp-ground-Zone0_A1 {
+  position: absolute;
+  top: 22%;
+  right: 32%;
+  z-index: 9999;
+  height: 40%;
+  width: 7%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A2 {
+  position: absolute;
+  top: 21%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 62%;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-ground-Zone0_A3 {
+  position: absolute;
+  bottom: 17%;
+  right: 42%;
+  z-index: 9999;
+  height: 296px;
+  width: 5%;
+  padding: 0px;
+}
+}
+
+/* MP-first Floor Start */
+
+@media (min-width: 650px) and (max-width: 749px) {
+  .mp-first-Zone1_A1 {
+  position: absolute;
+  top: 24%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 141px;
+  width: 6%;
+  padding: 0px;
+}
+}
+@media (min-width: 750px) and (max-width: 992px) {
+  .mp-first-Zone1_A1 {
+  position: absolute;
+  top: 24%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 166px;
+  width: 6%;
+  padding: 0px;
+}
+}
+@media (min-width: 992px) and (max-width: 1050px) {
+  .mp-first-Zone1_A1 {
+  position: absolute;
+  top: 24%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 160px;
+  width: 6%;
+  padding: 0px;
+}
+}
+@media (min-width: 1050px) and (max-width: 1200px) {
+  .mp-first-Zone1_A1 {
+  position: absolute;
+  top: 24%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 181px;
+  width: 6%;
+  padding: 0px;
+}
+}
+
+@media (min-width:1700px) and (max-width: 1800px) {
+.mp-first-Zone1_A1 {
+  position: absolute;
+  top: 24%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 295px;
+  width: 6%;
+  padding: 0px;
+}
+}
+@media (min-width:1800px) and (max-width: 2000px) {
+.mp-first-Zone1_A1 {
+  position: absolute;
+  top: 24%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 326px;
+  width: 6%;
+  padding: 0px;
+}
+}
+@media (min-width:2000px) and (max-width: 2200px) {
+.mp-first-Zone1_A1 {
+  position: absolute;
+  top: 24%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 366px;
+  width: 6%;
+  padding: 0px;
+}
+}
+@media (min-width:2200px) and (max-width: 2400px) {
+.mp-first-Zone1_A1 {
+  position: absolute;
+  top: 24%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 402px;
+  width: 6%;
+  padding: 0px;
+}
+}
+@media (min-width:2400px) and (max-width: 2600px) {
+.mp-first-Zone1_A1 {
+  position: absolute;
+  top: 24%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 447px;
+  width: 6%;
+  padding: 0px;
+}
+}
+@media (min-width:2600px) and (max-width: 2800px) {
+.mp-first-Zone1_A1 {
+  position: absolute;
+  top: 24%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 481px;
+  width: 6%;
+  padding: 0px;
+}
+}
+@media (min-width:2800px) and (max-width: 3000px) {
+.mp-first-Zone1_A1 {
+  position: absolute;
+  top: 24%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 518px;
+  width: 6%;
+  padding: 0px;
+}
+}
+
+
+/* MP-second Floor...................Start */
+
+@media (min-width: 650px) and (max-width: 749px) {
+.mp-second-Zone2_A3 {
+  position: absolute;
+  top: 24%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 104px;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-second-Zone2_A4 {
+  position: absolute;
+  top: 53%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 109px;
+  width: 15.5%;
+  padding: 0px;
+}
+}
+@media (min-width: 750px) and (max-width: 992px) {
+.mp-second-Zone2_A3 {
+  position: absolute;
+  top: 24%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 128px;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-second-Zone2_A4 {
+  position: absolute;
+  top: 53%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 128px;
+  width: 15.5%;
+  padding: 0px;
+}
+}
+@media (min-width: 992px) and (max-width: 1050px) {
+.mp-second-Zone2_A3 {
+  position: absolute;
+  top: 24%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 122px;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-second-Zone2_A4 {
+  position: absolute;
+  top: 53%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 128px;
+  width: 15.5%;
+  padding: 0px;
+}
+}
+@media (min-width: 1050px) and (max-width: 1200px) {
+.mp-second-Zone2_A3 {
+  position: absolute;
+  top: 24%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 137px;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-second-Zone2_A4 {
+  position: absolute;
+  top: 53%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 134px;
+  width: 15.5%;
+  padding: 0px;
+}
+}
+
+@media (min-width:1700px) and (max-width: 1800px) {
+.mp-second-Zone2_A3 {
+  position: absolute;
+  top: 24%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 231px;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-second-Zone2_A4 {
+  position: absolute;
+  top: 53%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 230px;
+  width: 15.5%;
+  padding: 0px;
+}
+}
+@media (min-width:1800px) and (max-width: 2000px) {
+.mp-second-Zone2_A3 {
+  position: absolute;
+  top: 24%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 252px;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-second-Zone2_A4 {
+  position: absolute;
+  top: 53%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 253px;
+  width: 15.5%;
+  padding: 0px;
+}
+}
+@media (min-width:2000px) and (max-width: 2200px) {
+.mp-second-Zone2_A1 {
+  position: absolute;
+  top: 55%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 57px;
+  width: 6%;
+  padding: 0px;
+}
+.mp-second-Zone2_A3 {
+  position: absolute;
+  top: 24%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 282px;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-second-Zone2_A4 {
+  position: absolute;
+  top: 53%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 283px;
+  width: 15.5%;
+  padding: 0px;
+}
+}
+@media (min-width:2200px) and (max-width: 2400px) {
+.mp-second-Zone2_A1 {
+  position: absolute;
+  top: 55%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 57px;
+  width: 6%;
+  padding: 0px;
+}
+.mp-second-Zone2_A3 {
+  position: absolute;
+  top: 24%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 313px;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-second-Zone2_A4 {
+  position: absolute;
+  top: 53%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 315px;
+  width: 15.5%;
+  padding: 0px;
+}
+}
+@media (min-width:2400px) and (max-width: 2600px) {
+.mp-second-Zone2_A1 {
+  position: absolute;
+  top: 55%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 73px;
+  width: 6%;
+  padding: 0px;
+}
+.mp-second-Zone2_A3 {
+  position: absolute;
+  top: 24%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 346px;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-second-Zone2_A4 {
+  position: absolute;
+  top: 53%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 345px;
+  width: 15.5%;
+  padding: 0px;
+}
+}
+@media (min-width:2600px) and (max-width: 2800px) {
+.mp-second-Zone2_A1 {
+  position: absolute;
+  top: 55%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 73px;
+  width: 6%;
+  padding: 0px;
+}
+.mp-second-Zone2_A3 {
+  position: absolute;
+  top: 24%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 379px;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-second-Zone2_A4 {
+  position: absolute;
+  top: 53%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 381px;
+  width: 15.5%;
+  padding: 0px;
+}
+}
+@media (min-width:2800px) and (max-width: 3000px) {
+.mp-second-Zone2_A1 {
+  position: absolute;
+  top: 55%;
+  right: 34.5%;
+  z-index: 9999;
+  height: 73px;
+  width: 6%;
+  padding: 0px;
+}
+.mp-second-Zone2_A3 {
+  position: absolute;
+  top: 24%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 407px;
+  width: 20.5%;
+  padding: 0px;
+}
+.mp-second-Zone2_A4 {
+  position: absolute;
+  top: 53%;
+  left: 32.5%;
+  z-index: 9999;
+  height: 381px;
+  width: 15.5%;
+  padding: 0px;
+}
+}
+/* MP-roof Floor...................Start */
+
+@media (min-width: 650px) and (max-width: 749px) {
+.mp-roof {
+  position: absolute;
+  top: 23.5%;
+  left: 31.6%;
+  z-index: 9999;
+  height: 213px;
+  width: 25%;
+  padding: 0px;
+}
+}
+@media (min-width: 750px) and (max-width: 992px) {
+.mp-roof {
+  position: absolute;
+  top: 23.5%;
+  left: 31.6%;
+  z-index: 9999;
+  height: 279px;
+  width: 25%;
+  padding: 0px;
+}
+}
+@media (min-width: 992px) and (max-width: 1050px) {
+.mp-roof {
+  position: absolute;
+  top: 23.5%;
+  left: 31.6%;
+  z-index: 9999;
+  height: 279px;
+  width: 25%;
+  padding: 0px;
+}
+}
+@media (min-width: 1050px) and (max-width: 1200px) {
+.mp-roof {
+  position: absolute;
+  top: 23.5%;
+  left: 31.6%;
+  z-index: 9999;
+  height: 279px;
+  width: 25%;
+  padding: 0px;
+}
+}
+
+@media (min-width:1700px) and (max-width: 1800px) { 
+.mp-roof {
+  position: absolute;
+  top: 23.5%;
+  left: 31.6%;
+  z-index: 9999;
+  height: 471px;
+  width: 25%;
+  padding: 0px;
+}
+}
+@media (min-width:1800px) and (max-width: 2000px) { 
+.mp-roof {
+  position: absolute;
+  top: 23.5%;
+  left: 31.6%;
+  z-index: 9999;
+  height: 530px;
+  width: 25%;
+  padding: 0px;
+}
+}
+@media (min-width:2000px) and (max-width: 2200px) { 
+.mp-roof {
+  position: absolute;
+  top: 23.5%;
+  left: 31.6%;
+  z-index: 9999;
+  height: 575px;
+  width: 25%;
+  padding: 0px;
+}
+}
+@media (min-width:2200px) and (max-width: 2400px) { 
+.mp-roof {
+  position: absolute;
+  top: 23.5%;
+  left: 31.6%;
+  z-index: 9999;
+  height: 641px;
+  width: 25%;
+  padding: 0px;
+}
+}
+@media (min-width:2400px) and (max-width: 2600px) { 
+.mp-roof {
+  position: absolute;
+  top: 23.5%;
+  left: 31.6%;
+  z-index: 9999;
+  height: 707px;
+  width: 25%;
+  padding: 0px;
+}
+}
+@media (min-width:2600px) and (max-width: 2800px) { 
+.mp-roof {
+  position: absolute;
+  top: 23.5%;
+  left: 31.6%;
+  z-index: 9999;
+  height: 767px;
+  width: 25%;
+  padding: 0px;
+}
+}
+@media (min-width:2800px) and (max-width: 3000px) { 
+.mp-roof {
+  position: absolute;
+  top: 23.5%;
+  left: 31.6%;
+  z-index: 9999;
+  height: 823px;
+  width: 25%;
+  padding: 0px;
+}
+}
+
+/* MP-tankfarm Floor...................Start */
+
+@media (min-width: 650px) and (max-width: 749px) {
+.mp-tankfarm-Zone_North{
+  position: absolute;
+  top: 15%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 51px;
+  width: 54%;
+  padding: 0px;
+}
+.mp-tankfarm-Zone_South{
+  position: absolute;
+  bottom: 13%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 44px;
+  width: 54%;
+  padding: 0px;
+}
+}
+@media (min-width: 750px) and (max-width: 992px) {
+.mp-tankfarm-Zone_North{
+  position: absolute;
+  top: 15%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 62px;
+  width: 54%;
+  padding: 0px;
+}
+.mp-tankfarm-Zone_South{
+  position: absolute;
+  bottom: 13%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 53px;
+  width: 54%;
+  padding: 0px;
+}
+}
+@media (min-width: 992px) and (max-width: 1050px) {
+.mp-tankfarm-Zone_North{
+  position: absolute;
+  top: 15%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 58px;
+  width: 54%;
+  padding: 0px;
+}
+.mp-tankfarm-Zone_South{
+  position: absolute;
+  bottom: 13%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 53px;
+  width: 54%;
+  padding: 0px;
+}
+}
+@media (min-width: 1050px) and (max-width: 1200px) {
+.mp-tankfarm-Zone_North{
+  position: absolute;
+  top: 15%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 64px;
+  width: 54%;
+  padding: 0px;
+}
+.mp-tankfarm-Zone_South{
+  position: absolute;
+  bottom: 13%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 53px;
+  width: 54%;
+  padding: 0px;
+}
+}
+
+
+@media (min-width:1700px) and (max-width: 1800px) {
+.mp-tankfarm-Zone_North{
+  position: absolute;
+  top: 15%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 109px;
+  width: 54%;
+  padding: 0px;
+}
+.mp-tankfarm-Zone_South{
+  position: absolute;
+  bottom: 13%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 80px;
+  width: 54%;
+  padding: 0px;
+}
+}
+@media (min-width:1800px) and (max-width: 2000px) {
+.mp-tankfarm-Zone_North{
+  position: absolute;
+  top: 15%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 109px;
+  width: 54%;
+  padding: 0px;
+}
+.mp-tankfarm-Zone_South{
+  position: absolute;
+  bottom: 13%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 80px;
+  width: 54%;
+  padding: 0px;
+}
+}
+@media (min-width:2000px) and (max-width: 2200px) {
+.mp-tankfarm-Zone_North{
+  position: absolute;
+  top: 15%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 130px;
+  width: 54%;
+  padding: 0px;
+}
+.mp-tankfarm-Zone_South{
+  position: absolute;
+  bottom: 13%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 94px;
+  width: 54%;
+  padding: 0px;
+}
+}
+@media (min-width:2200px) and (max-width: 2400px) {
+.mp-tankfarm-Zone_North{
+  position: absolute;
+  top: 15%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 149px;
+  width: 54%;
+  padding: 0px;
+}
+.mp-tankfarm-Zone_South{
+  position: absolute;
+  bottom: 13%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 113px;
+  width: 54%;
+  padding: 0px;
+}
+}
+@media (min-width:2400px) and (max-width: 2600px) {
+.mp-tankfarm-Zone_North{
+  position: absolute;
+  top: 15%;
+  left: 27.5%;
+  z-index: 9999;
+   height: 155px;
+  width: 54%;
+  padding: 0px;
+}
+.mp-tankfarm-Zone_South{
+  position: absolute;
+  bottom: 13%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 113px;
+  width: 54%;
+  padding: 0px;
+}
+}
+@media (min-width:2600px) and (max-width: 2800px) {
+.mp-tankfarm-Zone_North{
+  position: absolute;
+  top: 15%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 173px;
+  width: 54%;
+  padding: 0px;
+}
+.mp-tankfarm-Zone_South{
+  position: absolute;
+  bottom: 13%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 123px;
+  width: 54%;
+  padding: 0px;
+}
+}
+@media (min-width:2800px) and (max-width: 3000px) {
+.mp-tankfarm-Zone_North{
+  position: absolute;
+  top: 15%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 185px;
+  width: 54%;
+  padding: 0px;
+}
+.mp-tankfarm-Zone_South{
+  position: absolute;
+  bottom: 13%;
+  left: 27.5%;
+  z-index: 9999;
+  height: 137px;
+  width: 54%;
+  padding: 0px;
+}
+}
 
 /* JF-Ground Floor Start */
 

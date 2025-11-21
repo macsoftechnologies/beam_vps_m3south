@@ -9341,7 +9341,373 @@ loadingZones: Set<string> = new Set();
         }
       }
     }
+// // MP Ground Floor
+    else if (this.data.floor.name == 'Zone 0.A1' && this.data.floor.planType == 'MP - Ground Floor') {
+      this.floorBlock = [
+        {
+          value: 'TR01',
+          className: "MP_0_A1-1",
+          isSelected: false
+        },
+        {
+          value: 'EL01',
+          className: "MP_0_A1-2",
+          isSelected: false
+        },
+        {
+          value: 'SK02',
+          className: "MP_0_A1-3",
+          isSelected: false
+        },
+        {
+          value: 'S.006.1',
+          className: "MP_0_A1-4",
+          isSelected: false
+        },
+        {
+          value: 'S.006.3',
+          className: "MP_0_A1-5",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone 0.A2' && this.data.floor.planType == 'MP - Ground Floor') {
+      this.floorBlock = [
+        {
+          value: 'S.002',
+          className: "MP_0_A2-1",
+          isSelected: false
+        },
+        {
+          value: 'S.005',
+          className: "MP_0_A2-2",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone 0.A3' && this.data.floor.planType == 'MP - Ground Floor') {
+      this.floorBlock = [
+        {
+          value: 'S.006',
+          className: "MP_0_A3-1",
+          isSelected: false
+        },
+        {
+          value: 'SK01',
+          className: "MP_0_A3-2",
+          isSelected: false
+        },
+        {
+          value: 'S.0081',
+          className: "MP_0_A3-3",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+   // // MP 1st Floor
+    else if (this.data.floor.name == 'Zone 1.A1' && this.data.floor.planType == 'MP - 1st Floor') {
+      this.floorBlock = [
+        {
+          value: 'TR01',
+          className: "MP_1_A1-1",
+          isSelected: false
+        },
+        {
+          value: 'EL01',
+          className: "MP_1_A1-2",
+          isSelected: false
+        },
+        {
+          value: '1.006',
+          className: "MP_1_A1-3",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone 1.A2' && this.data.floor.planType == 'MP - 1st Floor') {
+      this.floorBlock = [
+        {
+          value: '1.003',
+          className: "MP_1_A2-1",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+   // // MP 2nd Floor
+    else if (this.data.floor.name == 'Zone 2.A1' && this.data.floor.planType == 'MP - 2nd Floor') {
+      this.floorBlock = [
+        {
+          value: '2.006',
+          className: "MP_2_A1-1",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone 2.A2' && this.data.floor.planType == 'MP - 2nd Floor') {
+      this.floorBlock = [
+        {
+          value: 'TR01',
+          className: "MP_2_A2-1",
+          isSelected: false
+        },
+        {
+          value: 'EL01',
+          className: "MP_2_A2-2",
+          isSelected: false
+        },
+         {
+          value: '2.004',
+          className: "MP_2_A2-3",
+          isSelected: false
+        },
+         {
+          value: '2.008.1',
+          className: "MP_2_A2-4",
+          isSelected: false
+        },
+         {
+          value: '2.008',
+          className: "MP_2_A2-5",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone 2.A3' && this.data.floor.planType == 'MP - 2nd Floor') {
+      this.floorBlock = [
+        {
+          value: '2.004.1',
+          className: "MP_2_A3-1",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone 2.A4' && this.data.floor.planType == 'MP - 2nd Floor') {
+      this.floorBlock = [
+        {
+          value: '2.005',
+          className: "MP_2_A4-1",
+          isSelected: false
+        },
+        {
+          value: '2.005.1',
+          className: "MP_2_A4-2",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
 
+   // // MP ZoneRoof
+    else if (this.data.floor.name == 'ZoneRoof' && this.data.floor.planType == 'MP - Roof Plan') {
+      this.floorBlock = [
+        {
+          value: 'TR01',
+          className: "MP_ZoneRoof-1",
+          isSelected: false
+        },
+        {
+          value: 'Roof North',
+          className: "MP_ZoneRoof-2",
+          isSelected: false
+        },
+        {
+          value: 'Roof Middle',
+          className: "MP_ZoneRoof-3",
+          isSelected: false
+        },
+        {
+          value: 'Roof South',
+          className: "MP_ZoneRoof-4",
+          isSelected: false
+        },
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+
+   // // MP - Tank Farm
+    else if (this.data.floor.name == 'Zone B' && this.data.floor.planType == 'MP - Tank Farm') {
+      this.floorBlock = [
+        {
+          value: 'North B1',
+          className: "MP_Zone_B-1",
+          isSelected: false
+        },
+        {
+          value: 'PB B2',
+          className: "MP_Zone_B-2",
+          isSelected: false
+        },
+        {
+          value: 'South B1',
+          className: "MP_Zone_B-3",
+          isSelected: false
+        },  
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone C' && this.data.floor.planType == 'MP - Tank Farm') {
+      this.floorBlock = [
+        {
+          value: 'North C1',
+          className: "MP_Zone_C-1",
+          isSelected: false
+        },
+        {
+          value: 'PB C2',
+          className: "MP_Zone_C-2",
+          isSelected: false
+        },
+        {
+          value: 'South C1',
+          className: "MP_Zone_C-3",
+          isSelected: false
+        },   
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone D' && this.data.floor.planType == 'MP - Tank Farm') {
+      this.floorBlock = [
+        {
+          value: 'North D1',
+          className: "MP_Zone_D-1",
+          isSelected: false
+        },
+        {
+          value: 'PB D2',
+          className: "MP_Zone_D-2",
+          isSelected: false
+        },
+        {
+          value: 'South D1',
+          className: "MP_Zone_D-3",
+          isSelected: false
+        },   
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone North' && this.data.floor.planType == 'MP - Tank Farm') {
+      this.floorBlock = [
+        {
+          value: 'North D',
+          className: "MP_Zone_North-1",
+          isSelected: false
+        },
+        {
+          value: 'North C',
+          className: "MP_Zone_North-2",
+          isSelected: false
+        },
+        {
+          value: 'North B',
+          className: "MP_Zone_North-3",
+          isSelected: false
+        },   
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Zone South' && this.data.floor.planType == 'MP - Tank Farm') {
+      this.floorBlock = [
+        {
+          value: 'South D',
+          className: "MP_Zone_South-1",
+          isSelected: false
+        },
+        {
+          value: 'South C',
+          className: "MP_Zone_South-2",
+          isSelected: false
+        },
+        {
+          value: 'South B',
+          className: "MP_Zone_South-3",
+          isSelected: false
+        },   
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
 
     // console.log(this.data);
   }
