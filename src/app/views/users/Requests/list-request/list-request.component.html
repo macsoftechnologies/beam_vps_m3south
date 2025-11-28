@@ -538,7 +538,7 @@
             ">content_copy
           </mat-icon>
           <mat-icon (click)="CopyRequest(row, 'Closed')" class="icons-sty"
-            *ngIf="row.Request_status == 'Closed' && canChangeStatus(row)&& isoperator && (!this.userdata['role'].includes('Observer'))">content_copy</mat-icon>
+            *ngIf="row.Request_status == 'Closed' && canChangeStatus(row) && (!this.userdata['role'].includes('Observer'))">content_copy</mat-icon>
           <mat-icon (click)="Deleterequest(row)" class="icons-sty"
             *ngIf="IsNotSubCntr &&  canChangeStatus(row)&& (!this.userdata['role'].includes('Observer'))">delete</mat-icon>
         </ng-template>

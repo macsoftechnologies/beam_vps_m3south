@@ -1849,6 +1849,7 @@ canChangeStatus(row: any): boolean {
           const mainValue = this.currentPage - 1;
           this.startValue = mainValue * 30 + 1;
           this.search(event);
+          this.selected.length = 0;
           // console.log("NUMMBER", this.currentPage)
           // console.log("Start Value", this.startValue)
         }
