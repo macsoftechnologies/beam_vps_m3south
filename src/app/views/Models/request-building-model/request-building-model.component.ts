@@ -6643,7 +6643,7 @@ loadingZones: Set<string> = new Set();
           isSelected: false
         },
         {
-          value: '2.1XX-2.111-LINE-2',
+          value: '2.1XX-2.111-LINE-1',
           className: "JG_2_1XX-21",
           isSelected: false
         },
