@@ -2150,18 +2150,50 @@ private groupByModule(data: any[], displayProperty: string): any[] {
     this.RequestForm.get('EndTime')?.updateValueAndValidity();
   }
 
-  toggleNightShift(isChecked: boolean) {
-    this.isnightshiftyes = isChecked;
-    this.RequestForm.get('night_shift').setValue(isChecked ? 1 : 0);
+  // toggleNightShift(isChecked: boolean) {
+  //   this.isnightshiftyes = isChecked;
+  //   this.RequestForm.get('night_shift').setValue(isChecked ? 1 : 0);
+  //   const startDateValue = this.RequestForm.get('Startdate').value;
+  //       if (startDateValue) {
+  //           const startDate = new Date(startDateValue);
+  //           const newWorkDate = new Date(startDate);
+  //           newWorkDate.setDate(startDate.getDate() + 1);
+  //           const formattedDate = this.formatDateWithoutTimezone(newWorkDate);
+  //           this.RequestForm.get('newWorkDate').setValue(formattedDate);
+  //       }
+  // }
+
+    toggleNightShift(isChecked: boolean) {
+  this.isnightshiftyes = isChecked;
+  this.RequestForm.get('night_shift').setValue(isChecked ? 1 : 0);
+
+  const newEndTimeControl = this.RequestForm.get('new_end_time');
+  const newWorkDateControl = this.RequestForm.get('newWorkDate');
+
+  if (isChecked) {
     const startDateValue = this.RequestForm.get('Startdate').value;
-        if (startDateValue) {
-            const startDate = new Date(startDateValue);
-            const newWorkDate = new Date(startDate);
-            newWorkDate.setDate(startDate.getDate() + 1);
-            const formattedDate = this.formatDateWithoutTimezone(newWorkDate);
-            this.RequestForm.get('newWorkDate').setValue(formattedDate);
-        }
+    if (startDateValue) {
+      const startDate = new Date(startDateValue);
+      const newWorkDate = new Date(startDate);
+      newWorkDate.setDate(startDate.getDate() + 1);
+      const formattedDate = this.formatDateWithoutTimezone(newWorkDate);
+      newWorkDateControl.setValue(formattedDate);
+    }
+    // Add required validators when night shift is YES
+    newEndTimeControl.setValidators([Validators.required]);
+    newWorkDateControl.setValidators([Validators.required]);
+  } else {
+    // Clear values and validators when night shift is NO
+    newEndTimeControl.reset();
+    newWorkDateControl.reset();
+    newEndTimeControl.clearValidators();
+    newWorkDateControl.clearValidators();
   }
+
+  // Re-evaluate validity after validator change
+  newEndTimeControl.updateValueAndValidity();
+  newWorkDateControl.updateValueAndValidity();
+}
 
   formatDateWithoutTimezone(date: Date): string {
     const year = date.getFullYear();
