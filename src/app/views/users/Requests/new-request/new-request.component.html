@@ -429,8 +429,10 @@ Add Files
                 <input matInput [ngxTimepicker]="endTime" [format]="24" placeholder="New End Time" formControlName="new_end_time"
                   [class.is-invalid]="RequestForm.get('new_end_time').invalid && RequestForm.get('new_end_time').touched" />
                   <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
-                 <mat-error *ngIf="RequestForm.get('new_end_time').hasError('required')">
-                  New End Time is required
+                 <mat-error *ngIf="!RequestForm.get('new_end_time').value && 
+                       RequestForm.get('new_end_time').touched && 
+                       RequestForm.get('night_shift').value == 1">
+                      End Time is required when Night Shift is selected.
                 </mat-error>
               </mat-form-field>
               

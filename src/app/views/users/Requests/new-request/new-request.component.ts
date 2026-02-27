@@ -4540,6 +4540,19 @@ private logFieldChanges(previousData: any, currentData: any): any[] {
     });
     return;
   }
+  
+  const nightShiftValue = this.RequestForm.controls["night_shift"].value;
+  const newEndTimeValue = this.RequestForm.controls["new_end_time"].value;
+
+  if (nightShiftValue == 1) {
+    if (!newEndTimeValue || newEndTimeValue === '' || newEndTimeValue === null || newEndTimeValue === 'null') {
+      this.openSnackBar("Please enter a valid End Time for Night Shift.");
+      this.RequestForm.get('new_end_time').markAsTouched();
+      this.RequestForm.get('new_end_time').setErrors({ required: true });
+      console.error("Night shift is selected but new_end_time is invalid or empty.");
+      return;
+    }
+  }
     // console.log(this.NewRequestData, 'editttt')
     // console.log("res checking")
     if (this.RequestForm.valid) {
