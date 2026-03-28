@@ -2122,29 +2122,29 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 .external-areas-nh3-kf-mf-1 {
   position: absolute;
   z-index: 9999;
-  top: 18%;
-  left: 68%;
+  top: 19%;
+  left: 59%;
 }
 
 .external-areas-nh3-kf-mf-2 {
   position: absolute;
   z-index: 9999;
-  top: 11%;
-  left: 17%;
+  top: 6.2%;
+  left: 21%;
 }
 
 .external-areas-nh3-kf-mf-3 {
   position: absolute;
   z-index: 9999;
-  top: 32%;
-  left: 39%;
+  top: 31%;
+  left: 35%;
 }
 
 .external-areas-nh3-kf-mf-4 {
   position: absolute;
   z-index: 9999;
-  bottom: 57%;
-  left: 35%;
+  bottom: 58%;
+  left: 29%;
 
 }
 
@@ -2152,14 +2152,14 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   position: absolute;
   z-index: 9999;
   bottom: 30%;
-  left: 34%;
+  left: 19%;
 }
 
 .external-areas-nh3-kf-mf-6 {
   position: absolute;
   z-index: 9999;
-  bottom: 31%;
-  right: 19%;
+  bottom: 28%;
+  right: 32%;
 }
 
 .external-areas-nh3-kf-mf-7 {
@@ -2172,17 +2172,23 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 .external-areas-nh3-kf-mf-8 {
   position: absolute;
   z-index: 9999;
-  bottom: 23%;
-  left: 37%;
+  bottom: 45%;
+  left: 29%;
 }
 
 .external-areas-nh3-kf-mf-9 {
   position: absolute;
   z-index: 9999;
-  bottom: 43%;
-  left: 35%;
+  bottom: 25%;
+  left: 28%;
 }
 
+.external-areas-nh3-kf-mf-10 {
+  position: absolute;
+  z-index: 9999;
+  bottom: 24%;
+  right: 16%;
+}
 
 
 /* **Roads - external-areas-Roads** */

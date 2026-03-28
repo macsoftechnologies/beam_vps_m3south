@@ -15,7 +15,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class RequestBuildingModelComponent implements OnInit {
   floorBlock: Array<any> = [];
   selectedBlock: Array<any> = [];
-  
+  ex
 // firstZoneStatus: string | null = null;
 loadingZones: Set<string> = new Set();
 
@@ -1802,16 +1802,16 @@ loadingZones: Set<string> = new Set();
           className: "external-areas-jh-jx-js-11",
           isSelected: false
         },
-        {
-          value: 'JH-Zone1',
-          className: "external-areas-jh-jx-js-12",
-          isSelected: false
-        },
-        {
-          value: 'JH-Zone2',
-          className: "external-areas-jh-jx-js-13",
-          isSelected: false
-        },
+        // {
+        //   value: 'JH-Zone1',
+        //   className: "external-areas-jh-jx-js-12",
+        //   isSelected: false
+        // },
+        // {
+        //   value: 'JH-Zone2',
+        //   className: "external-areas-jh-jx-js-13",
+        //   isSelected: false
+        // },
         {
           value: 'JX',
           className: "external-areas-jh-jx-js-14",
@@ -1852,17 +1852,17 @@ loadingZones: Set<string> = new Set();
           isSelected: false
         },
 
-        {
-          value: 'JJ-Zone 1',
-          className: "external-areas-jj-4",
-          isSelected: false
-        },
+        // {
+        //   value: 'JJ-Zone 1',
+        //   className: "external-areas-jj-4",
+        //   isSelected: false
+        // },
 
-        {
-          value: 'JJ-Zone 2',
-          className: "external-areas-jj-5",
-          isSelected: false
-        }
+        // {
+        //   value: 'JJ-Zone 2',
+        //   className: "external-areas-jj-5",
+        //   isSelected: false
+        // }
 
       ]
       if (selectedBlockData) {
@@ -1901,16 +1901,16 @@ loadingZones: Set<string> = new Set();
           isSelected: false
         },
 
-        {
-          value: 'MP-Tank Farm',
-          className: "external-areas-mp-6",
-          isSelected: false
-        },
-        {
-          value: 'MP',
-          className: "external-areas-mp-7",
-          isSelected: false
-        },
+        // {
+        //   value: 'MP-Tank Farm',
+        //   className: "external-areas-mp-6",
+        //   isSelected: false
+        // },
+        // {
+        //   value: 'MP',
+        //   className: "external-areas-mp-7",
+        //   isSelected: false
+        // },
         {
           value: 'Pump Station',
           className: "external-areas-mp-8",
@@ -1998,6 +1998,11 @@ loadingZones: Set<string> = new Set();
         {
           value: 'Area KF/4',
           className: "external-areas-nh3-kf-mf-9",
+          isSelected: false
+        },
+        {
+          value: 'KFP',
+          className: "external-areas-nh3-kf-mf-10",
           isSelected: false
         }
 

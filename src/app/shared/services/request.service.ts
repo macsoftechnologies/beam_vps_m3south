@@ -1791,6 +1791,11 @@ export class RequestService {
                 value: 'Area KF/4',
                 className: "external-areas-nh3-kf-mf-9",
                 isSelected: false
+              },
+              {
+                value: 'KFP',
+                className: "external-areas-nh3-kf-mf-10",
+                isSelected: false
               }
 
             ]
@@ -10668,6 +10673,11 @@ export class RequestService {
               {
                 value: 'Area KF/4',
                 className: "external-areas-nh3-kf-mf-9",
+                isSelected: false
+              },
+              {
+                value: 'KFP',
+                className: "external-areas-nh3-kf-mf-10",
                 isSelected: false
               }
 
