@@ -192,6 +192,27 @@ export class RequestDto {
     loto_plan_approved: any;
     follow_media_code: any;
     cq_safety_signs: any;
+    energising_equipment: any;
+    arc_flash:any;
+    isolating_live: any;
+    isolating_resposible: any;
+    isolating_risk_assessment: any;
+    cq_informed: any;
+    cq_provided: any;
+    de_energisation_request: any;
+    ppe_prepared: any;
+    absence_of_voltage: any;
+    stored_energy: any;
+    backup_power: any;
+    working_near_live: any;
+    unavoidable: any;
+    reasonably_practicable: any;
+    work_authorised: any;
+    working_risk_assessment: any;
+    working_arc_boundary: any;
+    working_barriers: any;
+    insulated_tools: any;
+    event_of_emergency: any;
 }
 
 export class FilesRequestDto {
@@ -407,6 +428,27 @@ export class EditRequestDto {
     loto_plan_approved: any;
     follow_media_code: any;
     cq_safety_signs: any;
+    energising_equipment: any;
+    arc_flash:any;
+    isolating_live: any;
+    isolating_resposible: any;
+    isolating_risk_assessment: any;
+    cq_informed: any;
+    cq_provided: any;
+    de_energisation_request: any;
+    ppe_prepared: any;
+    absence_of_voltage: any;
+    stored_energy: any;
+    backup_power: any;
+    working_near_live: any;
+    unavoidable: any;
+    reasonably_practicable: any;
+    work_authorised: any;
+    working_risk_assessment: any;
+    working_arc_boundary: any;
+    working_barriers: any;
+    insulated_tools: any;
+    event_of_emergency: any;
 }
 
 export class DeleteRequestDto {
@@ -466,6 +508,7 @@ export class CopyRequestDto {
     teamId: string;
     count: number;
     createdTime: any;
+    zone: any;
 }
 
 export class UpdateClose_Status {

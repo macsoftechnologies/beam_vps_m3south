@@ -12,12 +12,22 @@
     <form [formGroup]="RequestlistForm" class="example-form">
       <mat-grid-list [cols]="gridCols" rowHeight="80px">
         <mat-grid-tile>
-          <mat-form-field class="full-width" appearance="outline">
+          <!-- <mat-form-field class="full-width" appearance="outline">
             <mat-label>Type Of Activity</mat-label>
             <mat-select formControlName="TypeOfActivity" name="Typeofactivity" [multiple]="true">
               <mat-option>None</mat-option>
               <mat-option *ngFor="let loc of Typeofactivitys" [value]="loc.id">
                 {{ loc.activityName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field> -->
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Contractor</mat-label>
+            <!-- <mat-select formControlName="Contractor" name="Company" [disabled]="!IsNotSubCntr"> -->
+            <mat-select formControlName="Contractor" name="Company" [disabled]="!IsNotASubCntr" [multiple]="true">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let loc of Contractors" [value]="loc.id">
+                {{ loc.subContractorName }}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -47,7 +57,7 @@
           <mat-grid-tile>
           </mat-grid-tile>
         </mat-grid-list> -->
-      <!-- <mat-grid-list cols="2" rowHeight="60px">
+      <!-- <mat-grid-list [cols]="gridCols" rowHeight="60px">
             <mat-grid-tile>
               <mat-form-field class="full-width">
                 <mat-label>Type (T/S/C)</mat-label>
@@ -69,42 +79,6 @@
 
       <mat-grid-list [cols]="gridCols" rowHeight="80px">
         <mat-grid-tile>
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Contractor</mat-label>
-            <!-- <mat-select formControlName="Contractor" name="Company" [disabled]="!IsNotSubCntr"> -->
-            <mat-select formControlName="Contractor" name="Company" [disabled]="!IsNotASubCntr" [multiple]="true">
-              <mat-option>None</mat-option>
-              <mat-option *ngFor="let loc of Contractors" [value]="loc.id">
-                {{ loc.subContractorName }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </mat-grid-tile>
-        <!-- <mat-grid-tile>
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Site</mat-label>
-            <mat-select formControlName="Site" name="Nightlys" (selectionChange)="Getbuilding($event.value)">
-              <mat-option>None</mat-option>
-              <mat-option *ngFor="let loc of Sites" [value]="loc.site_id">
-                {{loc.site_name}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </mat-grid-tile> -->
-        <mat-grid-tile>
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Building</mat-label>
-            <mat-select formControlName="Building" name="Building" [multiple]="true">
-              <mat-option>None</mat-option>
-              <mat-option *ngFor="let loc of Buildings" [value]="loc.build_id">
-                {{ loc.building_name }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </mat-grid-tile>
-      </mat-grid-list>
-      <mat-grid-list [cols]="gridCols" rowHeight="80px">
-        <mat-grid-tile>
           <mat-form-field class="datepikr full-width" appearance="outline">
             <mat-label>Working Date (from)</mat-label>
             <input matInput [min]="minDate" formControlName="WorkingDateFrom" [max]="maxDate"
@@ -123,6 +97,75 @@
           </mat-form-field>
         </mat-grid-tile>
       </mat-grid-list>
+      <mat-grid-list [cols]="gridCols3" rowHeight="80px">
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Start Time</mat-label>
+                            <input matInput [ngxTimepicker]="startTime" [format]="24" placeholder="Start Time"
+                                formControlName="StartTime" />
+                            <ngx-material-timepicker #startTime [minutesGap]="5"></ngx-material-timepicker>
+
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>End Time</mat-label>
+                            <input matInput [ngxTimepicker]="endTime" [format]="24" placeholder="End Time"
+                                formControlName="EndTime" />
+
+                        </mat-form-field>
+                        <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile class="night-shift">
+              <label>
+                Night shift?
+              </label> 
+              <mat-checkbox 
+                formControlName="night_shift"
+                (change)="toggleNightShift($event.checked)">
+                  Yes
+              </mat-checkbox>
+              
+              <mat-error class="error-message" *ngIf="RequestlistForm.get('night_shift').invalid && RequestlistForm.get('night_shift').touched">
+                Please confirm if this is a night shift
+              </mat-error>
+            </mat-grid-tile>
+
+            <!-- <mat-grid-tile *ngIf="isnightshiftyes" class="night-shift-fields" [disabled]="isnightshiftyes">
+              <mat-form-field class="datepikr full-width" appearance="outline">
+            <mat-label>New Date</mat-label>
+            <input matInput [min]="minDate" formControlName="newWorkDate" [max]="maxDate"
+              [matDatepicker]="tspicker" />
+            <mat-datepicker-toggle matSuffix [for]="tspicker"></mat-datepicker-toggle>
+            <mat-datepicker #tspicker></mat-datepicker>
+          </mat-form-field>
+            </mat-grid-tile> -->
+
+            <!-- <mat-grid-tile *ngIf="isnightshiftyes" class="night-shift-fields">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>New End Time</mat-label>
+                <input matInput [ngxTimepicker]="endTime" [format]="24" placeholder="New End Time" formControlName="new_end_time"
+                  [class.is-invalid]="RequestlistForm.get('new_end_time').invalid && RequestlistForm.get('new_end_time').touched" />
+                  <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
+                 <mat-error *ngIf="!RequestlistForm.get('new_end_time').value && 
+                       RequestForm.get('new_end_time').touched && 
+                       RequestForm.get('night_shift').value == 1">
+                      End Time is required when Night Shift is selected.
+                </mat-error>
+              </mat-form-field>
+              
+            </mat-grid-tile> -->
+            <!-- <mat-grid-tile *ngIf="isnightshiftyes" class="night-shift-fields">
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>New End Time</mat-label>
+    <input matInput [ngxTimepicker]="newEndTimePicker" [format]="24" 
+      placeholder="New End Time" formControlName="new_end_time" />
+    <ngx-material-timepicker #newEndTimePicker [minutesGap]="5"></ngx-material-timepicker>
+  </mat-form-field>
+</mat-grid-tile> -->
+
+                </mat-grid-list>
 
       <mat-grid-list [cols]="gridCols" rowHeight="80px">
         <mat-grid-tile>
@@ -140,6 +183,17 @@
       </mat-grid-list>
 
       <mat-grid-list [cols]="gridCols" rowHeight="80px">
+        <mat-grid-tile>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Building</mat-label>
+            <mat-select formControlName="Building" name="Building" [multiple]="true">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let loc of Buildings" [value]="loc.build_id">
+                {{ loc.building_name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Level</mat-label>
@@ -165,9 +219,26 @@
           </mat-form-field>
         </mat-grid-tile> -->
 
-        <mat-grid-tile>
+        <!-- {{RequestlistForm.get("Hras").value | json}} -->
 
-          <mat-form-field class="full-width" appearance="outline">
+      </mat-grid-list>
+
+      <mat-grid-list [cols]="gridCols" rowHeight="80px">
+
+        <mat-grid-tile>
+          <!-- <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Task Specific PPE</mat-label>
+            <mat-select formControlName="TaskSpecific" name="TaskSpecific" [multiple]="true">
+              <mat-option [value]="'none'">None</mat-option>
+              <mat-option *ngFor="let getTaskSpecificValues of getTaskSpecific" [value]="getTaskSpecificValues"
+                class="hras-text">
+                <div class="hras-content"> <img src="{{BaseUrl}}{{getTaskSpecificValues?.image}}" class="hras-image"> {{
+                  getTaskSpecificValues.label }}
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field> -->
+                    <mat-form-field class="full-width" appearance="outline">
     <mat-label>Area</mat-label>
     <mat-select formControlName="area" name="area" [multiple]="true">
       <mat-option [value]="null">None</mat-option>
@@ -182,30 +253,9 @@
 
     </mat-select>
   </mat-form-field>
-</mat-grid-tile>
-
-        <!-- {{RequestlistForm.get("Hras").value | json}} -->
-
-      </mat-grid-list>
-
-      <mat-grid-list [cols]="gridCols" rowHeight="80px">
-
-        <mat-grid-tile>
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Task Specific PPE</mat-label>
-            <mat-select formControlName="TaskSpecific" name="TaskSpecific" [multiple]="true">
-              <mat-option [value]="'none'">None</mat-option>
-              <mat-option *ngFor="let getTaskSpecificValues of getTaskSpecific" [value]="getTaskSpecificValues"
-                class="hras-text">
-                <div class="hras-content"> <img src="{{BaseUrl}}{{getTaskSpecificValues?.image}}" class="hras-image"> {{
-                  getTaskSpecificValues.label }}
-                </div>
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
         </mat-grid-tile>
 
-              <mat-grid-tile>
+        <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>HRA'S</mat-label>
             <mat-select formControlName="Hras" name="Hras" [multiple]="true">
@@ -217,11 +267,11 @@
             </mat-select>
           </mat-form-field>
         </mat-grid-tile>
-
+        
         <!-- {{RequestlistForm.get("TaskSpecific").value | json}} -->
 
       </mat-grid-list>
-<mat-grid-list [cols]="gridCols" rowHeight="80px">
+ <mat-grid-list [cols]="gridCols" rowHeight="80px">
         <mat-grid-tile>
   <mat-form-field class="full-width" appearance="outline">
     <mat-label>Permit Type</mat-label>
@@ -231,7 +281,18 @@
     </mat-select>
   </mat-form-field>
 </mat-grid-tile>
+
+<mat-grid-tile>
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Permit Under</mat-label>
+    <mat-select formControlName="permit_under" name="permit_under">
+      <mat-option [value]="'Construction'">Construction</mat-option>
+      <mat-option [value]="'Commissioning'">Commissioning</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-grid-tile>
       </mat-grid-list>
+
 
 
     </form>
@@ -448,10 +509,15 @@
             ">
             {{ row?.Request_status }}
           </mat-chip>
-          <mat-chip [ngClass]="{ 'status_cancelled': row?.Request_status == 'Cancelled'}" mat-sm-chip [color]="'primary'"
+          <!-- <mat-chip [ngClass]="{ 'status_cancelled': row?.Request_status == 'Cancelled'}" mat-sm-chip [color]="'primary'"
             *ngIf="row.Request_status == 'Cancelled'">
             {{ row?.Request_status }}
-          </mat-chip>
+          </mat-chip> -->
+          <mat-chip [ngClass]="{ 'status_autocancelled': row?.Request_status == 'Cancelled' && row?.cancel_reason == 'Permit not opened so system cancelled automatically', 'status_cancelled': row?.Request_status == 'Cancelled' && row?.cancel_reason != 'Permit not opened so system cancelled automatically'}" 
+  mat-sm-chip [color]="'primary'"
+  *ngIf="row.Request_status == 'Cancelled'">
+  {{ row?.cancel_reason == 'Permit not opened so system cancelled automatically' ? 'Auto-Cancelled' : row?.Request_status }}
+</mat-chip>
           <mat-chip [ngClass]="{ 'status_rejected': row?.Request_status == 'Rejected'}" mat-sm-chip [color]="'primary'"
             *ngIf="row.Request_status == 'Rejected'">
             {{ row?.Request_status }}
@@ -508,10 +574,15 @@
             *ngIf="row.Request_status == 'Rejected'">
             {{ row?.Request_status }}
           </mat-chip>
-          <mat-chip [ngClass]="{ 'status_cancelled': row?.Request_status == 'Cancelled'}" mat-sm-chip [color]="'primary'"
+          <!-- <mat-chip [ngClass]="{ 'status_cancelled': row?.Request_status == 'Cancelled'}" mat-sm-chip [color]="'primary'"
             *ngIf="row.Request_status == 'Cancelled'">
             {{ row?.Request_status }}
-          </mat-chip>
+          </mat-chip> -->
+          <mat-chip [ngClass]="{ 'status_autocancelled': row?.Request_status == 'Cancelled' && row?.cancel_reason == 'Permit not opened so system cancelled automatically', 'status_cancelled': row?.Request_status == 'Cancelled' && row?.cancel_reason != 'Permit not opened so system cancelled automatically'}" 
+  mat-sm-chip [color]="'primary'"
+  *ngIf="row.Request_status == 'Cancelled'">
+  {{ row?.cancel_reason == 'Permit not opened so system cancelled automatically' ? 'Auto-Cancelled' : row?.Request_status }}
+</mat-chip>
           <mat-chip [ngClass]="{ 'status_draft': row?.Request_status == 'Draft'}" mat-sm-chip [color]="'primary'"
             *ngIf="row.Request_status == 'Draft'">
             {{ row?.Request_status }}

@@ -106,19 +106,19 @@
 
 <div mat-dialog-actions *ngIf="type=='operartor' && requestDatas == 'Hold' && (permitType == 'Commissioning' && permitUnder=='Construction')">
 
-  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Pre-Approved')"
+  <button class="butns-grp" mat-raised-button color="primary" (click)="Changestatus('Pre-Approved')"
     [disabled]="statusApprovedForm.get('CoMM_initials').invalid ||
           statusApprovedForm.get('CoMM_initials').value.trim() === ''">Pre-Approve</button>
-  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+  <button class="butns-grp" mat-raised-button color="primary"
     (click)="Changestatus('Rejected')" [disabled]="statusApprovedForm.get('reject_reason').invalid ||
           statusApprovedForm.get('reject_reason').value.trim() === ''">Reject</button>
 </div>
 <div mat-dialog-actions *ngIf="type=='operartor' && requestDatas == 'Hold' && (permitType == 'Construction' && permitUnder=='Commissioning')">
 
-  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Pre-Approved')"
+  <button class="butns-grp" mat-raised-button color="primary" (click)="Changestatus('Pre-Approved')"
     [disabled]="statusApprovedForm.get('ConM_initials').invalid ||
           statusApprovedForm.get('ConM_initials').value.trim() === ''">Pre-Approve</button>
-  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+  <button class="butns-grp" mat-raised-button color="primary"
     (click)="Changestatus('Rejected')" [disabled]="statusApprovedForm.get('reject_reason').invalid ||
           statusApprovedForm.get('reject_reason').value.trim() === ''">Reject</button>
 </div>
@@ -128,10 +128,10 @@
         requestDatas == 'Hold' && (permitType == 'Commissioning' && permitUnder == 'Commissioning') ||
         requestDatas == 'Pre-Approved' && (permitType == 'Construction' && permitUnder == 'Commissioning')))">
 
-  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Approved')"
+  <button class="butns-grp" mat-raised-button color="primary" (click)="Changestatus('Approved')"
   [disabled]="statusApprovedForm.get('CoMM_initials').invalid ||
           statusApprovedForm.get('CoMM_initials').value.trim() === ''">Approve</button>
-  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+  <button class="butns-grp" mat-raised-button color="primary"
     (click)="Changestatus('Rejected')" [disabled]="statusApprovedForm.get('reject_reason').invalid ||
           statusApprovedForm.get('reject_reason').value.trim() === ''">Reject</button>
 </div>
@@ -140,10 +140,10 @@
 (requestDatas == 'Hold' && (permitType == 'Construction' && permitUnder == 'Construction') ||
 requestDatas == 'Pre-Approved' && (permitType == 'Commissioning' && permitUnder == 'Construction'))">
 
-  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Approved')"
+  <button class="butns-grp" mat-raised-button color="primary" (click)="Changestatus('Approved')"
   [disabled]="statusApprovedForm.get('ConM_initials').invalid ||
           statusApprovedForm.get('ConM_initials').value.trim() === ''">Approve</button>
-  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+  <button class="butns-grp" mat-raised-button color="primary"
     (click)="Changestatus('Rejected')" [disabled]="statusApprovedForm.get('reject_reason').invalid ||
           statusApprovedForm.get('reject_reason').value.trim() === ''">Reject</button>
 </div>
@@ -304,9 +304,9 @@ requestDatas == 'Pre-Approved' && (permitType == 'Commissioning' && permitUnder 
     </ng-container>
 
     <div mat-dialog-actions>
-      <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="ChangestatusToOpen('Opened')"
+      <button class="butns-grp" mat-raised-button color="primary" (click)="ChangestatusToOpen('Opened')"
       [disabled]="!canOpen()">Open</button>
-      <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+      <button class="butns-grp" mat-raised-button color="primary"
         (click)="ChangestatusToOpen('Cancelled')" [disabled]="statusOpenForm.get('cancel_reason').invalid ||
           statusOpenForm.get('cancel_reason').value.trim() === ''">Cancel</button>
 
@@ -418,9 +418,9 @@ requestDatas == 'Pre-Approved' && (permitType == 'Commissioning' && permitUnder 
     </mat-grid-list>
 
     <div style="text-align: center; margin-top: 40px;">
-      <button mat-flat-button class="submit-btn-sty" mat-dialog-close (click)="Changestatusbysubcontractor('Opened')"
+      <button mat-flat-button class="submit-btn-sty" (click)="Changestatusbysubcontractor('Opened')"
         color="primary">Update Status</button>
-        <button mat-flat-button class="submit-btn-sty" mat-dialog-close (click)="Changestatusbysubcontractor1('Closed')"
+        <button mat-flat-button class="submit-btn-sty" (click)="Changestatusbysubcontractor1('Closed')"
         color="primary" [disabled]="
         statusUpdateForm.get('close_note').invalid ||
         statusUpdateForm.get('close_note').value.trim() === '' ||

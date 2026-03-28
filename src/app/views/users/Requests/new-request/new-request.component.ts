@@ -109,6 +109,9 @@ export class NewRequestComponent implements OnInit {
   isExcavationWorksyes: boolean = false;
   isCraneLiftingyes: boolean = false;
   isPoweronyes: boolean = false;
+  EnergisingEquimentonyes: boolean = false;
+  IsolatingLiveonyes: boolean = false;
+  WorkingNearLiveonyes: boolean = false;
   isPressurizationyes: boolean = false;
   isstatusdraft: boolean = false;
   isLOTOPROCEDUREyes: boolean = false;
@@ -159,6 +162,9 @@ export class NewRequestComponent implements OnInit {
   ExcavationWorksHeight: number = 100;
   CraneLiftingHeight: number = 100;
   PoweronHeight: number = 100;
+  EnergisingEquipmentHeight: number = 100;
+  IsolatingLiveHeight: number = 100;
+  WorkingNearLiveHeight: number = 100;
   PressurizationHeight: number = 100;
   isPneumaticYesDisabled = false;
   isHydrostaticYesDisabled = false;
@@ -335,6 +341,39 @@ export class NewRequestComponent implements OnInit {
     {
       id: 0,
       ElectricalWorksval: "No",
+    },
+  ];
+
+    EnergisingEquipment: any[] = [
+    {
+      id: 1,
+      EnergisingEquipmentval: "Yes",
+    },
+    {
+      id: 0,
+      EnergisingEquipmentval: "No",
+    },
+  ];
+
+      IsolatingLive: any[] = [
+    {
+      id: 1,
+      IsolatingLiveval: "Yes",
+    },
+    {
+      id: 0,
+      IsolatingLiveval: "No",
+    },
+  ];
+
+    WorkingNearLive: any[] = [
+    {
+      id: 1,
+      WorkingNearLiveval: "Yes",
+    },
+    {
+      id: 0,
+      WorkingNearLiveval: "No",
     },
   ];
 
@@ -619,7 +658,27 @@ export class NewRequestComponent implements OnInit {
     cq_safety_signs: null,
     pressure_pneumatic: null,
     pressure_hydrostatic: null,
-    mc_number_text: null,
+    mc_number_text: null,energising_equipment: null,
+    arc_flash:null,
+    isolating_live: null,
+    isolating_resposible: null,
+    isolating_risk_assessment: null,
+    cq_informed: null,
+    cq_provided: null,
+    de_energisation_request: null,
+    ppe_prepared: null,
+    absence_of_voltage: null,
+    stored_energy: null,
+    backup_power: null,
+    working_near_live: null,
+    unavoidable: null,
+    reasonably_practicable: null,
+    work_authorised: null,
+    working_risk_assessment: null,
+    working_arc_boundary: null,
+    working_barriers: null,
+    insulated_tools: null,
+    event_of_emergency: null,
   };
 
   
@@ -843,6 +902,27 @@ export class NewRequestComponent implements OnInit {
     pressure_pneumatic: null,
     pressure_hydrostatic: null,
     mc_number_text: null,
+    energising_equipment: null,
+    arc_flash:null,
+    isolating_live: null,
+    isolating_resposible: null,
+    isolating_risk_assessment: null,
+    cq_informed: null,
+    cq_provided: null,
+    de_energisation_request: null,
+    ppe_prepared: null,
+    absence_of_voltage: null,
+    stored_energy: null,
+    backup_power: null,
+    working_near_live: null,
+    unavoidable: null,
+    reasonably_practicable: null,
+    work_authorised: null,
+    working_risk_assessment: null,
+    working_arc_boundary: null,
+    working_barriers: null,
+    insulated_tools: null,
+    event_of_emergency: null,
   };
 
   userdata: any = {};
@@ -1816,13 +1896,38 @@ export class NewRequestComponent implements OnInit {
 
              // Power on
       Poweron: ['',],
+      EnergisingEquipment: ['', ],
       floatLabel88: ['', ],
       floatLabel89: ['', ],
       floatLabel90: ['', ],
+      floatLabel110: ['',],
       floatLabel91: ['', ],
       floatLabel92: ['', ],
       floatLabel93: ['', ],
       floatLabel94: ['', ],
+
+      IsolatingLive: ['', ],
+
+      floatLabel111: ['',],
+      floatLabel112: ['',],
+      floatLabel113: ['',],
+      floatLabel114: ['',],
+      floatLabel115: ['',],
+      floatLabel116: ['',],
+      floatLabel117: ['',],
+      floatLabel118: ['',],
+      floatLabel119: ['',], 
+
+      WorkingNearLive: ['', ],
+
+      floatLabel120: ['',],
+      floatLabel121: ['',],
+      floatLabel122: ['',],
+      floatLabel123: ['',],
+      floatLabel124: ['',],
+      floatLabel125: ['',],
+      floatLabel126: ['',],
+      floatLabel127: ['',],
 
       // Pressurization
       Pressurization: ['',],
@@ -2179,10 +2284,14 @@ private groupByModule(data: any[], displayProperty: string): any[] {
       const formattedDate = this.formatDateWithoutTimezone(newWorkDate);
       newWorkDateControl.setValue(formattedDate);
     }
+    this.RequestForm.get('EndTime').setValue('23:55');
+    this.RequestForm.get('EndTime').disable();
     // Add required validators when night shift is YES
     newEndTimeControl.setValidators([Validators.required]);
     newWorkDateControl.setValidators([Validators.required]);
   } else {
+    this.RequestForm.get('EndTime').setValue(null);
+    this.RequestForm.get('EndTime').enable();
     // Clear values and validators when night shift is NO
     newEndTimeControl.reset();
     newWorkDateControl.reset();
@@ -3505,6 +3614,36 @@ private groupByModule(data: any[], displayProperty: string): any[] {
     }
   }
 
+   GetselectedEnergisingEquipmentitem(event) {
+    if (event == 1) {
+      this.EnergisingEquipmentHeight = 500;
+      this.EnergisingEquimentonyes = true;
+    } else {
+      this.EnergisingEquipmentHeight = 100;
+      this.EnergisingEquimentonyes = false;
+    }
+  }
+
+      GetselectedIsolatingLiveitem(event) {
+    if (event == 1) {
+      this.IsolatingLiveHeight = 500;
+      this.IsolatingLiveonyes = true;
+    } else {
+      this.IsolatingLiveHeight = 100;
+      this.IsolatingLiveonyes = false;
+    }
+  }
+
+    GetselectedWorkingNearLiveitem(event) {
+    if (event == 1) {
+      this.WorkingNearLiveHeight = 500;
+      this.WorkingNearLiveonyes = true;
+    } else {
+      this.WorkingNearLiveHeight = 100;
+      this.WorkingNearLiveonyes = false;
+    }
+  }
+
     GetselectedPressurizationitem(event) {
     if (event == 1) {
       this.PressurizationHeight = 500;
@@ -4151,13 +4290,38 @@ showMechanicalWorks(): boolean {
 
     // pressurization power on fields
     this.Requestdata.power_on = this.RequestForm.controls["Poweron"].value || 0;
+    this.Requestdata.energising_equipment = this.RequestForm.controls["EnergisingEquipment"].value || 0;
+    this.Requestdata.isolating_live = this.RequestForm.controls["IsolatingLive"].value || 0;
+    this.Requestdata.working_near_live = this.RequestForm.controls["WorkingNearLive"].value || 0;
     this.Requestdata.responsible_for_the_area = this.RequestForm.controls["floatLabel88"].value || 0;
     this.Requestdata.risk_assessment_done = this.RequestForm.controls["floatLabel89"].value || 0;
     this.Requestdata.barriers_signage = this.RequestForm.controls["floatLabel90"].value || 0;
+    this.Requestdata.arc_flash = this.RequestForm.controls["floatLabel110"].value || 0;
     this.Requestdata.energized_been_tested = this.RequestForm.controls["floatLabel91"].value || 0;
     this.Requestdata.punches_been_closed = this.RequestForm.controls["floatLabel92"].value || 0;
     this.Requestdata.toct_checklist = this.RequestForm.controls["floatLabel93"].value || 0;
     this.Requestdata.informed_aligned = this.RequestForm.controls["floatLabel94"].value || 0;
+
+      // pressurization Isolating Live fields
+    this.Requestdata.isolating_resposible = this.RequestForm.controls["floatLabel111"].value || 0;
+    this.Requestdata.isolating_risk_assessment = this.RequestForm.controls["floatLabel112"].value || 0;
+    this.Requestdata.cq_informed = this.RequestForm.controls["floatLabel113"].value || 0;
+    this.Requestdata.cq_provided = this.RequestForm.controls["floatLabel114"].value || 0;
+    this.Requestdata.de_energisation_request = this.RequestForm.controls["floatLabel115"].value || 0;
+    this.Requestdata.ppe_prepared = this.RequestForm.controls["floatLabel116"].value || 0;
+    this.Requestdata.absence_of_voltage = this.RequestForm.controls["floatLabel117"].value || 0;
+    this.Requestdata.stored_energy = this.RequestForm.controls["floatLabel118"].value || 0;
+    this.Requestdata.backup_power = this.RequestForm.controls["floatLabel119"].value || 0;
+
+    // pressurization Woeking Near Live fields
+    this.Requestdata.unavoidable = this.RequestForm.controls["floatLabel120"].value || 0;
+    this.Requestdata.reasonably_practicable = this.RequestForm.controls["floatLabel121"].value || 0;
+    this.Requestdata.work_authorised = this.RequestForm.controls["floatLabel122"].value || 0;
+    this.Requestdata.working_risk_assessment = this.RequestForm.controls["floatLabel123"].value || 0;
+    this.Requestdata.working_arc_boundary = this.RequestForm.controls["floatLabel124"].value || 0;
+    this.Requestdata.working_barriers = this.RequestForm.controls["floatLabel125"].value || 0;
+    this.Requestdata.insulated_tools = this.RequestForm.controls["floatLabel126"].value || 0;
+    this.Requestdata.event_of_emergency = this.RequestForm.controls["floatLabel127"].value || 0;
 
         // pressurization fields
     this.Requestdata.pressurization = this.RequestForm.controls["Pressurization"].value || 0;
@@ -4387,14 +4551,35 @@ private buildLookups(): void {
   'prapared_lifting': 'Is laydown area suitable and prepared for lifting?',
   'lifting_task_fenced': 'Is the entire area of the lifting task fenced off?',
   'overhead_risks': 'Have all overhead risks (cables, adjacent structures etc) been identifed and suitable precautions implemented?',
-  'power_on': 'Energization of Electrical equipment',
+  'power_on': 'Energising, Isolating and Working on Live Electrical Systems',
+  'energising_equipment': 'Energising Electrical Equipment',
+  'isolating_live': 'Isolating Live Electrical Systems for Maintenance or Modification',
+  'working_near_live': 'Working on OR near live electrical systems (Live testing, commissioning, fault finding, working inside live enclosures)',
   'responsible_for_the_area': 'Is the responsible for the area informed?',
   'risk_assessment_done': 'Do you have a risk assessment done?',
   'barriers_signage': 'Barriers & Signage in place?',
+  'arc_flash': 'Arc flash boundary and PPE evaluated?',
   'energized_been_tested': 'Have all the cables that need to be energized been tested?',
   'punches_been_closed': 'Have all punches been closed?',
   'toct_checklist': 'Is Electrical Checklist completed?',
-  'informed_aligned': 'Have you Informed and Aligned with EL LOTO Team?',
+  'informed_aligned': 'Have you Informed and Aligned with EL LOTO Team and provided them with an energisation request form?',
+  'isolating_resposible': 'Is the responsible for the area informed?',
+  'isolating_risk_assessment': 'Has a Risk Assessment been completed?',
+  'cq_informed': 'Have C&Q LOTO been informed and tasks co-ordinated for shutdown work?',
+  'cq_provided': 'Have C&Q LOTO been provided marked up single line diagrams/electrical drawings?',
+  'de_energisation_request': 'Has a De-Energisation Request form and supporting documentation been provided to C&Q LOTO?',
+  'ppe_prepared': 'Are all barriers, signage and PPE prepared for the task?',
+  'absence_of_voltage': 'Has absence of voltage been verified and proven dead?', 
+  'stored_energy': 'Has stored energy been discharged?',
+  'backup_power': 'Have any secondary or back up power supplies been confirmed and accounted for?',
+  'unavoidable': 'Live work is unavoidable and justified?',
+  'reasonably_practicable': 'De-energisation is not reasonably practicable?',
+  'work_authorised': 'Live work authorised by electrical responsible person?',
+  'working_risk_assessment': 'Risk assessment has been completed?',
+  'working_arc_boundary': 'Arc flash boundary and PPE evaluated?',
+  'working_barriers': 'Barriers and Signage in place?',
+  'insulated_tools': 'Insulated tools and approved test equipment to be used?',
+  'event_of_emergency': 'Work will always be carried out with a second person to assist in the event of an emergency?',
   'pressurization': 'Energization of Mechanical equipment',
   'performed_approved': 'Pressure test performed and approved?',
   'flushing_approved': 'Flushing approved?',
@@ -4863,13 +5048,38 @@ private logFieldChanges(previousData: any, currentData: any): any[] {
 
              // pressurization power on fields
     this.updaterequestdata.power_on = this.RequestForm.controls["Poweron"].value;
+    this.updaterequestdata.energising_equipment = this.RequestForm.controls["EnergisingEquipment"].value || 0;
+    this.updaterequestdata.isolating_live = this.RequestForm.controls["IsolatingLive"].value || 0;
+    this.updaterequestdata.working_near_live = this.RequestForm.controls["WorkingNearLive"].value || 0;
     this.updaterequestdata.responsible_for_the_area = this.RequestForm.controls["floatLabel88"].value;
     this.updaterequestdata.risk_assessment_done = this.RequestForm.controls["floatLabel89"].value;
     this.updaterequestdata.barriers_signage = this.RequestForm.controls["floatLabel90"].value;
+    this.updaterequestdata.arc_flash = this.RequestForm.controls["floatLabel110"].value || 0;
     this.updaterequestdata.energized_been_tested = this.RequestForm.controls["floatLabel91"].value;
     this.updaterequestdata.punches_been_closed = this.RequestForm.controls["floatLabel92"].value;
     this.updaterequestdata.toct_checklist = this.RequestForm.controls["floatLabel93"].value;
     this.updaterequestdata.informed_aligned = this.RequestForm.controls["floatLabel94"].value;
+
+     // pressurization Isolating Live fields
+    this.updaterequestdata.isolating_resposible = this.RequestForm.controls["floatLabel111"].value || 0;
+    this.updaterequestdata.isolating_risk_assessment = this.RequestForm.controls["floatLabel112"].value || 0;
+    this.updaterequestdata.cq_informed = this.RequestForm.controls["floatLabel113"].value || 0;
+    this.updaterequestdata.cq_provided = this.RequestForm.controls["floatLabel114"].value || 0;
+    this.updaterequestdata.de_energisation_request = this.RequestForm.controls["floatLabel115"].value || 0;
+    this.updaterequestdata.ppe_prepared = this.RequestForm.controls["floatLabel116"].value || 0;
+    this.updaterequestdata.absence_of_voltage = this.RequestForm.controls["floatLabel117"].value || 0;
+    this.updaterequestdata.stored_energy = this.RequestForm.controls["floatLabel118"].value || 0;
+    this.updaterequestdata.backup_power = this.RequestForm.controls["floatLabel119"].value || 0;
+
+    // pressurization Woeking Near Live fields
+    this.updaterequestdata.unavoidable = this.RequestForm.controls["floatLabel120"].value || 0;
+    this.updaterequestdata.reasonably_practicable = this.RequestForm.controls["floatLabel121"].value || 0;
+    this.updaterequestdata.work_authorised = this.RequestForm.controls["floatLabel122"].value || 0;
+    this.updaterequestdata.working_risk_assessment = this.RequestForm.controls["floatLabel123"].value || 0;
+    this.updaterequestdata.working_arc_boundary = this.RequestForm.controls["floatLabel124"].value || 0;
+    this.updaterequestdata.working_barriers = this.RequestForm.controls["floatLabel125"].value || 0;
+    this.updaterequestdata.insulated_tools = this.RequestForm.controls["floatLabel126"].value || 0;
+    this.updaterequestdata.event_of_emergency = this.RequestForm.controls["floatLabel127"].value || 0;
 
         // pressurization fields
     this.updaterequestdata.pressurization = this.RequestForm.controls["Pressurization"].value;
@@ -4935,6 +5145,8 @@ private logFieldChanges(previousData: any, currentData: any): any[] {
 
       if(this.isstatusdraft) {
         this.updaterequestdata.fields = "";
+        let currentdate = config.getDenmarkTime.date();
+        this.updaterequestdata.Request_Date = currentdate;
       }
 
       let formData = new FormData();
@@ -6672,8 +6884,11 @@ this.RequestForm.controls["mechanical_works"].setValue(mechanicalIds);
     this.RequestForm.controls["hot_work_checklist_filled"].setValue(this.data.payload?.["hot_work_checklist_filled"] || "");
     this.RequestForm.controls["fire_guard_present"].setValue(this.data.payload?.["fire_guard_present"] || ""); 
     
+    this.RequestForm.controls["EnergisingEquipment"].setValue(parseInt(data["energising_equipment"] || '0'));
+    this.RequestForm.controls["IsolatingLive"].setValue(parseInt(data["isolating_live"] || '0'));
+    this.RequestForm.controls["WorkingNearLive"].setValue(parseInt(data["working_near_live"] || '0'));
     // Handle all the other floatLabel controls
-    for (let i = 1; i <= 109; i++) {
+    for (let i = 1; i <= 127; i++) {
         const controlName = `floatLabel${i}`;
         if (this.RequestForm.controls[controlName]) {
             this.RequestForm.controls[controlName].setValue(parseInt(data[this.getFloatLabelFieldName(i)] || '0'));
@@ -6715,6 +6930,9 @@ this.RequestForm.controls["mechanical_works"].setValue(mechanicalIds);
     this.isExcavationWorksyes = data["excavation_works"] == 1;
     this.isCraneLiftingyes = data["using_cranes_or_lifting"] == 1;
     this.isPoweronyes = data["power_on"] == 1;
+    this.EnergisingEquimentonyes = data["energising_equipment"] == 1;
+    this.IsolatingLiveonyes = data["isolating_live"] == 1;
+    this.WorkingNearLiveonyes = data["working_near_live"] == 1;
     this.isPressurizationyes = data["pressurization"] == 1
     console.log('notesarray',this.notesArray);
     if(data["Request_status"] == "Draft") {
@@ -6831,7 +7049,24 @@ private getFloatLabelFieldName(index: number): string {
         106:'exclusion_zone_calculated',
         107: 'pneumatic_hydrostatic',
         108: 'pressure_of_the_test',
-        109: 'safety_valves_calibrated',
+        109: 'safety_valves_calibrated',110: 'arc_flash',
+        111: 'isolating_resposible',
+        112: 'isolating_risk_assessment',
+        113: 'cq_informed',
+        114: 'cq_provided',
+        115: 'de_energisation_request',
+        116: 'ppe_prepared',
+        117: 'absence_of_voltage',
+        118: 'stored_energy',
+        119: 'backup_power',
+        120: 'unavoidable',
+        121: 'reasonably_practicable',
+        122: 'work_authorised',
+        123: 'working_risk_assessment',
+        124: 'working_arc_boundary',
+        125: 'working_barriers',
+        126: 'insulated_tools',
+        127: 'event_of_emergency'
     };
     
     return fieldMap[index] || '';
@@ -7054,7 +7289,22 @@ private getFloatLabelFieldName(index: number): string {
   {
     mainControl: 'Poweron',
     triggerValue: 1,
-    dependentControls: ['floatLabel88', 'floatLabel89', 'floatLabel90','floatLabel91','floatLabel92','floatLabel93','floatLabel94']
+    dependentControls: ['EnergisingEquipment', 'IsolatingLive', 'WorkingNearLive']
+  },
+  {
+    mainControl: 'EnergisingEquipment',
+    triggerValue: 1,
+    dependentControls: ['floatLabel88', 'floatLabel89', 'floatLabel90', 'floatLabel110', 'floatLabel91','floatLabel92','floatLabel93','floatLabel94']
+  },
+  {
+    mainControl: 'IsolatingLive',
+    triggerValue: 1,
+    dependentControls: ['floatLabel111', 'floatLabel112', 'floatLabel113', 'floatLabel114', 'floatLabel115','floatLabel116','floatLabel117','floatLabel118', 'floatLabel119']
+  },
+  {
+    mainControl: 'WorkingNearLive',
+    triggerValue: 1,
+    dependentControls: ['floatLabel120', 'floatLabel121', 'floatLabel122', 'floatLabel123', 'floatLabel124','floatLabel125','floatLabel126','floatLabel127']
   },
   {
     mainControl: 'Pressurization',

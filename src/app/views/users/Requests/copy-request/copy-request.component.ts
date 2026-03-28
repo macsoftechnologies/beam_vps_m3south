@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, HostListener } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from 'app/shared/services/user.service';
@@ -60,10 +60,12 @@ export class CopyRequestComponent implements OnInit {
     Safety_Precautions: null,
     Special_Instructions: null,
     teamId: null,
-    createdTime: null
+    createdTime: null,
+    zone: null  
   }
   Requestdata: any = {};
   userdata: any = {};
+  zones: any = []; 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<CopyRequestComponent>,
@@ -76,6 +78,7 @@ export class CopyRequestComponent implements OnInit {
     this.minDate = new Date(config.getDenmarkTime.date());
     this.maxDate = new Date(currentYear + 1, 11, 31);
     this.userdata = this.jwtauthservice.getUser();
+    this.zones = data.zones || []; 
   }
 
   ngOnInit(): void {
@@ -120,8 +123,26 @@ export class CopyRequestComponent implements OnInit {
     this.CopyRequest.Number_Of_Workers = this.data["payload"]["Number_Of_Workers"];
     this.CopyRequest.PermitNo = this.data["payload"]["PermitNo"];
     this.CopyRequest.Power_Off_Required = this.data["payload"]["Power_Off_Required"];
-
+    this.CopyRequest.zone = this.zones
   }
+
+    @HostListener('document:keydown.enter', ['$event'])
+onEnterKey(event: KeyboardEvent) {
+  // Check if any mat-select panel or datepicker is open
+  const isDropdownOpen = document.querySelector('.mat-select-panel');
+  const isDatepickerOpen = document.querySelector('.mat-datepicker-content');
+  if (isDropdownOpen || isDatepickerOpen) return;
+
+  const activeTag = (document.activeElement as HTMLElement)?.tagName?.toUpperCase();
+  if (activeTag === 'BUTTON' || activeTag === 'TEXTAREA' || activeTag === 'SELECT') return;
+
+  // Only proceed if both dates are filled and valid
+  if (!this.workingdateFrom || !this.workingdateTo) return;
+  if (this.workingdateTo < this.workingdateFrom) return;
+
+  event.preventDefault();
+  this.CreatenewRequest();
+}
 
   CreatenewRequest() {
     const oneDay = 24 * 60 * 60 * 1000;
@@ -144,11 +165,15 @@ export class CopyRequestComponent implements OnInit {
 if(this.CopyRequest.Assign_Start_Date == '' || this.CopyRequest.Assign_End_Date == '') {
       this.openSnackBar('Please provide proper dates to copy');
     } else {
-    this.reqservice.CopyRequest(this.CopyRequest).subscribe(res=>
-      {
-        this.openSnackBar('Request Created Successfully');
-        // window.location.reload();
-      }); 
+    this.reqservice.CopyRequest(this.CopyRequest).subscribe(res => {
+  if (res.status === 400) {
+    this.openSnackBar(res.message || 'Bad Request');
+  } else {
+    this.openSnackBar('Request Created Successfully');
+  }
+}, err => {
+  this.openSnackBar('Something went wrong');
+}); 
   }
 }
 

@@ -138,7 +138,7 @@
                     </mat-grid-tile>
                 </mat-grid-list>
 
-                <mat-grid-list [cols]="gridCols" rowHeight="80px">
+                <mat-grid-list [cols]="gridCols3" rowHeight="80px">
                     <mat-grid-tile>
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Start Time</mat-label>
@@ -157,6 +157,42 @@
                         </mat-form-field>
                         <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
                     </mat-grid-tile>
+                    <mat-grid-tile class="night-shift">
+              <label>
+                Night shift?
+              </label> 
+              <mat-checkbox 
+                formControlName="night_shift"
+                (change)="toggleNightShift($event.checked)">
+                  Yes
+              </mat-checkbox>
+              
+              <mat-error class="error-message" *ngIf="PlanForm.get('night_shift').invalid && PlanForm.get('night_shift').touched">
+                Please confirm if this is a night shift
+              </mat-error>
+            </mat-grid-tile>
+
+            <!-- <mat-grid-tile *ngIf="isnightshiftyes" class="night-shift-fields" [disabled]="isnightshiftyes">
+              <mat-form-field class="datepikr full-width" appearance="outline">
+                <mat-label>New Date</mat-label>
+                <input matInput [min]="minDate" [disabled]="isnightshiftyes" formControlName="newWorkDate" [max]="maxDate" [matDatepicker]="spicker"
+                  [class.is-invalid]="PlanForm.get('newWorkDate').invalid && PlanForm.get('newWorkDate').touched" />
+                <mat-datepicker-toggle matSuffix [for]="spicker"></mat-datepicker-toggle>
+                <mat-datepicker #spicker></mat-datepicker>
+                <mat-error class="error-message"
+                  *ngIf="PlanForm.get('newWorkDate').invalid && RequestlistForm.get('newWorkDate').touched">Please select the
+                  New Date</mat-error>
+              </mat-form-field>
+            </mat-grid-tile> -->
+
+            <!-- <mat-grid-tile *ngIf="isnightshiftyes" class="night-shift-fields">
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>New End Time</mat-label>
+    <input matInput [ngxTimepicker]="newEndTimePicker" [format]="24" 
+      placeholder="New End Time" formControlName="new_end_time" />
+    <ngx-material-timepicker #newEndTimePicker [minutesGap]="5"></ngx-material-timepicker>
+  </mat-form-field>
+</mat-grid-tile> -->
                 </mat-grid-list>
 
 
@@ -203,6 +239,41 @@
     </mat-select>
   </mat-form-field>
 </mat-grid-tile>
+
+<mat-grid-tile>
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Permit Under</mat-label>
+    <mat-select formControlName="permit_under" name="permit_under">
+      <mat-option [value]="'Construction'">Construction</mat-option>
+      <mat-option [value]="'Commissioning'">Commissioning</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-grid-tile>
+                </mat-grid-list>
+                <mat-grid-list  [cols]="gridCols" rowHeight="80px">
+                    <mat-grid-tile>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="Status" name="Status" [multiple]="true">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let loc of Status" [value]="loc.Statusid">
+                {{ loc.Statusname }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>HRA'S</mat-label>
+            <mat-select formControlName="Hras" name="Hras" [multiple]="true">
+              <mat-option [value]="'none'">None</mat-option>
+              <mat-option *ngFor="let hras of getHras" [value]="hras" class="hras-text">
+                <div class="hras-content"> <img src="{{BaseUrl}}{{hras?.image}}" class="hras-image"> {{ hras.label }}
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
                 </mat-grid-list>
             </form>
             <div class="" style="text-align: right;">
@@ -316,3 +387,8 @@
         </ngx-datatable>
     </mat-card-content>
 </mat-card>
+
+
+<div class="loading-indicator" *ngIf="spinner">
+  <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+</div>

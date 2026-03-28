@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit, HostListener } from '@angular/core';
+import {FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'app/shared/services/user.service';
 import { Router } from '@angular/router';
 import { PrintDownloadOptions } from 'app/views/Models/PrintDownloadOptionsDto';
@@ -46,7 +46,7 @@ interface RoomGroup {
 })
 export class PlansComponent implements OnInit {
   ModalOptions: PrintDownloadOptions;
-
+  spinner: boolean = false;
   PlanForm: FormGroup;
   minDate: Date;
   maxDate: Date;
@@ -69,7 +69,120 @@ export class PlansComponent implements OnInit {
       PlanName: 'Weekly Report'
     },
   ];
+  Status: any[] = [
+    {
+      Statusid: 'Hold',
+      Statusname: 'Hold',
+    },
+    {
+      Statusid: 'Draft',
+      Statusname: 'Draft',
+    },
+    {
+      Statusid: 'Approved',
+      Statusname: 'Approved',
+    },
+    {
+      Statusid: 'Rejected',
+      Statusname: 'Rejected',
+    },
+    {
+      Statusid: 'Opened',
+      Statusname: 'Opened',
+    },
+    {
+      Statusid: 'Closed',
+      Statusname: 'Closed',
+    },
+    {
+      Statusid: 'Cancelled',
+      Statusname: 'Cancelled',
+    },
+    {
+      Statusid: 'Pre-Approved',
+      Statusname: 'Pre-Approved',
+    },
+    {
+      Statusid: 'Auto-Cancel',
+      Statusname: 'Auto-Cancel',
+    },
+  ];
 
+    getHras = [
+    {
+      "label": "Hotwork",
+      "value": 1,
+      "key": "Hot_work",
+      "image": "assets/images/logos/HotWorks.png"
+    },
+    {
+      "label": "Electrical Systems",
+      "value": 1,
+      "key": "working_on_electrical_system",
+       "image": "assets/images/logos/ElectricalSystems.png"
+    },
+    {
+      "label": "Hazardous Substances/Chemicals",
+      "value": 1,
+      "key": "working_hazardious_substen",
+      "image": "assets/images/logos/substanceChemical.png"
+    },
+    {
+      "label": "Pressure testing of equipment",
+      "value": 1,
+      "key": "pressure_tesing_of_equipment",
+      "image": "assets/images/logos/testingequipment.png"
+    },
+    {
+      "label": "Working At Height",
+      "value": 1,
+      "key": "working_at_height",
+      "image": "assets/images/logos/WorkingAtHight.png"
+    },
+    {
+      "label": "Confined Spaces",
+      "value": 1,
+      "key": "working_confined_spaces",
+      "image": "assets/images/logos/ConfinedSpace.png"
+    },
+    // {
+    //   "label": "Working in ATEX Area",
+    //   "value": 1,
+    //   "key": "work_in_atex_area",
+    //   "image": "assets/images/logos/ATEXarea.png"
+    // },
+    // {
+    //   "label": "Securing Facilities (LOTO)",
+    //   "value": 1,
+    //   "key":"securing_facilities",
+    //   "image": "assets/images/logos/SecuringFacilities.png"
+    // },
+    {
+      "label": "Excavation Works",
+      "value": 1,
+      "key": "excavation_works",
+      "image": "assets/images/logos/ExcavationWorks.png"
+    },
+    {
+      "label": "Using Crane or Lifting",
+      "value": 1,
+      "key": "using_cranes_or_lifting",
+      "image": "assets/images/logos/Craneslifting.png"
+    },
+    {
+      "label": "Energization of Electrical Equipment",
+      "value": 1,
+      "key": "power_on",
+      "image": "assets/images/logos/electrical_works.png"
+    },
+    {
+      "label": "Energization of Mechanical Equipment",
+      "value": 1,
+      "key": "pressurization",
+      "image": "assets/images/logos/mechanical1.png"
+    },
+    
+  ];
   SubContractors: any[] = [];
   Sites: any[] = [];
   Weeks: any[] = [];
@@ -127,7 +240,13 @@ export class PlansComponent implements OnInit {
     start_time: null,
     end_time: null,
     area: null,
-    permit_type: null
+    permit_type: null,
+    night_shift: null,
+    new_date: null,
+    new_end_time: null,
+    permit_under: null,
+    hras: '' as string,
+    Request_status: null,
   }
   Planslist: any[] = [];
   dataForExcel = [];
@@ -144,6 +263,8 @@ export class PlansComponent implements OnInit {
   private allFloors: { buildingId: number; floorName: string }[] = [];
 
   gridCols = 2;
+  gridCols3: number = 3;
+  isnightshiftyes: boolean = false;
 
   constructor(private fb: FormBuilder, private userservices: UserService,
     private route: Router,public ete: ExportExcelService,
@@ -176,10 +297,26 @@ export class PlansComponent implements OnInit {
 
   ngOnInit(): void {
 
-  this.breakpointObserver.observe(['(max-width: 599px)']) // 👈 custom mobile-only query
-      .subscribe(result => {
-        this.gridCols = result.matches ? 1 : 2;
-      });
+  this.breakpointObserver.observe([
+     Breakpoints.XSmall,
+     Breakpoints.Small,
+     Breakpoints.Medium,
+     Breakpoints.Large,
+   ]).subscribe(result => {
+     if (result.breakpoints[Breakpoints.XSmall]) {
+       this.gridCols = 1;
+       this.gridCols3 = 1;
+     } else if (result.breakpoints[Breakpoints.Small]) {
+       this.gridCols = 2;
+       this.gridCols3 = 2;
+     } else if (result.breakpoints[Breakpoints.Medium]) {
+       this.gridCols = 2;
+       this.gridCols3 = 3;
+     } else if (result.breakpoints[Breakpoints.Large]) {
+       this.gridCols = 2;
+       this.gridCols3 = 3;
+     }
+   });
 
 
     this.PlanForm = this.fb.group({
@@ -198,6 +335,12 @@ export class PlansComponent implements OnInit {
       EndTime: [''],
       area: [''],
       permit_type: ['',],
+      permit_under: ['',],
+      night_shift: ['',],
+      newWorkDate: ['',],
+      new_end_time: ['',],
+       Hras: ['',],
+       Status: ['',],
     });
 
     this.initializeData();
@@ -297,6 +440,61 @@ private filterRooms(buildingIds: number[], levels: string[]): RoomGroup[] {
     });
     return rooms;
   }
+
+  
+    formatDateWithoutTimezone(date: Date): string {
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
+        toggleNightShift(isChecked: boolean) {
+      this.isnightshiftyes = isChecked;
+      this.PlanForm.get('night_shift').setValue(isChecked ? 1 : 0);
+    
+      // const newEndTimeControl = this.PlanForm.get('new_end_time');
+      // const newWorkDateControl = this.PlanForm.get('newWorkDate');
+    
+      // if (isChecked) {
+      //   const startDateValue = this.PlanForm.get('Startdate').value;
+      //   if (startDateValue) {
+      //     const startDate = new Date(startDateValue);
+      //     const newWorkDate = new Date(startDate);
+      //     newWorkDate.setDate(startDate.getDate() + 1);
+      //     const formattedDate = this.formatDateWithoutTimezone(newWorkDate);
+      //     newWorkDateControl.setValue(formattedDate);
+      //   }
+      //   // Add required validators when night shift is YES
+      //   newEndTimeControl.setValidators([Validators.required]);
+      //   newWorkDateControl.setValidators([Validators.required]);
+      // } else {
+      //   // Clear values and validators when night shift is NO
+      //   newEndTimeControl.reset();
+      //   newWorkDateControl.reset();
+      //   newEndTimeControl.clearValidators();
+      //   newWorkDateControl.clearValidators();
+      // }
+    
+      // Re-evaluate validity after validator change
+      // newEndTimeControl.updateValueAndValidity();
+      // newWorkDateControl.updateValueAndValidity();
+    }
+
+      @HostListener('document:keydown.enter', ['$event'])
+onEnterSearch(event: KeyboardEvent) {
+  // Check if any mat-select panel is open - if so, don't trigger search
+  const isDropdownOpen = document.querySelector('.mat-select-panel');
+  if (isDropdownOpen) return;
+
+  // Check if focus is on a button, textarea, or select - let those handle enter naturally
+  const activeTag = (document.activeElement as HTMLElement)?.tagName?.toUpperCase();
+  if (activeTag === 'BUTTON' || activeTag === 'TEXTAREA' || activeTag === 'SELECT') return;
+
+  event.preventDefault();
+  this.Getplans();
+}
+
 
   Getselectedyear(event) {
     this.ListWeeks.length = 0;
@@ -471,12 +669,52 @@ Getplans() {
   // ✅ From / To Dates
   const fromDateValue = this.PlanForm.controls["WorkingDateFrom"].value;
   const toDateValue = this.PlanForm.controls["WorkingDateTo"].value;
+  const newWorkDateValue = this.PlanForm.controls["newWorkDate"].value
   this.plansDtodata.from_date = fromDateValue ? this.datePipe.transform(fromDateValue, 'yyyy-MM-dd') : "";
   this.plansDtodata.to_date = toDateValue ? this.datePipe.transform(toDateValue, 'yyyy-MM-dd') : "";
+  this.plansDtodata.new_date = newWorkDateValue ? this.datePipe.transform(newWorkDateValue, 'yyyy-MM-dd') : "";
 
   // ✅ Start/End Time
   this.plansDtodata.start_time = this.PlanForm.controls["StartTime"].value || "";
   this.plansDtodata.end_time = this.PlanForm.controls["EndTime"].value || "";
+  this.plansDtodata.new_end_time = this.PlanForm.controls["new_end_time"].value || "";
+  this.plansDtodata.night_shift = this.PlanForm.controls["night_shift"].value || "";
+  this.plansDtodata.permit_under = this.PlanForm.controls["permit_under"].value || "";
+  const statusValue = this.PlanForm.controls['Status'].value;
+  const statusArray = Array.isArray(statusValue) ? statusValue : [statusValue]; 
+  
+  const formattedStatus = statusArray
+    .filter(val => val !== null && val !== undefined && val !== '') 
+    .map((val: string) => `'${val}'`)
+    .join(',');
+  
+  this.plansDtodata.Request_status = formattedStatus || "";
+  if(this.PlanForm.get("Hras") == null) {
+    this.plansDtodata.hras = '';
+  }
+  if(this.PlanForm.get("Hras").value.includes('none')) {
+      this.plansDtodata.hras = 'none';
+      this.getHras.forEach(hras => {
+    this.plansDtodata[hras.key] = "0";
+  });
+    }
+     else {
+      this.plansDtodata.hras = '';
+      this.getHras.forEach(hras => {
+    this.plansDtodata[hras.key] = "0";
+  });
+    }
+    if (this.PlanForm.get("Hras").value.length > 0 && !this.PlanForm.get("Hras").value.includes('none')){
+      this.PlanForm.get("Hras").value.forEach(item =>{
+
+        this.plansDtodata[item.key] = item.value.toString()
+      })
+    }
+     this.getHras.forEach(hras => {
+  if (this.plansDtodata[hras.key] == "0") {
+    delete this.plansDtodata[hras.key];
+  }
+});
 
   // ✅ Area (multiple → "A|B|C")
   const areaValue = this.PlanForm.controls['area'].value || [];
@@ -499,12 +737,15 @@ Getplans() {
   }
 
   GetRequestData(searchreq) {
+    this.spinner = true;
     this.requstservice.GetPlans(this.plansDtodata).subscribe(res => {
       console.log(res);
+      this.spinner = false;
       if (Array.isArray(res)) {
     this.Planslist = res[0]["data"];
   } else {
     console.log("errorCase", res.message);
+    this.spinner = false;
     this.openSnackBar(`${res.message}`);
     this.Planslist = [];
   }
@@ -725,7 +966,7 @@ isValidDate(date: any): boolean {
             PermitNo: x["PermitNo"], PermitUnder: x["permit_under"] || 'Construction', PermitType:x["permit_type"] || 'Construction', ContractorName: x["subContractorName"], Sub_Contractor_Name: x['new_sub_contractor'], Building_Name: x["building_name"], Level: x["Room_Type"],
             Room_Nos: x['Room_Nos'], Activity: x["Activity"],description_of_activity: x["description_of_activity"], Rams_Number: x["rams_number"],HRAs: this.printHRAS(x),Auth:x[""],Comment: x[""],
             Start_Time: x["Start_Time"], End_Time: x["End_Time"], Night_Shift: this.nightShiftCheck(x), New_End_Time: x["new_end_time"], Request_status: x["Request_status"],
-            Notes: this.formatNotes(x["Notes"]), Working_Date: x["Working_Date"], Day: this.days_Names[day], New_Date: x["new_date"], New_Day: this.findNewDay(x),
+            Notes: this.formatNotes(x["Notes"]), Working_Date: x["Working_Date"], Day: this.days_Names[day], New_Date: x["new_date"], New_Day: this.findNewDay(x), CoNM_initials: x['ConM_initials'], CoMM_initials: x['CoMM_initials'], Opened_By: x['ConM_initials1'], Reject_Reason: x['reject_reason'], Cancel_Reason: x['cancel_reason']
           }
         )
       });

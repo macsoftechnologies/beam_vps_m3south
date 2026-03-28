@@ -94,6 +94,10 @@
     background-color: #a00202 !important;
     color: #fff;
 }
+.egret-navy .mat-chip.mat-standard-chip.status_autocancelled {
+  background-color: #ff6b35 !important; /* distinct orange to differ from grey Cancelled */
+  color: white !important;
+}
 .sort-btn{
     visibility: collapse;
 }

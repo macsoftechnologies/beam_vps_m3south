@@ -15,5 +15,11 @@ export class PlansDto
     start_time:string;
     end_time:string;
     area: string;
-    permit_type: ''
+    permit_type: '';
+    night_shift: string;
+    new_date: string;
+    new_end_time: string;
+    permit_under: string;
+    hras: string;
+    Request_status: string;
 }
