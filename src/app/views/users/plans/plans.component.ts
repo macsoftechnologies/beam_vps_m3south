@@ -116,7 +116,7 @@ export class PlansComponent implements OnInit {
       "image": "assets/images/logos/HotWorks.png"
     },
     {
-      "label": "Electrical Systems",
+      "label": "Working on Site Temporary Electrical Systems",
       "value": 1,
       "key": "working_on_electrical_system",
        "image": "assets/images/logos/ElectricalSystems.png"
