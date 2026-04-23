@@ -459,7 +459,7 @@ export class ListRequestComponent implements OnInit {
   }
 
   ngOnInit() {    
-    
+    this.spinner = true;
     this.userdata = this.jwtauth.getUser();
     console.log(this.userdata);
     this.approvalUsers = this.userdata.role.split(',');
@@ -2022,6 +2022,7 @@ canChangeStatus(row: any): boolean {
   }
 
   onPagination(event) {
+    this.spinner = true;
     this.Countresult.length = 0
     this.currentPage = event.page;
     let start;
