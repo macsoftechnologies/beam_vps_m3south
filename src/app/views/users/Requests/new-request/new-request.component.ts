@@ -4403,7 +4403,13 @@ showMechanicalWorks(): boolean {
         this.route.navigateByUrl("/user/list-request");
       },
       (error) => {
-        this.openSnackBar("Something went wrong. Plz try again later...");
+        this.spinner = false;
+        let errorMessage = "Something went wrong";
+        if (error?.error?.message) {
+    errorMessage = error.error.message;
+  }
+
+        this.openSnackBar(errorMessage);
       }
     );
   }
