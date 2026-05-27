@@ -3921,13 +3921,40 @@ private groupByModule(data: any[], displayProperty: string): any[] {
 
     // pressurization power on fields
     this.Requestdata.power_on = this.RequestForm.controls["Poweron"].value;
+    this.Requestdata.energising_equipment = this.RequestForm.controls["EnergisingEquipment"].value || 0;
+    this.Requestdata.isolating_live = this.RequestForm.controls["IsolatingLive"].value || 0;
+    this.Requestdata.working_near_live = this.RequestForm.controls["WorkingNearLive"].value || 0;
+
+    // pressurization Energising Equipment fields
     this.Requestdata.responsible_for_the_area = this.RequestForm.controls["floatLabel88"].value;
     this.Requestdata.risk_assessment_done = this.RequestForm.controls["floatLabel89"].value;
     this.Requestdata.barriers_signage = this.RequestForm.controls["floatLabel90"].value;
+    this.Requestdata.arc_flash = this.RequestForm.controls["floatLabel110"].value || 0;
     this.Requestdata.energized_been_tested = this.RequestForm.controls["floatLabel91"].value;
     this.Requestdata.punches_been_closed = this.RequestForm.controls["floatLabel92"].value;
     this.Requestdata.toct_checklist = this.RequestForm.controls["floatLabel93"].value;
     this.Requestdata.informed_aligned = this.RequestForm.controls["floatLabel94"].value;
+
+     // pressurization Isolating Live fields
+    this.Requestdata.isolating_resposible = this.RequestForm.controls["floatLabel111"].value || 0;
+    this.Requestdata.isolating_risk_assessment = this.RequestForm.controls["floatLabel112"].value || 0;
+    this.Requestdata.cq_informed = this.RequestForm.controls["floatLabel113"].value || 0;
+    this.Requestdata.cq_provided = this.RequestForm.controls["floatLabel114"].value || 0;
+    this.Requestdata.de_energisation_request = this.RequestForm.controls["floatLabel115"].value || 0;
+    this.Requestdata.ppe_prepared = this.RequestForm.controls["floatLabel116"].value || 0;
+    this.Requestdata.absence_of_voltage = this.RequestForm.controls["floatLabel117"].value || 0;
+    this.Requestdata.stored_energy = this.RequestForm.controls["floatLabel118"].value || 0;
+    this.Requestdata.backup_power = this.RequestForm.controls["floatLabel119"].value || 0;
+
+    // pressurization Woeking Near Live fields
+    this.Requestdata.unavoidable = this.RequestForm.controls["floatLabel120"].value || 0;
+    this.Requestdata.reasonably_practicable = this.RequestForm.controls["floatLabel121"].value || 0;
+    this.Requestdata.work_authorised = this.RequestForm.controls["floatLabel122"].value || 0;
+    this.Requestdata.working_risk_assessment = this.RequestForm.controls["floatLabel123"].value || 0;
+    this.Requestdata.working_arc_boundary = this.RequestForm.controls["floatLabel124"].value || 0;
+    this.Requestdata.working_barriers = this.RequestForm.controls["floatLabel125"].value || 0;
+    this.Requestdata.insulated_tools = this.RequestForm.controls["floatLabel126"].value || 0;
+    this.Requestdata.event_of_emergency = this.RequestForm.controls["floatLabel127"].value || 0;
 
         // pressurization fields
     this.Requestdata.pressurization = this.RequestForm.controls["Pressurization"].value;
