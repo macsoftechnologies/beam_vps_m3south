@@ -3192,6 +3192,9 @@ private groupByModule(data: any[], displayProperty: string): any[] {
     //   })
     // })
     // console.log(blocks, "blocks")
+    this.selectFloorBlocks = this.selectFloorBlocks.filter(item =>
+    item.selectedBlock && item.selectedBlock.some((b: any) => b.isSelected)
+  );
     let blocks = this.selectFloorBlocks.reduce((acc, item) => {
       const values = item.selectedBlock.filter(element => element.isSelected).map(element => element.value);;
       console.log(values, "values")
@@ -7638,18 +7641,18 @@ updateDependentValidators() {
   item => item.floorName === result.floorName && item.planType === result.planType
 );
 
-if (index !== -1) {
-  // ✅ If there are still selected blocks → update
-  if (result.selectedBlock && result.selectedBlock.some((b: any) => b.isSelected)) {
+const hasSelectedBlocks = result.selectedBlock && 
+  result.selectedBlock.some((b: any) => b.isSelected);
+
+if (hasSelectedBlocks) {
+  if (index !== -1) {
     this.selectFloorBlocks.splice(index, 1, result);
   } else {
-    // ❌ If no blocks are selected anymore → remove the floor entry
-    this.selectFloorBlocks.splice(index, 1);
+    this.selectFloorBlocks.push(result);
   }
 } else {
-  // ➕ New floor → only push if it has selected blocks
-  if (result.selectedBlock && result.selectedBlock.some((b: any) => b.isSelected)) {
-    this.selectFloorBlocks.push(result);
+  if (index !== -1) {
+    this.selectFloorBlocks.splice(index, 1);
   }
 }
 
