@@ -213,6 +213,7 @@ export class RequestDto {
     working_barriers: any;
     insulated_tools: any;
     event_of_emergency: any;
+    zone?: any;
 }
 
 export class FilesRequestDto {
@@ -449,6 +450,7 @@ export class EditRequestDto {
     working_barriers: any;
     insulated_tools: any;
     event_of_emergency: any;
+    zone?: any;
 }
 
 export class DeleteRequestDto {

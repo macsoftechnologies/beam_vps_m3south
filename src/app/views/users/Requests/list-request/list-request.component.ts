@@ -1247,6 +1247,30 @@ onEnterSearch(event: KeyboardEvent) {
     } else {
       row['Request_status'] = 'Hold';
     }
+    let matchedZones = [];
+    if (row['zone']) {
+      if (Array.isArray(row['zone'])) {
+        matchedZones = row['zone'];
+      } else if (typeof row['zone'] === 'string') {
+        try {
+          const parsed = JSON.parse(row['zone']);
+          matchedZones = Array.isArray(parsed) ? parsed : [row['zone']];
+        } catch (e) {
+          matchedZones = row['zone'].split(',').map((z: string) => z.trim());
+        }
+      }
+    } else if (row['zones']) {
+      if (Array.isArray(row['zones'])) {
+        matchedZones = row['zones'];
+      } else if (typeof row['zones'] === 'string') {
+        try {
+          const parsed = JSON.parse(row['zones']);
+          matchedZones = Array.isArray(parsed) ? parsed : [row['zones']];
+        } catch (e) {
+          matchedZones = row['zones'].split(',').map((z: string) => z.trim());
+        }
+      }
+    } else {
     const roomNosArray = row['Room_Nos']
   ? row['Room_Nos'].split(',').map((r: string) => r.trim())
   : [];
@@ -1260,12 +1284,13 @@ const matchedBuilding = buildingData.find(
     b.planType.trim().toLowerCase() === row['Room_Type'].trim().toLowerCase()
 );
 
-const matchedZones =
+ matchedZones =
   matchedBuilding?.zoneList
     ?.filter((zone) =>
       zone.zoneSubList.some((sub) => roomNosArray.includes(sub.value.trim()))
     )
     .map((zone) => zone.floorName) || [];
+  }
   console.log('matched zone floor names:', matchedZones);
     let title = 'Copy Request';
     let dialogRef: MatDialogRef<any> = this.dialog.open(CopyRequestComponent, {

@@ -2076,12 +2076,22 @@ this.RequestForm.get('permit_type').valueChanges.subscribe(() => {
   this.updateDependentValidators();
 });
 
-// Subscribe to all main controls in sections
-this.dependentSections.forEach(section => {
-  this.RequestForm.get(section.mainControl).valueChanges.subscribe(() => {
+[
+  'TESTINGs', 'floatLabel107', 'floatLabel108',
+  'Poweron', 'EnergisingEquipment', 'IsolatingLive', 'WorkingNearLive',
+  'Pressurization', 'floatLabel97'
+].forEach(controlName => {
+  this.RequestForm.get(controlName)?.valueChanges.subscribe(() => {
     this.updateDependentValidators();
   });
 });
+
+// Subscribe to all main controls in sections
+// this.dependentSections.forEach(section => {
+//   this.RequestForm.get(section.mainControl).valueChanges.subscribe(() => {
+//     this.updateDependentValidators();
+//   });
+// });
 
 // Initialize validators
 this.updateDependentValidators();
@@ -4000,6 +4010,16 @@ private groupByModule(data: any[], displayProperty: string): any[] {
 
     this.Requestdata.Badge_Numbers =
       this.RequestForm.controls["BADGENUMBER"].value.toString();
+
+      
+      
+    // Add selected zones as comma-separated string
+    const selectedZones = this.selectFloorBlocks
+      .filter(floor => floor.selectedBlock && floor.selectedBlock.some((b: any) => b.isSelected))
+      .map(floor => floor.floorName);
+    this.Requestdata.zone = selectedZones.length > 0 ? selectedZones.join(',') : '';
+
+
     console.log("Requestdata", this.Requestdata)
 
     this.Requestdata.rams_file = this.RequestForm.controls["rams_file"].value;
@@ -4016,11 +4036,15 @@ private groupByModule(data: any[], displayProperty: string): any[] {
     // console.log(this.Requestdata.rams_file)
     // formData.append("rams_file", this.Requestdata.rams_file)
     for (const [key, value] of Object.entries(this.Requestdata)) {
-      if (key !== 'rams_file' && value !== null && value !== undefined) {
+      if (key !== 'rams_file' && key !== 'zone' && value !== null && value !== undefined) {
         formData.append(key, value as string);
       }
     }
     
+    if (this.Requestdata.zone !== null && this.Requestdata.zone !== undefined) {
+      formData.append('zone', this.Requestdata.zone as string);
+    }
+
     // Then: Append each file under same 'rams_file[]' field
     if (this.Requestdata.rams_file && this.Requestdata.rams_file.length > 0) {
       (this.Requestdata.rams_file as File[]).forEach((file: File) => {
@@ -4394,6 +4418,15 @@ showMechanicalWorks(): boolean {
 
     this.Requestdata.Badge_Numbers =
       this.RequestForm.controls["BADGENUMBER"].value.toString();
+
+          // Add selected zones as comma-separated string
+    const selectedZones = this.selectFloorBlocks
+      .filter(floor => floor.selectedBlock && floor.selectedBlock.some((b: any) => b.isSelected))
+      .map(floor => floor.floorName);
+    this.Requestdata.zone = selectedZones.length > 0 ? selectedZones.join(',') : '';
+
+ 
+
     console.log("Requestdata", this.Requestdata)
 
     this.Requestdata.rams_file = this.RequestForm.controls["rams_file"].value;
@@ -4401,9 +4434,13 @@ showMechanicalWorks(): boolean {
     let formData = new FormData();
 
     for (const [key, value] of Object.entries(this.Requestdata)) {
-      if (key !== 'rams_file' && value !== null && value !== undefined) {
+      if (key !== 'rams_file' && key !== 'zone' && value !== null && value !== undefined) {
         formData.append(key, value as string);
       }
+    }
+
+    if (this.Requestdata.zone !== null && this.Requestdata.zone !== undefined) {
+      formData.append('zone', this.Requestdata.zone as string);
     }
     
     // Then: Append each file under same 'rams_file[]' field
@@ -5185,10 +5222,33 @@ private logFieldChanges(previousData: any, currentData: any): any[] {
         this.updaterequestdata.Request_Date = currentdate;
       }
 
+      // Add selected zones from backend or calculate if empty
+      let rawZone = this.updaterequestdata.zone;
+      if (!rawZone || (Array.isArray(rawZone) && rawZone.length === 0)) {
+        const selectedZones = this.selectFloorBlocks
+          .filter(floor => floor.selectedBlock && floor.selectedBlock.some((b: any) => b.isSelected))
+          .map(floor => floor.floorName);
+        rawZone = selectedZones.length > 0 ? selectedZones.join(',') : '';
+        this.updaterequestdata.zone = rawZone;
+      }
+
       let formData = new FormData();
       console.log("...string", changes.toString());
       for (const [key, value] of Object.entries(this.updaterequestdata)) {
+        if (key !== 'zone' && value !== null && value !== undefined) {
         formData.append(key, value as string); // Ensure values are strings if needed
+      }
+          }
+
+    if (this.updaterequestdata.zone !== null && this.updaterequestdata.zone !== undefined) {
+        if (Array.isArray(this.updaterequestdata.zone)) {
+          this.updaterequestdata.zone.forEach((z: string) => {
+            formData.append('zone[]', z);
+          });
+          formData.append('zone', JSON.stringify(this.updaterequestdata.zone));
+        } else {
+          formData.append('zone', this.updaterequestdata.zone as string);
+        }
       }
 
       // formData.append("rams_file", JSON.stringify(this.updaterequestdata.rams_file))
@@ -5911,11 +5971,34 @@ private logFieldChanges(previousData: any, currentData: any): any[] {
       const changes = this.logFieldChanges(originalData, this.updaterequestdata);
       console.log('Field changes detected:', changes);
       this.updaterequestdata.fields = JSON.stringify(changes);
+       // Add selected zones from backend or calculate if empty
+      let rawZone = this.updaterequestdata.zone;
+      if (!rawZone || (Array.isArray(rawZone) && rawZone.length === 0)) {
+        const selectedZones = this.selectFloorBlocks
+          .filter(floor => floor.selectedBlock && floor.selectedBlock.some((b: any) => b.isSelected))
+          .map(floor => floor.floorName);
+        rawZone = selectedZones.length > 0 ? selectedZones.join(',') : '';
+        this.updaterequestdata.zone = rawZone;
+      }
 
       let formData = new FormData();
 
       for (const [key, value] of Object.entries(this.updaterequestdata)) {
+        if (key !== 'zone' && value !== null && value !== undefined) {
         formData.append(key, value as string); // Ensure values are strings if needed
+      }
+      }
+
+
+    if (this.updaterequestdata.zone !== null && this.updaterequestdata.zone !== undefined) {
+        if (Array.isArray(this.updaterequestdata.zone)) {
+          this.updaterequestdata.zone.forEach((z: string) => {
+            formData.append('zone[]', z);
+          });
+          formData.append('zone', JSON.stringify(this.updaterequestdata.zone));
+        } else {
+          formData.append('zone', this.updaterequestdata.zone as string);
+        }
       }
 
       // formData.append("rams_file", JSON.stringify(this.updaterequestdata.rams_file))
@@ -6794,6 +6877,7 @@ this.RequestForm.controls["mechanical_works"].setValue(mechanicalIds);
     this.updaterequestdata.Building_Id = data["Building_Id"] || '';
     this.updaterequestdata.PermitNo = data["PermitNo"] || '';
     this.updaterequestdata.Request_Date = data["Request_Date"] || '';
+    this.updaterequestdata.zone = data["zone"] || data["zones"] || null;
 
     // Set form values with proper null checks
     this.RequestForm.controls["Companyname"].setValue(data["Company_Name"] || '');
@@ -6821,22 +6905,54 @@ this.RequestForm.controls["mechanical_works"].setValue(mechanicalIds);
         if (selectFloorBlocks) {
             let zoneSubList = [];
             let roomNos = data['Room_Nos'].split(',');
+
+            
+            
+            // Extract backend zones if present
+            let backendZones: string[] = [];
+            let zoneVal = data["zone"] || data["zones"];
+            if (zoneVal) {
+                if (typeof zoneVal === 'string') {
+                    backendZones = zoneVal.split(',').map(z => z.trim());
+                } else if (Array.isArray(zoneVal)) {
+                    backendZones = zoneVal.map(z => String(z).trim());
+                }
+            }
+
+
             selectFloorBlocks.zoneList.forEach((item, i) => {
                 if (item['zoneSubList']?.length > 0) {
-                    roomNos.forEach(element => {
-                        if (item['zoneSubList'].findIndex(ele => ele['value'] == element) > -1) {
+                    if (backendZones.length > 0) {
+                        // If backend zones are provided, match by zone name
+                        if (backendZones.includes(item['floorName']?.trim())) {
                             zoneSubList.push(i);
                         }
-                    });
+                    } else {
+                        // Fallback to room matching if no zone information is provided by backend
+                        roomNos.forEach(element => {
+                            if (item['zoneSubList'].findIndex(ele => ele['value'] == element) > -1) {
+                                zoneSubList.push(i);
+                            }
+                        });
+                    }
                 }
             });
             
             zoneSubList = zoneSubList.filter((item, index) => zoneSubList.indexOf(item) === index);
             
             zoneSubList.forEach(item => {
+                // Clone the zoneSubList and set isSelected to true for the selected room numbers
+                let clonedSubList = selectFloorBlocks['zoneList'][item]['zoneSubList'].map(room => {
+                    return {
+                        ...room,
+                        isSelected: roomNos.includes(room.value)
+                    };
+                });
+
                 this.selectFloorBlocks.push({
                     floorName: selectFloorBlocks['zoneList'][item]['floorName'], 
-                    selectedBlock: selectFloorBlocks['zoneList'][item]['zoneSubList']
+                    selectedBlock: clonedSubList,
+                    planType: data["Room_Type"]
                 });
             });
         }
@@ -7356,42 +7472,88 @@ private getFloatLabelFieldName(index: number): string {
 
 updateDependentValidators() {
   const isCommissioning = this.RequestForm.get('permit_type').value === 'Commissioning';
-  
-  this.dependentSections.forEach(section => {
-    const mainControl = this.RequestForm.get(section.mainControl);
-    const mainValue = mainControl.value;
-    
-    if (isCommissioning) {
-      // Set main control as required only if it's a top-level section
-      if (!section.mainControl.startsWith('floatLabel')) { // Skip for nested controls
-        mainControl.setValidators([Validators.required]);
-      }
-      
-      // Update dependent controls
-      section.dependentControls.forEach(controlName => {
-        const control = this.RequestForm.get(controlName);
-        if (mainValue === section.triggerValue) {
-          control.setValidators([Validators.required]);
-        } else {
-          control.clearValidators();
-        }
-        control.updateValueAndValidity();
-      });
-    } else {
-      // Clear validators
+
+  if (!isCommissioning) {
+    // Clear ALL dependent validators when not commissioning
+    this.dependentSections.forEach(section => {
       if (!section.mainControl.startsWith('floatLabel')) {
-        mainControl.clearValidators();
+        this.RequestForm.get(section.mainControl).clearValidators();
+        this.RequestForm.get(section.mainControl).updateValueAndValidity();
       }
       section.dependentControls.forEach(controlName => {
         this.RequestForm.get(controlName).clearValidators();
         this.RequestForm.get(controlName).updateValueAndValidity();
       });
-    }
-    
-    mainControl.updateValueAndValidity();
-  });
-}
+    });
+    return;
+  }
 
+  // Helper to get control value as number
+  const getVal = (name: string) => {
+    const v = this.RequestForm.get(name)?.value;
+    return v === 1 || v === '1' ? 1 : 0;
+  };
+
+  // Helper to set or clear validators
+  const setRequired = (controlName: string, isRequired: boolean) => {
+    const control = this.RequestForm.get(controlName);
+    if (!control) return;
+    if (isRequired) {
+      control.setValidators([Validators.required]);
+    } else {
+      control.clearValidators();
+    }
+    control.updateValueAndValidity();
+  };
+
+  // TESTINGs section
+  setRequired('TESTINGs', true);
+  const testingYes = getVal('TESTINGs') === 1;
+  ['floatLabel102', 'floatLabel103', 'floatLabel104', 'floatLabel105',
+   'floatLabel106', 'floatLabel107', 'floatLabel108', 'floatLabel109'
+  ].forEach(c => setRequired(c, testingYes));
+
+  // pressure_pneumatic only if floatLabel107 = Yes
+  setRequired('pressure_pneumatic', testingYes && getVal('floatLabel107') === 1);
+
+  // pressure_hydrostatic only if floatLabel108 = Yes
+  setRequired('pressure_hydrostatic', testingYes && getVal('floatLabel108') === 1);
+
+  // Poweron section - top level required
+  setRequired('Poweron', true);
+  const powerOnYes = getVal('Poweron') === 1;
+
+  // EnergisingEquipment - only required if Poweron = Yes
+  setRequired('EnergisingEquipment', powerOnYes);
+  const energisingYes = powerOnYes && getVal('EnergisingEquipment') === 1;
+  ['floatLabel88', 'floatLabel89', 'floatLabel90', 'floatLabel110',
+   'floatLabel91', 'floatLabel92', 'floatLabel93', 'floatLabel94'
+  ].forEach(c => setRequired(c, energisingYes));
+
+  // IsolatingLive - only required if Poweron = Yes
+  setRequired('IsolatingLive', powerOnYes);
+  const isolatingYes = powerOnYes && getVal('IsolatingLive') === 1;
+  ['floatLabel111', 'floatLabel112', 'floatLabel113', 'floatLabel114',
+   'floatLabel115', 'floatLabel116', 'floatLabel117', 'floatLabel118', 'floatLabel119'
+  ].forEach(c => setRequired(c, isolatingYes));
+
+  // WorkingNearLive - only required if Poweron = Yes
+  setRequired('WorkingNearLive', powerOnYes);
+  const workingNearYes = powerOnYes && getVal('WorkingNearLive') === 1;
+  ['floatLabel120', 'floatLabel121', 'floatLabel122', 'floatLabel123',
+   'floatLabel124', 'floatLabel125', 'floatLabel126', 'floatLabel127'
+  ].forEach(c => setRequired(c, workingNearYes));
+
+  // Pressurization section
+  setRequired('Pressurization', true);
+  const pressurizationYes = getVal('Pressurization') === 1;
+  ['floatLabel95', 'floatLabel96', 'floatLabel97', 'floatLabel98',
+   'floatLabel99', 'floatLabel100', 'floatLabel101'
+  ].forEach(c => setRequired(c, pressurizationYes));
+
+  // mc_number_text only if floatLabel97 = Yes
+  setRequired('mc_number_text', pressurizationYes && getVal('floatLabel97') === 1);
+}
 
   setAndRemoveValidators(value, control) {
     // console.log(value, control)
